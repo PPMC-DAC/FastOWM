@@ -1,0 +1,17 @@
+CUDACXX=${DPCPP_HOME}/llvm/build/bin/clang++
+
+SYCL_INCLUDE=${DPCPP_HOME}/llvm/build/include/sycl/
+
+CUDAFLAGS=--cuda-gpu-arch=sm_60
+
+CXXFLAGS=-std=c++17 ${CUDAFLAGS} -I${SYCL_INCLUDE}
+
+LIBS=-L${DPCPP_HOME}/include/lib -lOpenCL -lsycl -ltbb -L/usr/local/cuda-10.1/lib64 -lcudart
+
+default: owm_gpu.exe
+
+owm_gpu.exe: 
+	${CUDACXX} ${CXXFLAGS} application/owm_gpu.cu ${LIBS} -o $@
+
+clean:
+	rm -f owm_gpu.exe usm_owm_gpu.exe

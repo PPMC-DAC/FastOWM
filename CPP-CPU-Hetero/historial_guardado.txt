@@ -1,0 +1,1000 @@
+ 1012  make clean && make
+ 1013  ./bin/paralleldpcpp datos/sample24
+ 1014  make clean && make
+ 1015  ./bin/paralleldpcpp datos/sample24
+ 1016  make clean && make
+ 1017  ./bin/paralleldpcpp datos/sample24
+ 1018  make clean && make
+ 1019  ./bin/paralleldpcpp datos/sample24
+ 1020  make clean && make
+ 1021  ./bin/paralleldpcpp datos/sample24
+ 1022  ./bin/paralleldpcpp
+ 1023  make clean && make
+ 1024  ./bin/paralleldpcpp datos/sample24
+ 1025  make clean && make
+ 1026  ./bin/paralleldpcpp datos/sample24
+ 1027  cd tfm_code/
+ 1028  oneapiset 
+ 1029  make clean && make
+ 1030  ./bin/paralleldpcpp datos/sample24
+ 1031  make clean && make
+ 1032  ./bin/paralleldpcpp datos/sample24
+ 1033  make clean && make
+ 1034  ./bin/paralleldpcpp datos/sample24
+ 1035  make clean && make
+ 1036  ./bin/paralleldpcpp datos/sample24
+ 1037  make clean && make
+ 1038  ./bin/paralleldpcpp datos/sample24
+ 1039  make clean && make
+ 1040  ./bin/paralleldpcpp datos/sample24
+ 1041  make clean && make
+ 1042  ./bin/paralleldpcpp datos/sample24
+ 1043  htop
+ 1044  make clean && make
+ 1045  ./bin/paralleldpcpp datos/sample24
+ 1046  make clean && make
+ 1047  ./bin/paralleldpcpp datos/sample24
+ 1048  make clean && make
+ 1049  ./bin/paralleldpcpp datos/sample24
+ 1050  make clean && make
+ 1051  ./bin/paralleldpcpp datos/sample24
+ 1052  make clean && make
+ 1053  ./bin/paralleldpcpp datos/sample24
+ 1054  make clean && make
+ 1055  ./bin/paralleldpcpp datos/sample24
+ 1056  make clean && make
+ 1057  ./bin/paralleldpcpp datos/sample24
+ 1058  make clean && make
+ 1059  ./bin/paralleldpcpp datos/sample24
+ 1060  make clean && make
+ 1061  ./bin/paralleldpcpp datos/sample24
+ 1062  make clean && make
+ 1063  ./bin/paralleldpcpp datos/sample24
+ 1064  make clean && make
+ 1065  ./bin/paralleldpcpp datos/sample24
+ 1066  make clean && make
+ 1067  ./bin/paralleldpcpp datos/sample24
+ 1068  make clean && make
+ 1069  ./bin/paralleldpcpp datos/sample24
+ 1070  make clean && make
+ 1071  ./bin/paralleldpcpp datos/sample24
+ 1072  make clean && make
+ 1073  ./bin/paralleldpcpp datos/sample24
+ 1074  make clean && make
+ 1075  ./bin/paralleldpcpp datos/sample24
+ 1076  make clean && make
+ 1077  ./bin/paralleldpcpp datos/sample24
+ 1078  make clean && make
+ 1079  ./bin/paralleldpcpp datos/sample24
+ 1080  make clean && make
+ 1081  ./bin/paralleldpcpp datos/sample24
+ 1082  make clean && make
+ 1083  ./bin/paralleldpcpp datos/sample24
+ 1084  make clean && make
+ 1085  ./bin/paralleldpcpp datos/sample24
+ 1086  make clean && make
+ 1087  ./bin/paralleldpcpp datos/sample24
+ 1088  make clean && make
+ 1089  ./bin/paralleldpcpp datos/sample24
+ 1090  make clean && make
+ 1091  ./bin/paralleldpcpp datos/sample24
+ 1092  make clean && make
+ 1093  ./bin/paralleldpcpp datos/sample24
+ 1094  ./bin/paralleldpcpp
+ 1095  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core 10 20 0.8 8
+ 1096  git pull
+ 1097  git add --all
+ 1098  git commit -m "New version with GPU kernel"
+ 1099  git push
+ 1100  make clean
+ 1101  make
+ 1102  make clean && make
+ 1103  ./bin/paralleldpcpp
+ 1104  cp src/envi_gpu.cpp src/envi_gpu1.cpp 
+ 1105  make clean && make
+ 1106  ./bin/paralleldpcpp
+ 1107  make clean && make
+ 1108  ./bin/paralleldpcpp datos/sample24
+ 1109  make clean && make
+ 1110  ./bin/paralleldpcpp datos/sample24
+ 1111  make clean && make
+ 1112  ./bin/paralleldpcpp datos/sample24
+ 1113  make clean && make
+ 1114  ./bin/paralleldpcpp datos/sample24
+ 1115  make clean && make
+ 1116  ./bin/paralleldpcpp datos/sample24
+ 1117  make clean && make
+ 1118  ./bin/paralleldpcpp datos/sample24
+ 1119  make clean && make
+ 1120  ./bin/paralleldpcpp datos/sample24
+ 1121  make clean && make
+ 1122  ./bin/paralleldpcpp datos/sample24
+ 1123  make clean && make
+ 1124  ./bin/paralleldpcpp datos/sample24
+ 1125  make clean && make
+ 1126  ./bin/paralleldpcpp datos/sample24
+ 1127  make clean && make
+ 1128  ./bin/paralleldpcpp datos/sample24
+ 1129  make clean && make
+ 1130  ./bin/paralleldpcpp datos/sample24
+ 1131  make clean && make
+ 1132  ./bin/paralleldpcpp datos/sample24
+ 1133  make clean && make
+ 1134  ./bin/paralleldpcpp datos/sample24
+ 1135  make clean && make
+ 1136  ./bin/paralleldpcpp datos/sample24
+ 1137  make clean && make
+ 1138  ./bin/paralleldpcpp datos/sample24
+ 1139  make clean && make
+ 1140  ./bin/paralleldpcpp datos/sample24
+ 1141  make clean && make
+ 1142  ./bin/paralleldpcpp datos/sample24
+ 1143  make clean && make
+ 1144  ./bin/paralleldpcpp datos/sample24
+ 1145  make clean && make
+ 1146  ./bin/paralleldpcpp datos/sample24
+ 1147  make clean && make
+ 1148  ./bin/paralleldpcpp datos/sample24
+ 1149  make clean && make
+ 1150  ./bin/paralleldpcpp datos/sample24
+ 1151  ./bin/paralleldpcpp
+ 1152  make clean && make
+ 1153  htop
+ 1154  ./bin/paralleldpcpp
+ 1155  make clean && make
+ 1156  ./bin/paralleldpcpp
+ 1157  make clean && make
+ 1158  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1159  ./bin/paralleldpcpp datos/V21_group1_densified_point_cloud 10 20 0.8
+ 1160  make clean && make
+ 1161  ./bin/paralleldpcpp
+ 1162  make clean && make
+ 1163  ./bin/paralleldpcpp
+ 1164  ls
+ 1165  cd tfm_code/
+ 1166  oneapiset 
+ 1167  make clean && make
+ 1168  ./bin/paralleldpcpp 
+ 1169  make clean && make
+ 1170  ./bin/paralleldpcpp 
+ 1171  make clean && make
+ 1172  ./bin/paralleldpcpp 
+ 1173  make clean && make
+ 1174  ./bin/paralleldpcpp 
+ 1175  ./bin/paralleldpcpp datos/sample24
+ 1176  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1177  ./bin/paralleldpcpp datos/BABCOCK_2017_Arzua_3B
+ 1178  ./bin/paralleldpcpp datos/V21_group1_densified_point_cloud
+ 1179  ./bin/paralleldpcpp datos/V19_group1_densified_point_cloud
+ 1180  make clean
+ 1181  ls
+ 1182  make clean
+ 1183  make clean && make
+ 1184  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core
+ 1185  make clean && make
+ 1186  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core
+ 1187  ./bin/paralleldpcpp datos/BABCOCK_2017_Arzua_3B
+ 1188  make clean && make
+ 1189  ./bin/paralleldpcpp datos/sample24
+ 1190  make clean && make
+ 1191  ./bin/paralleldpcpp
+ 1192  ./bin/paralleldpcpp datos/sample24
+ 1193  make clean && make
+ 1194  ./bin/paralleldpcpp datos/sample24
+ 1195  ./bin/paralleldpcpp
+ 1196  make clean && make
+ 1197  ./bin/paralleldpcpp
+ 1198  make clean && make
+ 1199  ./bin/paralleldpcpp
+ 1200  ls
+ 1201  make clean && make
+ 1202  ./bin/paralleldpcpp
+ 1203  make clean && make
+ 1204  ./bin/paralleldpcpp
+ 1205  make clean && make
+ 1206  ./bin/paralleldpcpp
+ 1207  ./bin/paralleldpcpp datos/INAER_2011_Alcoy 10 20 0.8
+ 1208  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1209  ./bin/paralleldpcpp datos/INAER_2011_Alcoy_Core 10 20 0.85
+ 1210  make clean && make
+ 1211  ./bin/paralleldpcpp
+ 1212  cd tfm_code/
+ 1213  oneapiset 
+ 1214  make clean && make
+ 1215  ./bin/paralleldpcpp datos/sample24
+ 1216  make clean && make
+ 1217  ./bin/paralleldpcpp datos/sample24
+ 1218  make clean && make
+ 1219  ./bin/paralleldpcpp datos/sample24
+ 1220  ls
+ 1221  make clean && make
+ 1222  ./bin/paralleldpcpp datos/sample24
+ 1223  make clean && make
+ 1224  cp application/owm_gpu.cpp application/owm_gpu1.cpp 
+ 1225  cp src/envi_gpu.cpp src/envi_gpu.hpp
+ 1226  make clean && make
+ 1227  ./bin/parallelgpu datos/sample24
+ 1228  make clean && make
+ 1229  ./bin/parallelgpu datos/sample24
+ 1230  ./bin/parallelgpu
+ 1231  make clean && make
+ 1232  ./bin/parallelgpu
+ 1233  make clean && make
+ 1234  ./bin/parallelgpu
+ 1235  make clean && make
+ 1236  ./bin/parallelgpu
+ 1237  make clean && make
+ 1238  ./bin/parallelgpu datos/sample24
+ 1239  make clean && make
+ 1240  ./bin/parallelgpu datos/sample24
+ 1241  make clean && make
+ 1242  ./bin/parallelgpu datos/sample24
+ 1243  make clean && make
+ 1244  ./bin/parallelgpu datos/sample24
+ 1245  make clean && make
+ 1246  ./bin/parallelgpu datos/sample24
+ 1247  ./bin/parallelgpu
+ 1248  make clean && make
+ 1249  cd tfm_code/
+ 1250  oneapiset 
+ 1251  make clean
+ 1252  make
+ 1253  ./bin/parallelgpu
+ 1254  ls
+ 1255  cd
+ 1256  lsof +D .vscode-server/
+ 1257  rm -rf .vscode-server/
+ 1258  ls
+ 1259  cd tfm_code/
+ 1260  oneapiset 
+ 1261  ls
+ 1262  make clean && make
+ 1263  ls
+ 1264  make clean && make
+ 1265  ./bin/parallelgpu
+ 1266  make clean && make
+ 1267  ./bin/parallelgpu
+ 1268  make clean && make
+ 1269  ./bin/parallelgpu
+ 1270  make clean && make
+ 1271  ./bin/parallelgpu
+ 1272  make clean && make
+ 1273  ./bin/parallelgpu
+ 1274  lsof +D .vscode-server/
+ 1275  kill 19244
+ 1276  lsof +D .vscode-server/
+ 1277  kill 23437
+ 1278  kill 19233
+ 1279  lsof +D .vscode-server/
+ 1280  kill 23523
+ 1281  kill 19160
+ 1282  lsof +D .vscode-server/
+ 1283  kill 19168
+ 1284  kill 23564
+ 1285  lsof +D .vscode-server/
+ 1286  rm -rf .vscode-server/
+ 1287  cd tfm_code/
+ 1288  oneapiset 
+ 1289  make clean && make
+ 1290  cd tfm_code/
+ 1291  make clean && make
+ 1292  oneapiset 
+ 1293  make clean && make
+ 1294  ./bin/parallelgpu
+ 1295  make clean && make
+ 1296  ./bin/parallelgpu
+ 1297  make clean && make
+ 1298  cd tfm_code/
+ 1299  oneapiset 
+ 1300  make clean && make
+ 1301  ./bin/parallelgpu
+ 1302  make clean && make
+ 1303  cd tfm_code/
+ 1304  make clean && make
+ 1305  oneapiset 
+ 1306  make clean && make
+ 1307  ./bin/parallelgpu 
+ 1308  make clean && make
+ 1309  ./bin/parallelgpu
+ 1310  make clean && make
+ 1311  ./bin/parallelgpu datos/sample24
+ 1312  make clean && make
+ 1313  ./bin/parallelgpu datos/sample24
+ 1314  make clean && make
+ 1315  ./bin/parallelgpu datos/sample24
+ 1316  make clean && make
+ 1317  ./bin/parallelgpu datos/sample24
+ 1318  make clean && make
+ 1319  ./bin/parallelgpu datos/sample24
+ 1320  make clean && make
+ 1321  ./bin/parallelgpu datos/sample24
+ 1322  make clean && make
+ 1323  ./bin/parallelgpu datos/sample24
+ 1324  make clean && make
+ 1325  ./bin/parallelgpu datos/sample24
+ 1326  make clean && make
+ 1327  ./bin/parallelgpu datos/sample24
+ 1328  make clean && make
+ 1329  ./bin/parallelgpu datos/sample24
+ 1330  htop
+ 1331  make clean && make
+ 1332  ./bin/parallelgpu datos/sample24
+ 1333  make clean && make
+ 1334  ./bin/parallelgpu datos/sample24
+ 1335  make clean && make
+ 1336  ./bin/parallelgpu datos/sample24
+ 1337  make clean && make
+ 1338  ./bin/parallelgpu datos/sample24
+ 1339  make clean && make
+ 1340  ./bin/parallelgpu datos/sample24
+ 1341  make clean && make
+ 1342  ./bin/parallelgpu datos/sample24
+ 1343  make clean && make
+ 1344  ./bin/parallelgpu datos/sample24
+ 1345  make clean && make
+ 1346  ./bin/parallelgpu datos/sample24
+ 1347  make clean && make
+ 1348  ./bin/parallelgpu datos/sample24
+ 1349  make clean && make
+ 1350  ./bin/parallelgpu datos/sample24
+ 1351  make clean && make
+ 1352  ./bin/parallelgpu datos/sample24
+ 1353  make clean && make
+ 1354  ./bin/parallelgpu datos/sample24
+ 1355  make clean && make
+ 1356  ./bin/parallelgpu datos/sample24
+ 1357  make clean && make
+ 1358  ./bin/parallelgpu datos/sample24
+ 1359  make clean && make
+ 1360  cd tfm_code/
+ 1361  oneapiset 
+ 1362  make clean && make
+ 1363  cd tfm_code/
+ 1364  oneapiset 
+ 1365  make clean && make
+ 1366  ./bin/parallelgpu datos/sample24
+ 1367  make clean && make
+ 1368  ./bin/parallelgpu datos/sample24
+ 1369  make clean && make
+ 1370  ./bin/parallelgpu datos/sample24
+ 1371  make clean && make
+ 1372  ./bin/parallelgpu datos/sample24
+ 1373  make clean && make
+ 1374  ./bin/parallelgpu datos/sample24
+ 1375  ./bin/parallelgpu 
+ 1376  make clean && make
+ 1377  ./bin/parallelgpu datos/sample24
+ 1378  make clean && make
+ 1379  ./bin/parallelgpu datos/sample24
+ 1380  make clean && make
+ 1381  ./bin/parallelgpu datos/sample24
+ 1382  make clean && make
+ 1383  ./bin/parallelgpu datos/sample24
+ 1384  make clean && make
+ 1385  ./bin/parallelgpu datos/sample24
+ 1386  make clean && make
+ 1387  ./bin/parallelgpu datos/sample24
+ 1388  make clean && make
+ 1389  ./bin/parallelgpu 
+ 1390  make clean && make
+ 1391  ./bin/parallelgpu 
+ 1392  cd tfm_code/
+ 1393  oneapiset 
+ 1394  make clean && make
+ 1395  ./bin/parallelgpu datos/sample24
+ 1396  make clean && make
+ 1397  ./bin/parallelgpu datos/sample24
+ 1398  make clean && make
+ 1399  ./bin/parallelgpu datos/sample24
+ 1400  make clean && make
+ 1401  ./bin/parallelgpu datos/sample24
+ 1402  cd tfm_code/
+ 1403  oneapiset 
+ 1404  make clean && make
+ 1405  ./bin/parallelgpu datos/sample24
+ 1406  make clean && make
+ 1407  ./bin/parallelgpu datos/sample24
+ 1408  make clean && make
+ 1409  ./bin/parallelgpu datos/sample24
+ 1410  cd tfm_code/
+ 1411  oneapiset 
+ 1412  make clean && make
+ 1413  ./bin/parallelgpu datos/sample24
+ 1414  make clean && make
+ 1415  ./bin/parallelgpu datos/sample24
+ 1416  make clean && make
+ 1417  ./bin/parallelgpu datos/sample24
+ 1418  ./bin/parallelgpu 
+ 1419  ls
+ 1420  cd tfm_code/
+ 1421  make clean && make
+ 1422  oneapiset 
+ 1423  make clean && make
+ 1424  ./bin/parallelgpu 
+ 1425  cd tfm_code/
+ 1426  oneapiset 
+ 1427  make clean && make
+ 1428  ./bin/parallelgpu 
+ 1429  make clean && make
+ 1430  ./bin/parallelgpu 
+ 1431  make clean && make
+ 1432  ./bin/parallelgpu datos/sample24
+ 1433  make clean && make
+ 1434  ./bin/parallelgpu datos/sample24
+ 1435  make clean && make
+ 1436  ./bin/parallelgpu datos/sample24
+ 1437  make clean && make
+ 1438  ./bin/parallelgpu datos/sample24
+ 1439  make clean && make
+ 1440  ./bin/parallelgpu datos/sample24
+ 1441  make clean && make
+ 1442  ./bin/parallelgpu datos/sample24
+ 1443  make clean && make
+ 1444  ./bin/parallelgpu datos/sample24
+ 1445  make clean && make
+ 1446  ./bin/parallelgpu datos/sample24
+ 1447  make clean && make
+ 1448  ./bin/parallelgpu datos/sample24
+ 1449  cd tfm_code/
+ 1450  oneapiset 
+ 1451  make clean && make
+ 1452  ./bin/parallelgpu datos/sample24
+ 1453  cd tfm_code/
+ 1454  oneapiset 
+ 1455  make clean && make
+ 1456  ./bin/parallelgpu datos/sample24
+ 1457  make clean && make
+ 1458  ./bin/parallelgpu datos/sample24
+ 1459  make clean && make
+ 1460  ./bin/parallelgpu datos/sample24
+ 1461  make clean && make
+ 1462  ./bin/parallelgpu datos/sample24
+ 1463  htop
+ 1464  ./bin/parallelgpu datos/sample24
+ 1465  make clean && make
+ 1466  ./bin/parallelgpu datos/sample24
+ 1467  make clean && make
+ 1468  ./bin/parallelgpu datos/sample24
+ 1469  make clean && make
+ 1470  ./bin/parallelgpu datos/sample24
+ 1471  make clean && make
+ 1472  ./bin/parallelgpu datos/sample24
+ 1473  make clean && make
+ 1474  ./bin/parallelgpu datos/sample24
+ 1475  make clean && make
+ 1476  ./bin/parallelgpu datos/sample24
+ 1477  make clean && make
+ 1478  ./bin/parallelgpu datos/sample24
+ 1479  cd tfm_code/
+ 1480  oneapiset 
+ 1481  make clean && make
+ 1482  ./bin/parallelgpu datos/sample24
+ 1483  make clean && make
+ 1484  ./bin/parallelgpu datos/sample24
+ 1485  make clean && make
+ 1486  ./bin/parallelgpu datos/sample24
+ 1487  ./bin/parallelgpu
+ 1488  etc
+ 1489  etc.
+ 1490  w
+ 1491  last
+ 1492  ls
+ 1493  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core
+ 1494  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1495  ./bin/parallelgpu datos/BABCOCK_2017_Arzua_3B 10 20 0.8
+ 1496  make clean && make
+ 1497  ./bin/parallelgpu datos/BABCOCK_2017_Arzua_3B 10 20 0.8
+ 1498  ./bin/parallelgpu datos/V21_group1_densified_point_cloud 10 20 0.8
+ 1499  ./bin/parallelgpu datos/V19_group1_densified_point_cloud 10 20 0.8
+ 1500  make clean && make
+ 1501  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1502  ./bin/parallelgpu datos/sample24
+ 1503  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1504  ./bin/parallelgpu datos/BABCOCK_2017_Arzua_3B 10 20 0.8
+ 1505  ./bin/parallelgpu datos/V19_group1_densified_point_cloud 10 20 0.8
+ 1506  ./bin/parallelgpu datos/V21_group1_densified_point_cloud 10 20 0.8
+ 1507  make clean && make
+ 1508  ./bin/parallelgpu datos/sample24
+ 1509  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1510  make clean && make
+ 1511  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8
+ 1512  ./bin/parallelgpu datos/sample24
+ 1513  make clean && make
+ 1514  cp src/envi_gpu.hpp src/envi_gpu1.hpp
+ 1515  make clean && make
+ 1516  ./bin/parallelgpu datos/sample24
+ 1517  make clean && make
+ 1518  ./bin/parallelgpu datos/sample24
+ 1519  ./bin/parallelgpu
+ 1520  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8 1 1 2.0
+ 1521  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8 1 1 2.5
+ 1522  ./bin/parallelgpu datos/BABCOCK_2017_Arzua_3B 10 20 0.8 1 1 2.0
+ 1523  ./bin/parallelgpu datos/BABCOCK_2017_Arzua_3B 10 20 0.8 1 1 1.5
+ 1524  ./bin/parallelgpu datos/V21_group1_densified_point_cloud 10 20 0.8 1 1 2.0
+ 1525  ./bin/parallelgpu datos/V19_group1_densified_point_cloud 10 20 0.8 1 1 2.0
+ 1526  cd tfm_code/
+ 1527  oneapiset 
+ 1528  make clean && make
+ 1529  ls
+ 1530  make clean && make
+ 1531  ./bin/parallelgpu
+ 1532  make clean && make
+ 1533  ./bin/parallelgpu
+ 1534  make clean && make
+ 1535  ./bin/parallelgpu
+ 1536  make clean && make
+ 1537  ./bin/parallelgpu
+ 1538  make clean && make
+ 1539  ./bin/parallelgpu
+ 1540  ls
+ 1541  make clean && make
+ 1542  ./bin/parallelgpu
+ 1543  make clean && make
+ 1544  ./bin/parallelgpu
+ 1545  make clean && make
+ 1546  ./bin/parallelgpu
+ 1547  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8 1 1 2.0
+ 1548  make clean && make
+ 1549  ./bin/parallelgpu datos/INAER_2011_Alcoy_Core 10 20 0.8 1 1 2.0
+ 1550  cd tfm_code/
+ 1551  make clean && make
+ 1552  oneapiset 
+ 1553  make clean && make
+ 1554  ./bin/parallelgpu datos/sample24
+ 1555  cd tfm_code/
+ 1556  make clean && make
+ 1557  oneapiset 
+ 1558  make clean && make
+ 1559  ./bin/parallelgpu datos/sample24
+ 1560  make clean && make
+ 1561  ./bin/parallelgpu datos/sample24
+ 1562  make clean && make
+ 1563  ./bin/parallelgpu datos/sample24
+ 1564  make clean && make
+ 1565  ./bin/parallelgpu datos/sample24
+ 1566  make clean && make
+ 1567  ./bin/parallelgpu datos/sample24
+ 1568  make clean && make
+ 1569  ./bin/parallelgpu datos/sample24
+ 1570  make clean && make
+ 1571  ./bin/parallelgpu datos/sample24
+ 1572  make clean && make
+ 1573  ./bin/parallelgpu datos/sample24
+ 1574  make clean && make
+ 1575  ./bin/parallelgpu datos/sample24
+ 1576  cd tfm_code/
+ 1577  oneapiset 
+ 1578  make clean && make
+ 1579  ./bin/parallelgpu datos/sample24
+ 1580  last
+ 1581  cd tfm_code/
+ 1582  oneapiset 
+ 1583  make clean && make
+ 1584  ./bin/parallelgpu 
+ 1585  sudo reboot
+ 1586  cd tfm_code/
+ 1587  oneapiset 
+ 1588  make clean && make
+ 1589  ./bin/parallelgpu 
+ 1590  make clean && make
+ 1591  ./bin/parallelgpu 
+ 1592  make clean && make
+ 1593  ./bin/parallelgpu 
+ 1594  make clean && make
+ 1595  ./bin/parallelgpu 
+ 1596  make clean && make
+ 1597  ./bin/parallelgpu 
+ 1598  make clean && make
+ 1599  ./bin/parallelgpu 
+ 1600  make clean && make
+ 1601  ./bin/parallelgpu 
+ 1602  make clean && make
+ 1603  ./bin/parallelgpu 
+ 1604  cd tfm_code/
+ 1605  oneapiset 
+ 1606  make clean && make
+ 1607  git add --all
+ 1608  git commit -m "New methods to store nodes contiguously"
+ 1609  git push
+ 1610  ls
+ 1611  cd tfm_code/
+ 1612  ls
+ 1613  make clean
+ 1614  make
+ 1615  oneapiset 
+ 1616  make
+ 1617  make clean && make
+ 1618  ./bin/parallelgpu datos/sample24
+ 1619  ./bin/parallelgpu 
+ 1620  oneapiset 
+ 1621  ls
+ 1622  cd tfm_code/
+ 1623  git pull
+ 1624  lspci
+ 1625  cd tfm_code/
+ 1626  git pull
+ 1627  ls
+ 1628  oneapiset 
+ 1629  make clean
+ 1630  make
+ 1631  ./bin/parallelgpu 
+ 1632  make clean
+ 1633  make clean && make
+ 1634  ./bin/parallelgpu 
+ 1635  make clean && make
+ 1636  ./bin/parallelgpu 
+ 1637  ls
+ 1638  mv datos/ data/
+ 1639  ./bin/parallelgpu 
+ 1640  make clean && make
+ 1641  ./bin/parallelgpu 
+ 1642  make clean && make
+ 1643  ./bin/parallelgpu 
+ 1644  make clean && make
+ 1645  ./bin/parallelgpu 
+ 1646  make clean && make
+ 1647  ./bin/parallelgpu 
+ 1648  make clean && make
+ 1649  ./bin/parallelgpu 
+ 1650  clang++
+ 1651  clang++ --version
+ 1652  clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -std=c++11 -o bin/parallelgpu2
+ 1653  clang++ --help
+ 1654  export PATH=$DPCPP_HOME/llvm/build/bin:$PATH
+ 1655  export LD_LIBRARY_PATH=$DPCPP_HOME/llvm/build/lib:$LD_LIBRARY_PATH
+ 1656  clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -std=c++11 -o bin/parallelgpu2
+ 1657  dpcpp -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -c application/owm_gpu.cpp -o a.o
+ 1658  dpcpp -fsycl-targets=nvptx64-unknown-unknown-sycldevice -c application/owm_gpu.cpp -o a.o
+ 1659  clang++ -O2 -g -Wno-unknown-cuda-version -fsycl -fsycl-targets=nvptx64-unknown-unknown-sycldevice,spir64-unknown-unknown-sycldevice --cuda-path=/usr/local/cuda application/owm_gpu.cpp -o bin/parallelgpu2 
+ 1660  make
+ 1661  clang++ -O2 -g -Wno-unknown-cuda-version -fsycl -fsycl-targets=spir64-unknown-unknown-sycldevice,nvptx64-unknown-unknown-sycldevice --cuda-path=/usr/local/cuda application/owm_gpu.cpp -o bin/parallelgpu2 
+ 1662  python $DPCPP_HOME/llvm/buildbot/check.py
+ 1663  echo $DPCPP_HOME
+ 1664  oneapiset 
+ 1665  oneapiset --force
+ 1666  find / "check.py" 2>/dev/null 
+ 1667  find . application
+ 1668  find "application" .
+ 1669  find --help
+ 1670  find -type d -name "application" .
+ 1671  find -type d . -name "application"
+ 1672  find -type d . "application"
+ 1673  find . -type d "application"
+ 1674  find . -type=d "application"
+ 1675  find . -type d -name "application"
+ 1676  find / -type f -name "check.py" 2>/dev/null 
+ 1677  make clean
+ 1678  make
+ 1679  SYCL_BE=PI_CUDA ./bin/parallelgpu 
+ 1680  ./bin/parallelgpu 
+ 1681  cd tfm_code/
+ 1682  make clean
+ 1683  make clean &&make
+ 1684  make clean && make
+ 1685  oneapiset 
+ 1686  make clean && make
+ 1687  ls data/
+ 1688  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1689  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.3
+ 1690  make clean && make
+ 1691  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.35
+ 1692  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1693  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.45
+ 1694  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.3
+ 1695  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.2
+ 1696  make clean && make
+ 1697  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.175
+ 1698  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.1
+ 1699  make clean && make
+ 1700  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.175
+ 1701  make clean && make
+ 1702  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.175
+ 1703  make clean && make
+ 1704  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.175
+ 1705  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.3
+ 1706  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.2
+ 1707  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 10 0.15
+ 1708  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 10 0.1
+ 1709  make clean && make
+ 1710  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 10 0.175
+ 1711  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 10 0.1
+ 1712  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 10 0.1
+ 1713  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 10 0.175
+ 1714  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 10 0.3
+ 1715  make clean && make
+ 1716  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 10 0.1
+ 1717  nvcc --version
+ 1718  nvidia-smi
+ 1719  lspci 
+ 1720  cmake --version
+ 1721  ls
+ 1722  bash cmake-3.18.2-Linux-x86_64.sh 
+ 1723  export PATH=/users/fmlopez/cmake-3.18.2-Linux-x86_64/bin:$PATH
+ 1724  git clone https://github.com/ninja-build/ninja
+ 1725  ls
+ 1726  cd ninja/
+ 1727  ls
+ 1728  ./configure.py --bootstrap
+ 1729  export PATH=/users/fmlopez/ninja:$PATH
+ 1730  ls
+ 1731  cd ..
+ 1732  ls
+ 1733  export DPCPP_HOME=~/sycl_workspace
+ 1734  mkdir $DPCPP_HOME
+ 1735  cd $DPCPP_HOME
+ 1736  git clone https://github.com/intel/llvm -b sycl
+ 1737  cd ..
+ 1738  ls
+ 1739  rm -f sycl_workspace/
+ 1740  rm -rf sycl_workspace/
+ 1741  cd /home/fmlopez/
+ 1742  mkdir sycl_workspace
+ 1743  cd sycl_workspace/
+ 1744  git clone https://github.com/intel/llvm -b sycl
+ 1745  export DPCPP_HOME=/home/fmlopez/sycl_workspace
+ 1746  echo $DPCPP_HOME 
+ 1747  python $DPCPP_HOME/llvm/buildbot/configure.py --cuda
+ 1748  python $DPCPP_HOME/llvm/buildbot/compile.py
+ 1749  python $DPCPP_HOME/llvm/buildbot/check.py
+ 1750  export PATH=$DPCPP_HOME/llvm/build/bin:$PATH
+ 1751  export LD_LIBRARY_PATH=$DPCPP_HOME/llvm/build/lib:$LD_LIBRARY_PATH
+ 1752  cd
+ 1753  ls
+ 1754  clang++ -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice prueba.cpp -o prueba.exe
+ 1755  SYCL_BE=PI_CUDA ./prueba.exe 
+ 1756  dpkg -l | grep nvidia
+ 1757  ./prueba.exe 
+ 1758  clang++ -fsycl prueba.cpp -o prueba.exe
+ 1759  ./prueba.exe 
+ 1760  ls
+ 1761  cd tfm_code/
+ 1762  ls
+ 1763  oneapiset 
+ 1764  ls
+ 1765  make clean
+ 1766  make
+ 1767  make clean && make
+ 1768  ./bin/parallelgpu 
+ 1769  ls data/
+ 1770  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.3
+ 1771  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1772  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 5 0.175
+ 1773  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 5 0.3
+ 1774  ./bin/parallelgpu data/BABCOCK_2017_Arzua_3B 10 20 0.8 8 5 0.1
+ 1775  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 5 0.1
+ 1776  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 5 0.15
+ 1777  ./bin/parallelgpu data/V21_group1_densified_point_cloud 10 20 0.8 8 5 0.2
+ 1778  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 5 0.1
+ 1779  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 5 0.15
+ 1780  ./bin/parallelgpu data/V19_group1_densified_point_cloud 10 20 0.8 8 5 0.2
+ 1781  cd tfm_code/
+ 1782  git pull
+ 1783  ls
+ 1784  oneapiset 
+ 1785  make clean && make
+ 1786  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1787  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.35
+ 1788  git pull
+ 1789  rm application/owm_gpu.cpp 
+ 1790  rm src/envi_gpu.hpp 
+ 1791  git pull
+ 1792  make clean && make
+ 1793  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1794  make clean && make
+ 1795  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1796  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 2 0.4
+ 1797  make clean && make
+ 1798  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 2 0.4
+ 1799  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1800  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.3
+ 1801  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.5
+ 1802  export DPCPP_HOME=/home/fmlopez/sycl_workspace
+ 1803  export PATH=$DPCPP_HOME/llvm/build/bin:$PATH
+ 1804  export LD_LIBRARY_PATH=$DPCPP_HOME/llvm/build/lib:$LD_LIBRARY_PATH
+ 1805  make clean && make bin/cudaParallel 
+ 1806  ./bin/cudaParallel 
+ 1807  ls
+ 1808  make -f MakefileXX 
+ 1809  ls /usr/local/cuda-10.1/
+ 1810  ls
+ 1811  make -f MakefileXX 
+ 1812  ls
+ 1813  ./owm_gpu.exe 
+ 1814  rm owm_gpu.exe && make -f MakefileXX 
+ 1815  ./owm_gpu.exe 
+ 1816  rm owm_gpu.exe && make -f MakefileXX 
+ 1817  ./owm_gpu.exe 
+ 1818  rm owm_gpu.exe && make -f MakefileXX 
+ 1819  rm -f owm_gpu.exe && make -f MakefileXX 
+ 1820  ./owm_gpu.exe 
+ 1821  ./owm_gpu.exe data/sample24
+ 1822  ls
+ 1823  rm owm_gpu.exe 
+ 1824  ls
+ 1825  cd tfm_code/
+ 1826  oneapiset 
+ 1827  make clean && make
+ 1828  ./bin/
+ 1829  ./bin/parallelgpu 
+ 1830  make clean && make
+ 1831  ./bin/parallelgpu 
+ 1832  make clean && make
+ 1833  ./bin/parallelgpu 
+ 1834  make clean && make
+ 1835  ./bin/parallelgpu 
+ 1836  make clean && make
+ 1837  ./bin/parallelgpu 
+ 1838  make clean && make
+ 1839  ./bin/parallelgpu 
+ 1840  make clean && make
+ 1841  ./bin/parallelgpu 
+ 1842  make clean && make
+ 1843  ./bin/parallelgpu 
+ 1844  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1845  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.35
+ 1846  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1847  make clean && make
+ 1848  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1849  make clean && make
+ 1850  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 85 0.4
+ 1851  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1852  make clean && make
+ 1853  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1854  make clean && make
+ 1855  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 0.4
+ 1856  make clean && make
+ 1857  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1858  make clean && make
+ 1859  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1860  make clean && make
+ 1861  ./bin/parallelgpu 
+ 1862  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1863  nvidia-smi
+ 1864  dpkg -l | grep nvidia
+ 1865  make clean && make
+ 1866  ./bin/parallelgpu 
+ 1867  make clean && make
+ 1868  ./bin/parallelgpu 
+ 1869  make clean && make
+ 1870  ./bin/parallelgpu 
+ 1871  make clean && make
+ 1872  ./bin/parallelgpu 
+ 1873  make clean && make
+ 1874  ./bin/parallelgpu 
+ 1875  make clean && make
+ 1876  ./bin/parallelgpu 
+ 1877  make clean && make
+ 1878  ./bin/parallelgpu 
+ 1879  make clean && make
+ 1880  ./bin/parallelgpu 
+ 1881  make clean && make
+ 1882  ./bin/parallelgpu 
+ 1883  make clean && make
+ 1884  ./bin/parallelgpu 
+ 1885  cd tfm_code/
+ 1886  ls
+ 1887  make clean && make
+ 1888  oneapiset 
+ 1889  make clean && make
+ 1890  ./bin/parallelgpu 
+ 1891  cd tfm_code/
+ 1892  ls
+ 1893  make clean && make
+ 1894  oneapiset 
+ 1895  make clean && make
+ 1896  ./bin/parallelgpu 
+ 1897  rm data/histograma.txt 
+ 1898  ls
+ 1899  ./bin/parallelgpu 
+ 1900  make clean && make
+ 1901  ./bin/parallelgpu 
+ 1902  rm data/*.csv
+ 1903  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 0.4
+ 1904  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.3
+ 1905  make clean && make
+ 1906  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.2
+ 1907  make clean && make
+ 1908  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.2
+ 1909  make clean && make
+ 1910  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.1
+ 1911  make clean && make
+ 1912  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.1
+ 1913  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.5
+ 1914  cd tfm_code/
+ 1915  oneapiset 
+ 1916  ./bin/parallelgpu data/INAER_2011_Alcoy_Core
+ 1917  cd tfm_code/
+ 1918  oneapiset 
+ 1919  cp application/owm_gpu.cpp application/owm_stats.cpp
+ 1920  rm data/*.csv
+ 1921  make clean
+ 1922  make bin/stats 
+ 1923  ./bin/stats 
+ 1924  ls data/
+ 1925  make bin/stats 
+ 1926  make clean && make bin/stats 
+ 1927  ./bin/stats 
+ 1928  make clean && make bin/stats 
+ 1929  ./bin/stats 
+ 1930  make clean && make bin/stats 
+ 1931  ./bin/stats 
+ 1932  make clean && make bin/stats 
+ 1933  ./bin/stats 
+ 1934  make clean && make bin/stats 
+ 1935  ./bin/stats 
+ 1936  make clean && make bin/stats 
+ 1937  ./bin/stats 
+ 1938  oneapiset 
+ 1939  cd tfm_code/
+ 1940  make clean && make bin/stats 
+ 1941  ./bin/stats 
+ 1942  rm data/*.csv
+ 1943  ./bin/stats data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1944  oneapiset 
+ 1945  cd tfm_code/
+ 1946  make clean && make bin/stats 
+ 1947  ./bin/stats 
+ 1948  rm data/*.csv
+ 1949  cd build/
+ 1950  ./job.sh 
+ 1951  ../bin/stats ../data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.5
+ 1952  cd ..
+ 1953  make clean && make
+ 1954  ./bin/parallelgpu 
+ 1955  make clean && make
+ 1956  ./bin/parallelgpu 
+ 1957  make clean && make
+ 1958  make clean && make bin/stats 
+ 1959  ./bin/stats 
+ 1960  make clean && make bin/stats 
+ 1961  ./bin/stats 
+ 1962  make clean && make bin/stats 
+ 1963  ./bin/stats 
+ 1964  rm data/*.csv
+ 1965  make clean && make bin/stats 
+ 1966  ./bin/stats 
+ 1967  ../bin/stats ../data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1968  ./bin/stats data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1969  make clean && make bin/stats 
+ 1970  ./bin/stats data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1971  make clean && make bin/stats 
+ 1972  ./bin/stats data/INAER_2011_Alcoy_Core 10 20 0.8 8 1 0.4
+ 1973  make clean && make
+ 1974  ./bin/stats data/INAER_2011_Alcoy_Core 10 20 0.8 8 1
+ 1975  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1
+ 1976  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10
+ 1977  make clean && make
+ 1978  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10
+ 1979  make clean && make
+ 1980  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10
+ 1981  make clean && make
+ 1982  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10
+ 1983  make clean && make
+ 1984  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1
+ 1985  cd tfm_code/
+ 1986  make clean && make
+ 1987  oneapiset 
+ 1988  make clean && make
+ 1989  ./bin/parallelgpu 
+ 1990  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 1
+ 1991  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10
+ 1992  make clean && make
+ 1993  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 10 1.0 1.0 16
+ 1994  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 8
+ 1995  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 18
+ 1996  dpkg -l | grep nvidia
+ 1997  dpkg -l | grep cuda
+ 1998  dpkg -l | grep nvidia
+ 1999  oneapiset 
+ 2000  cd tfm_code/
+ 2001  make clean && make
+ 2002  ./bin/parallelgpu 
+ 2003  nvidia-smi 
+ 2004  ls
+ 2005  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 16
+ 2006  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 8
+ 2007  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 16
+ 2008  ./bin/parallelgpu data/INAER_2011_Alcoy_Core 10 20 0.8 8 5 1.0 1.0 20
+ 2009  history
+ 2010  history | grep export
+ 2011  history > historial_guardado.txt

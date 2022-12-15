@@ -1,0 +1,2375 @@
+../data/INAER_2011_Alcoy_Core.xyz 1 1 8 1.048009606
+../data/INAER_2011_Alcoy_Core.xyz 1 1 16 1.037238715
+../data/INAER_2011_Alcoy_Core.xyz 1 1 32 1.073673831
+../data/INAER_2011_Alcoy_Core.xyz 1 1 64 1.222513564
+../data/BABCOCK_2017_Arzua_3B.xyz 1 1 16 1.124360964
+../data/BABCOCK_2017_Arzua_3B.xyz 1 1 32 1.228581138
+../data/BABCOCK_2017_Arzua_3B.xyz 1 1 64 1.373534139
+../data/V21_group1_densified_point_cloud.xyz 1 1 8 0.671959909
+../data/V21_group1_densified_point_cloud.xyz 1 1 16 0.657118251
+../data/V21_group1_densified_point_cloud.xyz 1 1 32 0.715225707
+../data/V21_group1_densified_point_cloud.xyz 1 1 64 0.843215353
+../data/V19_group1_densified_point_cloud.xyz 1 1 8 0.700042664
+../data/V19_group1_densified_point_cloud.xyz 1 1 16 0.681046316
+../data/V19_group1_densified_point_cloud.xyz 1 1 32 0.74489388
+../data/V19_group1_densified_point_cloud.xyz 1 1 64 0.877999986
+
+
+./data/INAER_2011_Alcoy_Core.xyz 1 0 8 1.878686565
+./data/INAER_2011_Alcoy_Core.xyz 1 0 16 1.69489636
+./data/INAER_2011_Alcoy_Core.xyz 1 0 32 1.521692553
+./data/INAER_2011_Alcoy_Core.xyz 1 0 64 1.551103475
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 16 1.822240612
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 32 1.702457948
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 64 1.702873823
+./data/V21_group1_densified_point_cloud.xyz 1 0 8 1.232480436
+./data/V21_group1_densified_point_cloud.xyz 1 0 16 1.049231013
+./data/V21_group1_densified_point_cloud.xyz 1 0 32 0.93415145
+./data/V21_group1_densified_point_cloud.xyz 1 0 64 0.933034034
+./data/V19_group1_densified_point_cloud.xyz 1 0 8 1.35821962
+./data/V19_group1_densified_point_cloud.xyz 1 0 16 1.146388323
+./data/V19_group1_densified_point_cloud.xyz 1 0 32 1.031010058
+./data/V19_group1_densified_point_cloud.xyz 1 0 64 1.055212211
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8 0.27606637
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 0.253307714
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 0.230994828
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 0.232801007
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 0.245478694
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 0.229818038
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 0.230200366
+./data/V21_group1_densified_point_cloud.xyz 8 0 8 0.17784915
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 0.150623586
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 0.136068584
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 0.133814168
+./data/V19_group1_densified_point_cloud.xyz 8 0 8 0.197105855
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 0.164704116
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 0.147706021
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 0.14782928
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8 0.309883039
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 0.287874119
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 0.272999405
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 0.278058128
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 0.333544284
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 0.337512396
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 0.347335282
+./data/V21_group1_densified_point_cloud.xyz 8 0 8 0.19032274
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 0.163539963
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 0.150053212
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 0.152725349
+./data/V19_group1_densified_point_cloud.xyz 8 0 8 0.211753506
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 0.1786201
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 0.165181983
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 0.167597518
+
+
+./data/INAER_2011_Alcoy_Core.xyz 1 0 8 3.098764294 0.626930572 1.84380944
+./data/INAER_2011_Alcoy_Core.xyz 1 0 16 2.414793384 0.495210001 1.66675976
+./data/INAER_2011_Alcoy_Core.xyz 1 0 32 1.74681982 0.390345922 1.497933331
+./data/INAER_2011_Alcoy_Core.xyz 1 0 64 1.435930524 0.337648541 1.50694294
+./data/INAER_2011_Alcoy_Core.xyz 1 0 128 1.190148782 0.299579194 1.608589648
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 16 4.28992814 0.813365283 1.791684243
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 32 3.308691978 0.649561342 1.668413091
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 64 2.655208213 0.565093656 1.667983466
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 128 2.161011478 0.515628779 1.836820055
+./data/V21_group1_densified_point_cloud.xyz 1 0 8 9.16991278 2.02836586 1.199060569
+./data/V21_group1_densified_point_cloud.xyz 1 0 16 7.1048442 1.535187979 1.009484796
+./data/V21_group1_densified_point_cloud.xyz 1 0 32 5.631545983 1.222898741 0.90351131
+./data/V21_group1_densified_point_cloud.xyz 1 0 64 4.633478421 1.065000301 0.903226266
+./data/V21_group1_densified_point_cloud.xyz 1 0 128 3.73164813 0.958441586 0.992845533
+./data/V19_group1_densified_point_cloud.xyz 1 0 8 10.285950014 2.31648268 1.311245945
+./data/V19_group1_densified_point_cloud.xyz 1 0 16 8.314294346 1.747320829 1.103970875
+./data/V19_group1_densified_point_cloud.xyz 1 0 32 6.613321254 1.402405315 0.992118695
+./data/V19_group1_densified_point_cloud.xyz 1 0 64 5.351969901 1.204877573 0.986938848
+./data/V19_group1_densified_point_cloud.xyz 1 0 128 4.439482875 1.097922569 1.085776628
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8 3.102367037 0.634446576 0.270993113
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 2.460891098 0.50387351 0.24866537
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.721943399 0.397874011 0.226250714
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.425835991 0.348310836 0.229324359
+./data/INAER_2011_Alcoy_Core.xyz 8 0 128 1.143180379 0.301306523 0.241096321
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 4.227867952 0.827369195 0.239762228
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.175541506 0.663884973 0.224046822
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.616473269 0.577538934 0.225966245
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 128 2.149696969 0.522760007 0.245496078
+./data/V21_group1_densified_point_cloud.xyz 8 0 8 9.227886683 2.04981985 0.174841095
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 7.160978806 1.558413094 0.146922842
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 5.603580514 1.242323909 0.131552938
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 4.613668729 1.0738633 0.132253003
+./data/V21_group1_densified_point_cloud.xyz 8 0 128 3.767784231 0.976532347 0.141820953
+./data/V19_group1_densified_point_cloud.xyz 8 0 8 10.512763935 2.346798884 0.195276793
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 8.342786018 1.766926464 0.162168213
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 6.567597216 1.424589274 0.146213458
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 5.386314057 1.219196981 0.143769873
+./data/V19_group1_densified_point_cloud.xyz 8 0 128 4.513141423 1.119869179 0.156034166
+
+
+./data/INAER_2011_Alcoy_Core.xyz 1 1 8 3.113422787 0.385435694 1.048271994
+./data/INAER_2011_Alcoy_Core.xyz 1 1 16 2.349004363 0.294385079 1.036764452
+./data/INAER_2011_Alcoy_Core.xyz 1 1 32 1.726431356 0.223625058 1.073988893
+./data/INAER_2011_Alcoy_Core.xyz 1 1 64 1.514349178 0.215108422 1.221045728
+./data/INAER_2011_Alcoy_Core.xyz 1 1 128 1.150692542 0.145532973 1.461732383
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 16 4.276421462 0.434197939 1.124669098
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 32 3.166186481 0.349029328 1.22829561
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 64 2.650028995 0.290763281 1.374671464
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 128 2.263109353 0.262107838 1.795720766
+./data/V21_group1_densified_point_cloud.xyz 1 1 8 8.993946061 1.447551283 0.672691446
+./data/V21_group1_densified_point_cloud.xyz 1 1 16 7.434870869 1.03436037 0.656964253
+./data/V21_group1_densified_point_cloud.xyz 1 1 32 5.424779068 0.77210478 0.715566023
+./data/V21_group1_densified_point_cloud.xyz 1 1 64 4.544318463 0.646308252 0.843392823
+./data/V21_group1_densified_point_cloud.xyz 1 1 128 3.670549097 0.560709964 1.098138786
+./data/V19_group1_densified_point_cloud.xyz 1 1 8 10.540886606 1.713163102 0.700078759
+./data/V19_group1_densified_point_cloud.xyz 1 1 16 8.124694859 1.18451665 0.681627089
+./data/V19_group1_densified_point_cloud.xyz 1 1 32 6.949770998 0.889136132 0.745589651
+./data/V19_group1_densified_point_cloud.xyz 1 1 64 5.281703846 0.741134303 0.878344564
+./data/V19_group1_densified_point_cloud.xyz 1 1 128 4.321199381 0.646606628 1.135276332
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.147676198 0.390780385 0.257647553
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.339933471 0.298392745 0.237665203
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.742451225 0.226707643 0.220194364
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.437864602 0.178295265 0.224876525
+./data/INAER_2011_Alcoy_Core.xyz 8 1 128 1.165395993 0.14626451 0.237042702
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.272779307 0.451827184 0.233781138
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.182711845 0.363336433 0.223967186
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.64735897 0.28383341 0.229772809
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 128 2.188468853 0.236392795 0.252303511
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.141488671 1.445958366 0.173383708
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.464025368 1.256110428 0.148619868
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.619876476 0.811265454 0.135428817
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.793236496 0.664573063 0.133458447
+./data/V21_group1_densified_point_cloud.xyz 8 1 128 3.765057237 0.559752667 0.152959019
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.738382924 1.748315179 0.19275443
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.246799802 1.178040027 0.162016124
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.537766266 0.937244915 0.147871987
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.25224999 0.727807342 0.148793332
+./data/V19_group1_densified_point_cloud.xyz 8 1 128 4.43970036 0.649837152 0.162560276
+
+
+"Estos resultados son los obtenidos utilizado stage1heter, donde se reparte las columnas:"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.22369438 0.407183197 0.256727644
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.351984964 0.310615697 0.236653005
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.717036466 0.221286861 0.218004859
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.441962988 0.178379762 0.224408993
+./data/INAER_2011_Alcoy_Core.xyz 8 1 128 1.153099907 0.154349865 0.238965852
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.244457106 0.427140926 0.231950126
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.177125308 0.318768861 0.220077316
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.640080678 0.26912715 0.226670691
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 128 2.182463726 0.22194928 0.254244066
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.247876076 1.429106453 0.17312399
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.208061054 1.036832289 0.146870383
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.593016859 0.769141242 0.134090046
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.497075984 0.644360514 0.135280491
+./data/V21_group1_densified_point_cloud.xyz 8 1 128 3.73799272 0.558011546 0.14959061
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.529182293 1.640671358 0.193178378
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.506157831 1.161361122 0.162055296
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.501614099 0.903160719 0.148582921
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.330009749 0.728349032 0.148766512
+./data/V19_group1_densified_point_cloud.xyz 8 1 128 4.419439282 0.64301306 0.163550632
+
+
+"Estos resultados son los obtenidos utilizado stage1heter, donde se reparte las filas:"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.113168892 0.380324917 0.252345337
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.343547078 0.293827566 0.234646157
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.716200714 0.239728603 0.218375452
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.440305989 0.177522631 0.223589402
+./data/INAER_2011_Alcoy_Core.xyz 8 1 128 1.152984309 0.157282391 0.240018041
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.256911507 0.434821597 0.232939799
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.321362475 0.319457374 0.221690096
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.639087584 0.29574226 0.22945291
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 128 2.183087233 0.225460186 0.258761481
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.006390373 1.44471874 0.175578002
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.10039944 1.052634366 0.148542565
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.580114992 0.778459793 0.134357536
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.502768805 0.647134683 0.135868446
+./data/V21_group1_densified_point_cloud.xyz 8 1 128 3.717146973 0.563673819 0.152625614
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.233526794 1.657651253 0.194848467
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.180381439 1.17774355 0.162971358
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.489749838 0.906056275 0.149258172
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.339355407 0.721205124 0.149380254
+./data/V19_group1_densified_point_cloud.xyz 8 1 128 4.371184258 0.654347734 0.16727044
+
+
+"Ahora vamos a probar repartiendo por columans de nuevo y volviendo a malloc_share"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.143414759 0.384384289 0.255628488
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.345848725 0.30329578 0.236339513
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.728506597 0.222084748 0.21654825
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.437814156 0.181426172 0.222707236
+./data/INAER_2011_Alcoy_Core.xyz 8 1 128 1.174110628 0.149565765 0.237137145
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.323159165 0.42859206 0.230731133
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.239710097 0.377566488 0.222277527
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.700714797 0.258370339 0.227859114
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 128 2.343644988 0.245485886 0.258668434
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.121637378 1.424664452 0.170930503
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.20507554 1.063554926 0.146465987
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.618296327 0.800479625 0.134119161
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.617472946 0.629282205 0.134811315
+./data/V21_group1_densified_point_cloud.xyz 8 1 128 3.937388997 0.57130505 0.152099061
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.513249911 1.641360126 0.192706062
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.48956352 1.159293994 0.16187448
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.521330678 0.90360426 0.147836805
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.373716435 0.721401798 0.145732752
+./data/V19_group1_densified_point_cloud.xyz 8 1 128 4.422657118 0.632601759 0.166418698
+
+
+"Ahora la version que utilizamos con task_group"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.094024016 0.424160695 0.253342999
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.341882115 0.322142096 0.234401133
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.712905052 0.239592327 0.217672545
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.433350274 0.19236019 0.22294501
+./data/INAER_2011_Alcoy_Core.xyz 8 1 128 1.149209106 0.157066093 0.238215412
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.247160173 0.454137887 0.235346913
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.184143412 0.334832655 0.222152221
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.637169291 0.284540198 0.227529654
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 128 2.290247301 0.25238604 0.274290552
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 10.310909768 1.484240313 0.172986353
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.538210774 1.084168306 0.146888298
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.606212492 0.792292449 0.134211015
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.548472101 0.651487653 0.138241923
+./data/V21_group1_densified_point_cloud.xyz 8 1 128 3.760157314 0.56033062 0.152291578
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.452001842 2.312164769 0.192584882
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.31245959 1.195820063 0.161604204
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.526929156 0.912349667 0.148670525
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.233095351 0.721013671 0.150847676
+./data/V19_group1_densified_point_cloud.xyz 8 1 128 4.440089551 0.643429763 0.167825764
+
+
+./data/INAER_2011_Alcoy.xyz 2 1 16 0.28668828 0.039355025 0.279342655
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.197309448 0.377656958 0.257262119
+./data/INAER_2011_Alcoy_Core.xyz 8 1 12 2.756127271 0.329924016 0.245635646
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.335565215 0.309503203 0.237059326
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.708173808 0.223095101 0.220579501
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.420034775 0.17017797 0.223574317
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.37827651 0.473553133 0.230161696
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.142258905 0.309980802 0.222278315
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.630586389 0.275144311 0.227795181
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.091541595 1.428438785 0.171407832
+./data/V21_group1_densified_point_cloud.xyz 8 1 12 8.218641114 1.176081808 0.156322817
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.191379821 1.032619081 0.146370032
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.56668365 0.775830123 0.133794169
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.677243159 0.639849199 0.135060769
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.481212987 1.635939973 0.192819973
+./data/V19_group1_densified_point_cloud.xyz 8 1 12 9.212313792 1.33338954 0.172835676
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.527723956 1.163824549 0.1611011
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.52795326 0.895580998 0.147933987
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.249379606 0.727798323 0.149468341
+
+
+"los siguientes resultados son los de probar con stage1index en GPU con accessors"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 1 1 8 3.091253365 0 0.874584415
+./data/INAER_2011_Alcoy_Core.xyz 1 1 16 2.392118813 0 0.810283504
+./data/INAER_2011_Alcoy_Core.xyz 1 1 32 1.70226142 0 0.773163692
+./data/INAER_2011_Alcoy_Core.xyz 1 1 64 1.654867341 0 0.83385669
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 16 4.464684204 0 0.946818623
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 32 3.328361748 0 0.92670842
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 64 2.633772473 0 0.979385306
+./data/V21_group1_densified_point_cloud.xyz 1 1 8 8.922808151 0 0.64694688
+./data/V21_group1_densified_point_cloud.xyz 1 1 16 7.086436869 0 0.582338873
+./data/V21_group1_densified_point_cloud.xyz 1 1 32 5.582402436 0 0.584926881
+./data/V21_group1_densified_point_cloud.xyz 1 1 64 4.483184969 0 0.627643895
+./data/V19_group1_densified_point_cloud.xyz 1 1 8 10.306986621 0 0.697726325
+./data/V19_group1_densified_point_cloud.xyz 1 1 16 8.132307577 0 0.618164034
+./data/V19_group1_densified_point_cloud.xyz 1 1 32 6.501101079 0 0.611524842
+./data/V19_group1_densified_point_cloud.xyz 1 1 64 5.242322 0 0.661857533
+
+
+"stage1gpu con índices y USM"
+
+./data/INAER_2011_Alcoy_Core.xyz 1 1 8 3.076970076 0.434612593 0.815124136
+./data/INAER_2011_Alcoy_Core.xyz 1 1 16 2.328013308 0.33237611 0.759466875
+./data/INAER_2011_Alcoy_Core.xyz 1 1 32 1.708648544 0.230684715 0.726733496
+./data/INAER_2011_Alcoy_Core.xyz 1 1 64 1.451113843 0.20349212 0.789047858
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 16 4.292701261 0.47049742 0.846832756
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 32 3.167996518 0.335269619 0.840124998
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 64 2.627240624 0.303200011 0.892439577
+./data/V21_group1_densified_point_cloud.xyz 1 1 8 9.003355372 1.540012163 0.530963358
+./data/V21_group1_densified_point_cloud.xyz 1 1 16 7.001315199 1.096431546 0.483028716
+./data/V21_group1_densified_point_cloud.xyz 1 1 32 5.432877887 0.815894285 0.487320625
+./data/V21_group1_densified_point_cloud.xyz 1 1 64 4.498681687 0.661100758 0.543105664
+./data/V19_group1_densified_point_cloud.xyz 1 1 8 10.174163302 1.772403324 0.565168796
+./data/V19_group1_densified_point_cloud.xyz 1 1 16 8.148372645 1.243379246 0.506882305
+./data/V19_group1_densified_point_cloud.xyz 1 1 32 6.348000046 0.950411872 0.510134806
+./data/V19_group1_densified_point_cloud.xyz 1 1 64 5.210974549 0.760639268 0.565573184
+
+
+"ahora stage1s con indices"
+
+./data/INAER_2011_Alcoy_Core.xyz 1 0 8 3.081888493 0.42787772 2.03527869
+./data/INAER_2011_Alcoy_Core.xyz 1 0 16 2.338183682 0.298521172 1.832830791
+./data/INAER_2011_Alcoy_Core.xyz 1 0 32 1.706223118 0.242323894 1.632451848
+./data/INAER_2011_Alcoy_Core.xyz 1 0 64 1.479898761 0.198353724 1.631179746
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 16 4.25838955 0.46034365 1.978917923
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 32 3.177501497 0.326744259 1.809192247
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 64 2.657884644 0.29881584 1.809615069
+./data/V21_group1_densified_point_cloud.xyz 1 0 8 8.991329637 1.529939734 1.302110904
+./data/V21_group1_densified_point_cloud.xyz 1 0 16 7.112832926 1.083371612 1.100913897
+./data/V21_group1_densified_point_cloud.xyz 1 0 32 6.042645604 0.80457706 0.973175129
+./data/V21_group1_densified_point_cloud.xyz 1 0 64 4.549735123 0.654267482 0.964088601
+./data/V19_group1_densified_point_cloud.xyz 1 0 8 10.659666361 1.764454667 1.444862842
+./data/V19_group1_densified_point_cloud.xyz 1 0 16 8.257072814 1.231496987 1.207099842
+./data/V19_group1_densified_point_cloud.xyz 1 0 32 7.008032291 0.927489888 1.104483104
+./data/V19_group1_densified_point_cloud.xyz 1 0 64 5.32922746 0.754289423 1.066468028
+
+
+"ahora stage1reduce con indices"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8 3.073462696 0.387681867 0.288543893
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 2.339864248 0.325002877 0.262749158
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.702093964 0.21809744 0.238649748
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.417918918 0.182819428 0.238255749
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 4.2261103 0.495924774 0.260078573
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.148686027 0.326816546 0.241174794
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.646590979 0.298234992 0.236887153
+./data/V21_group1_densified_point_cloud.xyz 8 0 8 8.897827185 1.533266123 0.179869356
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 6.909597377 1.086827226 0.15169603
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 5.404525795 0.81045601 0.136293154
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 4.463945281 0.656176421 0.136781763
+./data/V19_group1_densified_point_cloud.xyz 8 0 8 10.255734662 1.7483345 0.200412135
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 8.421813882 1.226612058 0.169531443
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 6.336204284 0.940762439 0.150804721
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 5.152904583 0.752056059 0.149191099
+
+
+"ahora stage1heter con indices"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.095258897 0.436147853 0.29093806
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.368768331 0.375775662 0.26574889
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.711838229 0.247209688 0.247887773
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.433436031 0.202289924 0.245139385
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.223090428 0.507924794 0.322792672
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.202521381 0.331067734 0.307757046
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.792024053 0.30273287 0.313585589
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.105041492 1.586473072 0.202948104
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.036502997 1.099226208 0.173509484
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.438872921 0.811894161 0.163575236
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.535856672 0.65614348 0.160905515
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.181765148 1.77335173 0.223721975
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.067752455 1.243341264 0.189616908
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.382791625 0.946492919 0.176666608
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.240785455 0.736610494 0.179488938
+
+
+"stage1hetertg con indices"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 8 3.106235004 0.431979587 0.255227976
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.350029409 0.325819382 0.233642795
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.729678206 0.239811365 0.213212667
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.44090527 0.185936906 0.2141224
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.320152922 0.448556609 0.220934785
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.203708587 0.334886238 0.211927104
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.88665225 0.289242752 0.211461281
+./data/V21_group1_densified_point_cloud.xyz 8 1 8 9.214424902 1.54491471 0.158844931
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.135269928 1.097879428 0.135747953
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.597623397 0.837108693 0.126981131
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.643147271 0.662947515 0.129457033
+./data/V19_group1_densified_point_cloud.xyz 8 1 8 10.788857427 1.876814617 0.18134832
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.356423392 1.276473976 0.153834756
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.52432051 0.968112374 0.142366075
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.369537321 0.736588344 0.143741303
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 16 2.383125992 0.316431494 0.234128965
+./data/INAER_2011_Alcoy_Core.xyz 8 1 24 2.001621527 0.266897194 0.220166522
+./data/INAER_2011_Alcoy_Core.xyz 8 1 32 1.723775095 0.233825832 0.214796989
+./data/INAER_2011_Alcoy_Core.xyz 8 1 48 1.622913814 0.210379293 0.210301081
+./data/INAER_2011_Alcoy_Core.xyz 8 1 64 1.4766442 0.196848959 0.215331906
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 16 4.268723467 0.458764161 0.22328952
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 24 3.691915638 0.439927105 0.212352592
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 32 3.503458861 0.37414473 0.209973435
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 48 2.854030896 0.30321189 0.20770537
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 64 2.837819996 0.325455946 0.209866156
+./data/V21_group1_densified_point_cloud.xyz 8 1 16 7.484414147 1.109691467 0.138507996
+./data/V21_group1_densified_point_cloud.xyz 8 1 24 6.621593501 0.943402694 0.130063468
+./data/V21_group1_densified_point_cloud.xyz 8 1 32 5.996790546 0.821411092 0.126443331
+./data/V21_group1_densified_point_cloud.xyz 8 1 48 5.55430397 0.723842076 0.126344824
+./data/V21_group1_densified_point_cloud.xyz 8 1 64 4.652135477 0.680910927 0.128372533
+./data/V19_group1_densified_point_cloud.xyz 8 1 16 8.239049403 1.279035773 0.155978687
+./data/V19_group1_densified_point_cloud.xyz 8 1 24 7.333979106 1.103627534 0.146199213
+./data/V19_group1_densified_point_cloud.xyz 8 1 32 6.926514361 0.947278031 0.142482024
+./data/V19_group1_densified_point_cloud.xyz 8 1 48 6.262642332 0.838781153 0.141314031
+./data/V19_group1_densified_point_cloud.xyz 8 1 64 5.832694526 0.750294912 0.143313228
+
+
+"stage1tbbRem con QtreeG4"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 2.379425655 0.308764593 0.226778194
+./data/INAER_2011_Alcoy_Core.xyz 8 0 24 1.977934114 0.248501465 0.211659685
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.719005433 0.219312184 0.204428078
+./data/INAER_2011_Alcoy_Core.xyz 8 0 48 1.617626654 0.214847467 0.202630497
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.473658385 0.175737905 0.204137111
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 4.279288489 0.476260887 0.214362444
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 24 3.674164702 0.363643115 0.20344372
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.217912853 0.318051672 0.196623073
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 48 2.914303586 0.312733263 0.193047174
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.829880767 0.290289963 0.194545367
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8 3.088617179 0.381083435 0.249903405 99.5892488879041
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 2.367858276 0.319048259 0.226920506 99.4801697544015
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.712713427 0.238339629 0.206263795 99.7238934433215
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.454561574 0.197655314 0.205444225 99.6966236599458
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 4.275716714 0.490644639 0.215590874 99.2008967312699
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.235422639 0.357030845 0.197471296 98.8465432455887
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.64620342 0.272543744 0.194649866 99.1466589528493
+./data/V21_group1_densified_point_cloud.xyz 8 0 8 8.980719954 1.436913739 0.143530938 99.4538388824703
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 7.034028565 1.041088194 0.120246351 99.4958512761265
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 5.444967428 0.793928715 0.104922304 99.4958512761265
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 4.526530584 0.636222662 0.103398733 99.4958512761265
+./data/V19_group1_densified_point_cloud.xyz 8 0 8 10.330454245 1.647284051 0.162626732 99.3257049448304
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 8.031206459 1.196841783 0.133108608 99.3359215365754
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 6.4541462 0.910340511 0.118865594 99.3563547200654
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 5.219966715 0.733432491 0.114887635 99.2950551695954
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.722066241 0.220505436 0.204830585 99.5722052732944
+./data/INAER_2011_Alcoy_Core.xyz 8 0 40 1.697811729 0.233266803 0.204037431 99.4631261397917
+./data/INAER_2011_Alcoy_Core.xyz 8 0 48 1.621354948 0.210743215 0.203438382 99.6881018526409
+./data/INAER_2011_Alcoy_Core.xyz 8 0 56 1.756266231 0.201625961 0.204200009 99.3574557292111
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.436810351 0.186132539 0.204895077 99.0949840642203
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.273164874 0.320854639 0.196940433 99.1575065085334
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 40 3.009866277 0.322625147 0.195207601 99.0671102111658
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 48 2.849236107 0.317901293 0.19388173 99.1864333236911
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 56 2.775511941 0.275480314 0.194154296 99.1285796933758
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.68988977 0.280616006 0.194007203 98.7959213190628
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 5.605099174 0.812458125 0.105191043 99.5063543745405
+./data/V21_group1_densified_point_cloud.xyz 8 0 40 5.326163976 0.764009075 0.103421127 99.4538388824703
+./data/V21_group1_densified_point_cloud.xyz 8 0 48 5.121637616 0.709180904 0.102200594 99.5273605713685
+./data/V21_group1_densified_point_cloud.xyz 8 0 56 4.811880543 0.663020461 0.101958428 99.5168574729545
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 4.602608719 0.652190821 0.101518027 99.5063543745405
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 6.779654036 0.914264379 0.118109678 99.3154883530854
+./data/V19_group1_densified_point_cloud.xyz 8 0 40 6.446167997 0.831992014 0.114516484 99.3154883530854
+./data/V19_group1_densified_point_cloud.xyz 8 0 48 5.812329591 0.824366449 0.113058046 99.2133224356355
+./data/V19_group1_densified_point_cloud.xyz 8 0 56 5.419094212 0.750707034 0.11235058 99.3154883530854
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 5.330154537 0.742549018 0.113563971 99.3052717613404
+
+
+"stage1gpuRem"
+
+./data/INAER_2011_Alcoy_Core.xyz 1 1 8 3.110052918 0.413316471 1.05295571 99.9948869156171
+./data/INAER_2011_Alcoy_Core.xyz 1 1 16 2.342889793 0.29676011 1.040038497 99.9846607468512
+./data/INAER_2011_Alcoy_Core.xyz 1 1 32 1.710516944 0.219599956 1.076328273 99.9403473488657
+./data/INAER_2011_Alcoy_Core.xyz 1 1 64 1.457072697 0.193837503 1.223825338 99.9284168186389
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 16 4.231827805 0.476221754 1.158582967 99.913219554527
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 32 3.198492903 0.329915114 1.250135751 99.8698293317906
+./data/BABCOCK_2017_Arzua_3B.xyz 1 1 64 2.629216006 0.295202551 1.390565323 99.8300549609488
+./data/V21_group1_densified_point_cloud.xyz 1 1 8 9.188514073 1.443919099 0.682697016 100
+./data/V21_group1_densified_point_cloud.xyz 1 1 16 7.131083999 1.044510241 0.664535384 100
+./data/V21_group1_densified_point_cloud.xyz 1 1 32 5.67781319 0.792082283 0.720663762 100
+./data/V21_group1_densified_point_cloud.xyz 1 1 64 4.57074237 0.634608784 0.848633534 100
+./data/V19_group1_densified_point_cloud.xyz 1 1 8 10.464468457 1.646802014 0.722761939 100.010216591745
+./data/V19_group1_densified_point_cloud.xyz 1 1 16 8.256880564 1.192783463 0.698221517 100
+./data/V19_group1_densified_point_cloud.xyz 1 1 32 6.496898967 0.9114412 0.756668304 100
+./data/V19_group1_densified_point_cloud.xyz 1 1 64 5.304082219 0.738278745 0.887348631 100
+
+
+"stage1heterTgMix"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16 2.353618511 0.338505269 0.229370399 99.763093756924
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32 1.711217711 0.234724265 0.205651502 99.2586027644743
+./data/INAER_2011_Alcoy_Core.xyz 8 0 48 1.61410948 0.219160235 0.20231271 99.3915429584306
+./data/INAER_2011_Alcoy_Core.xyz 8 0 64 1.425689551 0.190926727 0.205450027 99.7682068413069
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16 4.693800215 0.46949698 0.224340384 99.4033844373734
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32 3.139374006 0.373650555 0.206801815 99.273213769164
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 48 2.841623666 0.333992942 0.205749199 99.3636100665317
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 64 2.728558524 0.325915638 0.207319842 99.2949088805322
+./data/V21_group1_densified_point_cloud.xyz 8 0 16 7.438644539 1.109700284 0.120677254 99.6008822602668
+./data/V21_group1_densified_point_cloud.xyz 8 0 32 5.635887281 0.838796409 0.108410382 99.6323915555089
+./data/V21_group1_densified_point_cloud.xyz 8 0 48 5.044649286 0.740660086 0.103982495 99.684907047579
+./data/V21_group1_densified_point_cloud.xyz 8 0 64 4.627123313 0.661621042 0.105265794 99.6954101459931
+./data/V19_group1_densified_point_cloud.xyz 8 0 16 8.733934076 1.714013338 0.131669977 99.6424192889252
+./data/V19_group1_densified_point_cloud.xyz 8 0 32 6.431356925 0.961623239 0.118678687 99.6730690641602
+./data/V19_group1_densified_point_cloud.xyz 8 0 48 6.229735573 0.819312894 0.114584964 99.6117695136902
+./data/V19_group1_densified_point_cloud.xyz 8 0 64 5.637417156 0.926616371 0.114224692 99.5913363302002
+
+
+"Ahora con minRadius stage1heterTgMix"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.100000001490116 0 6.135797043 0.970689986 0.398434842 99.6131099483578
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.200000002980232 0 3.012446991 0.465276981 0.267154155 99.5943619722871
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.300000011920929 0 1.776751994 0.259847965 0.215736097 99.5278918753089
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.400000005960464 0 1.785361594 0.232645773 0.219383723 99.7784330100728
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.100000001490116 0 5.840721027 0.778818571 0.286715136 99.2949088805322
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.200000002980232 0 3.351132888 0.433925089 0.211554441 99.211744286954
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.300000011920929 0 2.189640422 0.268273517 0.206440871 98.5862019091698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.400000005960464 0 2.28645737 0.246933896 0.207279738 99.237055250217
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.100000001490116 0 5.484120302 0.757663128 0.105328695 99.4958512761265
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.200000002980232 0 3.490972003 0.554184818 0.114318629 99.6113853586808
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.300000011920929 0 3.512781808 0.56422398 0.112203292 99.5798760634387
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.400000005960464 0 2.470418364 0.504876794 0.152558262 99.5588698666106
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.100000001490116 0 6.491770099 0.927680497 0.113279348 99.4993870044953
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.200000002980232 0 3.875590707 0.623339955 0.128877426 99.4687372292603
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.300000011920929 0 3.910039858 0.633705582 0.123468152 99.4585206375153
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.400000005960464 0 2.789179847 0.563010628 0.18160359 99.4687372292603
+
+
+"stage1hetertg con minRadius"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.1 0 6.02615 0.923285 0.421686 100
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.2 0 3.02277 0.458001 0.27922 99.9966
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.3 0 1.78021 0.252477 0.232767 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.4 0 1.76419 0.244915 0.228905 99.9915
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.1 0 6.07258 0.891254 0.321733 99.9892
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.2 0 3.36478 0.382823 0.238017 99.9096
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.3 0 2.19313 0.267216 0.243225 99.8337
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.4 0 2.19092 0.253999 0.242413 99.8337
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.1 0 5.59111 0.762108 0.132452 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.2 0 3.48163 0.551123 0.149082 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.3 0 3.9004 0.648497 0.150579 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.4 0 2.4673 0.501708 0.222148 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.1 0 7.04447 0.813174 0.148481 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.2 0 4.00313 0.620382 0.172183 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.3 0 4.30293 0.60234 0.171144 99.9898
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.4 0 2.77923 0.5582 0.269812 100
+
+
+"stage1heter2q con medSize"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 16 2.338664 0.299720 1.317198 99.9847
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 1.707118 0.238356 1.034446 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 1.604872 0.204399 1.136074 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 1.416230 0.179274 1.349936 99.9284
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 16 4.235982 0.448608 1.409339 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 3.180072 0.363006 1.251721 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 2.904288 0.318964 1.121402 99.8409
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 2.645985 0.295076 1.344856 99.8301
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 16 6.913740 1.046565 0.796285 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 5.383875 0.778159 0.708474 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 4.893680 0.696628 0.680476 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 4.492000 0.632233 0.705580 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 16 7.950409 1.185021 0.916310 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 6.305689 0.890071 0.817349 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 5.666194 0.792967 0.730534 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 5.136096 0.714055 0.889432 100
+
+
+"stage1heter2q con minRadius"
+
+data/INAER_2011_Alcoy.xyz 2 1 1 32 0.108370 0.018115 1.379176 100
+data/INAER_2011_Alcoy.xyz 2 1 1 32 0.132614 0.020410 1.629905 100
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.1 0 5.924883 0.933017 3.113358 100
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.2 0 2.947828 0.454008 1.777790 99.9966
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.3 0 1.730998 0.247470 1.650414 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0.4 0 1.747334 0.243856 1.374895 99.9915
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.1 0 6.155053 0.840313 2.164316 99.9892
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.2 0 3.260731 0.379970 1.398203 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.3 0 2.201188 0.238542 1.566489 99.8337
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0.4 0 2.191281 0.246558 1.409386 99.8337
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.1 0 5.392623 0.730801 0.773184 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.2 0 3.354316 0.526739 0.776067 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.3 0 3.388528 0.533368 0.971967 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0.4 0 2.396429 0.473736 1.440203 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.1 0 5.886336 0.805458 0.887983 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.2 0 3.810795 0.606272 0.930295 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.3 0 3.777676 0.602456 0.930403 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0.4 0 2.703663 0.554337 1.793555 100
+
+
+"stage1s minRadius"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 1 0 0.1 0 5.945182 0.917568 3.062308 100
+./data/INAER_2011_Alcoy_Core.xyz 1 0 0.2 0 2.953791 0.405666 1.901290 99.9966
+./data/INAER_2011_Alcoy_Core.xyz 1 0 0.3 0 1.737093 0.257903 1.513285 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 1 0 0.4 0 1.760976 0.260253 1.520640 99.9915
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 0.1 0 5.736777 0.753277 2.292265 99.9892
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 0.2 0 3.320649 0.443883 1.725470 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 0.3 0 2.180708 0.266973 1.788180 99.8337
+./data/BABCOCK_2017_Arzua_3B.xyz 1 0 0.4 0 2.180628 0.250765 1.752083 99.8337
+./data/V21_group1_densified_point_cloud.xyz 1 0 0.1 0 5.308756 0.736443 0.893485 100
+./data/V21_group1_densified_point_cloud.xyz 1 0 0.2 0 3.362383 0.531945 1.029344 100
+./data/V21_group1_densified_point_cloud.xyz 1 0 0.3 0 3.396896 0.529629 1.036313 100
+./data/V21_group1_densified_point_cloud.xyz 1 0 0.4 0 2.405796 0.473914 1.521203 100
+./data/V19_group1_densified_point_cloud.xyz 1 0 0.1 0 5.879962 0.806614 0.991088 100
+./data/V19_group1_densified_point_cloud.xyz 1 0 0.2 0 3.758325 0.595214 1.165511 100
+./data/V19_group1_densified_point_cloud.xyz 1 0 0.3 0 3.786206 0.598411 1.176705 100
+./data/V19_group1_densified_point_cloud.xyz 1 0 0.4 0 2.703672 0.551797 1.798625 100
+
+
+"tiempo de creacion paralelo"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.228940 0.369028 1.848031 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.456476 0.366227 1.847765 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.813736 0.356318 1.904957 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 11.695347 0.356401 1.846322 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.852722 0.276830 1.669027 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.282479 0.276284 1.672454 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.402613 0.270634 1.669758 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 12.024088 0.267825 1.670771 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.606572 0.208115 1.502317 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1.072587 0.205626 1.498956 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.188153 0.202613 1.501953 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 11.139445 0.197312 1.501578 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.497069 0.190771 1.481209 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 1.006568 0.186960 1.485335 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.192915 0.185925 1.481744 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 10.414863 0.182539 1.482393 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.499945 0.168839 1.503198 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.962952 0.165557 1.507977 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.169639 0.164829 1.507156 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 11.449830 0.164550 1.509878 99.925
+
+
+"igual, pero usando scalable_allocator para los puntos, no para los nodos"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.125157 0.371206 1.861099 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.412111 0.366217 1.869306 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.601903 0.358806 1.864038 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 12.189970 0.352369 1.895827 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.811287 0.284810 1.694708 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.268136 0.278500 1.682063 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.438780 0.271644 1.684442 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 11.811122 0.265993 1.692130 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.618092 0.208128 1.519203 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1.051959 0.204111 1.510023 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.243832 0.198113 1.515994 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 10.958643 0.195000 1.511989 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.560085 0.190612 1.498070 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 1.025316 0.185658 1.501893 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.383356 0.181633 1.507121 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 11.500067 0.177478 1.503883 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.514940 0.169387 1.514819 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.993211 0.165876 1.520404 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.100217 0.163342 1.523176 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 10.428577 0.159366 1.520384 99.925
+
+
+"ahora usan ademas malloc_proxy"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 0.942800 0.374895 1.882458 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.325027 0.371296 1.883266 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.621629 0.360587 1.889352 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 12.093820 0.348970 1.881181 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.728246 0.328398 1.701775 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.116650 0.281150 1.697255 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.465244 0.274238 1.699691 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 11.471097 0.268043 1.698574 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.577815 0.206990 1.519701 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1.090047 0.204993 1.520616 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.550024 0.201303 1.525210 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 11.085558 0.196476 1.520284 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.553928 0.189513 1.500814 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.961160 0.200094 1.500066 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.132011 0.180172 1.501837 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 10.957131 0.179589 1.501233 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.494503 0.169304 1.523893 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.944855 0.168115 1.525014 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.261252 0.161691 1.523680 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 10.271831 0.161408 1.525302 99.925
+
+
+"quito scalable_allocator y uso malloc_proxy"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 0.961254 0.385175 1.862901 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.365456 0.379655 1.862572 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.628432 0.364363 1.856817 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 12.179686 0.365825 1.867042 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.753802 0.299336 1.681556 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.157162 0.287096 1.677456 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.580274 0.286340 1.682500 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 11.888292 0.280006 1.681927 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.546696 0.221231 1.511231 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.998514 0.211599 1.505662 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.217691 0.211116 1.509722 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 10.573806 0.203152 1.506522 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.518914 0.198809 1.490852 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 1.001499 0.197850 1.495560 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.163235 0.188808 1.490037 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 11.422877 0.185960 1.491468 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.500060 0.176689 1.520396 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 1.020550 0.172736 1.522976 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.037154 0.168975 1.519915 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 10.829797 0.166704 1.523962 99.925
+
+
+"cache_aligned_allocator sin isLeaf en la llamada recursiva"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 0.885690 0.465879 1.851943 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.390844 0.461311 1.844685 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.756877 0.451042 1.844128 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 12.644219 0.442072 1.844034 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.771996 0.331388 1.668700 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.243732 0.324719 1.671505 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.414401 0.315912 1.667318 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 11.830912 0.312275 1.676885 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.564014 0.227100 1.498566 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1.081795 0.224334 1.501072 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.137208 0.217031 1.499582 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 11.774238 0.212389 1.503079 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.542418 0.208254 1.486180 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.982920 0.198777 1.479928 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.181286 0.198839 1.487133 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 10.973528 0.190494 1.483014 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.463281 0.179077 1.506818 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.912412 0.176150 1.505307 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.212238 0.171161 1.508380 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 10.486965 0.168319 1.504301 99.925
+
+
+"ahora solo con cache_aligned_allocator"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.361302 0.473560 1.846573 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 1.493563 0.471375 1.844484 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 3.871281 0.462866 1.844244 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 8 12.464987 0.461016 1.866532 99.9915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 0.925265 0.341098 1.688450 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 1.229271 0.336997 1.672437 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 3.341231 0.329454 1.682772 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 16 12.348518 0.321663 1.681136 99.9813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.618243 0.237592 1.501741 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1.097059 0.236298 1.505657 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.250307 0.227778 1.501319 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 11.332588 0.227636 1.507884 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.548830 0.212854 1.484602 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 1.027926 0.211891 1.488577 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.440385 0.207992 1.496519 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 10.843687 0.199809 1.488586 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.492491 0.191072 1.519149 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.957027 0.185761 1.518130 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.363788 0.179073 1.516859 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 10.912066 0.178963 1.522071 99.925
+
+
+"solo malloc_proxy para tamaños más grandes de maxSize"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.474383 0.179677 0.224166 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.489069 0.180280 0.224998 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.967639 0.173210 0.227986 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.164442 0.169270 0.224178 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 10.853481 0.170355 0.224919 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.440897 0.137974 0.243515 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.999453 0.157283 0.244805 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.027656 0.134380 0.242806 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 9.492999 0.135995 0.246226 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.386709 0.124535 0.274030 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.956226 0.125302 0.274153 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.161674 0.121562 0.274238 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 8.828515 0.123363 0.273966 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.401623 0.124113 0.262581 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.375109 0.124313 0.262297 99.8193
+
+
+"task_group y tbbmalloc_proxy"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.512880 0.240469 0.221935 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 1.005117 0.195454 0.224022 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 3.405800 0.214557 0.221617 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 10.630923 0.186300 0.221572 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.468313 0.179501 0.227787 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 1.005588 0.176386 0.228773 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.434288 0.172203 0.226817 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 10.494451 0.167503 0.227783 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.389834 0.140938 0.240781 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.963038 0.147661 0.241059 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.165802 0.137499 0.240875 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 8.748834 0.154636 0.242783 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.371496 0.131605 0.279774 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.962407 0.139108 0.276154 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.289900 0.121577 0.276404 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 8.005141 0.127876 0.276384 99.8193
+
+
+"task_group y tbbmalloc_proxy con copia del puntero"
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.583785 0.196505 0.222499 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.492609 0.194191 0.222984 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 1.032875 0.187888 0.222576 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 3.340535 0.208408 0.224732 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 10.314438 0.208800 0.223134 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.526624 0.202326 0.226791 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.448883 0.168782 0.228960 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.966049 0.167963 0.227052 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.174289 0.161960 0.227847 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 9.398968 0.188729 0.227127 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.406743 0.135197 0.243919 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.396146 0.135415 0.247553 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.925363 0.133465 0.244664 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.353253 0.150362 0.245357 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 8.423657 0.130052 0.244424 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.384923 0.137519 0.279370 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.389236 0.129092 0.279631 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.969801 0.135124 0.276219 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.080254 0.124578 0.275520 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 8.578402 0.119915 0.279057 99.8193
+
+
+"stage1one, con parallel_qtree_copy TG y malloc_proxy"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.494886 0.222115 0.262196 97.8048
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 0.975292 0.211744 0.260238 98.1508
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3.379846 0.214756 0.261416 97.8627
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.479478 0.202472 0.259727 98.945
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 0.929655 0.200289 0.260067 98.4473
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 48 3.256180 0.191003 0.261931 98.6791
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.437095 0.180409 0.265742 98.2871
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 0.987715 0.172652 0.265782 98.2377
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3.214038 0.173227 0.266461 98.7081
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 32 0.813910 0.343151 0.285330 99.642
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 32 2.166318 0.403536 0.286250 99.4251
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 32 8.062324 0.336908 0.284275 99.4504
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 48 0.727053 0.296264 0.280929 99.3636
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 48 2.013336 0.293266 0.282879 99.1684
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 48 7.757396 0.292216 0.281996 99.2045
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 64 0.738216 0.298195 0.286023 99.1611
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 64 2.120831 0.284058 0.284079 99.2009
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 64 7.254532 0.273932 0.287090 99.5553
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 32 1.125844 0.808128 0.164673 99.8635
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 32 2.227831 0.775759 0.164839 99.8635
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 32 7.634178 0.733252 0.165405 99.8845
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 48 1.094696 0.694564 0.163503 99.874
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 48 2.186713 0.685355 0.162914 99.8214
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 48 7.683013 0.658615 0.163529 99.874
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 64 1.045374 0.647632 0.161228 99.916
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 64 2.197924 0.636460 0.164550 99.8635
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 64 7.498654 0.617940 0.162037 99.7269
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 32 1.340018 0.906487 0.180569 99.8161
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 32 2.537800 0.901314 0.181639 99.9387
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 32 8.727732 0.850556 0.181476 99.7446
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 48 1.268894 0.804469 0.179124 99.6833
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 48 2.458064 0.781660 0.181178 99.9183
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 48 8.629084 0.751975 0.178331 99.8263
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 64 1.233406 0.730013 0.178448 99.7957
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 64 2.461382 0.725492 0.181315 99.8978
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 64 8.584138 0.704009 0.178748 99.8059
+
+
+stage1heterOne
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 0.490152 0.224477 0.245483 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.486539 0.200437 0.246237 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.441406 0.176873 0.249714 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.381774 0.155788 0.268936 99.8466
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 0.809267 0.340469 0.263708 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 0.737913 0.294943 0.265734 99.8156
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 0.716781 0.326202 0.270331 99.8047
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 128 0.661564 0.228490 0.301169 99.624
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 1.153692 0.788923 0.158957 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 1.108661 0.690014 0.159331 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 1.048095 0.640902 0.162934 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 128 0.961957 0.544333 0.179951 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 1.351138 0.906671 0.173535 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 1.277348 0.784726 0.175812 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 1.241773 0.724595 0.181555 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 128 1.190759 0.621071 0.193038 100
+
+
+"stage1heterone con creacionTG y AlcoyX2"
+
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 1.172212 0.425356 0.343614 -1
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 1.047430 0.367878 0.354519 -1
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 0.961456 0.334795 0.352789 -1
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 0.876419 0.287471 0.387686 -1
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 1.155715 0.428310 0.343765 99.9608
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 1.028220 0.367207 0.349779 99.9284
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 1.000098 0.336084 0.354022 99.9165
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 0.869153 0.330037 0.382606 99.9046
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 1.165957 0.422225 0.343571 99.9608
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 1.032837 0.389876 0.347904 99.9284
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 0.987996 0.331491 0.352083 99.9165
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 0.889046 0.289167 0.383885 99.9046
+
+
+"estos tiempos es solo para comprobar si varia algo con TG"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.607253 0.193516 0.504001 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.493310 0.195630 0.503575 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.968814 0.186166 0.504503 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 3.366244 0.188546 0.504932 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 10.743335 0.188314 0.499269 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 25.730712 0.184873 0.508194 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.538328 0.197091 0.506486 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.453827 0.194895 0.511497 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.968650 0.164952 0.515161 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.361228 0.164306 0.510450 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 9.723241 0.166559 0.514256 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 25.612575 0.159726 0.508565 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.489481 0.166926 0.550495 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.406991 0.133759 0.544819 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.974041 0.131366 0.535821 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.329785 0.137513 0.544376 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 9.015214 0.134478 0.538380 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 24.449913 0.127834 0.547256 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.379461 0.121994 0.611898 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.399669 0.121292 0.575115 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.930402 0.124356 0.572563 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.334519 0.120776 0.573747 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 8.434694 0.117549 0.576694 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 26.204420 0.130813 0.570510 99.8193
+
+
+"lo primero que he cambiado es que ahora utilizo un constructor"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.579538 0.205390 0.248188 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.485737 0.200160 0.245654 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 1.004924 0.220638 0.246395 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 3.373106 0.201068 0.246735 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 10.271358 0.218743 0.246209 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 26.393962 0.212101 0.246969 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.527734 0.193676 0.251812 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.444588 0.178027 0.251706 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 1.000173 0.202342 0.251158 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.294357 0.178139 0.252347 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 10.147260 0.196202 0.251213 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 27.632957 0.184031 0.253001 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.403138 0.160459 0.265604 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.378566 0.138484 0.264680 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.980055 0.149229 0.263455 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.205298 0.140199 0.263976 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 9.236733 0.137995 0.264497 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 23.954202 0.138418 0.264004 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.377639 0.126440 0.283896 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.376904 0.125942 0.281954 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.926543 0.136326 0.281699 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.239965 0.133064 0.284427 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 8.954153 0.135624 0.282496 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 25.131659 0.126170 0.284452 99.8193
+
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.487808 0.201977 0.225353 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 0.978576 0.194968 0.221526 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 3.334548 0.191489 0.220806 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.447974 0.177865 0.225567 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 0.995840 0.200369 0.225249 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3.377334 0.176003 0.225214 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.380123 0.149501 0.237891 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 0.919833 0.140952 0.236181 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3.251263 0.140601 0.237520 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.376518 0.124593 0.256512 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 0.943778 0.122944 0.256031 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3.051745 0.135789 0.256621 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 0.337376 0.113993 0.303121 99.758
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 0.903306 0.113229 0.301936 99.758
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 3.069001 0.125048 0.302821 99.758
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 1024 0.344253 0.106835 0.347721 99.729
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 1024 0.926959 0.116739 0.346996 99.729
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 1024 2.998353 0.110731 0.346893 99.729
+
+
+"stage1hetertg, creacionTG, AlcoyX2"
+
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 1.141392 0.419932 0.301317 99.9608
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 2.234273 0.408624 0.300654 99.9608
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 32 7.213158 0.456921 0.301734 99.9608
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 1.006160 0.364552 0.306133 99.9284
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 2.148554 0.379117 0.305451 99.9284
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 48 7.165325 0.361928 0.307260 99.9284
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 0.952747 0.331263 0.306968 99.9165
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 2.123338 0.342608 0.307440 99.9165
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 64 6.845826 0.327604 0.308702 99.9165
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 0.876397 0.286236 0.329008 99.9046
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 2.068108 0.279758 0.327832 99.9046
+./data/INAER_2011_Alcoy_CoreX2.xyz 8 1 0 128 7.043327 0.292254 0.328182 99.9046
+
+
+"stage1hetertg, creacionTG, AlcoyX3"
+
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 24 1.981338 0.705200 0.348311 99.971
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 24 3.362096 0.681107 0.347365 99.971
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 32 1.867848 0.662228 0.346374 99.971
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 32 3.482501 0.626146 0.348014 99.971
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 48 1.703452 0.567879 0.360860 99.9608
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 48 3.372051 0.554107 0.358548 99.9608
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 64 1.569617 0.513941 0.372511 99.9318
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 64 3.325627 0.502031 0.374511 99.9318
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 128 1.375199 0.456693 0.391487 99.9148
+./data/INAER_2011_Alcoy_CoreX3.xyz 8 1 0 128 3.174698 0.438838 0.390464 99.9148
+
+
+"stage1hetertg, creacionTG, AlcoyX4"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2.706543 0.944378 0.392114 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 4.880123 0.913378 0.393060 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2.546513 0.835782 0.386059 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 4.542507 0.830152 0.386984 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2.397907 0.791047 0.394674 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 4.415968 0.765776 0.395621 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2.197467 0.734556 0.410652 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 4.572323 0.717166 0.410622 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 1.874750 0.604888 0.447516 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 4.293967 0.587241 0.450370 99.9165
+
+"stage1hetertg, creacion_pf, AlcoyX4, para comparar la creacion"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 3.068490 0.931208 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 4.795357 0.882613 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2.794611 0.842038 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 4.762058 0.797113 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2.594263 0.781102 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 4.544443 0.739048 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2.290939 0.693046 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 4.406403 0.675722 
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 1.979608 0.599181
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 4.376768 0.594878
+
+
+"stage1s, alcoyX4, creacion_tg"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 24 2 11.663453 0.944570 2.857065 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 24 3 17.925190 0.943353 2.860003 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 32 2 10.567402 0.843602 2.807344 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 32 3 16.792152 0.824429 2.816992 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 48 2 9.817208 0.752795 2.865686 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 48 3 16.065424 0.733057 2.865008 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 64 2 8.782346 0.688203 2.996335 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 64 3 14.966070 0.673092 2.991479 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 128 2 7.268943 0.654400 3.321865 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 0 0 128 3 13.682323 0.594924 3.309568 99.9165
+
+
+"stage1gpu, alcoyX4, creacion_tg"
+"con 8 y 12 no se puede"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 24 2 11.642578 0.983754 2.113294 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 24 3 17.952583 0.903937 2.125766 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 32 2 10.514702 0.851924 2.185536 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 32 3 16.720071 0.814151 2.171290 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 48 2 9.888022 0.766477 2.358038 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 48 3 16.110483 0.855934 2.351439 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 64 2 8.889807 0.715747 2.603554 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 64 3 15.000979 0.710647 2.586764 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 128 2 7.332045 0.662020 3.249567 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 1 1 0 128 3 13.620679 0.609375 3.240810 99.9165
+
+
+"stage1reduce, alcoyX4, creacion_tg"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 24 2 2.769027 0.910573 0.398190 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 24 3 4.819318 0.887381 0.399388 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 32 2 2.526950 0.840197 0.391698 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 32 3 4.759131 0.801537 0.390803 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 48 2 2.392709 0.760500 0.397798 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 48 3 4.665887 0.742236 0.400520 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 64 2 2.175830 0.695521 0.414511 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 64 3 4.552004 0.677506 0.411739 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 128 2 1.842670 0.585886 0.447348 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 128 3 4.332319 0.602518 0.447352 99.9165
+
+
+"stage1heterAcc, alcoyX4, creacion_tg"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2 2.680596 1.668727 0.468876 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 3 4.889176 1.635643 0.472891 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2 2.502763 1.540375 0.451337 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 3 4.771150 1.531394 0.479067 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2 2.364128 1.505314 0.456876 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 3 4.563090 1.429182 0.451967 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2 2.176872 1.355995 0.460242 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 3 4.566756 1.352395 0.463342 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 2 1.858756 1.216362 0.489668 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 3 4.359866 1.201044 0.486544 99.9165
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2 2.730210 1.654560 0.478230 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 3 4.681902 1.624302 0.480800 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2 2.550706 1.537618 0.457441 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 3 4.602689 1.507677 0.482375 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2 2.400654 1.439401 0.453381 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 3 4.674726 1.436456 0.457607 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2 2.160627 1.363284 0.460880 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 3 4.541748 1.333328 0.468817 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 2 1.896834 1.207338 0.496776 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 3 4.351104 1.217079 0.488431 99.9165
+
+
+"stage1heterOne, alcoyX4, creacion_tg"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2 2.733068 0.924523 0.473821 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 3 4.862576 0.886288 0.475302 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2 2.531203 0.832316 0.469604 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 3 4.853341 0.823343 0.464296 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2 2.417556 0.760304 0.474716 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 3 4.670265 0.747666 0.474283 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2 2.178002 0.714033 0.491921 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 3 4.443602 0.696524 0.492734 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 2 1.938491 0.591672 0.541368 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 3 4.341392 0.603067 0.546318 99.9165
+
+
+"stage1hetertg, creation_tg"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.492884 0.214153 0.222195 0.24 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 2 0.497188 0.191487 0.219864 0.24 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.455781 0.173960 0.224499 0.21 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.399583 0.136163 0.237488 0.16 99.8466
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 2 0.793882 0.336282 0.222571 0.15 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 2 0.748649 0.291633 0.221479 0.13 99.8156
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 2 0.708738 0.273371 0.224703 0.12 99.8047
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 128 2 0.670034 0.223426 0.246755 0.08 99.624
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 2 1.151890 0.788118 0.133862 0.09 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 2 1.095107 0.693090 0.133009 0.16 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 2 1.046561 0.640438 0.133136 0.07 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 128 2 0.958866 0.545021 0.145167 0.06 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 2 1.370734 0.920807 0.147859 0.06 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 2 1.371944 0.790627 0.144239 0.07 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 2 1.236835 0.729915 0.145048 0.08 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 128 2 1.117706 0.630681 0.157883 0.07 100
+
+
+"stage1hetertg, creacionTG, AlcoyX4"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2 2.683004 0.959239 0.390823 0.2 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2 2.528283 0.824656 0.386049 0.2 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2 2.395621 0.776694 0.394531 0.12 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2 2.150675 0.709774 0.415067 0.07 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 2 1.879017 0.600565 0.449798 0.13 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 256 2 1.779298 0.533345 0.498034 0.1 99.9046
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 512 2 1.620621 0.492546 0.595815 0.06 99.8262
+
+
+"stage1heterOne, creacionTG, AlcoyX4"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 24 2 2.707059 0.937967 0.480234 0.24 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 32 2 2.534614 0.899519 0.470565 0.21 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 48 2 2.399956 0.777137 0.479073 0.23 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 64 2 2.180692 0.707982 0.497131 0.21 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 128 2 1.908815 0.602425 0.543540 0.21 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 256 2 1.847853 0.542843 0.597488 0.07 99.9046
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 1 0 512 2 1.638198 0.535863 0.693368 0.11 99.8262
+
+"stage1reduce, creacionTG, AlcoyX4"
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 24 2 2.698948 0.919019 0.400227 0 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 32 2 2.513453 0.845139 0.394738 0 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 48 2 2.385096 0.783033 0.397301 0 99.971
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 64 2 2.169737 0.718334 0.411362 0 99.9608
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 128 2 1.886885 0.599749 0.446414 0 99.9165
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 256 2 1.782562 0.563091 0.492692 0 99.9046
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 0 512 2 1.688392 0.481817 0.589782 0 99.8262
+
+
+"stage1reduce, creacionTG, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 32 2 4.229875 1.282517 0.464813 0 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 32 3 7.449370 1.262019 0.465237 0 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 2 3.666742 1.071071 0.464870 0 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 3 7.215611 1.055753 0.465009 0 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 128 2 3.025913 0.917261 0.538837 0 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 128 3 6.783435 0.905639 0.538341 0 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 256 2 2.795039 0.850911 0.585492 0 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 256 3 6.603923 0.830200 0.584946 0 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 2 2.592256 0.748248 0.725259 0 99.8619
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 3 6.574261 0.746264 0.726138 0 99.8619
+
+
+"stage1hetertg, creacionTG, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 4.192018 1.295782 0.461560 0.04 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.679915 1.075221 0.461740 0.06 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 3.060958 0.921485 0.536627 0.06 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.852361 0.843574 0.586891 0.06 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.590982 0.751986 0.734291 0.05 99.8619
+
+
+"stage1heterOne, creacionTG, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 4.277959 1.301714 0.581824 0.21 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.679725 1.098201 0.589816 0.21 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 3.056220 0.921984 0.668231 0.11 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.802718 0.856927 0.727106 0.05 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.640326 0.763579 0.874823 0.07 99.8619
+
+
+"stage1heterAcc, creacionTG, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 4.222570 2.385864 0.571991 0.06 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.639858 2.098891 0.541787 0.03 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 3.012806 1.863218 0.597467 0.03 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.861551 1.765012 0.636922 0.04 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.598088 1.639894 0.790794 0.04 99.8619
+
+
+"stage1hetertg, creacionTG, AlcoyX6 usando tbb::internal::atomic"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 3.972359 1.193628 0.462927 0.05 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.492720 1.033175 0.466127 0.06 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 2.853578 0.901286 0.545767 0.05 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.820811 0.824561 0.601534 0.06 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.503605 0.747189 0.762858 0.04 99.8619
+
+
+"stage1hetertg, creacionTG, AlcoyX6 usando tbb::internal::atomic y global_tg"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 3.955872 1.244311 0.462875 0.06 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.455647 1.046471 0.466144 0.06 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 2.870293 0.927362 0.550667 0.06 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.723419 0.859797 0.603190 0.04 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.497764 0.753674 0.758207 0.05 99.8619
+
+
+
+"stage1reduce, creation_tg, alcoyX6, std::atomic y global_tg"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 32 2 3.884630 1.218211 0.467255 0.21 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 2 3.355499 1.049141 0.467542 0.12 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 128 2 2.809316 0.920443 0.536136 0.2 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 256 2 2.725544 0.840053 0.585222 0.17 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 2 2.467763 0.793060 0.733624 0.05 99.8619
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 1024 2 2.441573 0.706929 0.857231 0.12 99.8159
+
+
+"Tiempos de recorrido de la nube sin crear nada, con creacion_tg, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 1 0.000063 0.000000 0.001168 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 2 0.000068 0.000001 0.001180 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 3 0.000077 0.000002 0.001178 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 4 0.000101 0.000005 0.001183 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 5 0.000248 0.000018 0.001176 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 6 0.000751 0.000070 0.001183 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 7 0.003665 0.000297 0.001185 0.2 0
+
+
+"Tiempos de recorrido de la nube sin crear nada, con creacion_pf, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 1 0.000070 0.000001 0.001169 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 2 0.000073 0.000001 0.001186 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 3 0.000079 0.000002 0.001177 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 4 0.000102 0.000005 0.001175 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 5 0.000133 0.000018 0.001175 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 6 0.000232 0.000069 0.001168 0.2 0
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 64 7 0.000616 0.000301 0.001175 0.2 0
+
+
+"stage1hetertg, creacion_búsqueda, alcoy, std::atomic y global_tg"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 1 0.626101 0.215511 0.396305 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.521443 0.242289 0.391172 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 3 1.014863 0.203302 0.394651 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 4 3.172250 0.199536 0.395323 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 5 9.139898 0.200926 0.394378 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 6 26.154803 0.198881 0.404556 0.2 6.6828
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 7 104.986074 0.194838 0.390112 0.2 6.6828
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 1 0.596336 0.229676 0.535319 0.2 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.513519 0.197834 0.536169 0.2 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 3 1.024716 0.222893 0.533655 0.2 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 4 3.163773 0.194863 0.535772 0.2 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 5 10.937841 0.191573 0.534775 0.2 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 1 0.606193 0.202814 0.546746 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.467778 0.163714 0.548750 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3 1.007417 0.172176 0.556301 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 4 3.236038 0.182505 0.548693 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 5 9.203256 0.155147 0.546108 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 1 0.433367 0.140082 0.573728 0.2 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.425557 0.162108 0.578034 0.2 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3 0.966521 0.128840 0.577948 0.2 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 4 3.020129 0.145227 0.577866 0.2 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 5 9.437772 0.144267 0.583153 0.2 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 1 0.417095 0.133506 0.604493 0.2 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 2 0.415578 0.119160 0.608699 0.2 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3 0.953871 0.118039 0.607858 0.2 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 4 3.091260 0.117112 0.606122 0.2 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 5 7.950143 0.117120 0.608297 0.2 99.8193
+
+
+"el metodo de creacion_busqueda solo con la búsqueda, sin terminar de insertar"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1 0.108465 0.078187 16.755820 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 2 0.205908 0.075824 7.583564 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3 0.828065 0.080024 2.536808 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 4 1.702917 0.081694 0.677158 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 5 5.400708 0.086715 0.184642 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 1 0.107648 0.078659 17.523782 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 2 0.226905 0.077020 6.911896 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3 0.656415 0.079481 2.595383 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 4 1.362428 0.079606 0.673132 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 5 5.927614 0.083378 0.182642 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 1 0.106271 0.078296 15.884726 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 2 0.221233 0.076230 6.956455 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 3 0.814193 0.080037 2.541688 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 4 1.535831 0.079438 0.678768 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 5 5.859977 0.086637 0.185849 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 1 0.103918 0.078526 17.703713 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 2 0.207360 0.075872 7.156019 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 3 0.767235 0.080077 2.499796 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 4 1.465987 0.081723 0.691686 0.2 4.48758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 5 5.436792 0.084181 0.185782 0.2 4.48758
+
+"stage1hetertg, creacion_busqueda"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.517604 0.212162 0.220082 0.24 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 2 0.493390 0.182554 0.219216 0.24 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.482463 0.178451 0.224136 0.22 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.412391 0.131048 0.238717 0.21 99.8466
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 2 0.865484 0.328001 0.220398 0.16 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 2 0.823127 0.278693 0.221691 0.11 99.8156
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 2 0.779264 0.263940 0.224047 0.08 99.8047
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 128 2 0.762020 0.220805 0.247150 0.07 99.624
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 2 1.242969 0.732338 0.132844 0.13 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 2 1.201619 0.651854 0.131589 0.08 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 2 1.152189 0.605163 0.132485 0.08 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 128 2 1.098588 0.524327 0.144931 0.08 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 2 1.433310 0.844940 0.147415 0.07 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 2 1.369421 0.744690 0.146627 0.16 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 2 1.316419 0.691150 0.145653 0.09 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 128 2 1.240398 0.605924 0.161415 0.09 100
+
+
+"stage1hetertg, creacion_pf"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.513635 0.202977 0.220231 0.24 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 2 0.426413 0.209440 0.219911 0.24 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.440328 0.186112 0.225681 0.23 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.378748 0.144324 0.239829 0.21 99.8466
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 2 0.904280 0.320048 0.223014 0.16 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 2 0.797245 0.280000 0.222747 0.15 99.8156
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 2 0.742842 0.311765 0.225971 0.11 99.8047
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 128 2 0.762332 0.241849 0.249908 0.08 99.624
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 2 1.253754 0.734717 0.136338 0.16 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 2 1.216110 0.652988 0.131572 0.1 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 2 1.097649 0.604979 0.134898 0.06 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 128 2 0.905776 0.526230 0.145545 0.07 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 2 1.560709 0.841880 0.147952 0.09 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 2 1.013696 0.740909 0.145571 0.1 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 2 1.201813 0.689930 0.144807 0.09 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 128 2 0.899481 0.608803 0.157723 0.08 100
+
+"stage1hetertg, creacion_pf utilizando la forma de creacion_busqueda de guardar los puntos antes"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.572460 0.208338 0.221224 0.24 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 48 2 0.570545 0.192406 0.220326 0.24 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.503325 0.171444 0.226288 0.2 99.925
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.425640 0.153001 0.241404 0.19 99.8466
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 32 2 1.010227 0.367009 0.223287 0.16 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 48 2 0.884640 0.288638 0.222711 0.15 99.8156
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 64 2 0.841222 0.271475 0.226995 0.09 99.8047
+./data/BABCOCK_2017_Arzua_3B.xyz 8 1 0 128 2 0.822559 0.225157 0.252880 0.12 99.624
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 32 2 1.264279 0.749774 0.133699 0.07 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 48 2 1.211181 0.668182 0.131976 0.06 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 64 2 1.201269 0.615395 0.135270 0.08 100
+./data/V21_group1_densified_point_cloud.xyz 8 1 0 128 2 1.039490 0.534589 0.145605 0.06 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 32 2 1.382708 0.870069 0.147301 0.08 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 48 2 1.589599 0.759073 0.148287 0.09 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 64 2 1.367447 0.705067 0.146818 0.08 100
+./data/V19_group1_densified_point_cloud.xyz 8 1 0 128 2 1.170492 0.616794 0.159619 0.08 100
+
+
+"stage1hetertg, creacion_pf, alcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 4.356229 1.294959 0.466003 0.15 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.791005 1.062248 0.475475 0.09 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 3.001009 0.973380 0.548579 0.07 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 2.734033 0.823416 0.605986 0.07 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.439440 0.752948 0.754369 0.06 99.8619
+
+
+"stage1hetertg, creacion_busqueda, alcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 32 2 4.195292 1.239740 0.465137 0.09 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 64 2 3.726674 1.072681 0.470372 0.08 99.971
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 128 2 3.296134 0.916214 0.550255 0.08 99.9318
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 256 2 3.068815 0.851933 0.607917 0.08 99.9148
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 1 0 512 2 2.871264 0.747244 0.755936 0.06 99.8619
+
+
+"stage1hetertg, creacion_pf2"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 1 1.267537 0.384326 0.225532 0.18 99.9421
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 2 0.879065 0.378906 0.228070 0.18 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 3 0.470360 0.362921 0.225798 0.17 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 4 0.393711 0.352908 0.226171 0.17 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 5 0.351051 0.356684 0.225728 0.18 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 6 0.340786 0.353032 0.225632 0.18 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 32 7 0.341023 0.348579 0.229977 0.18 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 1 1.107205 0.298314 0.234294 0.17 99.9301
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 2 0.751558 0.289343 0.228596 0.18 99.9301
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 3 0.406269 0.288062 0.235190 0.17 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 4 0.326900 0.282194 0.229910 0.18 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 5 0.306821 0.279963 0.228869 0.17 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 6 0.289743 0.274411 0.228278 0.18 99.9301
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 64 7 0.288386 0.271466 0.227787 0.18 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 1 1.013029 0.227791 0.241821 0.17 99.8483
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 2 0.626002 0.212705 0.241772 0.18 99.8483
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 3 0.333676 0.209773 0.243110 0.17 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 4 0.270053 0.202866 0.241603 0.18 99.8517
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 5 0.243164 0.200815 0.246214 0.17 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 6 0.241161 0.221137 0.246063 0.17 99.8534
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 128 7 0.235780 0.200470 0.244423 0.17 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 1 0.987100 0.184018 0.266445 0.17 99.821
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 2 0.638219 0.183840 0.263650 0.18 99.821
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 3 0.299317 0.176926 0.262254 0.18 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 4 0.239992 0.174130 0.262202 0.16 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 5 0.231428 0.182122 0.266335 0.16 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 6 0.230794 0.208473 0.264934 0.17 99.821
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 256 7 0.221635 0.172242 0.262315 0.18 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 1 0.834550 0.153316 0.310819 0.18 99.7614
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 2 0.467262 0.153451 0.307836 0.18 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 3 0.291278 0.176641 0.310275 0.17 99.7563
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 4 0.229011 0.163358 0.308488 0.16 99.7614
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 5 0.204099 0.150274 0.307037 0.18 99.7563
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 6 0.199544 0.147327 0.308296 0.17 99.7631
+./data/INAER_2011_Alcoy_Core.xyz 8 1 0 512 7 0.195562 0.175142 0.312245 0.18 99.7631
+
+
+"stage1reduce, creacion_pf2"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1 1.295034 0.401959 0.232330 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 2 0.847449 0.383560 0.232921 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3 0.471320 0.366391 0.232738 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 4 0.393838 0.364293 0.231269 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 5 0.355296 0.353812 0.232351 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 6 0.340140 0.357334 0.233133 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 7 0.335658 0.350554 0.232175 0 99.9421
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 8 0.341481 0.339780 0.232044 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 1 1.235180 0.298214 0.232507 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 2 0.748813 0.291875 0.233881 0 99.9301
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3 0.396795 0.285851 0.232263 0 99.9335
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 4 0.324092 0.277597 0.233870 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 5 0.308093 0.319834 0.232217 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 6 0.289070 0.317402 0.233041 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 7 0.288581 0.269458 0.234242 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 8 0.291888 0.273283 0.233234 0 99.9284
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 1 0.951941 0.216244 0.243972 0 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 2 0.615303 0.210591 0.243185 0 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 3 0.347474 0.207550 0.242558 0 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 4 0.265435 0.201596 0.244686 0 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 5 0.243729 0.202820 0.243988 0 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 6 0.241564 0.201092 0.243255 0 99.8483
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 7 0.234193 0.198314 0.244251 0 99.8551
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 8 0.234327 0.199756 0.243284 0 99.8517
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 1 0.976500 0.183936 0.264239 0 99.8245
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 2 0.587209 0.183261 0.263406 0 99.8193
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 3 0.306329 0.175609 0.263263 0 99.8245
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 4 0.250733 0.229659 0.262515 0 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 5 0.229602 0.207904 0.261752 0 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 6 0.221589 0.207831 0.263467 0 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 7 0.219803 0.170955 0.262799 0 99.8227
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 8 0.222073 0.174000 0.261224 0 99.8262
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 1 0.856648 0.181209 0.310987 0 99.7563
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 2 0.521695 0.153204 0.308952 0 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 3 0.276735 0.150231 0.309671 0 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 4 0.229517 0.148938 0.310186 0 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 5 0.202138 0.176303 0.309860 0 99.758
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 6 0.197919 0.147238 0.308381 0 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 7 0.195340 0.145537 0.308227 0 99.7631
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 8 0.194700 0.163883 0.281026 0 99.8159
+
+"stage1tbbrem, creacion_pf2"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 1 1.281126 0.372793 0.200434 0.17 99.6523
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 2 0.710811 0.368011 0.199454 0.17 99.5057
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 3 0.498289 0.352955 0.200573 0.17 99.6472
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 4 0.393453 0.349482 0.201303 0.16 99.5535
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 5 0.358718 0.352315 0.199615 0.17 99.4273
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 6 0.341535 0.341385 0.200743 0.15 99.591
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 7 0.339301 0.336524 0.201438 0.17 99.7375
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 32 8 0.341505 0.340243 0.201417 0.15 99.7358
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 1 1.173014 0.289542 0.200443 0.17 99.3813
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 2 0.678484 0.284709 0.200405 0.17 99.6216
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 3 0.402227 0.278452 0.199843 0.15 99.5756
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 4 0.334298 0.317056 0.200494 0.15 99.5671
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 5 0.300054 0.265399 0.200134 0.17 99.6881
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 6 0.289868 0.314084 0.200583 0.16 99.7904
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 7 0.289247 0.260573 0.201994 0.15 99.7188
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 64 8 0.289938 0.256604 0.200261 0.15 99.4239
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 1 0.982899 0.210102 0.208608 0.15 99.6574
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 2 0.608688 0.208535 0.208677 0.16 99.6046
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 3 0.330205 0.197419 0.208106 0.17 99.3881
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 4 0.275256 0.213115 0.208101 0.15 99.7818
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 5 0.240200 0.192935 0.209310 0.15 99.2893
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 6 0.234236 0.194172 0.208362 0.15 99.3336
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 7 0.234903 0.210257 0.208250 0.15 99.4052
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 128 8 0.234980 0.194840 0.208030 0.17 99.4751
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 1 0.909222 0.176083 0.221792 0.15 99.3438
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 2 0.566567 0.172489 0.220358 0.15 99.487
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 3 0.313706 0.168883 0.221240 0.17 99.3217
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 4 0.260618 0.167591 0.221933 0.17 99.2535
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 5 0.226356 0.166785 0.220633 0.17 99.5705
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 6 0.219651 0.163911 0.220474 0.17 99.2143
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 7 0.222174 0.195581 0.220903 0.15 99.6694
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 8 0.214500 0.166258 0.219700 0.15 99.4512
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 1 0.847309 0.148568 0.258440 0.17 99.4154
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 2 0.502936 0.145388 0.257133 0.15 99.4495
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 3 0.286257 0.144168 0.255146 0.15 99.6506
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 4 0.232819 0.142966 0.256082 0.16 99.1768
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 5 0.203582 0.141463 0.255215 0.15 99.4069
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 6 0.199284 0.141949 0.254556 0.17 99.17
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 7 0.201665 0.139955 0.255244 0.15 99.383
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 8 0.194387 0.150525 0.234083 0.16 99.3336
+
+"creacion_pf3, con 2 niveles go_deeper"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 1 0.660369 0.166301 0.220800 0.15 99.5841
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 2 0.502315 0.163438 0.223060 0.15 99.5449
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 3 0.348899 0.165777 0.219850 0.15 99.4734
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 4 0.307975 0.202706 0.223444 0.15 99.4802
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 5 0.280610 0.165874 0.219748 0.15 99.5739
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 6 0.251809 0.165333 0.221467 0.17 99.1342
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 7 0.234319 0.166599 0.220344 0.15 99.5569
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 8 0.215368 0.166383 0.222894 0.15 99.4665
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 1 0.689727 0.141481 0.259647 0.15 99.5262
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 2 0.456457 0.142976 0.254285 0.15 99.533
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 3 0.323312 0.142147 0.256826 0.15 99.5637
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 4 0.272348 0.144052 0.254003 0.15 99.5211
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 5 0.244431 0.141917 0.256535 0.15 99.3506
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 6 0.217691 0.144220 0.253401 0.15 99.5381
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 7 0.201957 0.140216 0.257086 0.16 99.5126
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 8 0.192664 0.150059 0.235810 0.17 99.3984
+
+"creacion_pf3, con 3 niveles go_deeper"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 1 0.572851 0.170474 0.258895 0 99.6182
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 2 0.416501 0.145707 0.249819 0 99.1768
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 3 0.282285 0.142065 0.258050 0 99.4682
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 4 0.242107 0.144840 0.257691 0 99.1836
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 5 0.218796 0.175955 0.250525 0 99.5211
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 6 0.199162 0.142541 0.257682 0 99.5143
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 7 0.194705 0.139624 0.257552 0 99.4751
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 8 0.195496 0.184772 0.235993 0 99.5824
+
+"creacion_pf3, con 2 niveles go_deeper, AlcoyX6"
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 5 2.309672 0.966601 0.653710 0 99.3881
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 6 1.545159 0.973267 0.650146 0 99.6438
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 7 1.452475 0.966644 0.657022 0 99.5091
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 8 1.336311 0.962312 0.688080 0 99.5449
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 5 1.648588 0.970501 0.654588 0 99.4495
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 6 1.538161 0.963891 0.653225 0 99.5245
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 7 1.365329 0.967626 0.657406 0 99.6745
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 8 1.309730 0.966888 0.651771 0 99.6353
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 5 1.573489 0.978654 0.648803 0 99.6097
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 6 1.514229 0.964538 0.675953 0 99.6898
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 7 1.314862 0.966976 0.659789 0 99.5415
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 8 1.316819 0.969507 0.655766 0 99.5211
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 5 1.421782 0.974599 0.647442 0 99.608
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 6 1.350443 0.986494 0.652433 0 99.4665
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 7 1.322614 0.965640 0.675669 0 99.6574
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 8 1.313083 0.962046 0.667156 0 99.5126
+
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 5 1.471926 0.939439 0.657771 0 99.4887
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 6 1.351178 0.931232 0.670067 0 99.5858
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 7 1.337340 0.936056 0.684751 0 99.4461
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 0 512 8 1.334337 0.931374 0.707320 0 99.4802
+
+
+"stage1tbbRem, creacion_pf2"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 5 0.224754 0.164848 0.221720 0 99.5944
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 6 0.221337 0.162878 0.222449 0 99.6029
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 7 0.219302 0.163340 0.221592 0 99.5126
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 256 8 0.212627 0.165482 0.220692 0 99.4682
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 5 0.203290 0.139980 0.256759 0 99.2313
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 6 0.197604 0.138932 0.256431 0 99.5228
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 7 0.195040 0.136979 0.256841 0 99.6336
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 512 8 0.192984 0.151553 0.235388 0 99.5194
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 1024 5 0.202349 0.129221 0.292263 0 99.5091
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 1024 6 0.196971 0.127771 0.292506 0 99.4512
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 1024 7 0.182773 0.128274 0.289584 0 99.2399
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 1024 8 0.186025 0.146951 0.240264 0 99.2194
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 256 5 0.430901 0.278345 0.213708 0 98.6151
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 256 6 0.425407 0.280626 0.213154 0 98.9876
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 256 7 0.420339 0.274422 0.213434 0 98.3222
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 256 8 0.395850 0.266698 0.210542 0 98.9984
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 256 8 0.395135 0.266160 0.210498 0 98.9803
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 512 5 0.400890 0.238111 0.249397 0 98.7742
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 512 6 0.389852 0.235601 0.249610 0 98.7923
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 512 7 0.377473 0.234400 0.250326 0 98.767
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 512 8 0.373471 0.254517 0.220890 0 98.8068
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 1024 5 0.393670 0.216301 0.283679 0 98.5826
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 1024 6 0.375372 0.215897 0.283983 0 98.4958
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 1024 7 0.343410 0.219154 0.278208 0 98.6187
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 1024 8 0.359161 0.243998 0.229075 0 98.8935
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 256 5 0.797105 0.624978 0.113500 0 99.4538
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 256 6 0.831642 0.635212 0.114024 0 99.4433
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 256 7 0.825684 0.616579 0.113857 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 256 8 0.806704 0.633886 0.113716 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 512 5 0.783323 0.585220 0.138646 0 99.5169
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 512 6 0.779352 0.565904 0.138333 0 99.3698
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 512 7 0.794286 0.567065 0.138498 0 99.4223
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 512 8 0.738881 0.585206 0.139597 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 1024 5 0.826593 0.547956 0.165792 0 99.4013
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 1024 6 0.818030 0.557404 0.167004 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 1024 7 0.787958 0.543770 0.166321 0 99.4538
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 1024 8 0.718408 0.575261 0.145654 0 99.5274
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 256 5 0.869094 0.729297 0.124844 0 99.3155
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 256 6 0.928994 0.715355 0.125141 0 99.387
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 256 7 0.957801 0.702022 0.125407 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 256 8 0.927475 0.706628 0.125540 0 99.3155
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 5 0.858168 0.676313 0.150273 0 99.3666
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 6 0.929074 0.653532 0.151211 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 7 0.920427 0.668962 0.150191 0 99.2644
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 8 0.881537 0.675774 0.149258 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 5 0.873517 0.629132 0.189463 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 6 0.961857 0.642584 0.189537 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 7 0.897146 0.627254 0.188235 0 99.3972
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 8 0.824620 0.634737 0.173507 0 99.3053
+
+
+
+"stage1tbbRem, creacion_pf2 con insertPoint con minRadius"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.1 0 5 1.076537 1.130056 0.391092 0 99.6353
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.1 0 6 1.067268 1.106002 0.390217 0 99.6864
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.1 0 7 1.081682 1.117493 0.389286 0 99.7887
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.1 0 8 1.090042 1.115454 0.389544 0 99.5807
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.2 0 5 0.436477 0.576406 0.255316 0 99.6932
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.2 0 6 0.431125 0.565242 0.256372 0 99.712
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.2 0 7 0.428663 0.554247 0.255888 0 99.6523
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.2 0 8 0.434506 0.564152 0.255792 0 99.8074
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.5 0 5 0.198049 0.216309 0.203488 0 99.3796
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.5 0 6 0.190437 0.207888 0.203300 0 99.5466
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.5 0 7 0.196200 0.210110 0.203623 0 99.4648
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0.5 0 8 0.208906 0.203112 0.203560 0 99.5126
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 2 0.398426 0.158696 0.238579 0 99.4716
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 3 0.216087 0.148867 0.239488 0 99.2961
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 4 0.183412 0.148270 0.239323 0 99.5671
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 5 0.151163 0.153516 0.239594 0 99.6097
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 6 0.155997 0.145540 0.239551 0 99.5995
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1 0 7 0.162588 0.141275 0.239117 0 99.4904
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 2 0.343328 0.120737 0.335627 0 99.5739
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 3 0.204022 0.118840 0.333803 0 99.429
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 4 0.152281 0.117566 0.333810 0 99.429
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 5 0.139086 0.117845 0.334401 0 99.4989
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 6 0.140864 0.117642 0.334838 0 99.3592
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2 0 7 0.150468 0.118241 0.334153 0 99.5807
+
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.4 0 4 0.414495 0.392926 0.191189 0 99.1105
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.4 0 5 0.392871 0.395157 0.190745 0 99.1033
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.4 0 6 0.380887 0.389758 0.191352 0 99.1792
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.4 0 7 0.390859 0.386995 0.190476 0 99.1756
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.4 0 8 0.410402 0.374017 0.190553 0 98.9948
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.5 0 4 0.309001 0.259192 0.232440 0 98.8465
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.5 0 5 0.305955 0.255788 0.231517 0 98.7887
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.5 0 6 0.303121 0.252171 0.231663 0 98.955
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.5 0 7 0.313538 0.254302 0.233823 0 98.9297
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.5 0 8 0.337507 0.240835 0.232676 0 98.908
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.75 0 4 0.306481 0.258906 0.232412 0 98.8176
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.75 0 5 0.304293 0.253086 0.232904 0 98.6585
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.75 0 6 0.312940 0.258025 0.232949 0 98.9225
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.75 0 7 0.320833 0.251821 0.232722 0 98.9478
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.75 0 8 0.336833 0.247053 0.233391 0 98.6947
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.9 0 4 0.312607 0.252832 0.232679 0 98.7923
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.9 0 5 0.298852 0.253031 0.232895 0 98.8791
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.9 0 6 0.302768 0.255544 0.232859 0 98.9116
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.9 0 7 0.313147 0.249331 0.233404 0 98.9478
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0.9 0 8 0.346954 0.242071 0.231756 0 98.9478
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1 0 4 0.288410 0.208768 0.319809 0 98.5139
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1 0 5 0.268133 0.216048 0.321825 0 98.597
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1 0 6 0.276087 0.210776 0.321673 0 98.5645
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1 0 7 0.288722 0.205446 0.322438 0 98.597
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1 0 8 0.341162 0.244378 0.232416 0 98.4235
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.1 0 4 0.727679 1.064549 0.099877 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.1 0 5 0.804691 1.014837 0.099834 0 99.4748
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.1 0 6 0.826524 0.975554 0.099607 0 99.4118
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.1 0 7 0.832977 0.943616 0.099634 0 99.4328
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.1 0 8 0.877657 0.930429 0.100169 0 99.4223
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.2 0 4 0.644975 0.704560 0.106501 0 99.5274
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.2 0 5 0.617715 0.688289 0.106496 0 99.4643
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.2 0 6 0.649407 0.676964 0.106038 0 99.4328
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.2 0 7 0.695099 0.662894 0.106900 0 99.4433
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.2 0 8 0.733167 0.660106 0.107009 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.3 0 4 0.583779 0.701877 0.106498 0 99.5169
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.3 0 5 0.657362 0.688078 0.106327 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.3 0 6 0.651843 0.670292 0.106406 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.3 0 7 0.682954 0.661755 0.106733 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.3 0 8 0.741613 0.666496 0.106613 0 99.4643
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.4 0 4 0.513514 0.577123 0.146330 0 99.5274
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.4 0 5 0.573782 0.570561 0.147430 0 99.4328
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.4 0 6 0.579899 0.568459 0.146928 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.4 0 7 0.648333 0.564457 0.148282 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.4 0 8 0.690830 0.565204 0.147032 0 99.4853
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.5 0 2 1.234342 0.612076 0.147416 0 99.5169
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.5 0 3 0.614937 0.599421 0.147337 0 99.4433
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.5 0 4 0.548278 0.591522 0.146583 0 99.4748
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.5 0 5 0.582204 0.583796 0.147947 0 99.3173
+./data/V21_group1_densified_point_cloud.xyz 8 0 0.5 0 6 0.575337 0.565666 0.147724 0 99.5169
+./data/V21_group1_densified_point_cloud.xyz 8 0 1 0 2 0.962048 0.544567 0.254495 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 1 0 3 0.539760 0.547923 0.253974 0 99.4748
+./data/V21_group1_densified_point_cloud.xyz 8 0 1 0 4 0.550059 0.540408 0.256102 0 99.4433
+./data/V21_group1_densified_point_cloud.xyz 8 0 1 0 5 0.529849 0.541274 0.254810 0 99.5169
+./data/V21_group1_densified_point_cloud.xyz 8 0 1 0 6 0.556255 0.538301 0.254347 0 99.4748
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.1 0 2 1.883304 1.331825 0.109274 0 99.3155
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.1 0 3 1.134902 1.250263 0.109514 0 99.3564
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.1 0 4 0.762451 1.163555 0.109282 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.1 0 5 0.870376 1.123192 0.109589 0 99.3155
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.1 0 6 0.898754 1.055813 0.109655 0 99.3564
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.2 0 2 1.599878 0.843813 0.121170 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.2 0 3 0.938656 0.807812 0.119841 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.2 0 4 0.701423 0.805528 0.120358 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.2 0 5 0.694403 0.761634 0.120441 0 99.3461
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.2 0 6 0.733165 0.746112 0.121018 0 99.2746
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.5 0 2 1.264898 0.669323 0.180202 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.5 0 3 0.754474 0.662980 0.176812 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.5 0 4 0.614746 0.655521 0.177702 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.5 0 5 0.629317 0.645656 0.175797 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0.5 0 6 0.661623 0.640797 0.177074 0 99.2746
+./data/V19_group1_densified_point_cloud.xyz 8 0 1 0 2 1.219311 0.608756 0.306086 0 99.2031
+./data/V19_group1_densified_point_cloud.xyz 8 0 1 0 3 0.687275 0.612407 0.309039 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 1 0 4 0.588246 0.603288 0.308552 0 99.152
+./data/V19_group1_densified_point_cloud.xyz 8 0 1 0 5 0.579709 0.605858 0.309026 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 1 0 6 0.617681 0.599394 0.313216 0 99.3359
+
+
+"stage1tbbRem, creacion_pf3"
+
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 5 1.246132 0.661491 0.151311 0 99.244
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 6 1.155093 0.671260 0.150996 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 7 0.927958 0.663219 0.150968 0 99.3666
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 8 0.880579 0.673089 0.149703 0 99.3666
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 5 1.242999 0.656841 0.151493 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 6 1.000280 0.666450 0.152037 0 99.3564
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 7 0.941897 0.659465 0.151143 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 8 0.876335 0.673232 0.149764 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 5 1.211984 0.673314 0.151459 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 6 0.945453 0.665954 0.151508 0 99.1827
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 7 0.925783 0.675012 0.152248 0 99.3461
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 512 8 0.873960 0.673094 0.149587 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 5 1.170947 0.635212 0.189502 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 6 0.997738 0.646549 0.189895 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 7 0.900634 0.629782 0.189986 0 99.1418
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 8 0.834228 0.638983 0.174603 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 5 1.189566 0.635813 0.189517 0 99.244
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 6 0.937768 0.642919 0.188880 0 99.3461
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 7 0.896842 0.626229 0.188154 0 99.2644
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 8 0.828350 0.657371 0.173363 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 5 1.053613 0.643824 0.191319 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 6 0.927797 0.631310 0.189233 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 7 0.888333 0.642803 0.189468 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 1024 8 0.832863 0.652883 0.174210 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 5 1.158923 0.608511 0.257496 0 99.1214
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 6 0.943161 0.623992 0.258997 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 7 0.868036 0.620596 0.250472 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 8 0.821057 0.654223 0.177740 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 5 1.049064 0.625357 0.258221 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 6 0.914586 0.620401 0.254859 0 99.244
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 7 0.865618 0.612733 0.250003 0 99.1725
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 8 0.831267 0.643155 0.177511 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 5 0.969606 0.620641 0.258071 0 99.2746
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 6 0.955965 0.609393 0.253883 0 99.152
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 7 0.876094 0.622088 0.255981 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 2048 8 0.825467 0.657404 0.176321 0 99.3461
+
+"TGmix"
+
+data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 8 0.178257 0.152140 0.241159 0.14 99.5535
+data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 8 0.326394 0.314556 0.197976 0.14 99.6881
+data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 8 0.313422 0.315408 0.198213 0.14 99.3148
+
+
+"dynamic con punteros y minRadius"
+
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 2 0.763256 0.629504 0.263942 0 99.6267
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 3 0.535559 0.602627 0.267832 0 99.6284
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 4 0.448841 0.578491 0.269154 0 99.6182
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 5 0.421231 0.578441 0.268420 0 99.6336
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 6 0.408607 0.572576 0.268113 0 99.6421
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 7 0.413436 0.567513 0.268147 0 99.6216
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 2 0.469836 0.229857 0.225438 0 99.5841
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 3 0.256883 0.221009 0.223574 0 99.5841
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 4 0.209712 0.219288 0.224554 0 99.5841
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 5 0.189213 0.211752 0.222503 0 99.5858
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 6 0.192316 0.211000 0.221263 0 99.5875
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 7 0.187810 0.204319 0.223096 0 99.5875
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 2 0.389906 0.151727 0.266128 0 99.5091
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 3 0.203700 0.150830 0.277873 0 99.5091
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 4 0.159146 0.144956 0.269105 0 99.5108
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 5 0.147761 0.145451 0.269643 0 99.5108
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 6 0.148185 0.141035 0.275132 0 99.5126
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 7 0.154587 0.163820 0.272835 0 99.5108
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 2 0.384715 0.121504 0.391715 0 99.4631
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 3 0.188717 0.117072 0.385501 0 99.4546
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 4 0.152617 0.116071 0.388245 0 99.4597
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 5 0.133807 0.115632 0.400231 0 99.4546
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 6 0.137170 0.115438 0.386476 0 99.4563
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 7 0.145679 0.116858 0.392867 0 99.4631
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 4 0.542240 0.628578 0.236171 0 93.5095
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 5 0.536305 0.637035 0.228117 0 93.4662
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 6 0.517804 0.634361 0.236237 0 93.4734
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 7 0.532089 0.640798 0.230805 0 93.5349
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 4 0.311011 0.249835 0.321614 0 93.0503
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 5 0.284159 0.250055 0.304118 0 93.0756
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 6 0.293570 0.263574 0.270663 0 93.1046
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 7 0.302828 0.249123 0.355315 0 93.0503
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 4 0.267383 0.206789 0.428628 0 92.7141
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 5 0.267997 0.203627 0.449523 0 92.7068
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 6 0.262537 0.204886 0.449493 0 92.6996
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 7 0.277146 0.201759 0.457626 0 92.7321
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 4 0.250019 0.178816 0.575457 0 92.602
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 5 0.254763 0.178851 0.638771 0 92.4139
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 6 0.251231 0.181182 0.758582 0 92.3778
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 7 0.278969 0.201775 0.418784 0 92.7068
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 2 1.532820 1.205461 0.111501 0 99.2333
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 3 0.890174 1.145869 0.107682 0 99.2333
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 4 0.761163 1.087255 0.110921 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.764083 1.039381 0.109264 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 6 0.774144 0.997173 0.107823 0 99.2543
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 2 1.236780 0.788977 0.121766 0 99.2018
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 3 0.825621 0.746513 0.121994 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 4 0.600809 0.718025 0.123771 0 99.2018
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.587401 0.698906 0.124043 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 6 0.630275 0.687086 0.122947 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 2 1.096351 0.587266 0.214948 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 3 0.586844 0.581171 0.222964 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 4 0.553156 0.586876 0.222102 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.549174 0.578807 0.215416 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 6 0.549407 0.574506 0.210124 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 2 1.014773 0.532404 0.356505 0 99.1808
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 3 0.626568 0.540109 0.371475 0 99.1808
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 4 0.494814 0.524483 0.357549 0 99.1808
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 5 0.509851 0.534032 0.354033 0 99.1808
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 6 0.541925 0.533581 0.380772 0 99.1703
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 2 1.876297 1.317557 0.128073 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 3 1.072954 1.214569 0.127966 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 4 0.828060 1.176101 0.127040 0 98.8353
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.824391 1.091389 0.127728 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 6 0.882018 1.051757 0.129531 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 2 1.532398 0.857260 0.138153 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 3 0.765371 0.823144 0.135590 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 4 0.724758 0.780551 0.137596 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.688501 0.777047 0.137627 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 6 0.686035 0.742816 0.137627 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 2 1.294084 0.680758 0.245996 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 3 0.676564 0.668725 0.241193 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 4 0.684015 0.644006 0.241075 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.626256 0.653979 0.241320 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 6 0.635529 0.634250 0.245793 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 2 1.323259 0.618611 0.398510 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 3 0.653902 0.597519 0.397721 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 4 0.568761 0.595985 0.400974 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 5 0.556010 0.594254 0.399875 0 98.8149
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 6 0.639209 0.591838 0.399899 0 98.8353
+
+
+"dynamic con punteros y minRadius; GPU chunk: 1024 2048 4096 8192"
+
+data/INAER_2011_Alcoy.xyz 2 0 1 32 3 0.082273 0.026792 0.389061 0.5 99.8672
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 5 0.423170 0.567172 0.269619 0 99.6353
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 5 0.425663 0.573036 0.260350 0 99.6421
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 5 0.425105 0.558892 0.251368 0 99.6523
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.2 0 5 0.414476 0.552505 0.261268 0 99.6694
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 5 0.188321 0.212912 0.224102 0 99.5858
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 5 0.186693 0.212584 0.219741 0 99.591
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 5 0.188474 0.212127 0.220606 0 99.6029
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0.5 0 5 0.185025 0.210293 0.217707 0 99.6131
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 5 0.147870 0.142870 0.266907 0 99.5091
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 5 0.148285 0.144285 0.264102 0 99.5074
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 5 0.146603 0.167103 0.256111 0 99.5177
+./data/INAER_2011_Alcoy_Core.xyz 9 0 1 0 5 0.147902 0.144379 0.262198 0 99.5194
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 5 0.133968 0.116664 0.379921 0 99.4682
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 5 0.134979 0.116310 0.382525 0 99.4665
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 5 0.132441 0.116408 0.363426 0 99.4614
+./data/INAER_2011_Alcoy_Core.xyz 9 0 2 0 5 0.134858 0.116613 0.358162 0 99.4682
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 5 0.523156 0.637824 0.226562 0 93.5385
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 5 0.522579 0.630710 0.233852 0 93.7446
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 5 0.520899 0.628563 0.248449 0 94.0555
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.2 0 5 0.519612 0.635899 0.281935 0 94.1134
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 5 0.287793 0.252216 0.320708 0 93.0973
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 5 0.284793 0.252658 0.336930 0 93.0829
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 5 0.291726 0.258821 0.436253 0 93.3721
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0.5 0 5 0.288111 0.257612 0.331959 0 93.5855
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 5 0.284322 0.220320 0.467756 0 92.743
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 5 0.264124 0.206772 0.466235 0 92.8732
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 5 0.260697 0.204650 0.370757 0 92.9419
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 1 0 5 0.262257 0.204758 0.371242 0 92.9527
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 5 0.240792 0.181447 0.686879 0 92.4899
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 5 0.239811 0.193626 0.713370 0 92.508
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 5 0.245652 0.178911 0.852931 0 92.696
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 2 0 5 0.242539 0.179509 0.636598 0 92.9202
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.744868 1.052256 0.108027 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.782097 1.045482 0.119187 0 99.2858
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.714674 1.027853 0.145012 0 99.3803
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.749241 1.042636 0.154939 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.648070 0.703778 0.121572 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.619459 0.700360 0.148906 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.606415 0.704545 0.154564 0 99.4538
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.615253 0.700148 0.243305 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.544143 0.575130 0.231541 0 99.2018
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.548256 0.577353 0.149905 0 99.2543
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.534737 0.584175 0.238618 0 99.3068
+./data/V21_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.514773 0.584496 0.424803 0 99.4013
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 5 0.531724 0.536233 0.384185 0 99.1703
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 5 0.495300 0.536366 0.240643 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 5 0.496236 0.534840 0.383085 0 99.2858
+./data/V21_group1_densified_point_cloud.xyz 9 0 1 0 5 0.489898 0.534386 0.595832 0 99.3593
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.810248 1.139313 0.129284 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.846514 1.132937 0.132069 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.823887 1.124934 0.156811 0 98.917
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.1 0 5 0.859265 1.131014 0.150404 0 99.2338
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.677580 0.779944 0.135579 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.658489 0.785287 0.156268 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.698779 0.779897 0.197704 0 98.9783
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.2 0 5 0.701420 0.792666 0.228736 0 99.2235
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.594641 0.655719 0.248767 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.622720 0.650367 0.256132 0 98.8864
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.617036 0.654036 0.220228 0 98.8966
+./data/V19_group1_densified_point_cloud.xyz 9 0 0.5 0 5 0.583074 0.657718 0.411832 0 99.2235
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 5 0.590944 0.607924 0.404067 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 5 0.588971 0.606127 0.394066 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 5 0.579556 0.608322 0.367615 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 1 0 5 0.570492 0.619945 0.544073 0 99.1827
+
+
+"dynamic con punteros y maxsize; GPU chunk: 1024 2048 4096 8192 16384 32768"
+
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.330746 0.306190 0.212043 0 99.5995
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.330824 0.306110 0.205896 0 99.6114
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.328421 0.308960 0.202158 0 99.6097
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.329475 0.310460 0.205791 0 99.6319
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.326009 0.304670 0.211557 0 99.6387
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.326509 0.314429 0.221189 0 99.6387
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.231871 0.192230 0.230024 0 99.5415
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.234117 0.196422 0.226443 0 99.5381
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.232588 0.194606 0.223555 0 99.5398
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.232691 0.194514 0.228605 0 99.5603
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.232553 0.192076 0.226470 0 99.5552
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.237796 0.194775 0.263583 0 99.5688
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.194824 0.139334 0.289697 0 99.4682
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.199024 0.141344 0.292072 0 99.4955
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.195579 0.139698 0.272514 0 99.4836
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.200054 0.139731 0.290057 0 99.4955
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.195399 0.140242 0.303849 0 99.5074
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.197757 0.139894 0.325198 0 99.5074
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.197033 0.128142 0.332896 0 99.4597
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.198415 0.128113 0.329989 0 99.4529
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.195508 0.127486 0.311235 0 99.4665
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.202822 0.128536 0.328155 0 99.4699
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.198187 0.127407 0.338876 0 99.4699
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.192856 0.127650 0.373255 0 99.4904
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.589138 0.492510 0.215037 0 93.4408
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.591489 0.489919 0.221622 0 93.6469
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.595075 0.498805 0.216109 0 93.9037
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.584286 0.494353 0.230966 0 94.0989
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.614491 0.484287 0.271947 0 94.0953
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.588534 0.491812 0.249854 0 93.4553
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.463713 0.330258 0.253041 0 93.3071
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.451466 0.330353 0.248790 0 93.4553
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.456867 0.331732 0.263746 0 93.5782
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.458196 0.328825 0.285619 0 93.7735
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.456819 0.334312 0.264681 0 93.4951
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.453596 0.336289 0.277648 0 93.3179
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.385433 0.236658 0.314138 0 92.9816
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.385550 0.237862 0.350489 0 92.9563
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.388790 0.237050 0.376427 0 93.2239
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.388970 0.238530 0.377801 0 93.5095
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.393766 0.238417 0.491388 0 93.4951
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.597462 0.238199 0.427045 0 93.0323
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.372946 0.217018 0.353949 0 92.8008
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.375763 0.217030 0.382109 0 92.978
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.380490 0.220828 0.385518 0 93.0829
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.371279 0.220836 0.337683 0 93.2203
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.372170 0.216058 0.500455 0 93.1407
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.374832 0.216978 0.530299 0 92.9599
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.934917 0.947581 0.112133 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.924065 0.946600 0.119166 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.922225 0.946974 0.151061 0 99.3803
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.902822 0.964827 0.160528 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.922780 0.953873 0.135310 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.950945 0.963702 0.260706 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.813561 0.732852 0.146194 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.803539 0.731117 0.133872 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.794806 0.718462 0.153782 0 99.3383
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.782541 0.716627 0.224179 0 99.4013
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.798168 0.724480 0.151409 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.779599 0.715715 0.358855 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.736172 0.587352 0.198957 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.716938 0.586285 0.138719 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.772418 0.588465 0.234839 0 99.3068
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.740152 0.589808 0.407866 0 99.4013
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.747952 0.586338 0.256229 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.756564 0.586198 0.633385 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.772173 0.568840 0.235569 0 99.2123
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.781333 0.567064 0.181410 0 99.2018
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.795465 0.563559 0.293525 0 99.2753
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.780669 0.563800 0.459802 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.790950 0.564667 0.337176 0 99.3383
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.788534 0.563345 0.824941 0 99.5274
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.054912 1.101406 0.120611 0 98.8762
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.072616 1.095476 0.126633 0 98.8762
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.119480 1.086904 0.158351 0 98.9579
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.067814 1.084579 0.146008 0 99.2338
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.077816 1.076828 0.253675 0 99.4279
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.056771 1.084645 0.240876 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.970516 0.830084 0.155722 0 98.8353
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.938202 0.823120 0.131380 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.946294 0.830692 0.195121 0 98.9477
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.942320 0.844717 0.202282 0 99.2235
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.894201 0.829353 0.228709 0 99.4892
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.930840 0.832858 0.331400 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.851182 0.676503 0.197785 0 98.8762
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.863043 0.675453 0.233261 0 98.9068
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.856238 0.676445 0.208402 0 98.8557
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.869530 0.684006 0.365027 0 99.2235
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.895547 0.675344 0.226757 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.864835 0.681695 0.586066 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.856613 0.647848 0.245352 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.858531 0.642611 0.270271 0 98.866
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.892482 0.644993 0.263941 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.879537 0.643386 0.491187 0 99.1622
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.855607 0.639156 0.273486 0 99.2951
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.917940 0.637707 0.765587 0 99.4381
+
+
+"dynamic con indices y maxsize; GPU chunk: 1024 2048 4096 8192 16384 32768"
+
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.323059 0.347832 0.214190 0 99.6063
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.333829 0.330788 0.203610 0 99.6131
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.326249 0.332656 0.200532 0 99.625
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.331357 0.336019 0.202540 0 99.6216
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.323727 0.336455 0.201437 0 99.6557
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 48 5 0.327190 0.333490 0.202859 0 99.6864
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.233385 0.211125 0.227093 0 99.5415
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.233919 0.209503 0.214354 0 99.5466
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.233416 0.213285 0.212622 0 99.5552
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.233943 0.213162 0.214436 0 99.562
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.235027 0.207957 0.222166 0 99.5858
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 128 5 0.230093 0.211153 0.225542 0 99.5961
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.195454 0.152199 0.270202 0 99.4853
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.202377 0.153218 0.270427 0 99.4921
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.197910 0.152690 0.262631 0 99.4938
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.197400 0.153728 0.266514 0 99.5057
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.198493 0.154015 0.263974 0 99.5091
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 512 5 0.196856 0.154646 0.267764 0 99.5194
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.197762 0.140385 0.313540 0 99.4597
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.194645 0.141653 0.309746 0 99.4597
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.194343 0.141842 0.290035 0 99.4768
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.196651 0.147876 0.290562 0 99.4853
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.196624 0.141634 0.299130 0 99.4921
+./data/INAER_2011_Alcoy_Core.xyz 9 0 0 1024 5 0.196135 0.140318 0.291478 0 99.4904
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.585686 0.533825 0.218960 0 93.5602
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.586937 0.536573 0.215403 0 93.741
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.588759 0.531895 0.219263 0 93.9832
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.586737 0.529519 0.233116 0 94.4497
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.597439 0.529551 0.230316 0 94.2616
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 48 5 0.596783 0.534040 0.271983 0 94.7317
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.470482 0.361843 0.235227 0 93.3902
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.455952 0.354195 0.237389 0 93.6036
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.453926 0.353918 0.246090 0 93.8024
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.454098 0.354057 0.240908 0 94.1604
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.456776 0.356311 0.281511 0 94.3954
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 128 5 0.459147 0.354392 0.276410 0 93.9615
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.395495 0.255253 0.289531 0 92.9852
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.393036 0.256586 0.299325 0 93.2167
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.378909 0.255650 0.292044 0 93.2456
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.385390 0.256575 0.322578 0 93.6397
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.392451 0.255398 0.306913 0 93.336
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 512 5 0.391549 0.256886 0.342690 0 93.0178
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.374257 0.236240 0.328693 0 92.9455
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.387779 0.235757 0.316462 0 93.0431
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.375303 0.235294 0.365503 0 93.2456
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.378494 0.235797 0.383499 0 93.2239
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.369043 0.234465 0.345721 0 93.2022
+./data/BABCOCK_2017_Arzua_3B.xyz 9 0 0 1024 5 0.379938 0.237369 0.389162 0 92.9708
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.978086 1.026430 0.116498 0 99.2438
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.949990 1.019223 0.107974 0 99.2648
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.937334 1.015816 0.126616 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.968278 1.018061 0.133854 0 99.4853
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.962301 1.017174 0.152771 0 99.4538
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 48 5 0.937723 1.026489 0.174256 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.799607 0.785097 0.131535 0 99.2333
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.820022 0.787595 0.119620 0 99.2753
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.797881 0.783470 0.146063 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.768379 0.783272 0.146910 0 99.3698
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.804494 0.783633 0.192794 0 99.4538
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 128 5 0.777355 0.784681 0.226005 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.730379 0.646695 0.180950 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.738738 0.663599 0.156769 0 99.2963
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.753204 0.651139 0.246750 0 99.3173
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.744461 0.658750 0.253634 0 99.3488
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.752375 0.648046 0.321180 0 99.4433
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 512 5 0.751482 0.646482 0.383957 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.822023 0.619948 0.221686 0 99.2018
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.770271 0.626030 0.187695 0 99.2228
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.773736 0.628004 0.278799 0 99.3593
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.784172 0.627160 0.318958 0 99.3908
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.808428 0.628192 0.260838 0 99.3383
+./data/V21_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.761374 0.631744 0.496788 0 99.5274
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.063895 1.164024 0.128267 0 98.8353
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.073849 1.166866 0.116275 0 98.9068
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.065600 1.165888 0.144360 0 98.9579
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.091157 1.168111 0.160816 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.039852 1.158104 0.174411 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 48 5 1.060680 1.166206 0.163387 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.925086 0.911826 0.142165 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.917464 0.903616 0.124724 0 98.8864
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.907722 0.905422 0.157176 0 98.9886
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.965318 0.924417 0.196845 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.902250 0.923631 0.228131 0 99.4279
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 128 5 0.946351 0.924231 0.213768 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.921059 0.765478 0.189966 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.874836 0.760148 0.200542 0 98.9068
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.850597 0.765007 0.243717 0 98.9375
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.875273 0.748656 0.231466 0 99.2338
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.906371 0.758708 0.393576 0 99.4279
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 512 5 0.845558 0.759114 0.365198 0 99.4483
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.893601 0.724043 0.244828 0 98.8251
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.857871 0.726139 0.197921 0 98.8455
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.863515 0.711651 0.298774 0 98.9477
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.871139 0.713647 0.295331 0 99.2133
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.879386 0.727943 0.490588 0 99.4177
+./data/V19_group1_densified_point_cloud.xyz 9 0 0 1024 5 0.860843 0.731613 0.470218 0 99.4381
+
+
+"stage1tbbrem y maxsize" threads gpu chunkgpu minraidius maxsize level_creation tree_build tree_aligned owm_time rate check_rate
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 48 4 0.374640 0.308987 0.196243 0 99.5637
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 48 5 0.340324 0.304940 0.196699 0 99.7904
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 48 6 0.321256 0.298327 0.195870 0 99.7443
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 48 7 0.321120 0.301327 0.197394 0 99.4461
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 128 4 0.269428 0.226110 0.208974 0 99.5892
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 128 5 0.242507 0.195072 0.209680 0 99.6199
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 128 6 0.232576 0.189709 0.208885 0 99.4751
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 128 7 0.233758 0.187249 0.209115 0 99.4529
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 512 4 0.222787 0.138742 0.265529 0 99.0558
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 512 5 0.200769 0.138413 0.266116 0 99.3694
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 512 6 0.198295 0.138418 0.266680 0 99.4768
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 512 7 0.193435 0.138052 0.266342 0 99.4768
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 1024 4 0.222042 0.126531 0.306632 0 99.6915
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 1024 5 0.203695 0.127306 0.307051 0 99.625
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 1024 6 0.194917 0.126084 0.306283 0 99.4546
+./data/INAER_2011_Alcoy_Core.xyz 8 0 0 0 1024 7 0.196179 0.127741 0.304134 0 99.4103
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 48 4 0.678217 0.484603 0.184374 0 99.1756
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 48 5 0.603514 0.486433 0.184146 0 99.0816
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 48 6 0.598089 0.483974 0.183679 0 99.19
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 48 7 0.590685 0.481790 0.183935 0 99.1684
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 128 4 0.484873 0.328601 0.202039 0 98.3259
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 128 5 0.464523 0.325271 0.201825 0 98.6368
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 128 6 0.465495 0.327083 0.201124 0 98.6441
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 128 7 0.458888 0.323324 0.201298 0 99.0237
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 512 4 0.422776 0.236676 0.258306 0 98.7128
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 512 5 0.400873 0.239206 0.258073 0 98.7778
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 512 6 0.388242 0.234754 0.258125 0 98.4054
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 512 7 0.373169 0.231588 0.257924 0 98.6151
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 1024 4 0.406112 0.217238 0.295950 0 98.6224
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 1024 5 0.380079 0.219749 0.294983 0 98.3331
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 1024 6 0.373754 0.216395 0.294269 0 98.6441
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 0 0 1024 7 0.345330 0.217016 0.289078 0 98.6115
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 48 4 1.007453 0.952764 0.098474 0 99.4853
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 48 5 0.993985 0.928717 0.098324 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 48 6 0.979768 0.908544 0.098731 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 48 7 1.027091 0.891184 0.098582 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 128 4 0.857097 0.709759 0.105045 0 99.4853
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 128 5 0.831183 0.690271 0.104987 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 128 6 0.851387 0.690211 0.104644 0 99.5484
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 128 7 0.869453 0.686121 0.106598 0 99.5064
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 512 4 0.773743 0.563118 0.141364 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 512 5 0.769112 0.576857 0.142046 0 99.4223
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 512 6 0.787287 0.568082 0.139938 0 99.5589
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 512 7 0.780245 0.562559 0.139568 0 99.4748
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 1024 4 0.888286 0.552910 0.169529 0 99.5379
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 1024 5 0.793838 0.538675 0.168739 0 99.4853
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 1024 6 0.807448 0.554012 0.168567 0 99.4959
+./data/V21_group1_densified_point_cloud.xyz 8 0 0 0 1024 7 0.788922 0.533839 0.168595 0 99.4643
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 48 4 1.155318 1.065083 0.108839 0 99.2848
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 48 5 1.049688 1.072549 0.108788 0 99.3461
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 48 6 1.095100 1.052161 0.108632 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 48 7 1.147006 1.035186 0.108149 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 128 4 0.951157 0.833394 0.115156 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 128 5 0.946494 0.808093 0.114899 0 99.2542
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 128 6 0.987458 0.790616 0.115247 0 99.244
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 128 7 1.019095 0.785186 0.115113 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 512 4 0.969858 0.665969 0.152343 0 99.3257
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 512 5 0.898771 0.657629 0.152990 0 99.2746
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 512 6 0.923894 0.655553 0.152834 0 99.3359
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 512 7 0.924178 0.654638 0.151292 0 99.3768
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 1024 4 0.940591 0.645020 0.192536 0 99.3053
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 1024 5 0.922653 0.629187 0.191226 0 99.3768
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 1024 6 0.924841 0.628986 0.191067 0 99.3564
+./data/V19_group1_densified_point_cloud.xyz 8 0 0 0 1024 7 0.891102 0.625590 0.192818 0 99.3359
+
+
+"dynamic SOLO GPU con índices y creacion_pf2 maxsize"
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 0 32 7 0.340149 0.358115 4.145576 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2048 0 32 7 0.341852 0.349437 2.197189 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 4096 0 32 7 0.343852 0.358829 1.395779 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8192 0 32 7 0.354035 0.423585 1.049995 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16384 0 32 7 0.342910 0.361897 0.878236 0 99.9421
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 32 7 0.337257 0.363679 0.799187 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 0 48 7 0.325358 0.317390 4.305175 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2048 0 48 7 0.324768 0.325032 2.284934 0 99.9386
+./data/INAER_2011_Alcoy_Core.xyz 8 0 4096 0 48 7 0.322773 0.319930 1.437105 0 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8192 0 48 7 0.322426 0.320673 1.077975 0 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16384 0 48 7 0.322755 0.322266 0.896160 0 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 48 7 0.320363 0.323353 0.810562 0 99.9369
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 0 128 7 0.234056 0.243632 5.703219 0 99.8534
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2048 0 128 7 0.233405 0.196819 3.016270 0 99.85
+./data/INAER_2011_Alcoy_Core.xyz 8 0 4096 0 128 7 0.233277 0.212291 1.859554 0 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8192 0 128 7 0.235478 0.198951 1.360243 0 99.8466
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16384 0 128 7 0.236438 0.223554 1.112364 0 99.8517
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 128 7 0.234908 0.245793 1.000978 0 99.8517
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 0 512 7 0.195687 0.149096 8.704538 0 99.7648
+./data/INAER_2011_Alcoy_Core.xyz 8 0 2048 0 512 7 0.194779 0.146276 4.650273 0 99.7563
+./data/INAER_2011_Alcoy_Core.xyz 8 0 4096 0 512 7 0.196277 0.148187 2.776443 0 99.7614
+./data/INAER_2011_Alcoy_Core.xyz 8 0 8192 0 512 7 0.194331 0.148894 1.986349 0 99.7597
+./data/INAER_2011_Alcoy_Core.xyz 8 0 16384 0 512 7 0.195709 0.149038 1.608143 0 99.7648
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 512 7 0.195466 0.182172 1.422997 0 99.758
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 0 32 7 0.666034 0.607301 3.045788 0 99.8734
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 2048 0 32 7 0.662214 0.681510 1.648160 0 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 4096 0 32 7 0.679573 0.604340 1.275711 0 99.8734
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 8192 0 32 7 0.657776 0.636945 1.050563 0 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16384 0 32 7 0.664139 0.608883 0.939495 0 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 32 7 0.656488 0.601881 0.999256 0 99.8734
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 0 48 7 0.608272 0.542852 3.260767 0 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 2048 0 48 7 0.592943 0.518878 1.759261 0 99.8373
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 4096 0 48 7 0.597405 0.518592 1.324887 0 99.8409
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 8192 0 48 7 0.592794 0.515040 1.099219 0 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16384 0 48 7 0.596274 0.505833 0.969200 0 99.8445
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 48 7 0.596387 0.540477 1.018541 0 99.8409
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 0 128 7 0.459871 0.343205 4.335391 0 99.6203
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 2048 0 128 7 0.460574 0.382409 2.314658 0 99.624
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 4096 0 128 7 0.459364 0.343039 1.752274 0 99.624
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 8192 0 128 7 0.458857 0.350531 1.427272 0 99.6276
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16384 0 128 7 0.460501 0.342932 1.256325 0 99.6276
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 128 7 0.459916 0.395480 1.284920 0 99.6167
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 0 512 7 0.375422 0.247919 7.330353 0 99.2154
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 2048 0 512 7 0.374430 0.283860 3.897601 0 99.2262
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 4096 0 512 7 0.376314 0.307992 2.841039 0 99.2045
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 8192 0 512 7 0.375980 0.247578 2.283813 0 99.2407
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 16384 0 512 7 0.374988 0.241641 1.977674 0 99.1756
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 512 7 0.376438 0.253622 2.017272 0 99.2226
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 0 32 7 1.073556 1.104287 1.560289 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 2048 0 32 7 1.072534 1.103811 0.842233 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 4096 0 32 7 1.074436 1.100403 0.701801 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 8192 0 32 7 1.073474 1.104057 0.567310 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 16384 0 32 7 1.074551 1.140793 0.517891 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 32 7 1.073899 1.152573 0.492168 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 0 48 7 1.012505 0.983193 1.658286 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 2048 0 48 7 1.005073 1.017011 0.892648 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 4096 0 48 7 1.017527 0.985649 0.742933 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 8192 0 48 7 1.017155 0.959379 0.595296 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 16384 0 48 7 1.017306 0.962320 0.542501 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 48 7 1.000692 0.954262 0.512773 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 0 128 7 0.857465 0.743224 2.310742 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 2048 0 128 7 0.867541 0.739327 1.231708 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 4096 0 128 7 0.863426 0.740228 1.008344 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 8192 0 128 7 0.863783 0.740686 0.803952 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 16384 0 128 7 0.863707 0.738077 0.731358 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 128 7 0.865773 0.741408 0.690043 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 0 512 7 0.793349 0.607884 4.190035 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 2048 0 512 7 0.784136 0.607620 2.222411 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 4096 0 512 7 0.775052 0.609392 1.766027 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 8192 0 512 7 0.782178 0.636359 1.403813 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 16384 0 512 7 0.783438 0.608218 1.271861 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 512 7 0.794480 0.609527 1.194602 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 1024 0 32 7 1.228804 1.239008 1.820272 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 2048 0 32 7 1.232178 1.241064 0.982144 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 4096 0 32 7 1.240644 1.234301 0.788127 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 8192 0 32 7 1.231430 1.237302 0.636548 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 16384 0 32 7 1.227107 1.236019 0.582178 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 32 7 1.229554 1.237149 0.551097 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 1024 0 48 7 1.152309 1.084728 1.963952 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 2048 0 48 7 1.140763 1.089730 1.059103 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 4096 0 48 7 1.138011 1.090576 0.837281 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 8192 0 48 7 1.155223 1.085542 0.664958 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 16384 0 48 7 1.141378 1.087451 0.610027 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 48 7 1.151179 1.084001 0.580630 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 1024 0 128 7 1.000239 0.851757 2.675686 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 2048 0 128 7 1.011002 0.851839 1.425944 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 4096 0 128 7 0.998441 0.854970 1.126136 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 8192 0 128 7 0.994806 0.854931 0.901899 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 16384 0 128 7 1.008575 0.862158 0.817522 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 128 7 1.017196 0.851363 0.769526 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 1024 0 512 7 0.921698 0.702453 4.816609 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 2048 0 512 7 0.921279 0.702720 2.544373 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 4096 0 512 7 0.925975 0.702804 1.978354 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 8192 0 512 7 0.918175 0.701876 1.566105 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 16384 0 512 7 0.913854 0.703317 1.410946 0 99.9898
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 512 7 0.918172 0.704325 1.323756 0 100
+
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 8 7 0.470673 0.576730 0.886789 0 99.9949
+./data/INAER_2011_Alcoy_Core.xyz 8 0 65536 0 8 7 0.469037 0.572205 0.848928 0 99.9949
+./data/INAER_2011_Alcoy_Core.xyz 8 0 131072 0 8 7 0.466385 0.566361 0.830158 0 99.9949
+./data/INAER_2011_Alcoy_Core.xyz 8 0 262144 0 8 7 0.467667 0.657331 0.816482 0 99.9949
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 16 7 0.430999 0.478498 0.819936 0 99.9847
+./data/INAER_2011_Alcoy_Core.xyz 8 0 65536 0 16 7 0.430252 0.539097 0.792103 0 99.9847
+./data/INAER_2011_Alcoy_Core.xyz 8 0 131072 0 16 7 0.430701 0.472827 0.774260 0 99.9847
+./data/INAER_2011_Alcoy_Core.xyz 8 0 262144 0 16 7 0.431935 0.469823 0.761294 0 99.9847
+./data/INAER_2011_Alcoy_Core.xyz 8 0 32768 0 32 7 0.338698 0.357775 0.793908 0 99.9421
+./data/INAER_2011_Alcoy_Core.xyz 8 0 65536 0 32 7 0.341565 0.371941 0.761646 0 99.9421
+./data/INAER_2011_Alcoy_Core.xyz 8 0 131072 0 32 7 0.337729 0.356923 0.742870 0 99.9403
+./data/INAER_2011_Alcoy_Core.xyz 8 0 262144 0 32 7 0.339286 0.359849 0.729141 0 99.9421
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 16 7 0.829972 0.790950 1.023433 0 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 65536 0 16 7 0.827764 0.761827 1.026276 0 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 131072 0 16 7 0.826452 0.767140 1.443103 0 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 262144 0 16 7 0.834377 0.765705 0.823442 0 99.9132
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 32768 0 32 7 0.659132 0.587939 0.998305 0 99.8734
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 65536 0 32 7 0.659073 0.587351 1.000082 0 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 131072 0 32 7 0.658610 0.591455 1.324297 0 99.8698
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 262144 0 32 7 0.659043 0.586439 0.823834 0 99.8734
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 8 7 1.268548 1.703337 0.530685 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 65536 0 8 7 1.280937 1.730857 0.503243 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 131072 0 8 7 1.264734 1.709918 0.513048 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 262144 0 8 7 1.267947 1.710329 0.513196 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 16 7 1.219750 1.350552 0.477218 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 65536 0 16 7 1.211847 1.353968 0.475468 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 131072 0 16 7 1.223656 1.357240 0.465434 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 262144 0 16 7 1.224438 1.351023 0.466573 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 32768 0 32 7 1.066374 1.073748 0.492416 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 65536 0 32 7 1.072443 1.075714 0.481629 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 131072 0 32 7 1.069187 1.072003 0.470763 0 100
+./data/V21_group1_densified_point_cloud.xyz 8 0 262144 0 32 7 1.072001 1.100499 0.469881 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 8 7 1.445670 1.952843 0.593283 0 100.01
+./data/V19_group1_densified_point_cloud.xyz 8 0 65536 0 8 7 1.453188 1.957400 0.570081 0 100.01
+./data/V19_group1_densified_point_cloud.xyz 8 0 131072 0 8 7 1.442679 1.970974 0.545126 0 100.01
+./data/V19_group1_densified_point_cloud.xyz 8 0 262144 0 8 7 1.451663 1.959111 0.544627 0 100.01
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 16 7 1.381656 1.540574 0.532064 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 65536 0 16 7 1.382416 1.530221 0.515642 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 131072 0 16 7 1.398229 1.538567 0.492179 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 262144 0 16 7 1.376700 1.606034 0.492037 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 32768 0 32 7 1.240624 1.243339 0.550377 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 65536 0 32 7 1.234409 1.234577 0.525494 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 131072 0 32 7 1.235807 1.235318 0.499538 0 100
+./data/V19_group1_densified_point_cloud.xyz 8 0 262144 0 32 7 1.235736 1.258774 0.500046 0 100
+
+
+stage1tbbRem
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 16 7 1.909764 1.500285 0.365403 0 99.4001
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 32 7 1.516779 1.303606 0.346337 0 99.804
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 16 7 1.931218 1.538453 0.368161 0 99.6012
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 32 7 1.525623 1.231107 0.344875 0 99.7972
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 64 7 1.274835 1.009123 0.368053 0 99.6557
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 128 7 1.031116 0.785694 0.407858 0 99.4682
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 128 7 1.031915 0.804131 0.403778 0 99.7103
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 256 7 0.971527 0.677777 0.453002 0 99.8245
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 512 7 0.867192 0.602017 0.542691 0 99.4495
+
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 64 7 1.264634 1.014129 0.363148 0 99.6131
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 128 7 1.022061 0.778314 0.403827 0 99.5654
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 256 7 0.966328 0.700940 0.449342 0 99.6148
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 512 7 0.854356 0.605972 0.528287 0 99.4699
+./data/INAER_2011_Alcoy_CoreX4.xyz 8 0 1024 0 1024 7 0.848827 0.543697 0.596484 0 99.4035
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 1024 0 64 7 2.040980 1.524175 0.418994 0 99.5483
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 1024 0 128 7 1.651529 1.232077 0.496616 0 99.7103
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 1024 0 256 7 1.462917 1.054991 0.536946 0 99.4307
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 1024 0 512 7 1.325765 0.930376 0.662427 0 99.4427
+./data/INAER_2011_Alcoy_CoreX6.xyz 8 0 1024 0 1024 7 1.323050 0.858302 0.807225 0 99.4836
+./data/INAER_2011_Alcoy.xyz 8 0 1024 0 8 7 0.063182 0.075599 0.039459 0 106.972
+./data/INAER_2011_Alcoy.xyz 8 0 1024 0 16 7 0.063881 0.057866 0.038604 0 106.906
+./data/INAER_2011_Alcoy.xyz 8 0 1024 0 32 7 0.046164 0.045674 0.033085 0 106.707
+./data/INAER_2011_Alcoy.xyz 8 0 1024 0 64 7 0.042513 0.032127 0.032798 0 106.839
+data/INAER_2011_Alcoy.xyz 2 0 1024 1 32 3 0.177031 0.044953 0.037850 0.5 100
+./data/INAER_2011_Alcoy.xyz 1 0 1024 0 8 7 0.435782 0.076717 0.300471 0 106.839
+./data/INAER_2011_Alcoy.xyz 1 0 1024 0 16 7 0.409162 0.062101 0.274624 0 106.839
+./data/INAER_2011_Alcoy.xyz 1 0 1024 0 32 7 0.322107 0.047570 0.238263 0 106.839
+./data/INAER_2011_Alcoy.xyz 1 0 1024 0 64 7 0.278061 0.034456 0.239601 0 106.839
+data/INAER_2011_Alcoy.xyz 2 0 1024 1 32 3 0.132762 0.040159 0.015198 0.5 100.066
+data/INAER_2011_Alcoy.xyz 2 0 1024 1 32 3 0.130036 0.039834 0.015097 0.5 100.066
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 1 32 3 0.430042 0.291141 0.036662 0.5 12.1521
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 1 32 3 0.767234 0.495163 0.042166 0.5 14.7563
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 1 32 3 1.239890 0.999488 0.024861 0.5 17.3826
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 1 32 3 1.466952 0.971799 0.024925 0.5 17.3721
+./data/V21_group1_densified_point_cloud.xyz 8 0 1024 1 32 3 1.200985 0.958068 0.025785 0.5 17.3826
+data/INAER_2011_Alcoy.xyz 2 0 1024 1 32 3 0.128130 0.040430 0.014876 0.5 100.066
+./data/BABCOCK_2017_Arzua_3B.xyz 8 0 1024 1 32 3 0.817642 0.474739 0.043847 0.5 14.7744
+./data/INAER_2011_Alcoy_Core.xyz 2 0 1024 1 32 3 1.102890 0.303052 0.093041 0.5 12.1589
+./data/INAER_2011_Alcoy_Core.xyz 4 0 1024 1 32 3 0.758237 0.314102 0.063423 0.5 12.1589
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 1 32 3 0.470953 0.329516 0.036107 0.5 12.1504
+./data/INAER_2011_Alcoy_Core.xyz 8 0 1024 1 32 3 0.473267 0.296374 0.036881 0.5 12.164
