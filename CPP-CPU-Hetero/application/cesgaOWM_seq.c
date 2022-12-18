@@ -16,7 +16,7 @@ int cmpfunc (const void * a, const void * b) {
 int main( int argc, char* argv[]){
 
     // Ficheros
-    FILE* fileLAS;
+    FILE* fileXYZ;
     FILE* fileMin;
 
     // Octrees
@@ -40,14 +40,14 @@ int main( int argc, char* argv[]){
 
     unsigned int addMin =0;
 
-    double t_stage, t_func;
+    double t_stage, t_func, t_octree;
 
     // Tamaño de la ventana deslizante
-    unsigned short Wsize = 12;
+    unsigned short Wsize = 10;
     // Tamaño de la rejilla
     unsigned short Bsize = 20;
     // Solape de la ventana deslizante
-    double Overlap = 0.5;
+    double Overlap = 0.8;
     // Numero de procesadores
     unsigned short num_procs = 1;
 
@@ -78,7 +78,7 @@ int main( int argc, char* argv[]){
     printf("Input.txt: %s ---> SEQUENTIAL\n", inputTXT);
 
     // Abro el fichero
-    if((fileLAS = fopen(inputTXT,"r")) == NULL){
+    if((fileXYZ = fopen(inputTXT,"r")) == NULL){
       printf("Unable to open file!\n");
       exit(-1);
     }
@@ -123,18 +123,14 @@ int main( int argc, char* argv[]){
       max.y   = 4743124.373;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"./data/sample24.xyz")){
-      Npoints = 7492;
-      min.x   = 513748.12;
-      max.x   = 513869.97;
-      min.y   = 5403124.76;
-      max.y   = 5403197.20;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
     } else {
-      printf("No header data!\n");
-      exit(-1);
+    //Read header values
+      if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+        printf("Imposible to obtain header values\n");
+        exit(-1);
+        }
     }
+
 
     // Reservo memoria para la nube de puntos
     pointer = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
@@ -144,21 +140,22 @@ int main( int argc, char* argv[]){
     for(int i=0; i<Npoints ; i++){
       //Obtengo los datos id X Y Z
       pointer[i].id = i;
-      if(fscanf(fileLAS, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
+      if(fscanf(fileXYZ, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
         printf("Imposible to obtain values\n");
         exit(-1);
       }
-      while(fgetc(fileLAS)!='\n');
+      while(fgetc(fileXYZ)!='\n');
     }
 
     //Ya no necesito mas el fichero
-    if(fclose(fileLAS)){
+    if(fclose(fileXYZ)){
       printf("Cannot close the file\n");
       exit(-1);
     }
 
     printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
-
+    // maxRadius identifies in which axis (x, y, z) the BBox has a maximum radius
+    // In other words, it is the max(radius.x, radius.y, radius.z)
     radius = getRadius(min, max, &maxRadius);
     center = getCenter(min, radius);
     printf("OCTREE PARAMETERS:\n");
@@ -166,12 +163,15 @@ int main( int argc, char* argv[]){
     printf("Center:     %.2f , %.2f\n", center.x,center.y);
     printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
     printf("CREANDO OCTREE...\n");
+
+    t_octree=omp_get_wtime();
     octreeIn = createOctree(center, maxRadius);
 
     // Inserto los puntos en el Octree
     for(int i = 0; i < Npoints; i++)
        insertPoint(&pointer[i], octreeIn);
 
+    printf("Time elapsed at Octree construction:     %.6f s\n\n", omp_get_wtime()-t_octree);
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
     // Densidad en puntos/m²
@@ -227,10 +227,9 @@ int main( int argc, char* argv[]){
         // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
         countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
 
-        printf("\nCeldas no descartadas:   %d\n", countMin);
-
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
+        printf("\nCeldas no descartadas:   %d\n", countMin);
         // Para el caso de no hacer solpado; que searcher tenga un valor
         searcher=countMin;
 
@@ -244,9 +243,9 @@ int main( int argc, char* argv[]){
             // Me quedo solo con los mínimos que se han repetido más de una vez
             searcher = stage2(Ncells, minIDs);
 
+            printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
             printf("Numero de minimos que me quedo: %d \n", searcher);
 
-            printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
         }
 
 
@@ -261,9 +260,9 @@ int main( int argc, char* argv[]){
                insertPoint(&pointer[minIDs[i]], grid);
 
             addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
+            printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
             printf("Numero de minimos: %d \n", addMin);
 
-            printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
             // Ya no necesito este octree
             free(grid);
             grid = NULL;

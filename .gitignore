@@ -1,6 +1,6 @@
-datos/*
-bin/*
-build/*
+data
+bin
+build
 
 # files
 *.xyz

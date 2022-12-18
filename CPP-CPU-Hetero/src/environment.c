@@ -434,6 +434,7 @@ void insertPoint(Lpoint *point, Octree octree)
         else                            // Not empty but still divisible -> divide
         {
             //if(octree->numPts > MAX_POINTS)
+            // MIN_RADIUS defined as constat in environment.c
             if(octree->radius / 2.0 > MIN_RADIUS)
             {
                 createOctants(octree);
