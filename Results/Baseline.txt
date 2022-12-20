@@ -1,0 +1,477 @@
+Baseline version is compiled in directory CPP-CPU-Hetero using
+
+make bin/sequential
+
+Execution times are obtained by going to CPP-CPU-Hetero/scripts and running
+
+python3 run_seq.python3
+
+*********************************
+Results in cafe.ac.uma.es (Coffee Lake core i9-9900K)
+*********************************
+ALCOY:
+
+Input.txt: ../bin/data/Alcoy.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO OCTREE...
+Time elapsed at Octree construction:     4.823434 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     23.631061 s
+
+
+Celdas no descartadas:   383072
+Time elapsed at STAGE 2:     0.021926 s --> 0.09% of total
+
+Numero de minimos que me quedo: 58619 
+Time elapsed at STAGE 3:     0.042439 s -->  0.18% of total
+
+Numero de minimos: 55 
+TOTAL time elapsed:     23.695435 s
+Finalmente, el mapa va a tener 58674 puntos, 20321648 puntos menos
+/////////////////////////////////////////////////////////////////////
+Ejecuciones:    23.6954  
+BEST: 23.6954
+Creo el fichero ../bin/data/Alcoy_salida.xyz ...
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+ARZUA
+Input.txt: ../bin/data/Arzua.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO OCTREE...
+Time elapsed at Octree construction:     5.780858 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     23.735941 s
+
+
+Celdas no descartadas:   201963
+Time elapsed at STAGE 2:     0.008741 s --> 0.04% of total
+
+Numero de minimos que me quedo: 27362 
+Time elapsed at STAGE 3:     0.134047 s --> 0.54% of total
+
+Numero de minimos: 295 
+TOTAL time elapsed:     23.878738 s
+Finalmente, el mapa va a tener 27657 puntos, 40679436 puntos menos
+/////////////////////////////////////////////////////////////////////
+
+Ejecuciones:    23.8787  
+BEST: 23.8787
+Creo el fichero ../bin/data/Arzua_salida.xyz ...
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+BrionF
+Input.txt: ../bin/data/BrionF.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO OCTREE...
+Time elapsed at Octree construction:     5.913711 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     20.476745 s
+
+
+Celdas no descartadas:   65413
+Time elapsed at STAGE 2:     0.003228 s --> 0.02% of total
+
+Numero de minimos que me quedo: 9470 
+Time elapsed at STAGE 3:     0.018734 s --> 0.09% of total
+
+Numero de minimos: 52 
+TOTAL time elapsed:     20.498716 s
+Finalmente, el mapa va a tener 9522 puntos, 42375458 puntos menos
+/////////////////////////////////////////////////////////////////////
+
+Ejecuciones:    20.4987  
+BEST: 20.4987
+Creo el fichero ../bin/data/BrionF_salida.xyz ...
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+Brion U 
+
+Input.txt: ../bin/data/BrionU.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO OCTREE...
+Time elapsed at Octree construction:     6.579909 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     21.999267 s
+
+
+Celdas no descartadas:   67207
+Time elapsed at STAGE 2:     0.003458 s --> 0.02% of total
+
+Numero de minimos que me quedo: 9713 
+Time elapsed at STAGE 3:     0.032096 s --> 0.15% of total
+
+Numero de minimos: 76 
+TOTAL time elapsed:     22.034830 s
+Finalmente, el mapa va a tener 9789 puntos, 48014843 puntos menos
+/////////////////////////////////////////////////////////////////////
+
+Ejecuciones:    22.0348  
+BEST: 22.0348
+Creo el fichero ../bin/data/BrionU_salida.xyz ...
+
+
+
+
+
+
+
+
+
+
+*********************************
+Results in alder.ac.uma.es (Alder Lake core i9 12900KS)
+*********************************
+
+
+
+ALCOY:
+Input.txt: ../bin/data/Alcoy.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO OCTREE...
+Time elapsed at Octree construction:     4.897300 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     22.036845 s
+
+
+Celdas no descartadas:   383072
+Time elapsed at STAGE 2:     0.023403 s
+
+Numero de minimos que me quedo: 58619 
+Time elapsed at STAGE 3:     0.043795 s
+
+Numero de minimos: 55 
+TOTAL time elapsed:     22.104055 s
+Finalmente, el mapa va a tener 58674 puntos, 20321648 puntos menos
+/////////////////////////////////////////////////////////////////////
+Ejecuciones:    22.1041  
+BEST: 22.1041
+Creo el fichero ../bin/data/Alcoy_salida.xyz ...
+
+
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+Arzua:
+Input.txt: ../bin/data/Arzua.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO OCTREE...
+Time elapsed at Octree construction:     5.963545 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     23.038517 s
+
+
+Celdas no descartadas:   201963
+Time elapsed at STAGE 2:     0.009457 s
+
+Numero de minimos que me quedo: 27362 
+Time elapsed at STAGE 3:     0.124742 s
+
+Numero de minimos: 295 
+TOTAL time elapsed:     23.172725 s
+Finalmente, el mapa va a tener 27657 puntos, 40679436 puntos menos
+/////////////////////////////////////////////////////////////////////
+
+Ejecuciones:    23.1727  
+BEST: 23.1727
+Creo el fichero ../bin/data/Arzua_salida.xyz ...
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+Brion F
+
+Input.txt: ../bin/data/BrionF.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO OCTREE...
+Time elapsed at Octree construction:     5.857044 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     29.467430 s
+
+
+Celdas no descartadas:   65413
+Time elapsed at STAGE 2:     0.003516 s
+
+Numero de minimos que me quedo: 9470 
+Time elapsed at STAGE 3:     0.020197 s
+
+Numero de minimos: 52 
+TOTAL time elapsed:     29.491156 s
+Finalmente, el mapa va a tener 9522 puntos, 42375458 puntos menos
+/////////////////////////////////////////////////////////////////////
+
+Ejecuciones:    29.4912  
+BEST: 29.4912
+Creo el fichero ../bin/data/BrionF_salida.xyz ...
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+Brion U
+
+Input.txt: ../bin/data/BrionU.xyz ---> SEQUENTIAL
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO OCTREE...
+Time elapsed at Octree construction:     6.602556 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     31.846074 s
+
+
+Celdas no descartadas:   67207
+Time elapsed at STAGE 2:     0.003773 s
+
+Numero de minimos que me quedo: 9713 
+Time elapsed at STAGE 3:     0.035400 s
+
+Numero de minimos: 76 
+TOTAL time elapsed:     31.885257 s
+Finalmente, el mapa va a tener 9789 puntos, 48014843 puntos menos
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+Ejecuciones:    31.8853  
+BEST: 31.8853
+Creo el fichero ../bin/data/BrionU_salida.xyz ...
