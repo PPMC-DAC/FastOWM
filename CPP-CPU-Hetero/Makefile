@@ -1,22 +1,44 @@
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin)
+CC = gcc-12
+CFLAGS_BASELINE = -fopenmp -lm -O3 -std=c11
+endif
+
+ifeq ($(UNAME), Linux)
 CC = gcc
+CFLAGS_BASELINE = -fopenmp -lm -O3 -lrt -std=c11
+endif
+
+BIN=bin
+SRC=src
+APP=application
+
 #CFLAGS =-I/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/include -L/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/lib -fopenmp -g -lm -O3 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt
 #In Ubuntu -lbsd is needed for strlcpy (#include <bsd/string.h>) sudo apt-get install libbsd-dev
 #gsl sudo apt-get install libgsl0-dev
 CFLAGS = -fopenmp -g3 -lm -O2 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt -lbsd -llas_c
 
-CFLAGS_CESGA = -fopenmp -lm -O3 -lrt -std=c11
-
 CPPFLAGS_CESGA = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-DEPS = include/environment.c
+PROG=baseline
+LIST=$(addprefix $(BIN)/, $(PROG))
 
-all : bin/parallelgpu
+all: $(LIST)
 
-bin/sequential:
+$(BIN)/%: $(APP)/cesgaOWM_baseline.c $(SRC)/environment.c
 		@mkdir -p "$(@D)"
-		$(CC) application/cesgaOWM_seq.c src/environment.c -o $@ $(CFLAGS_CESGA)
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
+
+$(BIN)/par_baseline: $(APP)/cesgaOWM_baseline.c $(SRC)/environment.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
+
+bin/sequential: application/cesgaOWM_seq.c src/environment.c
+		@mkdir -p "$(@D)"
+		$(CC) application/cesgaOWM_seq.c src/environment.c -o $@ $(CFLAGS_BASELINE)
 
 bin/qold:
 		@mkdir -p "$(@D)"
@@ -34,9 +56,9 @@ bin/unique:
 		@mkdir -p "$(@D)"
 		g++ application/owm_up.cpp src/envi_up.cpp -o $@ -O3 -fopenmp -lm -std=c++11
 
-bin/parallelc:
+bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/environment.c
 		@mkdir -p "$(@D)"
-		$(CC) application/cesgaOWM.c src/environment.c -o $@ $(CFLAGS_CESGA)
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
 
 bin/parallelcpp:
 		@mkdir -p "$(@D)"

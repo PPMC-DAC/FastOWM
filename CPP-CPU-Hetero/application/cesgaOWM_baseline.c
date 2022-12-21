@@ -16,7 +16,7 @@ int cmpfunc (const void * a, const void * b) {
 int main( int argc, char* argv[]){
 
     // Ficheros
-    FILE* fileLAS;
+    FILE* fileXYZ;
     FILE* fileMin;
 
     // Octrees
@@ -40,16 +40,16 @@ int main( int argc, char* argv[]){
 
     unsigned int addMin =0;
 
-    double t_stage, t_func;
+    double t_stage, t_func, t_octree;
 
     // Tamaño de la ventana deslizante
-    unsigned short Wsize = 12;
+    unsigned short Wsize = 10;
     // Tamaño de la rejilla
     unsigned short Bsize = 20;
     // Solape de la ventana deslizante
-    double Overlap = 0.5;
+    double Overlap = 0.8;
     // Numero de procesadores
-    unsigned short num_procs = 4;
+    unsigned short num_procs = 1;
 
     //Control del bucle de ejecución
     unsigned int bucle_entrada = 1;
@@ -75,12 +75,15 @@ int main( int argc, char* argv[]){
 
     double resultados[bucle_entrada];
 
+#ifdef PARALLEL
     omp_set_num_threads(num_procs);
-
     printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT, num_procs);
+#else
+    printf("Input.txt: %s ---> SEQUENTIAL\n", inputTXT);
+#endif
 
     // Abro el fichero
-    if((fileLAS = fopen(inputTXT,"r")) == NULL){
+    if((fileXYZ = fopen(inputTXT,"r")) == NULL){
       printf("Unable to open file!\n");
       exit(-1);
     }
@@ -125,18 +128,14 @@ int main( int argc, char* argv[]){
       max.y   = 4743124.373;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"./data/sample24.xyz")){
-      Npoints = 7492;
-      min.x   = 513748.12;
-      max.x   = 513869.97;
-      min.y   = 5403124.76;
-      max.y   = 5403197.20;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
     } else {
-      printf("No header data!\n");
-      exit(-1);
+    //Read header values
+      if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+        printf("Imposible to obtain header values\n");
+        exit(-1);
+        }
     }
+
 
     // Reservo memoria para la nube de puntos
     pointer = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
@@ -146,21 +145,22 @@ int main( int argc, char* argv[]){
     for(int i=0; i<Npoints ; i++){
       //Obtengo los datos id X Y Z
       pointer[i].id = i;
-      if(fscanf(fileLAS, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
+      if(fscanf(fileXYZ, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
         printf("Imposible to obtain values\n");
         exit(-1);
       }
-      while(fgetc(fileLAS)!='\n');
+      while(fgetc(fileXYZ)!='\n');
     }
 
     //Ya no necesito mas el fichero
-    if(fclose(fileLAS)){
+    if(fclose(fileXYZ)){
       printf("Cannot close the file\n");
       exit(-1);
     }
 
     printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
-
+    // maxRadius identifies in which axis (x, y, z) the BBox has a maximum radius
+    // In other words, it is the max(radius.x, radius.y, radius.z)
     radius = getRadius(min, max, &maxRadius);
     center = getCenter(min, radius);
     printf("OCTREE PARAMETERS:\n");
@@ -168,12 +168,15 @@ int main( int argc, char* argv[]){
     printf("Center:     %.2f , %.2f\n", center.x,center.y);
     printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
     printf("CREANDO OCTREE...\n");
+
+    t_octree=omp_get_wtime();
     octreeIn = createOctree(center, maxRadius);
 
     // Inserto los puntos en el Octree
     for(int i = 0; i < Npoints; i++)
        insertPoint(&pointer[i], octreeIn);
 
+    printf("Time elapsed at Octree construction:     %.6f s\n\n", omp_get_wtime()-t_octree);
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
     // Densidad en puntos/m²
@@ -212,79 +215,59 @@ int main( int argc, char* argv[]){
     printf("\nMALLA:\n");
     Crowg=(int)floor(Width/Bsize)+1;
     Ccolg=(int)floor(High/Bsize)+1;
-    // Crow=(int)round(Width/Bsize);
-    // Ccol=(int)round(High/Bsize);
+
     printf("Dimensiones de la malla %dx%d\n\n", Ccolg, Crowg);
     Ngrid = Crowg*Ccolg;
-    // Voy a tener como mucho un mínimo por rejilla..
+
+    // Voy a tener como mucho un mínimo por ventana..
     minIDs = malloc(Ncells*sizeof(int));
+    // Voy a tener como mucho un mínimo por rejilla..
     minGridIDs = malloc(Ngrid*sizeof(int));
 
-    // sleep(2);
     while(bucle_entrada){
 
-        // printf("\nN cells:    %u\n", Ncells);
-        // Voy a tener como mucho un mínimo por ventana..
-        // minIDs = malloc(Ncells*sizeof(int));
         t_func=omp_get_wtime();
         t_stage=omp_get_wtime();
-        // printf("/////////////////////////// LOOP ///////////////////////////\n\n");
-
 
         // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
         countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-        // countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
 
-        printf("\nCeldas no descartadas:   %d\n", countMin);
-
-        // printf("\n\n/////////////////////////// END ///////////////////////////\n");
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
+        printf("\nCeldas no descartadas:   %d\n", countMin);
         // Para el caso de no hacer solpado; que searcher tenga un valor
         searcher=countMin;
 
         // Descarto mínimos si hay solape
         // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
-        if(Overlap != 0){
+        if(Overlap > 0.0){
             t_stage=omp_get_wtime();
-            // printf("\nN minimos de entrada    %d\n", searcher);
-            // printf("/////////////////////////// MIN SELECT ///////////////////////////\n\n");
 
             // Ordeno el array de IDs
-            qsort(minIDs,countMin,sizeof(int),&cmpfunc);
-
-            // for(int i=0 ; i<searcher ; i++)
-            //   printf("%d %.2f\n", pointer[minIDs[i]].id,pointer[minIDs[i]].z);
+            qsort(minIDs,Ncells,sizeof(int),&cmpfunc);
             // Me quedo solo con los mínimos que se han repetido más de una vez
-            searcher = stage2(countMin, minIDs);
+            searcher = stage2(Ncells, minIDs);
 
-            printf("\nNumero de minimos que me quedo: %d \n", searcher);
-
-            // printf("\n\n/////////////////////////// END ///////////////////////////\n");
             printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
+            printf("Numero de minimos que me quedo: %d \n", searcher);
+
         }
 
 
         // Aplico la malla para ver si hay zonas sin puntos
         if(Bsize > 0){
-            // printf("N cells grid:    %u\n", Ngrid);
-            // Voy a tener como mucho un mínimo por rejilla..
-            // minGridIDs = malloc(Ngrid*sizeof(int));
+
             t_stage=omp_get_wtime();
-            // printf("/////////////////////////// GRID ///////////////////////////\n\n\n");
 
             // Creo un nuevo octree con todos los mínimos; las mismas dimensiones que el grande
             grid = createOctree(center, maxRadius);
             for(int i = 0; i < searcher; i++)
                insertPoint(&pointer[minIDs[i]], grid);
-
-            //
             addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
-            // addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
 
-            // printf("Minimos añadidos:        %d\n", addMin);
-            // printf("\n\n/////////////////////////// END ///////////////////////////\n");
             printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
+            printf("Numero de minimos: %d \n", addMin);
+
             // Ya no necesito este octree
             free(grid);
             grid = NULL;
@@ -295,21 +278,10 @@ int main( int argc, char* argv[]){
 
 
         if(bucle_entrada){
-          // free(minIDs);
-          // minIDs=NULL;
-          // free(minGridIDs);
-          // minGridIDs=NULL;
-          // Para parar un poco entre vuelta y vuelta
-          sleep(20);
+          sleep(5);
         }
 
         printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-
     }
 
     printf("Ejecuciones:  ");

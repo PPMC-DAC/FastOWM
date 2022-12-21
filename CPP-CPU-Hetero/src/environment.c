@@ -18,10 +18,6 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
-  Lpoint cellCenter = {0,0.0,0.0,0.0};
-
-  // Lpoint** neighbors = NULL;
-
   unsigned int countMin = 0;
 
   int cellPoints = 0;
@@ -31,12 +27,14 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
   /*  #pragma omp parallel for shared(countMin) firstprivate(minIDs,octreeIn,Wsize,Overlap,Displace,initX,initY) \
                             private(cellCenter,neighbors,cellPoints,idmin) schedule(dynamic,block_size)
     */
+#ifdef PARALLEL
   #pragma omp parallel
+#endif
   {
       // printf("Thread: %d\n", omp_get_thread_num());
       // printf("Thread num: %d\n", omp_get_num_threads());
-      for( int jj = omp_get_thread_num() ; jj < Ccol ; jj+=omp_get_num_threads() ){
-      // for( jj = 1 ; jj < Ccol ; jj++ ){
+      //for( int jj = omp_get_thread_num() ; jj < Ccol ; jj+=omp_get_num_threads() ){
+      for( jj = 0 ; jj < Ccol ; jj++ ){
 
           // cellCenter.y = initY + jj*Displace;
           // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
@@ -46,26 +44,29 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
           {
               for( ii = omp_get_thread_num() ; ii < Crow ; ii+=omp_get_num_threads() ){
             */
+#ifdef PARALLEL
               #pragma omp parallel for private(cellPoints) schedule(dynamic,1)
+#endif
               for( int ii=0 ; ii < Crow ; ii++ ){
 
                   // cellCenter.x = initX + ii*Displace;
                   Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
 
-                  // printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
+                  //printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
                   // printf("Busco los vecinos\n");
                   Lpoint** neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
-                  // printf("Numero de elementos de la celda: %d\n", cellPoints );
+                  //printf("Numero de elementos de la celda: %d\n", cellPoints );
                   if(cellPoints >= minNumPoints ){
-                      // printf("Numero de elementos de la celda: %d\n", cellPoints );
+                      printf("Numero de elementos de la celda: %d\n", cellPoints );
                       int idmin = findMin(neighbors, cellPoints);
+#ifdef PARALLEL
                       #pragma omp critical
+#endif
                       {
                           minIDs[countMin] = neighbors[idmin]->id;
                           countMin++;
                       }
-                      // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
-
+                      printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
                   }
 
                   free(neighbors);
@@ -77,7 +78,7 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
 
   return countMin;
 }
-
+//Sequential version
 unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min){
 
@@ -114,13 +115,9 @@ unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, 
                   if(cellPoints >= minNumPoints ){
                       // printf("Numero de elementos de la celda: %d\n", cellPoints );
                       idmin = findMin(neighbors, cellPoints);
-                      // #pragma omp critical
-                      // {
-                          minIDs[countMin] = neighbors[idmin]->id;
-                          countMin++;
-                      // }
-                      // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
-
+                      minIDs[countMin] = neighbors[idmin]->id;
+                      countMin++;
+                     // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
                   }
 
                   free(neighbors);
@@ -169,12 +166,15 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
     Lpoint** minimos = NULL;
 
     int ii,jj;
-
+#ifdef PARALLEL
     #pragma omp parallel private(ii,jj,cellCenter,neighbors,minimos,cellPoints,idmin)
+#endif
     {
-
+#ifdef PARALLEL
         for( jj = omp_get_thread_num() ; jj < Ccol ; jj+=omp_get_num_threads() ){
-        // for( jj = 0 ; jj < Ccol ; jj++ ){
+#else        
+        for( jj = 0 ; jj < Ccol ; jj++ ){
+#endif
            cellCenter.y = min.y + Bsize/2 + jj*Bsize;
 
            for( ii = 0 ; ii < Crow ; ii++ ){
@@ -187,9 +187,10 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
                    // printf("    Tengo una celda vacia en la malla\n" );
                    neighbors = searchNeighbors2D(&cellCenter, octreeIn, Bsize/2, &cellPoints);
                    if(cellPoints>0){
-
                        idmin = findMin(neighbors, cellPoints);
+#ifdef PARALLEL
                        #pragma omp critical
+#endif
                        {
                           minGridIDs[addMin] = neighbors[idmin]->id;
                           addMin++;
@@ -198,7 +199,6 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
                    }
                    free(neighbors);
                    neighbors = NULL;
-
                }
                free(minimos);
                minimos=NULL;
@@ -238,14 +238,12 @@ unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short C
 
                    neighbors = searchNeighbors2D(&cellCenter, octreeIn, Bsize/2, &cellPoints);
                    if(cellPoints>0){
-
                       idmin = findMin(neighbors, cellPoints);
                       minGridIDs[addMin] = neighbors[idmin]->id;
                       addMin++;
                    }
                    free(neighbors);
                    neighbors = NULL;
-
                }
                free(minimos);
                minimos=NULL;
@@ -256,16 +254,6 @@ unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short C
     return addMin;
 
 }
-
-// unsigned int findMin(Lpoint** neighbors, double zzmin, unsigned int cellPoints) {
-//   unsigned int idmin=0;
-//   for(int i=1; i<cellPoints; i++)
-//     if(neighbors[i]->z < zzmin){
-//       zzmin = round(neighbors[i]->z * 100)/100;
-//       idmin=i;
-//     }
-//   return idmin;
-// }
 
 double round2d(double z){
   return round(z*100.0)/100.0;
