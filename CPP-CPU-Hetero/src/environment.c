@@ -62,9 +62,8 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
                       {
                           minIDs[countMin] = neighbors[idmin]->id;
                           countMin++;
-                          //printf("Th:%d ;El mínimo de la ventana %04d,%04d tiene count:%d  es: %.2f\n",omp_get_thread_num(),jj,ii,countMin ,neighbors[idmin]->z);
                       }
-                      
+                    //printf("Th:%d; Minimum at SW %04d,%04d has count:%d  and z-value:%.2f\n",omp_get_thread_num(),jj,ii,countMin ,neighbors[idmin]->z);  
                   }
 
                   free(neighbors);
@@ -115,9 +114,9 @@ unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, 
                       idmin = findMin(neighbors, cellPoints);
                       minIDs[countMin] = neighbors[idmin]->id;
                       countMin++;
-                     // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
+                    //printf("Minimum at SW %04d,%04d has count:%d  and z-value:%.2f\n",jj,ii,countMin ,neighbors[idmin]->z);  
                   }
-
+                  
                   free(neighbors);
                   neighbors = NULL;
               }
@@ -137,10 +136,10 @@ unsigned int stage2(unsigned int countMin, int* minIDs){
 
   for( ii=0 ; ii<countMin ; ii=jj ){
       id = minIDs[ii];
-
+    // skipping repeated values
       for( jj=ii+1 ; id==minIDs[jj] && jj<countMin ; jj++ );
 
-      /* skipping repeated values */
+    //Check if there were repeated values
       if(jj-ii > 1){
           minIDs[index]=id;
           index++;
