@@ -10,7 +10,7 @@
 #include "../include/environment.h"
 
 int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a < *(int*)b );
+   return ( *(int*)a - *(int*)b ); // Portable ascending order
 }
 
 int main( int argc, char* argv[]){
@@ -18,6 +18,10 @@ int main( int argc, char* argv[]){
     // Ficheros
     FILE* fileXYZ;
     FILE* fileMin;
+
+#ifdef DEBUG
+    FILE* fileDeb1, fileDeb2;
+#endif
 
     // Octrees
     Octree octreeIn = NULL;
@@ -182,23 +186,23 @@ int main( int argc, char* argv[]){
     // Densidad en puntos/m²
     Density = Npoints/(Width*High);
     printf("CLOUD PARAMETERS:\n");
-    printf("Número de puntos      %d\n",Npoints);
-    printf("Ancho:  %.2lf\n",Width);
-    printf("Alto:  %.2lf\n",High);
-    printf("Densidad:  %.3lf\n",Density);
+    printf("Number of points (cloud size): %d\n",Npoints);
+    printf("Width:  %.2lf\n",Width);
+    printf("Height:  %.2lf\n",High);
+    printf("Density:  %.3lf\n",Density);
 
-    printf("\nTamaño de ventana     %u\n", Wsize);
-    printf("Tamaño de rejilla     %u\nSolape                %.2f\n", Bsize,Overlap);
+    printf("\nSize of sliding window (SW) %u\n", Wsize);
+    printf("Grid size     %u\nOverlap                %.2f\n", Bsize,Overlap);
 
-    // El numero minimo sera la mitad del numero de puntos medio por celda
+    // A minimum of a slide window, SW, is valid if there are at least minNumPoints inside the SW
     minNumPoints = 0.5*Density*Wsize*Wsize;
-    printf("Minimo numero de puntos por celda:   %u\n", minNumPoints);
+    printf("Minium number of points in the SW to be considered:   %u\n", minNumPoints);
 
     Displace = round2d(Wsize*(1-Overlap));
-    printf("Displacement   %.2f\n", Displace);
+    printf("SW x and y Displacement   %.2f\n", Displace);
 
     // Stage 1 parameters
-    printf("\nVENTANA:\n");
+    printf("\n Sliding Window (SW) parameters:\n");
 
     if(Overlap > 0.0) {
      Crow=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
@@ -207,20 +211,21 @@ int main( int argc, char* argv[]){
      Crow=(int)floor(Width/Wsize)+1;
      Ccol=(int)floor(High/Wsize)+1;
     }
-    printf("Celdas por columa: %d\n",Ccol);
-    printf("Celdas por fila:   %d\n",Crow);
+    printf("Number of SWs per column: %d\n",Ccol);
+    printf("Number of SW per row:   %d\n",Crow);
     Ncells = Crow*Ccol;
+    printf("Total number of OWM steps (Crow x CCol):   %d\n",Ncells);
 
     // Stage 3 parameter
-    printf("\nMALLA:\n");
+    printf("\nGrid (for stage 3) parameters:\n");
     Crowg=(int)floor(Width/Bsize)+1;
     Ccolg=(int)floor(High/Bsize)+1;
 
-    printf("Dimensiones de la malla %dx%d\n\n", Ccolg, Crowg);
+    printf("Grid dimesions in %dx%d boxes %dx%d\n\n", Bsize, Bsize, Ccolg, Crowg);
     Ngrid = Crowg*Ccolg;
 
     // Voy a tener como mucho un mínimo por ventana..
-    minIDs = malloc(Ncells*sizeof(int));
+    minIDs = calloc(Ncells,sizeof(int));
     // Voy a tener como mucho un mínimo por rejilla..
     minGridIDs = malloc(Ngrid*sizeof(int));
 
@@ -232,11 +237,8 @@ int main( int argc, char* argv[]){
         // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
         countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
 
-        printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
-
-        printf("\nCeldas no descartadas:   %d\n", countMin);
-        // Para el caso de no hacer solpado; que searcher tenga un valor
-        searcher=countMin;
+        printf("Time elapsed at STAGE 1:     %.6f s\n", omp_get_wtime()-t_stage);
+        printf("Number of found minima:   %d\n\n", countMin);
 
         // Descarto mínimos si hay solape
         // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
@@ -244,15 +246,36 @@ int main( int argc, char* argv[]){
             t_stage=omp_get_wtime();
 
             // Ordeno el array de IDs
-            qsort(minIDs,Ncells,sizeof(int),&cmpfunc);
+            //qsort(minIDs,Ncells,sizeof(int),&cmpfunc); //This is not correct (it consider point with id=0 as one of the minima)
+            qsort(minIDs,countMin,sizeof(int),&cmpfunc);
+#ifdef DEBUG
+          if((fileDeb1 = fopen("sortedmins.txt","w")) == NULL){
+            printf("Unable to create file!\n");
+            return -1;
+          }
+          for(int i=0 ; i<countMin ; i++)
+              fprintf(fileDeb1, "%d %.2f %.2f %.2f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+          fclose(fileDeb1);
+#endif
             // Me quedo solo con los mínimos que se han repetido más de una vez
-            searcher = stage2(Ncells, minIDs);
+            //searcher = stage2(Ncells, minIDs);//This is not correct (it consider point with id=0 as one of the minima)
+            searcher = stage2(countMin, minIDs);
+#ifdef DEBUG
+          if((fileDeb1 = fopen("LLPs.txt","w")) == NULL){
+            printf("Unable to create file!\n");
+            return -1;
+          }
+          for(int i=0 ; i<searcher ; i++)
+              fprintf(fileDeb1, "%d %.2f %.2f %.2f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+          fclose(fileDeb1);
+#endif
 
-            printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
-            printf("Numero de minimos que me quedo: %d \n", searcher);
+            printf("Time elapsed at STAGE 2:     %.6f s\n",omp_get_wtime() - t_stage );
+            printf("Number of found LLPs: %d \n\n", searcher);
 
         }
-
+        else
+            searcher = countMin;// Para el caso de no hacer solapado; que searcher tenga un valor
 
         // Aplico la malla para ver si hay zonas sin puntos
         if(Bsize > 0){
@@ -265,8 +288,8 @@ int main( int argc, char* argv[]){
                insertPoint(&pointer[minIDs[i]], grid);
             addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
 
-            printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
-            printf("Numero de minimos: %d \n", addMin);
+            printf("Time elapsed at STAGE 3:     %.6f s\n",omp_get_wtime() - t_stage );
+            printf("Number of points added at stage 3: %d \n\n", addMin);
 
             // Ya no necesito este octree
             free(grid);
@@ -277,9 +300,9 @@ int main( int argc, char* argv[]){
         printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", searcher+addMin, Npoints - searcher+addMin );
 
 
-        if(bucle_entrada){
-          sleep(5);
-        }
+        // if(bucle_entrada){
+        //   sleep(5);
+        // }
 
         printf("/////////////////////////////////////////////////////////////////////\n");
     }
