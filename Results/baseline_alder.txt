@@ -1,0 +1,2400 @@
+
+
+Running: ../bin/baseline ../bin/data/Alcoy 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> SEQUENTIAL
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.888247 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     22.018015 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016417 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044214 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.078654 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.005023 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016337 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044138 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.065506 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.017769 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016371 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044175 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.078322 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.005402 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016384 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044082 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.065876 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.010648 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016485 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044159 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.071299 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    22.0713    22.0659    22.0783    22.0655    22.0787  
+Average: 22.0719
+
+
+
+Running: ../bin/par_baseline ../bin/data/Alcoy 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. with 1 CORES
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.900200 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     22.068813 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016430 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044399 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.129651 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.063513 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016357 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044165 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.124042 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.060636 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016338 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044182 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.121168 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.066968 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016329 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044116 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.127423 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.064596 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016322 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.044206 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     22.125132 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    22.1251    22.1274    22.1212    22.1240    22.1297  
+Average: 22.1255
+
+
+
+Running: ../bin/par_baseline ../bin/data/Alcoy 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. with 2 CORES
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.903408 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     9.934545 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016560 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.037666 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     9.988781 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.046502 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016542 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.038414 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     10.101466 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.971967 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016442 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.038282 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     10.026703 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.966591 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016532 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.038371 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     10.021506 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.021288 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.016521 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.037715 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     10.075534 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    10.0755    10.0215    10.0267    10.1015    9.9888  
+Average: 10.0428
+
+
+
+Running: ../bin/par_baseline ../bin/data/Alcoy 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. with 4 CORES
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.836939 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     4.745490 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.017927 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.031511 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     4.794935 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.726974 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.017784 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.031378 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     4.776143 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.780831 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.017827 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.030211 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     4.828875 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.735790 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.017797 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.031140 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     4.784733 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.761466 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.017892 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.031437 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     4.810800 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    4.8108    4.7847    4.8289    4.7761    4.7949  
+Average: 4.7991
+
+
+
+Running: ../bin/par_baseline ../bin/data/Alcoy 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. with 6 CORES
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.824724 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     3.204607 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.019552 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029934 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     3.254103 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.192984 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.019336 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029752 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     3.242078 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.166727 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.019289 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029587 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     3.215610 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.201762 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.019528 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029630 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     3.250926 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.160289 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.019349 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029637 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     3.209282 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.2093    3.2509    3.2156    3.2421    3.2541  
+Average: 3.2344
+
+
+
+Running: ../bin/par_baseline ../bin/data/Alcoy 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. with 8 CORES
+Reading points...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+OCTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+BUILDING OCTREE...
+Time elapsed at Octree construction:     4.904335 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   378
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SW per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+Time elapsed at STAGE 1:     2.480866 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.020596 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.028910 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     2.530383 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.411466 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.020180 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029798 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     2.461452 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.421483 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.020391 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029690 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     2.471571 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.451459 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.020499 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029737 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     2.501703 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.438267 s
+Number of found minima:   383072
+
+Time elapsed at STAGE 2:     0.020330 s
+Number of found LLPs: 58618 
+
+Time elapsed at STAGE 3:     0.029716 s
+Number of points added at stage 3: 55 
+
+TOTAL time elapsed:     2.488320 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    2.4883    2.5017    2.4716    2.4615    2.5304  
+Average: 2.4907
+
+
+
+Running: ../bin/baseline ../bin/data/Arzua 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> SEQUENTIAL
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.967358 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     23.059666 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006950 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.125693 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     23.192317 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     23.026749 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006809 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.125397 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     23.158962 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     23.030243 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006833 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.125483 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     23.162566 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     23.030799 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006830 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.125674 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     23.163311 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     23.033045 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006834 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.125485 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     23.165371 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    23.1654    23.1633    23.1626    23.1590    23.1923  
+Average: 23.1685
+
+
+
+Running: ../bin/par_baseline ../bin/data/Arzua 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. with 1 CORES
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.976316 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     22.459715 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006767 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.119329 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     22.585820 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.422125 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006617 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.119337 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     22.548087 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.417317 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006651 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.119280 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     22.543255 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.426060 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006649 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.119285 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     22.552001 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     22.421916 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.006651 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.119568 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     22.548141 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    22.5481    22.5520    22.5433    22.5481    22.5858  
+Average: 22.5555
+
+
+
+Running: ../bin/par_baseline ../bin/data/Arzua 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. with 2 CORES
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.968763 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     10.701192 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.007567 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.076196 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     10.784967 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.831430 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.007399 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.085856 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     10.924707 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.720721 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.007241 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.087056 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     10.815025 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.761633 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.007305 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.075791 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     10.844736 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.899907 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.007302 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.073418 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     10.980633 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    10.9806    10.8447    10.8150    10.9247    10.7850  
+Average: 10.8700
+
+
+
+Running: ../bin/par_baseline ../bin/data/Arzua 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. with 4 CORES
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.968695 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     5.636962 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008481 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.046977 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     5.692428 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.674251 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008460 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.046948 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     5.729666 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.645044 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008367 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.049514 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     5.702932 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.562385 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008256 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.047016 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     5.617663 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.739282 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008380 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.049435 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     5.797104 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    5.7971    5.6177    5.7029    5.7297    5.6924  
+Average: 5.7080
+
+
+
+Running: ../bin/par_baseline ../bin/data/Arzua 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. with 6 CORES
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.963370 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     3.518602 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.010321 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.044642 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     3.573573 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.495354 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.008941 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.044265 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     3.548567 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.534295 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.009123 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.044301 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     3.587726 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.517377 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.009050 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.044350 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     3.570784 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.550215 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.010308 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.044560 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     3.605090 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.6051    3.5708    3.5877    3.5486    3.5736  
+Average: 3.5771
+
+
+
+Running: ../bin/par_baseline ../bin/data/Arzua 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. with 8 CORES
+Reading points...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+OCTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.974832 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   2035
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SW per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+Time elapsed at STAGE 1:     2.728784 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.012460 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.040047 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     2.781305 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.708751 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.010574 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.039845 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     2.759182 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.661538 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.010378 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.040188 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     2.712112 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.627492 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.011673 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.040787 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     2.679962 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.618765 s
+Number of found minima:   201963
+
+Time elapsed at STAGE 2:     0.012410 s
+Number of found LLPs: 27361 
+
+Time elapsed at STAGE 3:     0.041675 s
+Number of points added at stage 3: 295 
+
+TOTAL time elapsed:     2.672873 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    2.6729    2.6800    2.7121    2.7592    2.7813  
+Average: 2.7211
+
+
+
+Running: ../bin/baseline ../bin/data/BrionF 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> SEQUENTIAL
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.778552 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     29.804916 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002496 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.020524 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     29.827944 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     29.464346 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002409 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.020512 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     29.487275 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     29.464971 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002417 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.020538 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     29.487933 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     29.479535 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002420 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.020613 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     29.502576 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     29.461317 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002419 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.020488 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     29.484231 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    29.4842    29.5026    29.4879    29.4873    29.8279  
+Average: 29.5580
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionF 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. with 1 CORES
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.771206 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     26.786995 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002417 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.018892 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     26.808312 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     26.463483 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002351 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.018971 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     26.484812 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     26.453392 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002342 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.018960 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     26.474700 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     26.434301 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002346 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.019010 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     26.455664 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     26.436855 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002351 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.018957 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     26.458171 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    26.4582    26.4557    26.4747    26.4848    26.8083  
+Average: 26.5363
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionF 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. with 2 CORES
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.770866 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     9.703228 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002311 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.014438 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     9.719984 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.677729 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002297 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.014444 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     9.694477 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.696526 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002298 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.014404 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     9.713235 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.509124 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002301 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.014467 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     9.525898 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.646349 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002312 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.013974 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     9.662641 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    9.6626    9.5259    9.7132    9.6945    9.7200  
+Average: 9.6632
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionF 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. with 4 CORES
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.775009 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     6.261425 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003105 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.012055 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     6.276593 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.118639 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002899 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.012175 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     5.133720 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.059335 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002796 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.012044 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     5.074182 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.972170 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003042 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.011968 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     6.987187 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.112729 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.002842 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.012034 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     5.127611 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    5.1276    6.9872    5.0742    5.1337    6.2766  
+Average: 5.7199
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionF 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. with 6 CORES
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.790270 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     3.850804 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003075 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.008893 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.862780 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.861918 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003055 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.008863 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.873842 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.862881 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003050 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.008866 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.874803 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.832087 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003038 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.008920 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.844051 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.934216 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003053 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.008880 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.946156 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.9462    3.8441    3.8748    3.8738    3.8628  
+Average: 3.8803
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionF 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. with 8 CORES
+Reading points...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+OCTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+BUILDING OCTREE...
+Time elapsed at Octree construction:     5.780173 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   5984
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SW per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+Time elapsed at STAGE 1:     3.328685 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003319 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.009743 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.341755 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.293190 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003368 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.009753 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.306317 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.304766 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003633 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.009890 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.318296 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.182156 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003339 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.009770 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.195271 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.228945 s
+Number of found minima:   65413
+
+Time elapsed at STAGE 2:     0.003283 s
+Number of found LLPs: 9469 
+
+Time elapsed at STAGE 3:     0.009713 s
+Number of points added at stage 3: 52 
+
+TOTAL time elapsed:     3.241948 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.2419    3.1953    3.3183    3.3063    3.3418  
+Average: 3.2807
+
+
+
+Running: ../bin/baseline ../bin/data/BrionU 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> SEQUENTIAL
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.535440 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     32.215477 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002545 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035908 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     32.253940 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.752910 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002462 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035677 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.791055 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.738906 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002480 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035669 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.777063 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.783903 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002464 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035799 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.822173 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.778822 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002458 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035727 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.817014 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    31.8170    31.8222    31.7771    31.7911    32.2539  
+Average: 31.8922
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionU 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. with 1 CORES
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.540109 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     32.204513 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002571 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.036006 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     32.243099 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.732840 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002486 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035826 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.771160 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.730552 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002489 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035782 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.768831 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.720871 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002492 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035765 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.759135 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     31.705273 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002488 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.035861 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     31.743627 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    31.7436    31.7591    31.7688    31.7712    32.2431  
+Average: 31.8572
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionU 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. with 2 CORES
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.542623 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     10.895092 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002458 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.025640 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     10.923200 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.782178 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002440 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.025033 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     10.809659 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     16.184588 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002874 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.024038 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     16.211507 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     16.318557 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002902 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.023898 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     16.345365 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     16.384767 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002891 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.024101 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     16.411767 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    16.4118    16.3454    16.2115    10.8097    10.9232  
+Average: 14.1403
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionU 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. with 4 CORES
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.524519 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     6.178940 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002966 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015948 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     6.197862 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.130346 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002959 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015697 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     6.149009 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.799291 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002937 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015402 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     5.817635 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.706959 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002918 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015609 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     5.725493 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.178141 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.002953 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015614 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     6.196715 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    6.1967    5.7255    5.8176    6.1490    6.1979  
+Average: 6.0173
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionU 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. with 6 CORES
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.565313 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     4.642587 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003429 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015436 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     4.661463 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.711134 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003230 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015229 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     4.729599 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.768601 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003226 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015226 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     4.787060 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.465722 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003388 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015362 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     4.484478 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.444810 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003325 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.015247 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     4.463389 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    4.4634    4.4845    4.7871    4.7296    4.6615  
+Average: 4.6252
+
+
+
+Running: ../bin/par_baseline ../bin/data/BrionU 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. with 8 CORES
+Reading points...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+OCTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+BUILDING OCTREE...
+Time elapsed at Octree construction:     6.545426 s
+
+CLOUD PARAMETERS:
+Number of points (cloud size): 48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW) 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered:   6105
+SW x and y Displacement   2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SW per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+Time elapsed at STAGE 1:     3.693185 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003444 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.013708 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     3.710347 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.772300 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003489 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.013441 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     3.789241 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.735888 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003495 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.013492 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     3.752885 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.596300 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003305 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.013386 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     3.613000 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.573351 s
+Number of found minima:   67207
+
+Time elapsed at STAGE 2:     0.003448 s
+Number of found LLPs: 9712 
+
+Time elapsed at STAGE 3:     0.013491 s
+Number of points added at stage 3: 76 
+
+TOTAL time elapsed:     3.590298 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.5903    3.6130    3.7529    3.7892    3.7103  
+Average: 3.6912
+
