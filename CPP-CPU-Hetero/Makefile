@@ -2,11 +2,13 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
 CC = gcc-12
+CXX= g++-12
 CFLAGS_BASELINE = -fopenmp -lm -O3 -std=c11
 endif
 
 ifeq ($(UNAME), Linux)
 CC = gcc
+CXX = g++
 CFLAGS_BASELINE = -fopenmp -lm -O3 -lrt -std=c11
 endif
 
@@ -40,21 +42,21 @@ bin/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) application/cesgaOWM_seq.c src/OWM_functions.c -o $@ $(CFLAGS_BASELINE)
 
-bin/qold:
+bin/qold: application/owm_qold.cpp src/envi_qold.cpp
 		@mkdir -p "$(@D)"
-		g++ application/owm_qold.cpp src/envi_qold.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11
 
 bin/qmin:
 		@mkdir -p "$(@D)"
-		g++ application/owm_qmin.cpp src/envi_qmin.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) application/owm_qmin.cpp src/envi_qmin.cpp -o $@ -O3 -fopenmp -lm -std=c++11
 
 bin/parent:
 		@mkdir -p "$(@D)"
-		g++ application/owm_parent.cpp src/envi_parent.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) application/owm_parent.cpp src/envi_parent.cpp -o $@ -O3 -fopenmp -lm -std=c++11
 
-bin/unique:
+bin/unique: application/owm_up.cpp src/envi_up.cpp
 		@mkdir -p "$(@D)"
-		g++ application/owm_up.cpp src/envi_up.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^  -o $@ -O3 -fopenmp -lm -std=c++11
 
 bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/OWM_functions.c
 		@mkdir -p "$(@D)"
@@ -62,7 +64,7 @@ bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/OWM_functions.c
 
 bin/parallelcpp:
 		@mkdir -p "$(@D)"
-		g++ application/owm_tfm.cpp src/envi.cpp $(CPPFLAGS_CESGA) -o $@
+		$(CXX) application/owm_tfm.cpp src/envi.cpp $(CPPFLAGS_CESGA) -o $@
 
 bin/paralleldpcpp:
 		@mkdir -p "$(@D)"
