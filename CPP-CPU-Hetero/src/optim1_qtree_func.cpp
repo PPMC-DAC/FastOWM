@@ -4,7 +4,7 @@
 // #include <float.h>
 // #include <math.h>
 // #include <omp.h>
-#include "../include/envi_qold.h"
+#include "../include/optim1_qtree_func.h"
 
 static const int REALLOC_INCREMENT = 256;
 
@@ -23,119 +23,30 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
 
   Lpoint cellCenter = {0,0.0,0.0,0.0};
 
-  // Lpoint** neighbors = NULL;
-
   unsigned int countMin = 0;
 
-  int cellPoints = 0;
+#pragma omp parallel for schedule(dynamic,1)
+    for( int jj = 0 ; jj < Ccol ; jj++ ){
+        for( int ii=0 ; ii < Crow ; ii++ ){
+            Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
+            int cellPoints = 0;
+            Lpoint** neighbors = searchNeighbors2D(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
+            if(cellPoints >= minNumPoints ){
+                int idmin = findMin(neighbors, cellPoints);
+                #pragma omp critical
+                {
+                    minIDs[countMin] = neighbors[idmin]->id;
+                    countMin++;
+                }
+            }
 
-  int ii,jj;
-
-  /*  #pragma omp parallel for shared(countMin) firstprivate(minIDs,qtreeIn,Wsize,Overlap,Displace,initX,initY) \
-                            private(cellCenter,neighbors,cellPoints,idmin) schedule(dynamic,block_size)
-    */
-  #pragma omp parallel
-  {
-      // printf("Thread: %d\n", omp_get_thread_num());
-      // printf("Thread num: %d\n", omp_get_num_threads());
-      for( int jj = omp_get_thread_num() ; jj < Ccol ; jj+=omp_get_num_threads() ){
-      // for( jj = 1 ; jj < Ccol ; jj++ ){
-
-          // cellCenter.y = initY + jj*Displace;
-          // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
-
-          /*          #pragma omp parallel shared(countMin,minIDs) firstprivate(Crow,cellCenter,qtreeIn,Wsize,Overlap,Displace,initX) \
-                                    private(ii,neighbors,cellPoints,idmin)
-          {
-              for( ii = omp_get_thread_num() ; ii < Crow ; ii+=omp_get_num_threads() ){
-            */
-              #pragma omp parallel for private(cellPoints) schedule(dynamic,1)
-              for( int ii=0 ; ii < Crow ; ii++ ){
-
-                  // cellCenter.x = initX + ii*Displace;
-                  Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
-
-                  // printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-                  // printf("Busco los vecinos\n");
-                  Lpoint** neighbors = searchNeighbors2D(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-                  // printf("Numero de elementos de la celda: %d\n", cellPoints );
-                  if(cellPoints >= minNumPoints ){
-                      // printf("Numero de elementos de la celda: %d\n", cellPoints );
-                      int idmin = findMin(neighbors, cellPoints);
-                      #pragma omp critical
-                      {
-                          minIDs[countMin] = neighbors[idmin]->id;
-                          countMin++;
-                      }
-                      // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
-
-                  }
-
-                  free(neighbors);
-                  neighbors = NULL;
-              }
-          }
-      // }
-  }
+            free(neighbors);
+            neighbors = NULL;
+        }
+    }
 
   return countMin;
 }
-
-unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector3D min){
-
-  // Tamaño del bloque del scheduler de OMP
-  // unsigned short block_size = 1;
-
-  double Displace = round2d(Wsize*(1-Overlap));
-
-  double initX = min.x - Wsize/2 + Displace;
-  double initY = min.y - Wsize/2 + Displace;
-
-  Lpoint cellCenter = {0,0.0,0.0,0.0};
-
-  Lpoint** neighbors = NULL;
-
-  unsigned int countMin = 0, idmin;
-
-  int cellPoints = 0;
-
-  int ii,jj;
-
-      for( jj = 0 ; jj < Ccol ; jj++ ){
-
-          cellCenter.y = initY + jj*Displace;
-          // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
-
-              for( ii = 0 ; ii < Crow ; ii++ ){
-
-                  cellCenter.x = initX + ii*Displace;
-                  // printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-                  // printf("Busco los vecinos\n");
-                  neighbors = searchNeighbors2D(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-                  // printf("Numero de elementos de la celda: %d\n", cellPoints );
-                  if(cellPoints >= minNumPoints ){
-                      // printf("Numero de elementos de la celda: %d\n", cellPoints );
-                      idmin = findMin(neighbors, cellPoints);
-                      // #pragma omp critical
-                      // {
-                          minIDs[countMin] = neighbors[idmin]->id;
-                          countMin++;
-                      // }
-                      // printf("El mínimo %d de la celda es: %.2f\n",countMin ,neighbors[idmin]->z);
-
-                  }
-
-                  free(neighbors);
-                  neighbors = NULL;
-              }
-          }
-      // }
-  // }
-
-  return countMin;
-}
-
 
 unsigned int stage2(unsigned int countMin, int* minIDs){
 
@@ -208,53 +119,6 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
            }
         }
     }
-
-    return addMin;
-
-}
-
-unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector3D min){
-
-    unsigned int addMin = 0, idmin;
-
-    int cellPoints = 0;
-
-    Lpoint cellCenter = {0,0.0,0.0,0.0};
-
-    Lpoint** neighbors = NULL;
-
-    Lpoint** minimos = NULL;
-
-    int ii,jj;
-
-        for( jj = 0 ; jj < Ccol ; jj++ ){
-           cellCenter.y = min.y + Bsize/2 + jj*Bsize;
-
-           for( ii = 0 ; ii < Crow ; ii++ ){
-               cellCenter.x = min.x + Bsize/2 + ii*Bsize;
-
-               minimos = searchNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
-
-               //Tengo que hacerlo porque el algoritmo no lo hace
-               if(cellPoints == 0){
-
-                   neighbors = searchNeighbors2D(&cellCenter, qtreeIn, Bsize/2, &cellPoints);
-                   if(cellPoints>0){
-
-                      idmin = findMin(neighbors, cellPoints);
-                      minGridIDs[addMin] = neighbors[idmin]->id;
-                      addMin++;
-                   }
-                   free(neighbors);
-                   neighbors = NULL;
-
-               }
-               free(minimos);
-               minimos=NULL;
-           }
-        }
-    // }
 
     return addMin;
 

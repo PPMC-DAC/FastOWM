@@ -11,7 +11,7 @@
 // #include <string.h>
 // #include <omp.h>
 
-#include "../include/envi_qold.h"
+#include "../include/optim1_qtree_func.h"
 
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );

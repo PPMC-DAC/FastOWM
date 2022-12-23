@@ -42,7 +42,7 @@ bin/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) application/cesgaOWM_seq.c src/OWM_functions.c -o $@ $(CFLAGS_BASELINE)
 
-bin/qold: application/owm_qold.cpp src/envi_qold.cpp
+bin/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11
 
