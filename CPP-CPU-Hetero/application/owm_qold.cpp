@@ -1,6 +1,6 @@
 // Difference wrt cesgaOWM.c 
 // 1. Moves from C to C++
-// 2. Quadtree is now a class with its constructor
+// 2. Octree replaced by Quadtree, that is now a class with its constructor
 // 3. MinRadius (min size of a leaf bounding box) is now an imput parameter and argument of insertPoint instead of a constant
 
 // #include <stdio.h>
@@ -14,18 +14,14 @@
 #include "../include/envi_qold.h"
 
 int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a < *(int*)b );
+   return ( *(int*)a - *(int*)b );
 }
 
 int main( int argc, char* argv[]){
 
     // Ficheros
-    FILE* fileLAS;
+    FILE* fileXYZ;
     FILE* fileMin;
-
-    // Octrees
-    // Octree octreeIn = NULL;
-    // Octree grid = NULL;
 
     //Listas
     Lpoint* pointer = NULL;
@@ -40,28 +36,28 @@ int main( int argc, char* argv[]){
 
     unsigned int countMin;
 
-    unsigned int searcher =0;
+    unsigned int numLLPs =0;
 
     unsigned int addMin =0;
 
-    double t_stage, t_func;
+    double t_stage, t_func, t_quadtree;
 
     // Tamaño de la ventana deslizante
-    unsigned short Wsize = 12;
+    unsigned short Wsize = 10;
     // Tamaño de la rejilla
     unsigned short Bsize = 20;
     // Solape de la ventana deslizante
-    double Overlap = 0.5;
+    double Overlap = 0.8;
     // Numero de procesadores
     unsigned short num_procs = 4;
 
     //Control del bucle de ejecución
-    unsigned int bucle_entrada = 1;
+    unsigned int numRuns = 1;
 
-    char inputTXT[128] = {"../datos/INAER_2011_Alcoy.xyz"};
-    // char inputLAS[50] = {"../datos/INAER_2011_Alcoy.las"};
-    char outputTXT[128] = {"../datos/INAER_2011_Alcoy_salida.xyz"};
-    // char outputLAS[50] = {"../datos/INAER_2011_Alcoy_salida.las"};
+    char inputTXT[128] = {"./data/INAER_2011_Alcoy.xyz"};
+    // char inputLAS[50] = {"./data/INAER_2011_Alcoy.las"};
+    char outputTXT[128] = {"./data/INAER_2011_Alcoy_salida.xyz"};
+    // char outputLAS[50] = {"./data/INAER_2011_Alcoy_salida.las"};
 
     // Compruebo los argumentos de entrada
     if(argc>1) {
@@ -75,72 +71,63 @@ int main( int argc, char* argv[]){
     if(argc>3) Bsize = atoi(argv[3]);
     if(argc>4) Overlap = atof(argv[4]);
     if(argc>5) num_procs = atoi(argv[5]);
-    if(argc>6) bucle_entrada = atoi(argv[6]);
-    float minRadius = (argc>7)? atof(argv[7]) : 0.8;
+    if(argc>6) numRuns = atoi(argv[6]);
+    float minRadius = (argc>7)? atof(argv[7]) : 0.1;
 
-    double resultados[bucle_entrada];
+    double resultados[numRuns];
 
     omp_set_num_threads(num_procs);
 
     printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT, num_procs);
 
     // Abro el fichero
-    if((fileLAS = fopen(inputTXT,"r")) == NULL){
+    if((fileXYZ = fopen(inputTXT,"r")) == NULL){
       printf("Unable to open file!\n");
       exit(-1);
     }
 
-    if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy.xyz") ){
+    if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy.xyz") ){
       Npoints = 2772832;
       min.x   = 715244.96;
       max.x   = 716057.75;
       min.y   = 4286623.63;
       max.y   = 4287447.70;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy_Core.xyz") ){
+    } else if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy_Core.xyz") ){
       Npoints = 20380212;
       min.x   = 714947.98;
       max.x   = 716361.06;
       min.y   = 4286501.93;
       max.y   = 4288406.23;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/BABCOCK_2017_Arzua_3B.xyz")){
+    } else if(!strcmp(inputTXT,"./data/BABCOCK_2017_Arzua_3B.xyz")){
       Npoints = 40706503;
       min.x   = 568000.00;
       max.x   = 568999.99;
       min.y   = 4752320.00;
       max.y   = 4753319.99;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V21_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V21_group1_densified_point_cloud.xyz")){
       Npoints = 42384876;
       min.x   = 526964.093;
       max.x   = 527664.647;
       min.y   = 4742610.292;
       max.y   = 4743115.738;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V19_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V19_group1_densified_point_cloud.xyz")){
       Npoints = 48024480;
       min.x   = 526955.908;
       max.x   = 527686.445;
       min.y   = 4742586.025;
       max.y   = 4743124.373;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/sample24.xyz")){
+    } else if(!strcmp(inputTXT,"./data/sample24.xyz")){
       Npoints = 7492;
       min.x   = 513748.12;
       max.x   = 513869.97;
       min.y   = 5403124.76;
       max.y   = 5403197.20;
-      // min.z   = 0;
-      // max.z   = 0; //No lo consulto nunca
-    } else {
-      printf("No header data!\n");
-      exit(-1);
+    } else {// For files with header values (Npoints, min.x, max.x, min.y, max.y)
+    //Read header values
+      if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+        printf("Imposible to read header values\n");
+        exit(-1);
+        }
     }
 
     // Reservo memoria para la nube de puntos
@@ -151,15 +138,15 @@ int main( int argc, char* argv[]){
     for(int i=0; i<Npoints ; i++){
       //Obtengo los datos id X Y Z
       pointer[i].id = i;
-      if(fscanf(fileLAS, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
+      if(fscanf(fileXYZ, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
         printf("Imposible to obtain values\n");
         exit(-1);
       }
-      while(fgetc(fileLAS)!='\n');
+      while(fgetc(fileXYZ)!='\n');
     }
 
     //Ya no necesito mas el fichero
-    if(fclose(fileLAS)){
+    if(fclose(fileXYZ)){
       printf("Cannot close the file\n");
       exit(-1);
     }
@@ -168,19 +155,22 @@ int main( int argc, char* argv[]){
 
     radius = getRadius(min, max, &maxRadius);
     center = getCenter(min, radius);
-    printf("OCTREE PARAMETERS:\n");
+    printf("QTREE PARAMETERS:\n");
     printf("MaxRadius:  %.3f\n", maxRadius);
     printf("Center:     %.2f , %.2f\n", center.x,center.y);
     printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
-    printf("CREANDO OCTREE...\n");
-    // octreeIn = createOctree(center, maxRadius);
+    printf("CREANDO QTREE...\n");
+    // qtreeIn = createQtree(center, maxRadius);
     Vector2D newCenter = {center.x,center.y};
-    Octree octreeIn = new Octree_t( newCenter, maxRadius );
 
-    // Inserto los puntos en el Octree
+    // Inserto los puntos en el Qtree
     printf("Inserting points; minRadius: %g\n", minRadius);
+
+    t_quadtree=omp_get_wtime();
+    Qtree qtreeIn = new Qtree_t( newCenter, maxRadius );
     for(int i = 0; i < Npoints; i++)
-       insertPointF(&pointer[i], octreeIn, minRadius);
+       insertPointF(&pointer[i], qtreeIn, minRadius);
+    printf("Time elapsed at Quadtree construction:     %.6f s\n\n", omp_get_wtime()-t_quadtree);
 
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
@@ -228,108 +218,55 @@ int main( int argc, char* argv[]){
     minIDs = (int*)malloc(Ncells*sizeof(int));
     minGridIDs = (int*)malloc(Ngrid*sizeof(int));
 
-    // sleep(2);
-    while(bucle_entrada){
+    while(numRuns){
 
-        // printf("\nN cells:    %u\n", Ncells);
-        // Voy a tener como mucho un mínimo por ventana..
-        // minIDs = malloc(Ncells*sizeof(int));
         t_func=omp_get_wtime();
         t_stage=omp_get_wtime();
-        // printf("/////////////////////////// LOOP ///////////////////////////\n\n");
 
+        countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
 
-        // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
-        countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-        // countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-
-        printf("\nCeldas no descartadas:   %d\n", countMin);
-
-        // printf("\n\n/////////////////////////// END ///////////////////////////\n");
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
-        // Para el caso de no hacer solpado; que searcher tenga un valor
-        searcher=countMin;
+        numLLPs=countMin;
 
-        // Descarto mínimos si hay solape
-        // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
         if(Overlap != 0){
             t_stage=omp_get_wtime();
-            // printf("\nN minimos de entrada    %d\n", searcher);
-            // printf("/////////////////////////// MIN SELECT ///////////////////////////\n\n");
-
-            // Ordeno el array de IDs
             qsort(minIDs,countMin,sizeof(int),&cmpfunc);
-
-            // for(int i=0 ; i<searcher ; i++)
-            //   printf("%d %.2f\n", pointer[minIDs[i]].id,pointer[minIDs[i]].z);
-            // Me quedo solo con los mínimos que se han repetido más de una vez
-            searcher = stage2(countMin, minIDs);
-
-            printf("\nNumero de minimos que me quedo: %d \n", searcher);
-
-            // printf("\n\n/////////////////////////// END ///////////////////////////\n");
+            numLLPs = stage2(countMin, minIDs);
             printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
         }
 
-
-        // Aplico la malla para ver si hay zonas sin puntos
         if(Bsize > 0){
-            // printf("N cells grid:    %u\n", Ngrid);
-            // Voy a tener como mucho un mínimo por rejilla..
-            // minGridIDs = malloc(Ngrid*sizeof(int));
             t_stage=omp_get_wtime();
-            // printf("/////////////////////////// GRID ///////////////////////////\n\n\n");
 
-            // Creo un nuevo octree con todos los mínimos; las mismas dimensiones que el grande
-            // grid = createOctree(center, maxRadius);
-            Octree grid =  new Octree_t( newCenter, maxRadius) ;
-
-            for(int i = 0; i < searcher; i++)
+            Qtree grid =  new Qtree_t( newCenter, maxRadius) ;
+            for(int i = 0; i < numLLPs; i++)
                insertPointF(&pointer[minIDs[i]], grid, minRadius);
-
-            //
-            addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
-            // addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
-
-            // printf("Minimos añadidos:        %d\n", addMin);
-            // printf("\n\n/////////////////////////// END ///////////////////////////\n");
+            addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, qtreeIn, grid, min);
             printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
-            // Ya no necesito este octree
-            deleteOctree(grid);
+            deleteQtree(grid);
             delete(grid);
         }
 
-        printf("TOTAL time elapsed:     %.6f s\n", resultados[--bucle_entrada] = omp_get_wtime() - t_func);
-        printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", searcher+addMin, Npoints - searcher+addMin );
-
-
-        if(bucle_entrada){
-          // free(minIDs);
-          // minIDs=NULL;
-          // free(minGridIDs);
-          // minGridIDs=NULL;
-          // Para parar un poco entre vuelta y vuelta
-          sleep(20);
-        }
+        printf("TOTAL time elapsed:     %.6f s\n", resultados[--numRuns] = omp_get_wtime() - t_func);
+        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs+addMin );
 
         printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-        printf("/////////////////////////////////////////////////////////////////////\n");
-
     }
 
-    printf("Ejecuciones:  ");
-    for( int i=0 ; i<atoi(argv[6]) ; i++ ){
-      printf("  %.4lf  ", resultados[i]);
-      if(resultados[0] > resultados[i])
-          resultados[0] = resultados[i];
-    }
-    printf("\nBEST: %.4lf\n", resultados[0]);
+    printf("Time of each run:  ");
+    printf("  %.4lf  ", resultados[0]);
+    numRuns = atoi(argv[6]);
+    if(numRuns > 1){
+      for( int i=1 ; i<numRuns ; i++ ){
+        printf("  %.4lf  ", resultados[i]);
+        resultados[0] += resultados[i];
+      }
+      printf("\nAverage: %.4lf\n\n", resultados[0]/numRuns);
+    } else 
+      printf("\nAverage: %.4lf\n\n", resultados[0]);
 
+#ifdef DEBUG
     // Fichero de salida
     printf("Creo el fichero %s ...\n", outputTXT);
     if((fileMin = fopen(outputTXT,"w")) == NULL){
@@ -337,7 +274,7 @@ int main( int argc, char* argv[]){
       return -1;
     }
 
-    for(int i=0 ; i<searcher ; i++)
+    for(int i=0 ; i<numLLPs ; i++)
       fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
 
     for(int i=0 ; i<addMin ; i++)
@@ -348,10 +285,10 @@ int main( int argc, char* argv[]){
       printf("Cannot close the file\n");
       return -1;
     }
-
+#endif
     // Libero memoria
-    // free(octreeIn);
-    // octreeIn=NULL;
+    // free(qtreeIn);
+    // qtreeIn=NULL;
     free(minIDs);
     minIDs=NULL;
     free(minGridIDs);
@@ -359,8 +296,8 @@ int main( int argc, char* argv[]){
     free(pointer);
     pointer=NULL;
 
-    deleteOctree(octreeIn);
-    delete(octreeIn);
+    deleteQtree(qtreeIn);
+    delete(qtreeIn);
 
 
     return 0;

@@ -43,21 +43,21 @@ int main( int argc, char* argv[]){
     double t_stage, t_func;
 
     // Tamaño de la ventana deslizante
-    unsigned short Wsize = 12;
+    unsigned short Wsize = 10;
     // Tamaño de la rejilla
     unsigned short Bsize = 20;
     // Solape de la ventana deslizante
-    double Overlap = 0.5;
+    double Overlap = 0.8;
     // Numero de procesadores
     unsigned short num_procs = 4;
 
     //Control del bucle de ejecución
     unsigned int bucle_entrada = 1;
 
-    char inputTXT[128] = {"../datos/INAER_2011_Alcoy.xyz"};
-    // char inputLAS[50] = {"../datos/INAER_2011_Alcoy.las"};
-    char outputTXT[128] = {"../datos/INAER_2011_Alcoy_salida.xyz"};
-    // char outputLAS[50] = {"../datos/INAER_2011_Alcoy_salida.las"};
+    char inputTXT[128] = {"./data/INAER_2011_Alcoy.xyz"};
+    // char inputLAS[50] = {"./data/INAER_2011_Alcoy.las"};
+    char outputTXT[128] = {"./data/INAER_2011_Alcoy_salida.xyz"};
+    // char outputLAS[50] = {"./data/INAER_2011_Alcoy_salida.las"};
 
     // Compruebo los argumentos de entrada
     if(argc>1) {
@@ -85,7 +85,7 @@ int main( int argc, char* argv[]){
       exit(-1);
     }
 
-    if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy.xyz") ){
+    if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy.xyz") ){
       Npoints = 2772832;
       min.x   = 715244.96;
       max.x   = 716057.75;
@@ -93,7 +93,7 @@ int main( int argc, char* argv[]){
       max.y   = 4287447.70;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy_Core.xyz") ){
+    } else if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy_Core.xyz") ){
       Npoints = 20380212;
       min.x   = 714947.98;
       max.x   = 716361.06;
@@ -101,7 +101,7 @@ int main( int argc, char* argv[]){
       max.y   = 4288406.23;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/BABCOCK_2017_Arzua_3B.xyz")){
+    } else if(!strcmp(inputTXT,"./data/BABCOCK_2017_Arzua_3B.xyz")){
       Npoints = 40706503;
       min.x   = 568000.00;
       max.x   = 568999.99;
@@ -109,7 +109,7 @@ int main( int argc, char* argv[]){
       max.y   = 4753319.99;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V21_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V21_group1_densified_point_cloud.xyz")){
       Npoints = 42384876;
       min.x   = 526964.093;
       max.x   = 527664.647;
@@ -117,7 +117,7 @@ int main( int argc, char* argv[]){
       max.y   = 4743115.738;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V19_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V19_group1_densified_point_cloud.xyz")){
       Npoints = 48024480;
       min.x   = 526955.908;
       max.x   = 527686.445;
@@ -125,7 +125,7 @@ int main( int argc, char* argv[]){
       max.y   = 4743124.373;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/sample24.xyz")){
+    } else if(!strcmp(inputTXT,"./data/sample24.xyz")){
       Npoints = 7492;
       min.x   = 513748.12;
       max.x   = 513869.97;

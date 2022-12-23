@@ -312,7 +312,7 @@ int quadrantIdx(Lpoint *point, Qtree qtree)
 Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
 {
     // Lpoint tmp, min = nomin;
-    Lpoint tmp, min = {0,0.0,0.0,99999.0};
+    Lpoint tmp, min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
     if(isLeaf(qtree))
     {

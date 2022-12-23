@@ -40,25 +40,25 @@ typedef struct
 
 } Lpoint;
 
-typedef struct Octree_t* Octree;
+typedef struct Qtree_t* Qtree;
 
-// struct Octree_t {
-//     uOctree octants[8];
+// struct Qtree_t {
+//     uQtree quadrants[8];
 //     Vector3D center;
 //     float radius;
 //     std::vector<Lpoint*> points;
 // };
 
-struct Octree_t {
-  Octree octants[4];
-  // Octree oparent;
+struct Qtree_t {
+  Qtree quadrants[4];
+  // Qtree oparent;
   // Vector3D center;
   Vector2D center;
   float radius;
   std::vector<Lpoint*> points;
 
-  Octree_t(Vector2D c, float r);
-  // ~Octree_t();
+  Qtree_t(Vector2D c, float r);
+  // ~Qtree_t();
 };
 
 typedef struct{
@@ -67,18 +67,18 @@ typedef struct{
 } zSearch;
 
 unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min);
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector3D min);
 
 unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min);
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector3D min);
 
 unsigned int stage2(unsigned int countMin, int* minIDs);
 
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector3D min);
+          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector3D min);
 
 unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector3D min);
+          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector3D min);
 
 // unsigned int findMin(Lpoint** neighbors, double zzmin, unsigned int cellPoints);
 
@@ -95,16 +95,16 @@ Vector3D getRadius(Vector3D min, Vector3D max, float *maxRadius);
 
 Vector3D getCenter(Vector3D min, Vector3D radius);
 
-Octree createOctree(Vector3D center, float radius);
+Qtree createQtree(Vector3D center, float radius);
 
-int isLeaf(Octree oct);
+int isLeaf(Qtree oct);
 
-int isEmpty(Octree oct);
+int isEmpty(Qtree oct);
 
-void insertPointF(Lpoint *point, Octree octree, float minRadius);
+void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 
-Lpoint** searchNeighbors2D(Lpoint *point, Octree octree, float radius, int *numNeighs);
+Lpoint** searchNeighbors2D(Lpoint *point, Qtree qtree, float radius, int *numNeighs);
 
-void deleteOctree(Octree octree);
+void deleteQtree(Qtree qtree);
 
 #endif // ENVI_QOLD_H
