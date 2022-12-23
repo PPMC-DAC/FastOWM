@@ -7,7 +7,7 @@
 #include <string.h>
 #include <omp.h>
 
-#include "include/environment.h"
+#include "include/OWM_functions.h"
 
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );

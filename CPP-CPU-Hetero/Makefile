@@ -28,17 +28,17 @@ LIST=$(addprefix $(BIN)/, $(PROG))
 
 all: $(LIST)
 
-$(BIN)/%: $(APP)/cesgaOWM_baseline.c $(SRC)/environment.c
+$(BIN)/%: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
 
-$(BIN)/par_baseline: $(APP)/cesgaOWM_baseline.c $(SRC)/environment.c
+$(BIN)/par_baseline: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
 
-bin/sequential: application/cesgaOWM_seq.c src/environment.c
+bin/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
-		$(CC) application/cesgaOWM_seq.c src/environment.c -o $@ $(CFLAGS_BASELINE)
+		$(CC) application/cesgaOWM_seq.c src/OWM_functions.c -o $@ $(CFLAGS_BASELINE)
 
 bin/qold:
 		@mkdir -p "$(@D)"
@@ -56,7 +56,7 @@ bin/unique:
 		@mkdir -p "$(@D)"
 		g++ application/owm_up.cpp src/envi_up.cpp -o $@ -O3 -fopenmp -lm -std=c++11
 
-bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/environment.c
+bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
 

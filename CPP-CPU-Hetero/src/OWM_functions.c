@@ -4,83 +4,61 @@
 #include <float.h>
 #include <math.h>
 #include <omp.h>
-#include "../include/environment.h"
+#include "../include/OWM_functions.h"
 
-#define MIN_RADIUS 0.10 //For the discretization
+#define MIN_RADIUS 0.10 //Minimum size of the leaf bounding box
 
 static const int REALLOC_INCREMENT = 256;
+
+//This function returns the point with the minimum z-value of a Sliding Window (SW)
+//The minium has to be selected among at least minNumPoints found inside the SW
+//It returns the number of valid minimums found and the array minIDs that contains the IDs of the valid minimums
 
 unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min){
 
-  double Displace = round2d(Wsize*(1-Overlap));
+  double Displace = round2d(Wsize*(1-Overlap)); //Displacement between SW (sliding window)
 
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
   unsigned int countMin = 0;
 
-  /*  #pragma omp parallel for shared(countMin) firstprivate(minIDs,octreeIn,Wsize,Overlap,Displace,initX,initY) \
-                            private(cellCenter,neighbors,cellPoints,idmin) schedule(dynamic,block_size)
-    */
-//#ifdef PARALLEL
-//  #pragma omp parallel
-//#endif
-  {
-      //printf("Thread: %d\n", omp_get_thread_num());
-      //printf("Thread num: %d\n", omp_get_num_threads());
-      //for( int jj = omp_get_thread_num() ; jj < Ccol ; jj+=omp_get_num_threads() ){
 #ifdef PARALLEL
     #pragma omp parallel for schedule(dynamic,1)
 #endif
       for(int jj = 0 ; jj < Ccol ; jj++ ){
+        for( int ii=0 ; ii < Crow ; ii++ ){
 
-          // cellCenter.y = initY + jj*Displace;
-          // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
+            Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
 
-          /*          #pragma omp parallel shared(countMin,minIDs) firstprivate(Crow,cellCenter,octreeIn,Wsize,Overlap,Displace,initX) \
-                                    private(ii,neighbors,cellPoints,idmin)
-          {
-              for( ii = omp_get_thread_num() ; ii < Crow ; ii+=omp_get_num_threads() ){
-            */
-              for( int ii=0 ; ii < Crow ; ii++ ){
-
-                  // cellCenter.x = initX + ii*Displace;
-                  Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
-
-                  //printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-                  // printf("Busco los vecinos\n");
-                  int cellPoints = 0;
-                  Lpoint** neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
-                  //printf("Numero de elementos de la celda: %d\n", cellPoints );
-                  if(cellPoints >= minNumPoints ){
-                      //printf("Numero de elementos de la celda: %d\n", cellPoints );
-                      int idmin = findMin(neighbors, cellPoints);
+            // printf("Center of SW processed by thread %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
+            // printf("Search points inside the SW: neighbors\n");
+            int cellPoints = 0; //Number of points inside the cell/SW
+            Lpoint** neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
+            if(cellPoints >= minNumPoints ){ //If there are enough points inside the cell/SW the minimum is considered
+                //printf("Number of points found in the SW: %d\n", cellPoints );
+                int idmin = findMin(neighbors, cellPoints);
 #ifdef PARALLEL
-                      #pragma omp critical
+                #pragma omp critical
 #endif
-                      {
-                          minIDs[countMin] = neighbors[idmin]->id;
-                          countMin++;
-                      }
-                    //printf("Th:%d; Minimum at SW %04d,%04d has count:%d  and z-value:%.2f\n",omp_get_thread_num(),jj,ii,countMin ,neighbors[idmin]->z);  
-                  }
+                {
+                    minIDs[countMin] = neighbors[idmin]->id;
+                    countMin++;
+                }
+            //printf("Th:%d; Minimum at SW %04d,%04d has count:%d  and z-value:%.2f\n",omp_get_thread_num(),jj,ii,countMin ,neighbors[idmin]->z);  
+            }
 
-                  free(neighbors);
-                  neighbors = NULL;
-              }
-          }
-      // }
-  }
+            free(neighbors);
+            neighbors = NULL;
+        }
+     }
 
-  return countMin;
+  return countMin; //Number of valid minimums found
 }
-//Sequential version
+//Sequential version of stage1
 unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min){
-
-  // Tamaño del bloque del scheduler de OMP
-  // unsigned short block_size = 1;
 
   double Displace = round2d(Wsize*(1-Overlap));
 
@@ -100,17 +78,12 @@ unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, 
       for( jj = 0 ; jj < Ccol ; jj++ ){
 
           cellCenter.y = initY + jj*Displace;
-          // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
-
+          
               for( ii = 0 ; ii < Crow ; ii++ ){
 
                   cellCenter.x = initX + ii*Displace;
-                  // printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-                  // printf("Busco los vecinos\n");
                   neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
-                  // printf("Numero de elementos de la celda: %d\n", cellPoints );
                   if(cellPoints >= minNumPoints ){
-                      // printf("Numero de elementos de la celda: %d\n", cellPoints );
                       idmin = findMin(neighbors, cellPoints);
                       minIDs[countMin] = neighbors[idmin]->id;
                       countMin++;
@@ -121,13 +94,12 @@ unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, 
                   neighbors = NULL;
               }
           }
-      // }
-  // }
 
   return countMin;
 }
 
-
+//This function returns in array minIDs the LLPs and index (the number of LLPs)
+//An LLP (Local Lowest Point) is a valid minimum that is found more than once in stage1
 unsigned int stage2(unsigned int countMin, int* minIDs){
 
   unsigned int index = 0;
@@ -149,6 +121,7 @@ unsigned int stage2(unsigned int countMin, int* minIDs){
   return index;
 }
 
+//This function fills empty Bsize x Bsize cells that do not contain any LLP
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
           int* minGridIDs, Octree octreeIn, Octree grid, Vector3D min){
 
@@ -159,7 +132,6 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
     Lpoint cellCenter = {0,0.0,0.0,0.0};
 
     Lpoint** neighbors = NULL;
-
     Lpoint** minimos = NULL;
 
     int ii,jj;
@@ -178,13 +150,11 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
                cellCenter.x = min.x + Bsize/2 + ii*Bsize;
 
                minimos = searchNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
-               // printf("Numero de elementos de la celda: %d\n", cellPoints );
-               //Tengo que hacerlo porque el algoritmo no lo hace
-               if(cellPoints == 0){
-                   // printf("    Tengo una celda vacia en la malla\n" );
+               
+               if(cellPoints == 0){ //If there are no LLPs in the cell
                    neighbors = searchNeighbors2D(&cellCenter, octreeIn, Bsize/2, &cellPoints);
                    if(cellPoints>0){
-                       idmin = findMin(neighbors, cellPoints);
+                       idmin = findMin(neighbors, cellPoints); //Find the mimimum in the cell (not an LLP, just the minimum z-value)
 #ifdef PARALLEL
                        #pragma omp critical
 #endif
@@ -203,10 +173,10 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
         }
     }
 
-    return addMin;
+    return addMin; //Number of minimums added
 
 }
-
+//Sequential version of stage 3
 unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
           int* minGridIDs, Octree octreeIn, Octree grid, Vector3D min){
 
@@ -229,8 +199,6 @@ unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short C
                cellCenter.x = min.x + Bsize/2 + ii*Bsize;
 
                minimos = searchNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
-
-               //Tengo que hacerlo porque el algoritmo no lo hace
                if(cellPoints == 0){
 
                    neighbors = searchNeighbors2D(&cellCenter, octreeIn, Bsize/2, &cellPoints);
@@ -341,7 +309,7 @@ void* reallocWrap(void *ptr, size_t size)
     return ptr;
 }
 
-/** Create a octree with the given center and radius */
+/** Create an octree node with the given center and radius */
 Octree createOctree(Vector3D center, float radius)
 {
     int i = 0;
@@ -442,34 +410,8 @@ void insertPoint(Lpoint *point, Octree octree)
     }
 }
 
-void insertPoint2(Lpoint *point, Octree octree)
-{
-    int idx = 0;
 
-    if(isLeaf(octree))
-    {
-      if(octree->radius / 2.0 > MIN_RADIUS)
-      {
-          createOctants(octree);
-          fillOctants(octree);
-          idx = octantIdx(point, octree);
-          insertPoint(point, octree->octants[idx]);
-
-      }
-      else                         // Not empty and isn't divisible -> insert point
-      {
-          octree->points = reallocWrap(octree->points, ++octree->numPts * sizeof(Lpoint*));
-          octree->points[octree->numPts-1] = point;
-      }
-    }
-    else                                // No leaf -> search the correct one
-    {
-        idx = octantIdx(point, octree);
-        insertPoint(point, octree->octants[idx]);
-    }
-}
-
-// Insert a point in the octree creating the appropiate childs. Keep dividing until reaching radius
+// Insert a point in the octree creating the appropiate childs. Keep dividing until reaching minRadius
 void insertPointMinRadius(Lpoint *point, Octree octree, float minRadius)
 {
     int idx = 0;
@@ -545,6 +487,9 @@ int boxOverlap2D(Vector3D boxMin, Vector3D boxMax, Octree oct)
     return 1;
 }
 
+//This function returns the points inside a bounding box (boxMin, boxMax) in the octree
+//The points are returned in array ptsInside and the number of points in the array is in numInside
+//ptsInside_size is the size allocated for ptsInside (it can grow if needed)
 Lpoint** neighbors2D(Lpoint *point, Vector3D boxMin, Vector3D boxMax, Octree octree, Lpoint **ptsInside, int *ptsInside_size, int *numInside)
 {
     int i = 0;
@@ -584,16 +529,17 @@ Lpoint** neighbors2D(Lpoint *point, Vector3D boxMin, Vector3D boxMax, Octree oct
     return ptsInside;
 }
 
-Lpoint** searchNeighbors2D(Lpoint *point, Octree octree, float radius, int *numNeighs)
+//Wrapper function for neighbors2D that receives the center of the SW (point) and the radius of the box
+//With that, makeBox computes the corresponding BBox of the SW and calls neghbors2D
+Lpoint** searchNeighbors2D(Lpoint *point, Octree octree, float radius, int *numInside)
 {
     Vector3D boxMin, boxMax;
     Lpoint **ptsInside = NULL;
     int ptsInside_size = 0;
 
-
-    *numNeighs = 0;
+    *numInside = 0;
     makeBox(point, radius, &boxMin, &boxMax);
-    ptsInside = neighbors2D(point, boxMin, boxMax, octree, ptsInside, &ptsInside_size, numNeighs);
+    ptsInside = neighbors2D(point, boxMin, boxMax, octree, ptsInside, &ptsInside_size, numInside);
 
     return ptsInside;
 }

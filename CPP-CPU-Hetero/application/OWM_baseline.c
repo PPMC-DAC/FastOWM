@@ -7,7 +7,7 @@
 #include <string.h>
 #include <omp.h>
 
-#include "../include/environment.h"
+#include "../include/OWM_functions.h"
 
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b ); // Portable ascending order
@@ -40,36 +40,35 @@ int main( int argc, char* argv[]){
 
     unsigned int countMin;
 
-    unsigned int searcher =0;
+    unsigned int numLLPs = 0; //Number of Local Lowest Points (LLPs)
 
-    unsigned int addMin =0;
+    unsigned int addMin = 0;
 
     double t_stage, t_func, t_octree;
 
-    // Tamaño de la ventana deslizante
+    // Sliding window (SW) size
     unsigned short Wsize = 10;
-    // Tamaño de la rejilla
+    // Grid size for stage 3
     unsigned short Bsize = 20;
-    // Solape de la ventana deslizante
+    // SW overlap
     double Overlap = 0.8;
-    // Numero de procesadores
+    // Number of threads for OpenMP
     unsigned short num_procs = 1;
 
-    //Control del bucle de ejecución
+    //Number of runs the OWM algorithm is executed
     unsigned int numRuns = 1;
 
+    //Default input and output files
     char inputTXT[128] = {"./data/INAER_2011_Alcoy.xyz"};
-    // char inputLAS[50] = {"./data/INAER_2011_Alcoy.las"};
     char outputTXT[128] = {"./data/INAER_2011_Alcoy_output.xyz"};
-    // char outputLAS[50] = {"./data/INAER_2011_Alcoy_output.las"};
 
-    // Compruebo los argumentos de entrada
+    // Input parameters
     if(argc>1) {
       strcpy(inputTXT,argv[1]);
-      strcat(inputTXT,".xyz");
+      strcat(inputTXT,".xyz"); //Input file
 
       strcpy(outputTXT,argv[1]);
-      strcat(outputTXT,"_output.xyz");
+      strcat(outputTXT,"_output.xyz"); //Output file
     }
     if(argc>2) Wsize = atoi(argv[2]);
     if(argc>3) Bsize = atoi(argv[3]);
@@ -86,13 +85,12 @@ int main( int argc, char* argv[]){
     printf("Input.txt: %s ---> SEQUENTIAL\n", inputTXT);
 #endif
 
-    // Abro el fichero
     if((fileXYZ = fopen(inputTXT,"r")) == NULL){
       printf("Unable to open file!\n");
       exit(-1);
     }
 
-    if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy.xyz") ){
+    if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy.xyz") ){ //These files do not have header values
       Npoints = 2772832;
       min.x   = 715244.96;
       max.x   = 716057.75;
@@ -130,14 +128,12 @@ int main( int argc, char* argv[]){
         }
     }
 
-
-    // Reservo memoria para la nube de puntos
+    // The point cloud is stored here
     pointer = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
 
     printf("Reading points...\n");
 
     for(int i=0; i<Npoints ; i++){
-      //Obtengo los datos id X Y Z
       pointer[i].id = i;
       if(fscanf(fileXYZ, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
         printf("Imposible to read values\n");
@@ -146,7 +142,6 @@ int main( int argc, char* argv[]){
       while(fgetc(fileXYZ)!='\n');
     }
 
-    //Ya no necesito mas el fichero
     if(fclose(fileXYZ)){
       printf("Cannot close the file\n");
       exit(-1);
@@ -166,14 +161,14 @@ int main( int argc, char* argv[]){
     t_octree=omp_get_wtime();
     octreeIn = createOctree(center, maxRadius);
 
-    // Inserto los puntos en el Octree
+    // Build the octree
     for(int i = 0; i < Npoints; i++)
        insertPoint(&pointer[i], octreeIn);
 
     printf("Time elapsed at Octree construction:     %.6f s\n\n", omp_get_wtime()-t_octree);
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
-    // Densidad en puntos/m²
+    // Point cloud density in points/m²
     Density = Npoints/(Width*High);
     printf("CLOUD PARAMETERS:\n");
     printf("Number of points (cloud size): %d\n",Npoints);
@@ -214,29 +209,28 @@ int main( int argc, char* argv[]){
     printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, Ccolg, Crowg);
     Ngrid = Crowg*Ccolg;
 
-    // Voy a tener como mucho un mínimo por ventana..
+    // At most one LLP per SW and there are Ncells SWs
     minIDs = calloc(Ncells,sizeof(int));
-    // Voy a tener como mucho un mínimo por rejilla..
+    // At most one LLP per grid cell (Bsize x Bsize) and there are Ngrid grid cells
     minGridIDs = malloc(Ngrid*sizeof(int));
 
-    while(numRuns){
+    while(numRuns){ //Number of runs
 
         t_func=omp_get_wtime();
         t_stage=omp_get_wtime();
 
-        // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
+        // Return valid minimums in array minIDs. The used size of the array is returned in countMin
         countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
 
         printf("Time elapsed at STAGE 1:     %.6f s\n", omp_get_wtime()-t_stage);
         printf("Number of found minima:   %d\n\n", countMin);
 
-        // Descarto mínimos si hay solape
-        // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
+        // Only if there is Overlap a minimum can be selected in different SWs
+        // Only those minimums found more than once become LLPs
         if(Overlap > 0.0){
             t_stage=omp_get_wtime();
 
-            // Ordeno el array de IDs
-            //qsort(minIDs,Ncells,sizeof(int),&cmpfunc); //This is not correct (it consider point with id=0 as one of the minima)
+            // To check for repeated ids the array of ids is sorted (only the first countMin elements are relevan)
             qsort(minIDs,countMin,sizeof(int),&cmpfunc);
 #ifdef DEBUG
           if((fileDeb1 = fopen("sortedmins.txt","w")) == NULL){
@@ -247,52 +241,45 @@ int main( int argc, char* argv[]){
               fprintf(fileDeb1, "%d %.2f %.2f %.2f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
           fclose(fileDeb1);
 #endif
-            // Me quedo solo con los mínimos que se han repetido más de una vez
-            //searcher = stage2(Ncells, minIDs);//This is not correct (it consider point with id=0 as one of the minima)
-            searcher = stage2(countMin, minIDs);
+            // Detect repeated ids and store them in minIDs. NumLLPs is the number of LLPs found and stored at the beggining of minIDs
+            numLLPs = stage2(countMin, minIDs);
 #ifdef DEBUG
           if((fileDeb1 = fopen("LLPs.txt","w")) == NULL){
             printf("Unable to create file!\n");
             return -1;
           }
-          for(int i=0 ; i<searcher ; i++)
+          for(int i=0 ; i<numLLPs ; i++)
               fprintf(fileDeb1, "%d %.2f %.2f %.2f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
           fclose(fileDeb1);
 #endif
 
             printf("Time elapsed at STAGE 2:     %.6f s\n",omp_get_wtime() - t_stage );
-            printf("Number of found LLPs: %d \n\n", searcher);
-
+            printf("Number of found LLPs: %d \n\n", numLLPs);
         }
         else
-            searcher = countMin;// Para el caso de no hacer solapado; que searcher tenga un valor
+            numLLPs = countMin;// If there is no overlap, all the minimums found become LLPs
 
-        // Aplico la malla para ver si hay zonas sin puntos
+        // If the grid of Bsize x Bsize is defined, then stage 3 is executed
         if(Bsize > 0){
 
             t_stage=omp_get_wtime();
 
-            // Creo un nuevo octree con todos los mínimos; las mismas dimensiones que el grande
-            grid = createOctree(center, maxRadius);
-            for(int i = 0; i < searcher; i++)
+            // Build and octree with only the LLPs
+            grid = createOctree(center, maxRadius); // Create the octree root node
+            for(int i = 0; i < numLLPs; i++) // Insert the LLPs in the octree
                insertPoint(&pointer[minIDs[i]], grid);
+            // Find empty Bsize x Bsize cells in the grid and add a minimum to them
             addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
 
             printf("Time elapsed at STAGE 3:     %.6f s\n",omp_get_wtime() - t_stage );
             printf("Number of points added at stage 3: %d \n\n", addMin);
 
-            // Ya no necesito este octree
             free(grid);
             grid = NULL;
         }
 
         printf("TOTAL time elapsed:     %.6f s\n", resultados[--numRuns] = omp_get_wtime() - t_func);
-        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", searcher+addMin, Npoints - searcher+addMin );
-
-
-        // if(numRuns){
-        //   sleep(5);
-        // }
+        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs+addMin );
 
         printf("/////////////////////////////////////////////////////////////////////\n");
     }
@@ -317,19 +304,18 @@ int main( int argc, char* argv[]){
       return -1;
     }
 
-    for(int i=0 ; i<searcher ; i++)
+    for(int i=0 ; i<numLLPs ; i++)
       fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
 
     for(int i=0 ; i<addMin ; i++)
       fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minGridIDs[i]].x, pointer[minGridIDs[i]].y,pointer[minGridIDs[i]].z);
 
-    //Ya no necesito mas el fichero
     if(fclose(fileMin)){
       printf("Cannot close the file\n");
       return -1;
     }
 #endif
-    // Libero memoria
+    // Free memory
     free(octreeIn);
     octreeIn=NULL;
     free(minIDs);
@@ -338,7 +324,6 @@ int main( int argc, char* argv[]){
     minGridIDs=NULL;
     free(pointer);
     pointer=NULL;
-
-
+    
     return 0;
 }

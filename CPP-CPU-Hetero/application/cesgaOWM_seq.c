@@ -7,10 +7,10 @@
 #include <string.h>
 #include <omp.h>
 
-#include "../include/environment.h"
+#include "../include/OWM_functions.h"
 
 int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a < *(int*)b );
+   return ( *(int*)a - *(int*)b );
 }
 
 int main( int argc, char* argv[]){
@@ -36,7 +36,7 @@ int main( int argc, char* argv[]){
 
     unsigned int countMin;
 
-    unsigned int searcher =0;
+    unsigned int numLLPs =0;
 
     unsigned int addMin =0;
 
@@ -230,8 +230,8 @@ int main( int argc, char* argv[]){
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
         printf("\nCeldas no descartadas:   %d\n", countMin);
-        // Para el caso de no hacer solpado; que searcher tenga un valor
-        searcher=countMin;
+        // Para el caso de no hacer solpado; que numLLPs tenga un valor
+        numLLPs=countMin;
 
         // Descarto mínimos si hay solape
         // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
@@ -239,12 +239,12 @@ int main( int argc, char* argv[]){
             t_stage=omp_get_wtime();
 
             // Ordeno el array de IDs
-            qsort(minIDs,Ncells,sizeof(int),&cmpfunc);
+            qsort(minIDs,numLLPs,sizeof(int),&cmpfunc);
             // Me quedo solo con los mínimos que se han repetido más de una vez
-            searcher = stage2(Ncells, minIDs);
+            numLLPs = stage2(numLLPs, minIDs);
 
             printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
-            printf("Numero de minimos que me quedo: %d \n", searcher);
+            printf("Numero de minimos que me quedo: %d \n", numLLPs);
 
         }
 
@@ -256,7 +256,7 @@ int main( int argc, char* argv[]){
 
             // Creo un nuevo octree con todos los mínimos; las mismas dimensiones que el grande
             grid = createOctree(center, maxRadius);
-            for(int i = 0; i < searcher; i++)
+            for(int i = 0; i < numLLPs; i++)
                insertPoint(&pointer[minIDs[i]], grid);
 
             addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
@@ -269,7 +269,7 @@ int main( int argc, char* argv[]){
         }
 
         printf("TOTAL time elapsed:     %.6f s\n", resultados[--bucle_entrada] = omp_get_wtime() - t_func);
-        printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", searcher+addMin, Npoints - searcher+addMin );
+        printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", numLLPs+addMin, Npoints - numLLPs+addMin );
 
 
         if(bucle_entrada){
@@ -300,7 +300,7 @@ int main( int argc, char* argv[]){
       return -1;
     }
 
-    for(int i=0 ; i<searcher ; i++)
+    for(int i=0 ; i<numLLPs ; i++)
       fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
 
     for(int i=0 ; i<addMin ; i++)

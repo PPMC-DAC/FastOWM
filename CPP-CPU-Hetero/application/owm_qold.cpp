@@ -1,3 +1,7 @@
+// Difference wrt cesgaOWM.c 
+// 1. Moves from C to C++
+// 2. Quadtree is now a class with its constructor
+// 3. MinRadius (min size of a leaf bounding box) is now an imput parameter and argument of insertPoint instead of a constant
 
 // #include <stdio.h>
 // #include <stdlib.h>
