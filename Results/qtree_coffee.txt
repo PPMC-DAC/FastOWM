@@ -1,0 +1,1700 @@
+
+
+Running: ../bin/o1qtree ../bin/data/Alcoy 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 1 CORES
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.240049 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     12.240135 s
+
+Time elapsed at STAGE 2:     0.015122 s
+
+Time elapsed at STAGE 3:     0.069449 s
+
+TOTAL time elapsed:     12.342626 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.446476 s
+
+Time elapsed at STAGE 2:     0.014796 s
+
+Time elapsed at STAGE 3:     0.067740 s
+
+TOTAL time elapsed:     12.546873 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.381653 s
+
+Time elapsed at STAGE 2:     0.014798 s
+
+Time elapsed at STAGE 3:     0.067758 s
+
+TOTAL time elapsed:     12.482106 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.436926 s
+
+Time elapsed at STAGE 2:     0.014897 s
+
+Time elapsed at STAGE 3:     0.067872 s
+
+TOTAL time elapsed:     12.537625 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.382903 s
+
+Time elapsed at STAGE 2:     0.014810 s
+
+Time elapsed at STAGE 3:     0.067791 s
+
+TOTAL time elapsed:     12.483460 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    12.4835    12.5376    12.4821    12.5469    12.3426  
+Average: 12.4785
+
+
+
+Running: ../bin/o1qtree ../bin/data/Alcoy 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 2 CORES
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.183677 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     6.092847 s
+
+Time elapsed at STAGE 2:     0.014931 s
+
+Time elapsed at STAGE 3:     0.067501 s
+
+TOTAL time elapsed:     6.194789 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.157674 s
+
+Time elapsed at STAGE 2:     0.014589 s
+
+Time elapsed at STAGE 3:     0.066055 s
+
+TOTAL time elapsed:     6.257707 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.127065 s
+
+Time elapsed at STAGE 2:     0.014606 s
+
+Time elapsed at STAGE 3:     0.066745 s
+
+TOTAL time elapsed:     6.227850 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.188117 s
+
+Time elapsed at STAGE 2:     0.014601 s
+
+Time elapsed at STAGE 3:     0.067362 s
+
+TOTAL time elapsed:     6.289476 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.174450 s
+
+Time elapsed at STAGE 2:     0.014615 s
+
+Time elapsed at STAGE 3:     0.066033 s
+
+TOTAL time elapsed:     6.275253 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    6.2753    6.2895    6.2278    6.2577    6.1948  
+Average: 6.2490
+
+
+
+Running: ../bin/o1qtree ../bin/data/Alcoy 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 4 CORES
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.153958 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     3.692045 s
+
+Time elapsed at STAGE 2:     0.021638 s
+
+Time elapsed at STAGE 3:     0.074881 s
+
+TOTAL time elapsed:     3.810768 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.740631 s
+
+Time elapsed at STAGE 2:     0.019254 s
+
+Time elapsed at STAGE 3:     0.060110 s
+
+TOTAL time elapsed:     3.842159 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.719270 s
+
+Time elapsed at STAGE 2:     0.018895 s
+
+Time elapsed at STAGE 3:     0.060125 s
+
+TOTAL time elapsed:     3.820425 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.731497 s
+
+Time elapsed at STAGE 2:     0.019022 s
+
+Time elapsed at STAGE 3:     0.060155 s
+
+TOTAL time elapsed:     3.832815 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.728579 s
+
+Time elapsed at STAGE 2:     0.021208 s
+
+Time elapsed at STAGE 3:     0.062489 s
+
+TOTAL time elapsed:     3.834451 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.8345    3.8328    3.8204    3.8422    3.8108  
+Average: 3.8281
+
+
+
+Running: ../bin/o1qtree ../bin/data/Alcoy 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 6 CORES
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.160426 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     2.484379 s
+
+Time elapsed at STAGE 2:     0.020323 s
+
+Time elapsed at STAGE 3:     0.058025 s
+
+TOTAL time elapsed:     2.584802 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.524730 s
+
+Time elapsed at STAGE 2:     0.023141 s
+
+Time elapsed at STAGE 3:     0.071237 s
+
+TOTAL time elapsed:     2.642312 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.508553 s
+
+Time elapsed at STAGE 2:     0.023085 s
+
+Time elapsed at STAGE 3:     0.064629 s
+
+TOTAL time elapsed:     2.619305 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.491360 s
+
+Time elapsed at STAGE 2:     0.022523 s
+
+Time elapsed at STAGE 3:     0.064529 s
+
+TOTAL time elapsed:     2.600366 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.487165 s
+
+Time elapsed at STAGE 2:     0.021147 s
+
+Time elapsed at STAGE 3:     0.057560 s
+
+TOTAL time elapsed:     2.589193 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    2.5892    2.6004    2.6193    2.6423    2.5848  
+Average: 2.6072
+
+
+
+Running: ../bin/o1qtree ../bin/data/Alcoy 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 8 CORES
+VOLCANDO PUNTOS...
+xmin = 714947.98
+xmax = 716361.06
+ymin = 4286501.93
+ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.166724 s
+
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Time elapsed at STAGE 1:     1.875752 s
+
+Time elapsed at STAGE 2:     0.021224 s
+
+Time elapsed at STAGE 3:     0.057920 s
+
+TOTAL time elapsed:     1.977078 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.921421 s
+
+Time elapsed at STAGE 2:     0.021059 s
+
+Time elapsed at STAGE 3:     0.056801 s
+
+TOTAL time elapsed:     2.021490 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.867803 s
+
+Time elapsed at STAGE 2:     0.020643 s
+
+Time elapsed at STAGE 3:     0.056577 s
+
+TOTAL time elapsed:     1.967298 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.863355 s
+
+Time elapsed at STAGE 2:     0.020515 s
+
+Time elapsed at STAGE 3:     0.056484 s
+
+TOTAL time elapsed:     1.962526 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.877778 s
+
+Time elapsed at STAGE 2:     0.020949 s
+
+Time elapsed at STAGE 3:     0.056561 s
+
+TOTAL time elapsed:     1.977454 s
+Output ground seed-point cloud with 58673 points, 20321649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    1.9775    1.9625    1.9673    2.0215    1.9771  
+Average: 1.9812
+
+
+
+Running: ../bin/o1qtree ../bin/data/Arzua 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 1 CORES
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.784803 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     9.864017 s
+
+Time elapsed at STAGE 2:     0.006328 s
+
+Time elapsed at STAGE 3:     0.091529 s
+
+TOTAL time elapsed:     9.968950 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.964505 s
+
+Time elapsed at STAGE 2:     0.006291 s
+
+Time elapsed at STAGE 3:     0.091481 s
+
+TOTAL time elapsed:     10.069328 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.935348 s
+
+Time elapsed at STAGE 2:     0.006285 s
+
+Time elapsed at STAGE 3:     0.091498 s
+
+TOTAL time elapsed:     10.040215 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.901736 s
+
+Time elapsed at STAGE 2:     0.006284 s
+
+Time elapsed at STAGE 3:     0.091433 s
+
+TOTAL time elapsed:     10.006512 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     9.968483 s
+
+Time elapsed at STAGE 2:     0.006292 s
+
+Time elapsed at STAGE 3:     0.091385 s
+
+TOTAL time elapsed:     10.073256 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    10.0733    10.0065    10.0402    10.0693    9.9690  
+Average: 10.0317
+
+
+
+Running: ../bin/o1qtree ../bin/data/Arzua 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 2 CORES
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.798608 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     5.235027 s
+
+Time elapsed at STAGE 2:     0.007306 s
+
+Time elapsed at STAGE 3:     0.069604 s
+
+TOTAL time elapsed:     5.321124 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.214573 s
+
+Time elapsed at STAGE 2:     0.006494 s
+
+Time elapsed at STAGE 3:     0.067373 s
+
+TOTAL time elapsed:     5.296494 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.185962 s
+
+Time elapsed at STAGE 2:     0.007647 s
+
+Time elapsed at STAGE 3:     0.069728 s
+
+TOTAL time elapsed:     5.271388 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.250983 s
+
+Time elapsed at STAGE 2:     0.006552 s
+
+Time elapsed at STAGE 3:     0.067823 s
+
+TOTAL time elapsed:     5.334498 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.174604 s
+
+Time elapsed at STAGE 2:     0.006467 s
+
+Time elapsed at STAGE 3:     0.068151 s
+
+TOTAL time elapsed:     5.257304 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    5.2573    5.3345    5.2714    5.2965    5.3211  
+Average: 5.2962
+
+
+
+Running: ../bin/o1qtree ../bin/data/Arzua 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 4 CORES
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.752757 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     3.201716 s
+
+Time elapsed at STAGE 2:     0.010458 s
+
+Time elapsed at STAGE 3:     0.052282 s
+
+TOTAL time elapsed:     3.274687 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.221218 s
+
+Time elapsed at STAGE 2:     0.010449 s
+
+Time elapsed at STAGE 3:     0.052101 s
+
+TOTAL time elapsed:     3.294003 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.210206 s
+
+Time elapsed at STAGE 2:     0.010444 s
+
+Time elapsed at STAGE 3:     0.052007 s
+
+TOTAL time elapsed:     3.282956 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.196774 s
+
+Time elapsed at STAGE 2:     0.010281 s
+
+Time elapsed at STAGE 3:     0.057819 s
+
+TOTAL time elapsed:     3.275133 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.219948 s
+
+Time elapsed at STAGE 2:     0.010404 s
+
+Time elapsed at STAGE 3:     0.056196 s
+
+TOTAL time elapsed:     3.296806 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.2968    3.2751    3.2830    3.2940    3.2747  
+Average: 3.2847
+
+
+
+Running: ../bin/o1qtree ../bin/data/Arzua 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 6 CORES
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.777895 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     2.180411 s
+
+Time elapsed at STAGE 2:     0.011235 s
+
+Time elapsed at STAGE 3:     0.056651 s
+
+TOTAL time elapsed:     2.259379 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.179916 s
+
+Time elapsed at STAGE 2:     0.011327 s
+
+Time elapsed at STAGE 3:     0.056420 s
+
+TOTAL time elapsed:     2.258498 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.151891 s
+
+Time elapsed at STAGE 2:     0.011089 s
+
+Time elapsed at STAGE 3:     0.054543 s
+
+TOTAL time elapsed:     2.227840 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.183352 s
+
+Time elapsed at STAGE 2:     0.011161 s
+
+Time elapsed at STAGE 3:     0.052009 s
+
+TOTAL time elapsed:     2.257364 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.139086 s
+
+Time elapsed at STAGE 2:     0.011022 s
+
+Time elapsed at STAGE 3:     0.048800 s
+
+TOTAL time elapsed:     2.209246 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    2.2092    2.2574    2.2278    2.2585    2.2594  
+Average: 2.2425
+
+
+
+Running: ../bin/o1qtree ../bin/data/Arzua 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 8 CORES
+VOLCANDO PUNTOS...
+xmin = 568000.00
+xmax = 568999.99
+ymin = 4752320.00
+ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     3.748497 s
+
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Time elapsed at STAGE 1:     1.630665 s
+
+Time elapsed at STAGE 2:     0.011805 s
+
+Time elapsed at STAGE 3:     0.044287 s
+
+TOTAL time elapsed:     1.697020 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.621840 s
+
+Time elapsed at STAGE 2:     0.011648 s
+
+Time elapsed at STAGE 3:     0.045827 s
+
+TOTAL time elapsed:     1.689619 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.632709 s
+
+Time elapsed at STAGE 2:     0.011771 s
+
+Time elapsed at STAGE 3:     0.045751 s
+
+TOTAL time elapsed:     1.701533 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.638654 s
+
+Time elapsed at STAGE 2:     0.011769 s
+
+Time elapsed at STAGE 3:     0.046242 s
+
+TOTAL time elapsed:     1.707472 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     1.634947 s
+
+Time elapsed at STAGE 2:     0.011761 s
+
+Time elapsed at STAGE 3:     0.045622 s
+
+TOTAL time elapsed:     1.703137 s
+Output ground seed-point cloud with 27656 points, 40679437 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    1.7031    1.7075    1.7015    1.6896    1.6970  
+Average: 1.6998
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionF 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 1 CORES
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.042202 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     11.178967 s
+
+Time elapsed at STAGE 2:     0.002225 s
+
+Time elapsed at STAGE 3:     0.019067 s
+
+TOTAL time elapsed:     11.203437 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.933906 s
+
+Time elapsed at STAGE 2:     0.002157 s
+
+Time elapsed at STAGE 3:     0.018759 s
+
+TOTAL time elapsed:     10.957942 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     11.105955 s
+
+Time elapsed at STAGE 2:     0.002152 s
+
+Time elapsed at STAGE 3:     0.018778 s
+
+TOTAL time elapsed:     11.130016 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     11.018687 s
+
+Time elapsed at STAGE 2:     0.002154 s
+
+Time elapsed at STAGE 3:     0.018765 s
+
+TOTAL time elapsed:     11.042686 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     10.977733 s
+
+Time elapsed at STAGE 2:     0.002152 s
+
+Time elapsed at STAGE 3:     0.018853 s
+
+TOTAL time elapsed:     11.001887 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    11.0019    11.0427    11.1300    10.9579    11.2034  
+Average: 11.0672
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionF 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 2 CORES
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.047571 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     5.457570 s
+
+Time elapsed at STAGE 2:     0.002461 s
+
+Time elapsed at STAGE 3:     0.016674 s
+
+TOTAL time elapsed:     5.480285 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.430141 s
+
+Time elapsed at STAGE 2:     0.002118 s
+
+Time elapsed at STAGE 3:     0.016087 s
+
+TOTAL time elapsed:     5.451784 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.460309 s
+
+Time elapsed at STAGE 2:     0.002114 s
+
+Time elapsed at STAGE 3:     0.017756 s
+
+TOTAL time elapsed:     5.483746 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.436146 s
+
+Time elapsed at STAGE 2:     0.002117 s
+
+Time elapsed at STAGE 3:     0.016102 s
+
+TOTAL time elapsed:     5.457838 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     5.445555 s
+
+Time elapsed at STAGE 2:     0.002640 s
+
+Time elapsed at STAGE 3:     0.016790 s
+
+TOTAL time elapsed:     5.468482 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    5.4685    5.4578    5.4837    5.4518    5.4803  
+Average: 5.4684
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionF 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 4 CORES
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.010831 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     3.357767 s
+
+Time elapsed at STAGE 2:     0.003296 s
+
+Time elapsed at STAGE 3:     0.017079 s
+
+TOTAL time elapsed:     3.382431 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.217060 s
+
+Time elapsed at STAGE 2:     0.003158 s
+
+Time elapsed at STAGE 3:     0.016773 s
+
+TOTAL time elapsed:     3.241224 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.545429 s
+
+Time elapsed at STAGE 2:     0.003686 s
+
+Time elapsed at STAGE 3:     0.016814 s
+
+TOTAL time elapsed:     3.570139 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.254900 s
+
+Time elapsed at STAGE 2:     0.003175 s
+
+Time elapsed at STAGE 3:     0.016758 s
+
+TOTAL time elapsed:     3.279059 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.562525 s
+
+Time elapsed at STAGE 2:     0.003461 s
+
+Time elapsed at STAGE 3:     0.016822 s
+
+TOTAL time elapsed:     3.587012 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.5870    3.2791    3.5701    3.2412    3.3824  
+Average: 3.4120
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionF 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 6 CORES
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.007030 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     2.770110 s
+
+Time elapsed at STAGE 2:     0.003680 s
+
+Time elapsed at STAGE 3:     0.014977 s
+
+TOTAL time elapsed:     2.793070 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.757231 s
+
+Time elapsed at STAGE 2:     0.003629 s
+
+Time elapsed at STAGE 3:     0.014733 s
+
+TOTAL time elapsed:     2.779873 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.931504 s
+
+Time elapsed at STAGE 2:     0.003734 s
+
+Time elapsed at STAGE 3:     0.014743 s
+
+TOTAL time elapsed:     2.954217 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.996610 s
+
+Time elapsed at STAGE 2:     0.003738 s
+
+Time elapsed at STAGE 3:     0.014686 s
+
+TOTAL time elapsed:     3.019279 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.798083 s
+
+Time elapsed at STAGE 2:     0.003615 s
+
+Time elapsed at STAGE 3:     0.014805 s
+
+TOTAL time elapsed:     2.820855 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    2.8209    3.0193    2.9542    2.7799    2.7931  
+Average: 2.8735
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionF 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 8 CORES
+VOLCANDO PUNTOS...
+xmin = 526964.09
+xmax = 527664.65
+ymin = 4742610.29
+ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.020433 s
+
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Time elapsed at STAGE 1:     2.881398 s
+
+Time elapsed at STAGE 2:     0.003895 s
+
+Time elapsed at STAGE 3:     0.015350 s
+
+TOTAL time elapsed:     2.904917 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.184337 s
+
+Time elapsed at STAGE 2:     0.003901 s
+
+Time elapsed at STAGE 3:     0.015108 s
+
+TOTAL time elapsed:     3.207623 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.976284 s
+
+Time elapsed at STAGE 2:     0.003879 s
+
+Time elapsed at STAGE 3:     0.015139 s
+
+TOTAL time elapsed:     2.999548 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     2.994813 s
+
+Time elapsed at STAGE 2:     0.003852 s
+
+Time elapsed at STAGE 3:     0.015153 s
+
+TOTAL time elapsed:     3.018054 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.206678 s
+
+Time elapsed at STAGE 2:     0.003917 s
+
+Time elapsed at STAGE 3:     0.015125 s
+
+TOTAL time elapsed:     3.230030 s
+Output ground seed-point cloud with 9521 points, 42375459 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.2300    3.0181    2.9995    3.2076    2.9049  
+Average: 3.0720
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionU 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 1 CORES
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.526871 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     12.866709 s
+
+Time elapsed at STAGE 2:     0.002296 s
+
+Time elapsed at STAGE 3:     0.029053 s
+
+TOTAL time elapsed:     12.901456 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.393388 s
+
+Time elapsed at STAGE 2:     0.002226 s
+
+Time elapsed at STAGE 3:     0.028267 s
+
+TOTAL time elapsed:     12.427096 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     12.737957 s
+
+Time elapsed at STAGE 2:     0.002220 s
+
+Time elapsed at STAGE 3:     0.028363 s
+
+TOTAL time elapsed:     12.771771 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     13.203685 s
+
+Time elapsed at STAGE 2:     0.002219 s
+
+Time elapsed at STAGE 3:     0.028411 s
+
+TOTAL time elapsed:     13.237593 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     13.545902 s
+
+Time elapsed at STAGE 2:     0.002218 s
+
+Time elapsed at STAGE 3:     0.028335 s
+
+TOTAL time elapsed:     13.579735 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    13.5797    13.2376    12.7718    12.4271    12.9015  
+Average: 12.9835
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionU 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 2 CORES
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.477122 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     7.004305 s
+
+Time elapsed at STAGE 2:     0.002682 s
+
+Time elapsed at STAGE 3:     0.024088 s
+
+TOTAL time elapsed:     7.034764 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     7.192551 s
+
+Time elapsed at STAGE 2:     0.002584 s
+
+Time elapsed at STAGE 3:     0.022002 s
+
+TOTAL time elapsed:     7.221075 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.096552 s
+
+Time elapsed at STAGE 2:     0.003043 s
+
+Time elapsed at STAGE 3:     0.022902 s
+
+TOTAL time elapsed:     6.126094 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.196434 s
+
+Time elapsed at STAGE 2:     0.003064 s
+
+Time elapsed at STAGE 3:     0.023481 s
+
+TOTAL time elapsed:     6.226518 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     6.311504 s
+
+Time elapsed at STAGE 2:     0.002227 s
+
+Time elapsed at STAGE 3:     0.021963 s
+
+TOTAL time elapsed:     6.339738 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    6.3397    6.2265    6.1261    7.2211    7.0348  
+Average: 6.5896
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionU 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 4 CORES
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.494498 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     4.064378 s
+
+Time elapsed at STAGE 2:     0.003494 s
+
+Time elapsed at STAGE 3:     0.020447 s
+
+TOTAL time elapsed:     4.092657 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.045595 s
+
+Time elapsed at STAGE 2:     0.003468 s
+
+Time elapsed at STAGE 3:     0.019934 s
+
+TOTAL time elapsed:     4.073310 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.965790 s
+
+Time elapsed at STAGE 2:     0.003352 s
+
+Time elapsed at STAGE 3:     0.019905 s
+
+TOTAL time elapsed:     3.993308 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.123016 s
+
+Time elapsed at STAGE 2:     0.003471 s
+
+Time elapsed at STAGE 3:     0.019743 s
+
+TOTAL time elapsed:     4.150481 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     4.243283 s
+
+Time elapsed at STAGE 2:     0.003510 s
+
+Time elapsed at STAGE 3:     0.019873 s
+
+TOTAL time elapsed:     4.270948 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    4.2709    4.1505    3.9933    4.0733    4.0927  
+Average: 4.1161
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionU 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 6 CORES
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.463669 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     3.448512 s
+
+Time elapsed at STAGE 2:     0.003906 s
+
+Time elapsed at STAGE 3:     0.019049 s
+
+TOTAL time elapsed:     3.475827 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.484095 s
+
+Time elapsed at STAGE 2:     0.004064 s
+
+Time elapsed at STAGE 3:     0.018767 s
+
+TOTAL time elapsed:     3.511189 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.568629 s
+
+Time elapsed at STAGE 2:     0.003928 s
+
+Time elapsed at STAGE 3:     0.018827 s
+
+TOTAL time elapsed:     3.595668 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.554433 s
+
+Time elapsed at STAGE 2:     0.003907 s
+
+Time elapsed at STAGE 3:     0.018798 s
+
+TOTAL time elapsed:     3.581456 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.588656 s
+
+Time elapsed at STAGE 2:     0.003899 s
+
+Time elapsed at STAGE 3:     0.018757 s
+
+TOTAL time elapsed:     3.615608 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.6156    3.5815    3.5957    3.5112    3.4758  
+Average: 3.5559
+
+
+
+Running: ../bin/o1qtree ../bin/data/BrionU 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 8 CORES
+VOLCANDO PUNTOS...
+xmin = 526955.91
+xmax = 527686.44
+ymin = 4742586.03
+ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+CREANDO QTREE...
+Inserting points; minRadius: 0.1
+Time elapsed at Quadtree construction:     4.516894 s
+
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Time elapsed at STAGE 1:     3.720215 s
+
+Time elapsed at STAGE 2:     0.004050 s
+
+Time elapsed at STAGE 3:     0.018991 s
+
+TOTAL time elapsed:     3.747671 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.887512 s
+
+Time elapsed at STAGE 2:     0.004063 s
+
+Time elapsed at STAGE 3:     0.018767 s
+
+TOTAL time elapsed:     3.914682 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.796543 s
+
+Time elapsed at STAGE 2:     0.004050 s
+
+Time elapsed at STAGE 3:     0.018799 s
+
+TOTAL time elapsed:     3.823708 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.941120 s
+
+Time elapsed at STAGE 2:     0.004075 s
+
+Time elapsed at STAGE 3:     0.018799 s
+
+TOTAL time elapsed:     3.968371 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time elapsed at STAGE 1:     3.965026 s
+
+Time elapsed at STAGE 2:     0.004081 s
+
+Time elapsed at STAGE 3:     0.018703 s
+
+TOTAL time elapsed:     3.992164 s
+Output ground seed-point cloud with 9788 points, 48014844 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+Time of each run:    3.9922    3.9684    3.8237    3.9147    3.7477  
+Average: 3.8893
+
