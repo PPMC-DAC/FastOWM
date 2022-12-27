@@ -44,11 +44,12 @@ bin/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 
 bin/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DDEBUG
 
-bin/qmin:
+bin/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) application/owm_qmin.cpp src/envi_qmin.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+#-DDEBUG -Wall -pedantic -g -Wextra
 
 bin/parent:
 		@mkdir -p "$(@D)"

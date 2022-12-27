@@ -76,7 +76,8 @@ int main( int argc, char* argv[]){
     if(argc>5) num_procs = atoi(argv[5]);
     if(argc>6) numRuns = atoi(argv[6]);
 
-    double resultados[numRuns];
+    double *resultados;
+    resultados=(double*)malloc(numRuns*sizeof(double));
 
 #ifdef PARALLEL
     omp_set_num_threads(num_procs);
@@ -324,6 +325,6 @@ int main( int argc, char* argv[]){
     minGridIDs=NULL;
     free(pointer);
     pointer=NULL;
-    
+
     return 0;
 }

@@ -1,6 +1,6 @@
-#ifndef ENVI_QOLD_H
+#ifndef ENVI_QMIN_H
 
-#define ENVI_QOLD_H
+#define ENVI_QMIN_H
 
 #include <iostream>
 #include <limits>
@@ -13,14 +13,10 @@
 #include <algorithm>
 #include <string.h>
 
-// #define MIN_RADIUS 0.10 //For the discretization
-
 typedef struct
 {
     double x;
     double y;
-    // double z;
-
 } Vector2D;
 
 typedef struct
@@ -37,22 +33,17 @@ typedef struct
     double x;
     double y;
     double z;
-
 } Lpoint;
 
-typedef struct Octree_t* Octree;
+typedef struct Qtree_t* Qtree;
 
-struct Octree_t {
-  Octree octants[4];
-  // Octree oparent;
-  // Vector3D center;
+struct Qtree_t {
+  Qtree quadrants[4];
   Vector2D center;
   float radius;
   std::vector<Lpoint*> points;
 
-  Octree_t(Vector2D c, float r);
-  // Octree_t(Octree oct, Vector2D c, float r);
-  // ~Octree_t();
+  Qtree_t(Vector2D c, float r);
 };
 
 typedef struct{
@@ -60,35 +51,31 @@ typedef struct{
     double z;
 } zSearch;
 
-// unsigned int findMin(Lpoint** neighbors, double zzmin, unsigned int cellPoints);
-
 double round2d(double z);
-
-// Lpoint createPoint(unsigned int id, double x, double y, double z);
 
 Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius);
 
 Vector2D getCenter(Vector2D min, Vector2D radius);
 
-void insertPointF(Lpoint *point, Octree octree, float minRadius);
+void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 
-void deleteOctree(Octree octree);
+void deleteQtree(Qtree qtree);
 
 unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min);
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
 // unsigned int stage1cppParent(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-//   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min);
+//   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
 unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min);
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
 unsigned int stage2(unsigned int countMin, int* minIDs);
 
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector2D min);
+          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector2D min);
 
 unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector2D min);
+          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector2D min);
 
-#endif // ENVI_QOLD_H
+#endif // ENVI_QMIN_H

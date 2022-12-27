@@ -12,6 +12,7 @@ build
 *.ptx
 *.cubin
 *.fatbin
+*.json
 
 .Rdata
 .Rhistory

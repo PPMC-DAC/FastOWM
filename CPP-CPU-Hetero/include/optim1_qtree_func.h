@@ -97,9 +97,9 @@ Vector3D getCenter(Vector3D min, Vector3D radius);
 
 Qtree createQtree(Vector3D center, float radius);
 
-int isLeaf(Qtree oct);
+int isLeaf(Qtree quad);
 
-int isEmpty(Qtree oct);
+int isEmpty(Qtree quad);
 
 void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 

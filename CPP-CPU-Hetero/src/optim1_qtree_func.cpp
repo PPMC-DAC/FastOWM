@@ -21,7 +21,6 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
-  Lpoint cellCenter = {0,0.0,0.0,0.0};
 
   unsigned int countMin = 0;
 

@@ -22,7 +22,9 @@ int main( int argc, char* argv[]){
     // Ficheros
     FILE* fileXYZ;
     FILE* fileMin;
-
+#ifdef DEBUG
+    FILE* fileDeb1, fileDeb2;
+#endif
     //Listas
     Lpoint* pointer = NULL;
     int* minIDs = NULL;
@@ -74,7 +76,7 @@ int main( int argc, char* argv[]){
     if(argc>6) numRuns = atoi(argv[6]);
     float minRadius = (argc>7)? atof(argv[7]) : 0.1;
 
-    double resultados[numRuns];
+    double* resultados=new double[numRuns];
 
     omp_set_num_threads(num_procs);
 
@@ -232,7 +234,27 @@ int main( int argc, char* argv[]){
         if(Overlap != 0){
             t_stage=omp_get_wtime();
             qsort(minIDs,countMin,sizeof(int),&cmpfunc);
-            numLLPs = stage2(countMin, minIDs);
+
+#ifdef DEBUG
+          if((fileDeb1 = fopen("sortedmins.txt","w")) == NULL){
+            printf("Unable to create file!\n");
+            return -1;
+          }
+          for(int i=0 ; i<countMin ; i++)
+              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+          fclose(fileDeb1);
+#endif
+            // Detect repeated ids and store them in minIDs. NumLLPs is the number of LLPs found and stored at the beggining of minIDs
+                  numLLPs = stage2(countMin, minIDs);
+#ifdef DEBUG
+          if((fileDeb1 = fopen("LLPs.txt","w")) == NULL){
+            printf("Unable to create file!\n");
+            return -1;
+          }
+          for(int i=0 ; i<numLLPs ; i++)
+              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+          fclose(fileDeb1);
+#endif            
             printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
         }
 

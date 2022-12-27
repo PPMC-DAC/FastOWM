@@ -8,15 +8,11 @@
 
 static const int REALLOC_INCREMENT = 256;
 
-Octree_t::Octree_t(Vector2D c, float r) : center(c), radius(r) {
+Qtree_t::Qtree_t(Vector2D c, float r) : center(c), radius(r) {
   for(int i = 0; i < 4; i++)
-    octants[i] = NULL;
+    quadrants[i] = NULL;
 }
 
-// Octree_t::Octree_t(Octree oct, Vector2D c, float r) : oparent(oct), center(c), radius(r) {
-//   for(int i = 0; i < 4; i++)
-//     octants[i] = NULL;
-// }
 
 double round2d(double z){
   return round(z*100.0)/100.0;
@@ -29,8 +25,6 @@ Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius)
 
     radii.x = (max.x - min.x) / 2.0;
     radii.y = (max.y - min.y) / 2.0;
-    // radii.z = (max.z - min.z) / 2.0;
-
     if(radii.x >= radii.y)
     {
         *maxRadius = radii.x;
@@ -50,120 +44,106 @@ Vector2D getCenter(Vector2D min, Vector2D radius)
 
     center.x = min.x + radius.x;
     center.y = min.y + radius.y;
-    // center.z = min.z + radius.z;
-
     return center;
 }
 
-int isLeaf(Octree oct)
+int isLeaf(Qtree quad)
 {
-    return oct->octants[0] == NULL;
+    return quad->quadrants[0] == NULL;
 }
 
-// int isEmpty(Octree oct)
-// {
-//     return oct->points.size() == 0;
-// }
+ int isEmpty(Qtree quad)
+ {
+     return quad->points.size() == 0;
+ }
 
 
 /** Wrapper to handle malloc() nicely */
-// void* mallocWrap(size_t size)
-// {
-//     void *ptr = malloc(size);
-//     if(!ptr)
-//     {
-//         fprintf(stderr, "Not enough memory\n");
-//         exit(EXIT_FAILURE);
-//     }
-//     return ptr;
-// }
+ void* mallocWrap(size_t size)
+ {
+     void *ptr = malloc(size);
+     if(!ptr)
+     {
+         fprintf(stderr, "Not enough memory\n");
+         exit(EXIT_FAILURE);
+     }
+     return ptr;
+ }
 
-// void* reallocWrap(void *ptr, size_t size)
-// {
-//     void *tmp = realloc(ptr, size);
-//     if(tmp == NULL)
-//     {
-//         fprintf(stderr, "Error in realloc() of size %zu\n", size);
-//         exit(EXIT_FAILURE);
-//     }
-//     else
-//     {
-//         ptr = tmp;
-//     }
-//     return ptr;
-// }
+ void* reallocWrap(void *ptr, size_t size)
+ {
+     void *tmp = realloc(ptr, size);
+     if(tmp == NULL)
+     {
+         fprintf(stderr, "Error in realloc() of size %zu\n", size);
+         exit(EXIT_FAILURE);
+     }
+     else
+     {
+         ptr = tmp;
+     }
+     return ptr;
+ }
 
 
-void createOctantsF(Octree oct)
+void createQuadrantsF(Qtree quad)
 {
     int i = 0;
     Vector2D newCenter;
-    float newRadius = oct->radius * 0.5;
+    float newRadius = quad->radius * 0.5;
 
     for(i = 0; i < 4; i++)
     {
-        newCenter = oct->center;
-        newCenter.x += oct->radius * (i&2 ? 0.5f : -0.5f);
-        newCenter.y += oct->radius * (i&1 ? 0.5f : -0.5f);
-        // newCenter.z += oct->radius * (i&1 ? 0.5f : -0.5f);
-        // printf("(%lf,%lf) ", newCenter.x, newCenter.y);
+        newCenter = quad->center;
+        newCenter.x += quad->radius * (i&2 ? 0.5f : -0.5f);
+        newCenter.y += quad->radius * (i&1 ? 0.5f : -0.5f);
 
-        // oct->octants[i] = new Octree_t(oct, newCenter, newRadius);
-        oct->octants[i] = new Octree_t(newCenter, newRadius);
+        quad->quadrants[i] = new Qtree_t(newCenter, newRadius);
     }
-    // printf("\n");
 }
 
 // Find the child corresponding a given point
-int octantIdxF(Lpoint *point, Octree octree)
+int quadrantIdxF(Lpoint *point, Qtree qtree)
 {
     int child = 0;
 
-    if(point->x >= octree->center.x) child |= 2;
-    if(point->y >= octree->center.y) child |= 1;
-    // if(point->z >= octree->center.z) child |= 1;
+    if(point->x >= qtree->center.x) child |= 2;
+    if(point->y >= qtree->center.y) child |= 1;
 
     return child;
 }
 
 
-void insertPointF(Lpoint *point, Octree octree, float minRadius)
+void insertPointF(Lpoint *point, Qtree qtree, float minRadius)
 {
     int idx = 0;
 
-    if(isLeaf(octree))
+    if(isLeaf(qtree))
     {
-        // printf("octante hoja nivel %d\n",nivel);
-        if(octree->radius * 0.5 > minRadius)    // still divisible -> divide
+        if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
         {
-          createOctantsF(octree);
-          // fillOctants(octree);
-          idx = octantIdxF(point, octree);
-          insertPointF(point, octree->octants[idx], minRadius);
+          createQuadrantsF(qtree);
+          idx = quadrantIdxF(point, qtree);
+          insertPointF(point, qtree->quadrants[idx], minRadius);
 
         } else {
-          octree->points.push_back(point);
+          qtree->points.push_back(point);
         }
     }
     else                                // No leaf -> search the correct one
     {
-      // printf("octante intermedio nivel %d\n", nivel);
-      idx = octantIdxF(point, octree);
-      insertPointF(point, octree->octants[idx], minRadius);
+      idx = quadrantIdxF(point, qtree);
+      insertPointF(point, qtree->quadrants[idx], minRadius);
     }
 }
 
 // Make a box with center the point and the specified radius
 void makeBox(Vector2D *point, float radius, Vector2D *min, Vector2D *max)
 {
-    // printf("Radio: %.2f\n", radius);
-    // printf("Centro: [ %.2lf, %.2lf]\n",point->x,point->y );
     min->x = point->x - radius;
     min->y = point->y - radius;
-    // min->z = point->z - radius;
     max->x = point->x + radius;
     max->y = point->y + radius;
-    // max->z = point->z + radius;
 }
 
 int insideBox2D(Lpoint *point, Vector2D min, Vector2D max)
@@ -175,62 +155,59 @@ int insideBox2D(Lpoint *point, Vector2D min, Vector2D max)
             return 1;
         }
     }
-
     return 0;
 }
 
-int boxInside2D(Vector2D boxMin, Vector2D boxMax, Octree oct)
+int boxInside2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
 {
-    if(oct->center.x + oct->radius > boxMax.x ||
-       oct->center.y + oct->radius > boxMax.y)
+    if(quad->center.x + quad->radius > boxMax.x ||
+       quad->center.y + quad->radius > boxMax.y)
         return 0;
 
-    if(oct->center.x - oct->radius < boxMin.x ||
-       oct->center.y - oct->radius < boxMin.y)
+    if(quad->center.x - quad->radius < boxMin.x ||
+       quad->center.y - quad->radius < boxMin.y)
         return 0;
 
     return 1;
 }
 
-int boxOverlap2D(Vector2D boxMin, Vector2D boxMax, Octree oct)
+int boxOverlap2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
 {
-    if(oct->center.x + oct->radius < boxMin.x ||
-       oct->center.y + oct->radius < boxMin.y)
+    if(quad->center.x + quad->radius < boxMin.x ||
+       quad->center.y + quad->radius < boxMin.y)
         return 0;
 
-    if(oct->center.x - oct->radius > boxMax.x ||
-       oct->center.y - oct->radius > boxMax.y)
+    if(quad->center.x - quad->radius > boxMax.x ||
+       quad->center.y - quad->radius > boxMax.y)
         return 0;
 
     return 1;
 }
 
-int boxTotalOverlap2D(Vector2D boxMin, Vector2D boxMax, Octree oct)
+int boxTotalOverlap2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
 {
-    if(oct->center.x + oct->radius < boxMax.x ||
-       oct->center.y + oct->radius < boxMax.y)
+    if(quad->center.x + quad->radius < boxMax.x ||
+       quad->center.y + quad->radius < boxMax.y)
         return 0;
 
-    if(oct->center.x - oct->radius > boxMin.x ||
-       oct->center.y - oct->radius > boxMin.y)
+    if(quad->center.x - quad->radius > boxMin.x ||
+       quad->center.y - quad->radius > boxMin.y)
         return 0;
 
     return 1;
 }
 
-void deleteOctree(Octree octree)
+void deleteQtree(Qtree qtree)
 {
     int i;
-    if(isLeaf(octree))
+    if(isLeaf(qtree))
     {
-      octree->points.clear();
+      qtree->points.clear();
     } else {
-        // aqui no borro porque los nodos intermedios no van a tener vector
         for(i = 0; i < 4; i++) {
             // Check
-            deleteOctree(octree->octants[i]);
-            delete(octree->octants[i]);
-            // (octree->octants[i]).reset(NULL); // free memory for unique_ptr
+            deleteQtree(qtree->quadrants[i]);
+            delete(qtree->quadrants[i]);
         }
 
     }
@@ -238,24 +215,21 @@ void deleteOctree(Octree octree)
     return;
 }
 
-Lpoint findValidMin(Octree octree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
+Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
 {
-    // Lpoint tmp, min = nomin;
-    Lpoint tmp, min = {0,0.0,0.0,99999.0};
-    int i;
+    Lpoint tmp, min = {0, 0.0, 0.0, std::numeric_limits<double>::max()};
 
-    if(isLeaf(octree))
+    if(isLeaf(qtree))
     {
-
-      if(boxInside2D(*boxMin, *boxMax, octree)){
-        for(Lpoint* p : octree->points) {
+      if(boxInside2D(*boxMin, *boxMax, qtree)){
+        for(Lpoint* p : qtree->points) {
           if (p->z < min.z) {
               min = *p;
           }
           (*numInside)++;
         }
       } else {
-        for(Lpoint* p : octree->points) {
+        for(Lpoint* p : qtree->points) {
           if(insideBox2D(p, *boxMin, *boxMax))
           {
             if (p->z < min.z) {
@@ -267,101 +241,79 @@ Lpoint findValidMin(Octree octree, Vector2D* boxMin, Vector2D* boxMax, int* numI
       }
 
     } else {
-
-        for(i = 0; i < 4; i++) {
+        for(int i = 0; i < 4; i++) {
             // Check
-            if(!boxOverlap2D(*boxMin, *boxMax, octree->octants[i]))
+            if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
                 continue;
             else {
-                tmp = findValidMin(octree->octants[i], boxMin, boxMax, numInside);
+                tmp = findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside);
                 if (tmp.z < min.z) {
                     min = tmp;
                 }
             }
-
         }
-
     }
-
     return min;
 }
 
-Lpoint searchNeighborsMin(Vector2D* point, Octree octree, float radius, int* numNeighs)
+Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int* numInside)
 {
     Vector2D boxMin, boxMax;
 
-    *numNeighs = 0;
+    *numInside = 0;
     makeBox(point, radius, &boxMin, &boxMax);
 
-    return findValidMin(octree, &boxMin, &boxMax, numNeighs);
+    return findValidMin(qtree, &boxMin, &boxMax, numInside);
 }
 
 
-void countNeighbors(Octree octree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
+void countNeighbors(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
 {
     int i;
 
-    if(isLeaf(octree))
+    if(isLeaf(qtree))
     {
-        // uint64_t size = octree->points.size();
-        // if(size > 0)
-        // {
-        //     for (i = 0; i < size; i++)
-        //     {
-        //       if(insideBox2D(octree->points[i], *boxMin, *boxMax))
-        //       {
-        //         (*numInside)++;
-        //       }
-        //     }
-        //
-        // }
-
-        for(Lpoint* p : octree->points) {
+        for(Lpoint* p : qtree->points) {
           if(insideBox2D(p, *boxMin, *boxMax))
           {
             (*numInside)++;
           }
         }
-
     } else {
-
         for(i = 0; i < 4; i++) {
             // Check
-            if(!boxOverlap2D(*boxMin, *boxMax, octree->octants[i]))
+            if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
               continue;
             else {
-              countNeighbors(octree->octants[i], boxMin, boxMax, numInside);
+              countNeighbors(qtree->quadrants[i], boxMin, boxMax, numInside);
             }
-
         }
-
     }
-
     return;
 }
 
-void countNeighbors2D(Vector2D* point, Octree octree, float radius, int* numNeighs)
+void countNeighbors2D(Vector2D* point, Qtree qtree, float radius, int* numInside)
 {
     Vector2D boxMin, boxMax;
 
-    *numNeighs = 0;
+    *numInside = 0;
     makeBox(point, radius, &boxMin, &boxMax);
 
-    countNeighbors(octree, &boxMin, &boxMax, numNeighs);
+    countNeighbors(qtree, &boxMin, &boxMax, numInside);
 
     return;
 }
 
-Lpoint findValidMinPath(Octree octree, Vector2D* boxMin, Vector2D* boxMax,
-                    int* numInside, std::vector<Octree>& path)
+Lpoint findValidMinPath(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax,
+                    int* numInside, std::vector<Qtree>& path)
 {
-  Lpoint tmp, min = {0,0.0,0.0,99999.0};
+  Lpoint tmp, min = {0,0.0,0.0,std::numeric_limits<double>::max()};
   int i;
 
-  if(isLeaf(octree))
+  if(isLeaf(qtree))
   {
 
-    for(Lpoint* p : octree->points) {
+    for(Lpoint* p : qtree->points) {
       if(insideBox2D(p, *boxMin, *boxMax))
       {
         if (p->z < min.z) {
@@ -372,15 +324,15 @@ Lpoint findValidMinPath(Octree octree, Vector2D* boxMin, Vector2D* boxMax,
     }
 
   } else {
-    std::vector<Octree> local_path, best_path;
+    std::vector<Qtree> local_path, best_path;
 
     for(i = 0; i < 4; i++) {
       // Check
-      if(!boxOverlap2D(*boxMin, *boxMax, octree->octants[i]))
+      if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
         continue;
       else {
-        local_path.push_back(octree->octants[i]);
-        tmp = findValidMinPath(octree->octants[i], boxMin, boxMax, numInside, local_path);
+        local_path.push_back(qtree->quadrants[i]);
+        tmp = findValidMinPath(qtree->quadrants[i], boxMin, boxMax, numInside, local_path);
         if (tmp.z < min.z) {
           min = tmp;
           best_path = local_path;
@@ -396,267 +348,160 @@ Lpoint findValidMinPath(Octree octree, Vector2D* boxMin, Vector2D* boxMax,
     return min;
 }
 
-Lpoint searchNeighborsMinPath(Vector2D* point, Octree octree, float radius, int* numNeighs, std::vector<Octree>& path)
+Lpoint searchNeighborsMinPath(Vector2D* point, Qtree qtree, float radius, int* numInside, std::vector<Qtree>& path)
 {
     Vector2D boxMin, boxMax;
 
-    *numNeighs = 0;
+    *numInside = 0;
     makeBox(point, radius, &boxMin, &boxMax);
 
-    return findValidMinPath(octree, &boxMin, &boxMax, numNeighs, path);
+    return findValidMinPath(qtree, &boxMin, &boxMax, numInside, path);
 }
 
 
-// Lpoint findValidMinParent(Octree octree, Vector2D* boxMin, Vector2D* boxMax,
-//                     int* numInside, Octree& minparent)
-// {
-//   Lpoint tmp, min = {0,0.0,0.0,99999.0};
-//   int i;
-//
-//   if(isLeaf(octree))
-//   {
-//     if(boxInside2D(*boxMin, *boxMax, octree)){
-//       for(Lpoint* p : octree->points) {
-//         if (p->z < min.z) {
-//             min = *p;
-//         }
-//         (*numInside)++;
-//       }
-//     } else {
-//       for(Lpoint* p : octree->points) {
-//         if(insideBox2D(p, *boxMin, *boxMax))
-//         {
-//           if (p->z < min.z) {
-//               min = *p;
-//           }
-//           (*numInside)++;
-//         }
-//       }
-//     }
-//
-//   } else {
-//     for(i = 0; i < 4; i++) {
-//       /*Tengo que seguir haciendo el chequeo*/
-//       if(!boxOverlap2D(*boxMin, *boxMax, octree->octants[i]))
-//         continue;
-//       else {
-//         tmp = findValidMinParent(octree->octants[i], boxMin, boxMax, numInside, minparent);
-//         if (tmp.z < min.z) {
-//           min = tmp;
-//           if(isLeaf(octree->octants[i]))
-//             minparent = octree->oparent;
-//         }
-//       }
-//     }
-//   }
-//
-//     return min;
-// }
-//
-//
-// Lpoint searchNeighborsMinParent(Vector2D* point, Octree& oparent, float radius, int* numNeighs)
-// {
-//     Vector2D boxMin, boxMax;
-//     Octree actual_parent = oparent;
-//
-//     *numNeighs = 0;
-//     makeBox(point, radius, &boxMin, &boxMax);
-//
-//     while(actual_parent->oparent != NULL && !boxTotalOverlap2D(boxMin, boxMax, actual_parent)){
-//     // while(actual_parent->oparent != NULL){
-//       actual_parent = actual_parent->oparent;
-//     }
-//
-//     // if(actual_parent->oparent != NULL) {
-//     //   // printf("my size: %zu\n", (*oparent)->points.size());
-//     //   actual_parent = actual_parent->oparent;
-//     //   // printf("parent size: %zu\n", (*oparent)->points.size());
-//     //   // if(actual_parent->oparent != NULL)
-//     //   //   actual_parent = actual_parent->oparent;
-//     // }
-//
-//     return findValidMinParent(actual_parent, &boxMin, &boxMax, numNeighs, oparent);
-// }
+Lpoint** neighbors2D(Vector2D *point, Vector2D boxMin, Vector2D boxMax, Qtree qtree, Lpoint **ptsInside, int *ptsInside_size, int *numInside)
+{
+    int i = 0;
 
-// unsigned int stage1cppParent(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-//   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min)
-// {
-//
-//     // double initX = min.x + Wsize/2 - Wsize*Overlap;
-//     // double initY = min.y + Wsize/2 - Wsize*Overlap;
-//     double initX = min.x - Wsize/2 + Wsize*Overlap;
-//     double initY = min.y - Wsize/2 + Wsize*Overlap;
-//
-//     double Displace = round2d(Wsize*(1-Overlap));
-//
-//     Vector2D cellCenter;
-//
-//     // Lpoint** neighbors = NULL;
-//     Lpoint newmin;
-//
-//     unsigned int countMin = 0;
-//
-//     int cellPoints;
-//
-//     // std::vector<int> vcount(Ccol,0);
-//     Octree mypointer;
-//     // std::vector<Octree> path;
-//
-//     #pragma omp parallel for private(cellCenter,cellPoints,newmin,mypointer) schedule(dynamic)
-//     for(int jj = 0 ; jj < Ccol ; jj++ ){
-//         /* lo renuevo para cada fila porque cada vez que cambio de fila voy
-//         a estar lejos de donde estaba antes en el mapa*/
-//         mypointer = octreeIn;
-//         // path.clear();
-//
-//         cellCenter.y = initY + jj*Displace;
-//         // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
-//
-//         for(int ii = 0 ; ii < Crow ; ii++ ){
-//
-//             cellCenter.x = initX + ii*Displace;
-//
-//             newmin = searchNeighborsMinParent(&cellCenter, mypointer, Wsize/2, &cellPoints);
-//             // newmin = searchNeighborsMinPath(&cellCenter, octreeIn, Wsize/2, &cellPoints, path);
-//             // printf("Numero de elementos de la celda: %d\n", cellPoints );
-//             if(cellPoints >= minNumPoints ){
-//               #pragma omp critical
-//               {
-//                   minIDs[countMin] = newmin.id;
-//                   countMin++;
-//               }
-//             }
-//         }
-//         // vcount[jj] = countMin;
-//         // countMin=0;
-//     }
-//
-//     // countMin = std::accumulate(vcount.begin(), vcount.end(), 0);
-//
-//     return countMin;
-// }
+    if(isLeaf(qtree))
+    {
+        if(!isEmpty(qtree))
+        {
+          size_t mysize = qtree->points.size();
+            for(i = 0; i < mysize; i++)
+            {
+                if(insideBox2D(qtree->points[i], boxMin, boxMax))
+                {
+                    if (*numInside >= *ptsInside_size) {
+                        (*ptsInside_size) += REALLOC_INCREMENT;
+                        ptsInside = (Lpoint**)reallocWrap(ptsInside, *ptsInside_size * sizeof(Lpoint*));
+                    }
+                    ptsInside[(*numInside)++] = qtree->points[i];
+                }
+            }
+        }
+    }
+    else
+    {
+        for(i = 0; i < 4; i++)
+        {
+            if(!boxOverlap2D(boxMin, boxMax, qtree->quadrants[i]))
+            {
+                continue;
+            }
+            else
+            {
+                ptsInside = neighbors2D(point, boxMin, boxMax, qtree->quadrants[i], ptsInside, ptsInside_size, numInside);
+            }
+        }
+    }
+    return ptsInside;
+}
+
+Lpoint** searchNeighbors2D(Vector2D *point, Qtree qtree, float radius, int *numInside)
+{
+    Vector2D boxMin, boxMax;
+    Lpoint **ptsInside = NULL;
+    int ptsInside_size = 0;
 
 
+    *numInside = 0;
+    makeBox(point, radius, &boxMin, &boxMax);
+    ptsInside = neighbors2D(point, boxMin, boxMax, qtree, ptsInside, &ptsInside_size, numInside);
+
+    return ptsInside;
+}
+
+unsigned int findMin(Lpoint** neighbors, unsigned int cellPoints) {
+  unsigned int idmin=0;
+  double zzmin = neighbors[0]->z;
+  for(int i=1; i<cellPoints; i++)
+    if(neighbors[i]->z < zzmin){
+      zzmin = neighbors[i]->z;
+      idmin=i;
+    }
+  return idmin;
+}
 
 unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min){
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min){
 
   double Displace = round2d(Wsize*(1-Overlap));
 
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
-  Vector2D cellCenter;
-
-  Lpoint newmin;
-
   unsigned int countMin = 0;
 
-  int cellPoints = 0;
-
-  #pragma omp parallel for private(cellCenter,cellPoints,newmin) schedule(dynamic)
+  #pragma omp parallel for schedule(dynamic,1)
   for( int jj = 0 ; jj < Ccol ; jj++ ){
-
-    cellCenter.y =  initY + jj*Displace;
-
       for( int ii = 0 ; ii < Crow ; ii++ ){
+          Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
+          int cellPoints = 0;
+//New method          
+          Lpoint newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
 
-          cellCenter.x = initX + ii*Displace;
-
-          newmin = searchNeighborsMin(&cellCenter, octreeIn, Wsize/2, &cellPoints);
-
+//Old method
+#ifdef DEBUG
+          Vector2D cellCenter_org = {initX + ii*Displace, initY + jj*Displace};
+          int cellPoints_org=0;
+          Lpoint** neighbors = searchNeighbors2D(&cellCenter_org, qtreeIn, Wsize/2, &cellPoints_org);
+#endif
           if(cellPoints >= minNumPoints ){
+#ifdef DEBUG
+              int idmin = findMin(neighbors, cellPoints_org);
+              if(neighbors[idmin]->id != newmin.id && neighbors[idmin]->z < newmin.z){
+                printf("Step: %d.%d; Center of SW: %.2f %.2f\n",ii,jj,cellCenter_org.x, cellCenter_org.y);
+                printf("ERROR (old,new) ids: (%d, %d), z: (%.3f %.3f); count:(%d, %d)\n", 
+                  neighbors[idmin]->id, newmin.id,neighbors[idmin]->z, newmin.z, cellPoints_org, cellPoints);
+              }
+#endif
               #pragma omp critical
               {
                   minIDs[countMin] = newmin.id;
                   countMin++;
               }
           }
+#ifdef DEBUG
+          free(neighbors);
+          neighbors = NULL;
+#endif
       }
   }
-
-
   return countMin;
 }
-
-unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector2D min){
-
-    double Displace = round2d(Wsize*(1-Overlap));
-
-    double initX = min.x - Wsize/2 + Displace;
-    double initY = min.y - Wsize/2 + Displace;
-
-    unsigned int countMin = 0;
-
-    int cellPoints;
-
-        for( int jj = 0 ; jj < Ccol ; jj++ ){
-
-                for( int ii=0 ; ii < Crow ; ii++ ){
-
-                    Vector2D cellCenter = {initX + ii*Displace, initY + jj*Displace};
-
-                    Lpoint newmin = searchNeighborsMin(&cellCenter, octreeIn, Wsize/2, &cellPoints);
-
-                    if(cellPoints >= minNumPoints ){
-                        #pragma omp critical
-                        {
-                            minIDs[countMin] = newmin.id;
-                            countMin++;
-                        }
-                    }
-
-                }
-            }
-
-    return countMin;
-}
-
 
 unsigned int stage2(unsigned int countMin, int* minIDs){
 
   unsigned int index = 0;
-
-  int ii,jj,id;
-
-  for( ii=0 ; ii<countMin ; ii=jj ){
-      id = minIDs[ii];
-
+  int jj=0;
+  for( int ii=0 ; ii<countMin ; ii=jj ){
+      int id = minIDs[ii];
       for( jj=ii+1 ; id==minIDs[jj] && jj<countMin ; jj++ );
-
-      /* esta es la forma de descartar las posiciones no utilizadas, inicializadas a -1 */
       if(jj-ii > 1){
           minIDs[index]=id;
           index++;
       }
   }
-
   return index;
 }
 
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector2D min){
+          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector2D min){
 
     unsigned int addMin = 0;
 
-    Vector2D cellCenter;
-
-    int cellPoints;
-
-    #pragma omp parallel for private(cellCenter,cellPoints) schedule(dynamic)
+    #pragma omp parallel for schedule(dynamic)
     for( int jj = 0 ; jj < Ccol ; jj++ ){
+       Vector2D cellCenter;
        cellCenter.y = min.y + Bsize/2 + jj*Bsize;
 
        for( int ii = 0 ; ii < Crow ; ii++ ){
            cellCenter.x = min.x + Bsize/2 + ii*Bsize;
-
+           int cellPoints = 0;
            countNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
-
-           //Tengo que hacerlo porque el algoritmo no lo hace
            if(cellPoints == 0){
-               // printf("    Tengo una celda vacia en la malla\n" );
-               Lpoint newmin = searchNeighborsMin(&cellCenter, octreeIn, Bsize/2, &cellPoints);
+               Lpoint newmin = searchNeighborsMin(&cellCenter, qtreeIn, Bsize/2, &cellPoints);
                if(cellPoints>0){
                    #pragma omp critical
                    {
@@ -668,45 +513,5 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
            }
        }
     }
-
-
     return addMin;
-
-}
-
-unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Octree octreeIn, Octree grid, Vector2D min){
-
-    unsigned int addMin = 0;
-
-    Vector2D cellCenter;
-
-    int cellPoints;
-
-    for( int jj = 0 ; jj < Ccol ; jj++ ){
-       cellCenter.y = min.y + Bsize/2 + jj*Bsize;
-
-       for( int ii = 0 ; ii < Crow ; ii++ ){
-           cellCenter.x = min.x + Bsize/2 + ii*Bsize;
-
-           countNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
-
-           //Tengo que hacerlo porque el algoritmo no lo hace
-           if(cellPoints == 0){
-               // printf("    Tengo una celda vacia en la malla\n" );
-               Lpoint newmin = searchNeighborsMin(&cellCenter, octreeIn, Bsize/2, &cellPoints);
-               if(cellPoints>0){
-                   #pragma omp critical
-                   {
-                      minGridIDs[addMin] = newmin.id;
-                      addMin++;
-                   }
-                   // printf("%d: %.2f , %.2f , %.2f\n", addMin, pointer[neighbors[idmin]->id].x, pointer[neighbors[idmin]->id].y,pointer[neighbors[idmin]->id].z);
-               }
-           }
-       }
-    }
-
-    return addMin;
-
 }
