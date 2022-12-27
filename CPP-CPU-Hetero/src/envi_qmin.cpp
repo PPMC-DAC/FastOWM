@@ -419,7 +419,7 @@ unsigned int findMin(Lpoint** neighbors, unsigned int cellPoints) {
   return idmin;
 }
 
-unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min){
 
   double Displace = round2d(Wsize*(1-Overlap));
@@ -427,11 +427,9 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
-  unsigned int countMin = 0;
-
   #pragma omp parallel for schedule(dynamic,1)
-  for( int jj = 0 ; jj < Ccol ; jj++ ){
-      for( int ii = 0 ; ii < Crow ; ii++ ){
+  for( int step = 0 ; step < Crow*Ccol ; step++ ){
+          int ii=step/Ccol, jj=step%Ccol;
           Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
           int cellPoints = 0;
 //New method          
@@ -452,34 +450,31 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
                   neighbors[idmin]->id, newmin.id,neighbors[idmin]->z, newmin.z, cellPoints_org, cellPoints);
               }
 #endif
-              #pragma omp critical
-              {
-                  minIDs[countMin] = newmin.id;
-                  countMin++;
-              }
+              minIDs[step] = newmin.id;
           }
 #ifdef DEBUG
           free(neighbors);
           neighbors = NULL;
 #endif
-      }
   }
-  return countMin;
 }
 
-unsigned int stage2(unsigned int countMin, int* minIDs){
+//Receives a sorted list of minIDs with -1s at the beginning due to the SWs that do not have an LLP
+unsigned int stage2(unsigned int Ncells, int* minIDs){
 
-  unsigned int index = 0;
+  int i=0;
+  while(minIDs[i]<0 && i<Ncells) i++; //Skip -1s
+  unsigned int counter = 0;
   int jj=0;
-  for( int ii=0 ; ii<countMin ; ii=jj ){
+  for( int ii=i ; ii<Ncells ; ii=jj ){
       int id = minIDs[ii];
-      for( jj=ii+1 ; id==minIDs[jj] && jj<countMin ; jj++ );
+      for( jj=ii+1 ; id==minIDs[jj] && jj<Ncells ; jj++ );
       if(jj-ii > 1){
-          minIDs[index]=id;
-          index++;
+          minIDs[counter]=id;
+          counter++;
       }
   }
-  return index;
+  return counter;
 }
 
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,

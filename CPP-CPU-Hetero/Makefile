@@ -48,7 +48,7 @@ bin/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 
 bin/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++20
 #-DDEBUG -Wall -pedantic -g -Wextra
 
 bin/parent:

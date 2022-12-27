@@ -4,6 +4,7 @@
 // Instead, it uses findValidMin to find the minimum and the count of points inside the SW during the tree traversal.
 
 #include "../include/envi_qmin.h"
+#include <algorithm>
 
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
@@ -212,17 +213,17 @@ int main( int argc, char* argv[]){
 
 
         // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
-        countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
-        // countMin = stage1cppParent(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
-        // countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
+        std::fill(minIDs, minIDs+Ncells, -1);
+        stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
 
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
+        countMin = std::count_if(minIDs, minIDs+Ncells, [](int i){return i>=0;} );
         printf("Number of found minima:   %d\n\n", countMin);
         // Para el caso de no hacer solpado; que numLLPs tenga un valor
 
         if(Overlap != 0){
             t_stage=omp_get_wtime();
-            qsort(minIDs,countMin,sizeof(int),&cmpfunc);
+            std::sort(minIDs,minIDs+Ncells);
 
 #ifdef DEBUG
           if((fileDeb1 = fopen("sortedmins.txt","w")) == NULL){
@@ -234,7 +235,7 @@ int main( int argc, char* argv[]){
           fclose(fileDeb1);
 #endif
             // Detect repeated ids and store them in minIDs. NumLLPs is the number of LLPs found and stored at the beggining of minIDs
-                  numLLPs = stage2(countMin, minIDs);
+                  numLLPs = stage2(Ncells, minIDs);
 #ifdef DEBUG
           if((fileDeb1 = fopen("LLPs.txt","w")) == NULL){
             printf("Unable to create file!\n");

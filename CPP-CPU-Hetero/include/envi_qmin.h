@@ -61,21 +61,15 @@ void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 
 void deleteQtree(Qtree qtree);
 
-unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
 // unsigned int stage1cppParent(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
 //   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
-unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
-
 unsigned int stage2(unsigned int countMin, int* minIDs);
 
 unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector2D min);
-
-unsigned int stage3s(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
           int* minGridIDs, Qtree qtreeIn, Qtree grid, Vector2D min);
 
 #endif // ENVI_QMIN_H
