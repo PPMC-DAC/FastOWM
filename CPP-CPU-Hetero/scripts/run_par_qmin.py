@@ -15,7 +15,7 @@ nreps = 5
 start = time.time()
 print("Start : %s" % time.ctime())
 
-executable_par="../bin/qmin
+executable_par="../bin/qmin"
 inputs=["../bin/data/Alcoy",
         "../bin/data/Arzua",
         "../bin/data/BrionF",

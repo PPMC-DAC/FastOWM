@@ -215,16 +215,14 @@ void deleteQtree(Qtree qtree)
     return;
 }
 
-Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
+void findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside, Lpoint * &minptr)
 {
-    Lpoint tmp, min = {0, 0.0, 0.0, std::numeric_limits<double>::max()};
-
     if(isLeaf(qtree))
     {
       if(boxInside2D(*boxMin, *boxMax, qtree)){
         for(Lpoint* p : qtree->points) {
-          if (p->z < min.z) {
-              min = *p;
+          if (p->z < minptr->z) {
+              minptr = p;
           }
           (*numInside)++;
         }
@@ -232,8 +230,8 @@ Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
         for(Lpoint* p : qtree->points) {
           if(insideBox2D(p, *boxMin, *boxMax))
           {
-            if (p->z < min.z) {
-                min = *p;
+            if (p->z < minptr->z) {
+                minptr = p;
             }
             (*numInside)++;
           }
@@ -246,24 +244,22 @@ Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
             if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
                 continue;
             else {
-                tmp = findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside);
-                if (tmp.z < min.z) {
-                    min = tmp;
-                }
+                findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside, minptr);
             }
         }
     }
-    return min;
 }
 
 Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int* numInside)
 {
     Vector2D boxMin, boxMax;
-
+    Lpoint temp{0, 0.0, 0.0, std::numeric_limits<double>::max()};
+    Lpoint *minptr = &temp; 
     *numInside = 0;
     makeBox(point, radius, &boxMin, &boxMax);
 
-    return findValidMin(qtree, &boxMin, &boxMax, numInside);
+    findValidMin(qtree, &boxMin, &boxMax, numInside, minptr);
+    return *minptr; 
 }
 
 
@@ -440,7 +436,7 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
           int cellPoints = 0;
 //New method          
           Lpoint newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
+          //printf("Step: %d.%d; Min id: %.2f; cellPoints: %d\n",ii,jj,newmin.id, cellPoints);
 //Old method
 #ifdef DEBUG
           Vector2D cellCenter_org = {initX + ii*Displace, initY + jj*Displace};
