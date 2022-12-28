@@ -19,7 +19,7 @@ double round2d(double z){
 }
 
 /** Calculate the radius in each axis and save the max radius of the bounding box */
-Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius)
+Vector2D getRadius(Vector2D &min, Vector2D &max, float *maxRadius)
 {
     Vector2D radii;
 
@@ -38,7 +38,7 @@ Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius)
 }
 
 /** Calculate the center of the bounding box */
-Vector2D getCenter(Vector2D min, Vector2D radius)
+Vector2D getCenter(Vector2D &min, Vector2D &radius)
 {
     Vector2D center;
 
@@ -138,15 +138,15 @@ void insertPointF(Lpoint *point, Qtree qtree, float minRadius)
 }
 
 // Make a box with center the point and the specified radius
-void makeBox(Vector2D *point, float radius, Vector2D *min, Vector2D *max)
+void makeBox(Vector2D &point, float radius, Vector2D &min, Vector2D &max)
 {
-    min->x = point->x - radius;
-    min->y = point->y - radius;
-    max->x = point->x + radius;
-    max->y = point->y + radius;
+    min.x = point.x - radius;
+    min.y = point.y - radius;
+    max.x = point.x + radius;
+    max.y = point.y + radius;
 }
 
-int insideBox2D(Lpoint *point, Vector2D min, Vector2D max)
+int insideBox2D(Lpoint* point, Vector2D &min, Vector2D &max)
 {
     if(point->x > min.x && point->y > min.y)
     {
@@ -158,7 +158,7 @@ int insideBox2D(Lpoint *point, Vector2D min, Vector2D max)
     return 0;
 }
 
-int boxInside2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
+int boxInside2D(Vector2D &boxMin, Vector2D &boxMax, Qtree quad)
 {
     if(quad->center.x + quad->radius > boxMax.x ||
        quad->center.y + quad->radius > boxMax.y)
@@ -171,7 +171,7 @@ int boxInside2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
     return 1;
 }
 
-int boxOverlap2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
+int boxOverlap2D(Vector2D &boxMin, Vector2D &boxMax, Qtree quad)
 {
     if(quad->center.x + quad->radius < boxMin.x ||
        quad->center.y + quad->radius < boxMin.y)
@@ -184,7 +184,7 @@ int boxOverlap2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
     return 1;
 }
 
-int boxTotalOverlap2D(Vector2D boxMin, Vector2D boxMax, Qtree quad)
+int boxTotalOverlap2D(Vector2D &boxMin, Vector2D &boxMax, Qtree &quad)
 {
     if(quad->center.x + quad->radius < boxMax.x ||
        quad->center.y + quad->radius < boxMax.y)
@@ -215,25 +215,25 @@ void deleteQtree(Qtree qtree)
     return;
 }
 
-void findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside, Lpoint * &minptr)
+void findValidMin(Qtree qtree, Vector2D &boxMin, Vector2D &boxMax, int &numInside, Lpoint * &minptr)
 {
     if(isLeaf(qtree))
     {
-      if(boxInside2D(*boxMin, *boxMax, qtree)){
+      if(boxInside2D(boxMin, boxMax, qtree)){
         for(Lpoint* p : qtree->points) {
           if (p->z < minptr->z) {
               minptr = p;
           }
-          (*numInside)++;
+          numInside++; //passed by reference
         }
       } else {
         for(Lpoint* p : qtree->points) {
-          if(insideBox2D(p, *boxMin, *boxMax))
+          if(insideBox2D(p, boxMin, boxMax))
           {
             if (p->z < minptr->z) {
                 minptr = p;
             }
-            (*numInside)++;
+            numInside++;
           }
         }
       }
@@ -241,7 +241,7 @@ void findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInsid
     } else {
         for(int i = 0; i < 4; i++) {
             // Check
-            if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
+            if(!boxOverlap2D(boxMin, boxMax, qtree->quadrants[i]))
                 continue;
             else {
                 findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside, minptr);
@@ -250,35 +250,35 @@ void findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInsid
     }
 }
 
-Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int* numInside)
+Lpoint searchNeighborsMin(Vector2D &SW_center, Qtree qtree, float radius, int &numInside)
 {
     Vector2D boxMin, boxMax;
     Lpoint temp{0, 0.0, 0.0, std::numeric_limits<double>::max()};
     Lpoint *minptr = &temp; 
-    *numInside = 0;
-    makeBox(point, radius, &boxMin, &boxMax);
+    numInside = 0;
+    makeBox(SW_center, radius, boxMin, boxMax); //updates boxMin,boxMax to be de BBox of SW with center and radius
 
-    findValidMin(qtree, &boxMin, &boxMax, numInside, minptr);
+    findValidMin(qtree, boxMin, boxMax, numInside, minptr);
     return *minptr; 
 }
 
 
-void countNeighbors(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
+void countNeighbors(Qtree qtree, Vector2D &boxMin, Vector2D &boxMax, int &numInside)
 {
     int i;
 
     if(isLeaf(qtree))
     {
         for(Lpoint* p : qtree->points) {
-          if(insideBox2D(p, *boxMin, *boxMax))
+          if(insideBox2D(p, boxMin, boxMax))
           {
-            (*numInside)++;
+            numInside++;
           }
         }
     } else {
         for(i = 0; i < 4; i++) {
             // Check
-            if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
+            if(!boxOverlap2D(boxMin, boxMax, qtree->quadrants[i]))
               continue;
             else {
               countNeighbors(qtree->quadrants[i], boxMin, boxMax, numInside);
@@ -288,74 +288,20 @@ void countNeighbors(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
     return;
 }
 
-void countNeighbors2D(Vector2D* point, Qtree qtree, float radius, int* numInside)
+void countNeighbors2D(Vector2D &point, Qtree qtree, float radius, int &numInside)
 {
     Vector2D boxMin, boxMax;
 
-    *numInside = 0;
-    makeBox(point, radius, &boxMin, &boxMax);
+    numInside = 0;
+    makeBox(point, radius, boxMin, boxMax);
 
-    countNeighbors(qtree, &boxMin, &boxMax, numInside);
+    countNeighbors(qtree, boxMin, boxMax, numInside);
 
     return;
 }
 
-Lpoint findValidMinPath(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax,
-                    int* numInside, std::vector<Qtree>& path)
-{
-  Lpoint tmp, min = {0,0.0,0.0,std::numeric_limits<double>::max()};
-  int i;
 
-  if(isLeaf(qtree))
-  {
-
-    for(Lpoint* p : qtree->points) {
-      if(insideBox2D(p, *boxMin, *boxMax))
-      {
-        if (p->z < min.z) {
-            min = *p;
-        }
-        (*numInside)++;
-      }
-    }
-
-  } else {
-    std::vector<Qtree> local_path, best_path;
-
-    for(i = 0; i < 4; i++) {
-      // Check
-      if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
-        continue;
-      else {
-        local_path.push_back(qtree->quadrants[i]);
-        tmp = findValidMinPath(qtree->quadrants[i], boxMin, boxMax, numInside, local_path);
-        if (tmp.z < min.z) {
-          min = tmp;
-          best_path = local_path;
-        }
-        local_path.clear();
-      }
-    }
-
-    path.insert(path.end(), best_path.begin(), best_path.end());
-
-  }
-
-    return min;
-}
-
-Lpoint searchNeighborsMinPath(Vector2D* point, Qtree qtree, float radius, int* numInside, std::vector<Qtree>& path)
-{
-    Vector2D boxMin, boxMax;
-
-    *numInside = 0;
-    makeBox(point, radius, &boxMin, &boxMax);
-
-    return findValidMinPath(qtree, &boxMin, &boxMax, numInside, path);
-}
-
-
-Lpoint** neighbors2D(Vector2D *point, Vector2D boxMin, Vector2D boxMax, Qtree qtree, Lpoint **ptsInside, int *ptsInside_size, int *numInside)
+Lpoint** neighbors2D(Vector2D &point, Vector2D &boxMin, Vector2D &boxMax, Qtree qtree, Lpoint **ptsInside, int &ptsInside_size, int &numInside)
 {
     int i = 0;
 
@@ -368,11 +314,11 @@ Lpoint** neighbors2D(Vector2D *point, Vector2D boxMin, Vector2D boxMax, Qtree qt
             {
                 if(insideBox2D(qtree->points[i], boxMin, boxMax))
                 {
-                    if (*numInside >= *ptsInside_size) {
-                        (*ptsInside_size) += REALLOC_INCREMENT;
-                        ptsInside = (Lpoint**)reallocWrap(ptsInside, *ptsInside_size * sizeof(Lpoint*));
+                    if (numInside >= ptsInside_size) {
+                        ptsInside_size += REALLOC_INCREMENT;
+                        ptsInside = (Lpoint**)reallocWrap(ptsInside, ptsInside_size * sizeof(Lpoint*));
                     }
-                    ptsInside[(*numInside)++] = qtree->points[i];
+                    ptsInside[numInside++] = qtree->points[i];
                 }
             }
         }
@@ -394,16 +340,16 @@ Lpoint** neighbors2D(Vector2D *point, Vector2D boxMin, Vector2D boxMax, Qtree qt
     return ptsInside;
 }
 
-Lpoint** searchNeighbors2D(Vector2D *point, Qtree qtree, float radius, int *numInside)
+Lpoint** searchNeighbors2D(Vector2D &point, Qtree qtree, float radius, int &numInside)
 {
     Vector2D boxMin, boxMax;
     Lpoint **ptsInside = NULL;
     int ptsInside_size = 0;
 
 
-    *numInside = 0;
-    makeBox(point, radius, &boxMin, &boxMax);
-    ptsInside = neighbors2D(point, boxMin, boxMax, qtree, ptsInside, &ptsInside_size, numInside);
+    numInside = 0;
+    makeBox(point, radius, boxMin, boxMax);
+    ptsInside = neighbors2D(point, boxMin, boxMax, qtree, ptsInside, ptsInside_size, numInside);
 
     return ptsInside;
 }
@@ -433,13 +379,13 @@ void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned 
           Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
           int cellPoints = 0;
 //New method          
-          Lpoint newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
+          Lpoint newmin = searchNeighborsMin(cellCenter, qtreeIn, Wsize/2, cellPoints);
           //printf("Step: %d.%d; Min id: %.2f; cellPoints: %d\n",ii,jj,newmin.id, cellPoints);
 //Old method
 #ifdef DEBUG
           Vector2D cellCenter_org = {initX + ii*Displace, initY + jj*Displace};
           int cellPoints_org=0;
-          Lpoint** neighbors = searchNeighbors2D(&cellCenter_org, qtreeIn, Wsize/2, &cellPoints_org);
+          Lpoint** neighbors = searchNeighbors2D(cellCenter_org, qtreeIn, Wsize/2, cellPoints_org);
 #endif
           if(cellPoints >= minNumPoints ){
 #ifdef DEBUG
@@ -490,9 +436,9 @@ unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Cc
        for( int ii = 0 ; ii < Crow ; ii++ ){
            cellCenter.x = min.x + Bsize/2 + ii*Bsize;
            int cellPoints = 0;
-           countNeighbors2D(&cellCenter, grid, Bsize/2, &cellPoints);
+           countNeighbors2D(cellCenter, grid, Bsize/2, cellPoints);
            if(cellPoints == 0){
-               Lpoint newmin = searchNeighborsMin(&cellCenter, qtreeIn, Bsize/2, &cellPoints);
+               Lpoint newmin = searchNeighborsMin(cellCenter, qtreeIn, Bsize/2, cellPoints);
                if(cellPoints>0){
                    #pragma omp critical
                    {

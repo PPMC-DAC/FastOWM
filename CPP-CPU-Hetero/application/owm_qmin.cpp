@@ -1,7 +1,11 @@
 // This version differs from optim1_qtree in the following way:
-// - The function 'stage1' does not use the 'searchNeighbors2D' first to collect the points
-// inside the SW and later find the minimum if the number of points is large enough.
-// Instead, it uses findValidMin to find the minimum and the count of points inside the SW during the tree traversal.
+// 1.- The function 'stage1' does not use the 'searchNeighbors2D' first to collect the points
+//     inside the SW and later find the minimum if the number of points is large enough.
+//     Instead, it uses findValidMin to find the minimum and the count of points inside the SW during the tree traversal.
+// 2.- findValidMin does not check x,y coordinates of all points of a leaf. If the leaf's BBox is fully overlaped by the SW
+//     x,y coordinates are not read. If the overlap is partial, x,y coordinate of all points have to be checked
+// 3.- Stage1 in previous version used a induction variable to write the array of minimums (minIDs) so a critical section was
+//     necessary for the parallel version. Now this induction is removed and minIDs can be written in parallel.
 
 #include "../include/envi_qmin.h"
 #include <algorithm>
@@ -31,9 +35,9 @@ int main( int argc, char* argv[]){
 
     unsigned int countMin;
 
-    unsigned int numLLPs =0;
+    unsigned int numLLPs = 0;
 
-    unsigned int addMin =0;
+    unsigned int addMin = 0;
 
     double t_stage, t_func, t_qtree;
 
@@ -205,21 +209,16 @@ int main( int argc, char* argv[]){
 
     while(numRuns){
 
-        // printf("\nN cells:    %u\n", Ncells);
-        // Voy a tener como mucho un mínimo por ventana..
-        // minIDs = malloc(Ncells*sizeof(int));
         t_func=omp_get_wtime();
         t_stage=omp_get_wtime();
 
 
-        // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
+        // The array minIDs that store the valid min of each cell/SW is initialized with -1
+        // The cells/SWs without a valid minimum will keep the -1
         std::fill(minIDs, minIDs+Ncells, -1);
         stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
 
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
-        countMin = std::count_if(minIDs, minIDs+Ncells, [](int i){return i>=0;} );
-        printf("Number of found minima:   %d\n\n", countMin);
-        // Para el caso de no hacer solpado; que numLLPs tenga un valor
 
         if(Overlap != 0){
             t_stage=omp_get_wtime();
@@ -230,7 +229,7 @@ int main( int argc, char* argv[]){
             printf("Unable to create file!\n");
             return -1;
           }
-          for(int i=0 ; i<countMin ; i++)
+          for(int i=0 ; i<Ncells ; i++)
               fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
           fclose(fileDeb1);
 #endif
@@ -248,8 +247,11 @@ int main( int argc, char* argv[]){
 
             printf("Time elapsed at STAGE 2:     %.6f s\n\n",omp_get_wtime() - t_stage );
         }
-        else
+        else{
+          countMin = std::count_if(minIDs, minIDs+Ncells, [](int i){return i>=0;} );
+          printf("Number of found minima:   %d\n\n", countMin);
           numLLPs=countMin;
+        }
 
         printf("Number of found LLPs: %d \n\n", numLLPs);
 

@@ -35,7 +35,7 @@ typedef struct
     double z;
 } Lpoint;
 
-typedef struct Qtree_t* Qtree;
+using Qtree = struct Qtree_t* ;
 
 struct Qtree_t {
   Qtree quadrants[4];
@@ -53,9 +53,9 @@ typedef struct{
 
 double round2d(double z);
 
-Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius);
+Vector2D getRadius(Vector2D &min, Vector2D &max, float *maxRadius);
 
-Vector2D getCenter(Vector2D min, Vector2D radius);
+Vector2D getCenter(Vector2D &min, Vector2D &radius);
 
 void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 
