@@ -1,3 +1,7 @@
+//This version uses a quadtree (although the it is named octree) that has a different structure for the leaves and the internal nodes
+//See envi_up (up stands for unique_pointer) for details
+//It does not pay off once the tree has a reasonable small ammount of inner nodes.
+//moved to Old directory
 
 // #include <stdio.h>
 // #include <stdlib.h>
@@ -7,10 +11,10 @@
 // #include <string.h>
 // #include <omp.h>
 
-#include "../include/envi_parent.h"
+#include "../include/envi_up.h"
 
 int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a < *(int*)b );
+   return ( *(int*)a - *(int*)b );
 }
 
 int main( int argc, char* argv[]){
@@ -29,7 +33,7 @@ int main( int argc, char* argv[]){
     int* minGridIDs = NULL;
 
     unsigned int Npoints=0, Ncells, Ngrid;
-    Vector2D center, radius, min, max;
+    Vector3D center, radius, min, max;
     float maxRadius = 0.0;
     double Width, High, Density, Displace;
     unsigned short  minNumPoints, Crow, Ccol, Crowg, Ccolg;
@@ -43,21 +47,21 @@ int main( int argc, char* argv[]){
     double t_stage, t_func;
 
     // Tamaño de la ventana deslizante
-    unsigned short Wsize = 12;
+    unsigned short Wsize = 10;
     // Tamaño de la rejilla
     unsigned short Bsize = 20;
     // Solape de la ventana deslizante
-    double Overlap = 0.5;
+    double Overlap = 0.8;
     // Numero de procesadores
     unsigned short num_procs = 4;
 
     //Control del bucle de ejecución
     unsigned int bucle_entrada = 1;
 
-    char inputTXT[128] = {"../datos/INAER_2011_Alcoy.xyz"};
-    // char inputLAS[50] = {"../datos/INAER_2011_Alcoy.las"};
-    char outputTXT[128] = {"../datos/INAER_2011_Alcoy_salida.xyz"};
-    // char outputLAS[50] = {"../datos/INAER_2011_Alcoy_salida.las"};
+    char inputTXT[128] = {"./data/INAER_2011_Alcoy.xyz"};
+    // char inputLAS[50] = {"./data/INAER_2011_Alcoy.las"};
+    char outputTXT[128] = {"./data/INAER_2011_Alcoy_salida.xyz"};
+    // char outputLAS[50] = {"./data/INAER_2011_Alcoy_salida.las"};
 
     // Compruebo los argumentos de entrada
     if(argc>1) {
@@ -72,7 +76,6 @@ int main( int argc, char* argv[]){
     if(argc>4) Overlap = atof(argv[4]);
     if(argc>5) num_procs = atoi(argv[5]);
     if(argc>6) bucle_entrada = atoi(argv[6]);
-    float minRadius = (argc>7)? atof(argv[7]) : 0.8;
 
     double resultados[bucle_entrada];
 
@@ -86,7 +89,7 @@ int main( int argc, char* argv[]){
       exit(-1);
     }
 
-    if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy.xyz") ){
+    if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy.xyz") ){
       Npoints = 2772832;
       min.x   = 715244.96;
       max.x   = 716057.75;
@@ -94,7 +97,7 @@ int main( int argc, char* argv[]){
       max.y   = 4287447.70;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if( !strcmp(inputTXT,"../datos/INAER_2011_Alcoy_Core.xyz") ){
+    } else if( !strcmp(inputTXT,"./data/INAER_2011_Alcoy_Core.xyz") ){
       Npoints = 20380212;
       min.x   = 714947.98;
       max.x   = 716361.06;
@@ -102,7 +105,7 @@ int main( int argc, char* argv[]){
       max.y   = 4288406.23;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/BABCOCK_2017_Arzua_3B.xyz")){
+    } else if(!strcmp(inputTXT,"./data/BABCOCK_2017_Arzua_3B.xyz")){
       Npoints = 40706503;
       min.x   = 568000.00;
       max.x   = 568999.99;
@@ -110,7 +113,7 @@ int main( int argc, char* argv[]){
       max.y   = 4753319.99;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V21_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V21_group1_densified_point_cloud.xyz")){
       Npoints = 42384876;
       min.x   = 526964.093;
       max.x   = 527664.647;
@@ -118,7 +121,7 @@ int main( int argc, char* argv[]){
       max.y   = 4743115.738;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/V19_group1_densified_point_cloud.xyz")){
+    } else if(!strcmp(inputTXT,"./data/V19_group1_densified_point_cloud.xyz")){
       Npoints = 48024480;
       min.x   = 526955.908;
       max.x   = 527686.445;
@@ -126,7 +129,7 @@ int main( int argc, char* argv[]){
       max.y   = 4743124.373;
       // min.z   = 0;
       // max.z   = 0; //No lo consulto nunca
-    } else if(!strcmp(inputTXT,"../datos/sample24.xyz")){
+    } else if(!strcmp(inputTXT,"./data/sample24.xyz")){
       Npoints = 7492;
       min.x   = 513748.12;
       max.x   = 513869.97;
@@ -170,12 +173,13 @@ int main( int argc, char* argv[]){
     printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
     printf("CREANDO OCTREE...\n");
     // octreeIn = createOctree(center, maxRadius);
-    Octree octreeIn = new Octree_t( NULL, center, maxRadius );
+    Vector2D newCenter = {center.x,center.y};
+    // Octree octreeIn = new Octree_t( newCenter, maxRadius );
+    uOctree octreeIn( new nLeaf(newCenter, maxRadius) );
 
     // Inserto los puntos en el Octree
-    printf("Inserting points with minRadius: %g\n", minRadius);
     for(int i = 0; i < Npoints; i++)
-       insertPointF(&pointer[i], octreeIn, minRadius);
+       insertPointF(&pointer[i], octreeIn, MIN_RADIUS);
 
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
@@ -235,10 +239,8 @@ int main( int argc, char* argv[]){
 
 
         // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
-        // countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-        countMin = stage1cppParent(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-        // countMin = stage1ParentS(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
-        // countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min);
+        // countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn.get(), min);
+        countMin = stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn.get(), min);
 
         printf("\nCeldas no descartadas:   %d\n", countMin);
 
@@ -280,21 +282,23 @@ int main( int argc, char* argv[]){
 
             // Creo un nuevo octree con todos los mínimos; las mismas dimensiones que el grande
             // grid = createOctree(center, maxRadius);
-            Octree grid =  new Octree_t( NULL, center, maxRadius) ;
+            // Octree grid =  new Octree_t( newCenter, maxRadius) ;
+            uOctree grid( new nLeaf(newCenter, maxRadius) );
 
             for(int i = 0; i < searcher; i++)
-               insertPointF(&pointer[minIDs[i]], grid, minRadius);
+               insertPointF(&pointer[minIDs[i]], grid, MIN_RADIUS);
 
             //
-            addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
-            // addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
+            // addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn.get(), grid.get(), min);
+            addMin = stage3s(Bsize, Crowg, Ccolg, minGridIDs, octreeIn.get(), grid.get(), min);
 
             // printf("Minimos añadidos:        %d\n", addMin);
             // printf("\n\n/////////////////////////// END ///////////////////////////\n");
             printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
             // Ya no necesito este octree
-            deleteOctree(grid);
-            delete(grid);
+            deleteOctree(grid.get());
+            // delete(grid);
+            grid.reset(NULL);
         }
 
         printf("TOTAL time elapsed:     %.6f s\n", resultados[--bucle_entrada] = omp_get_wtime() - t_func);
@@ -356,8 +360,9 @@ int main( int argc, char* argv[]){
     free(pointer);
     pointer=NULL;
 
-    deleteOctree(octreeIn);
-    delete(octreeIn);
+    deleteOctree(octreeIn.get());
+    // delete(octreeIn);
+    octreeIn.reset(NULL);
 
 
     return 0;
