@@ -19,152 +19,15 @@
 #include <fstream>
 #include <sstream>
 
-// std::mutex pool_mutex;
-
-extern unsigned short  minNumPoints, Crow, Ccol, Crowg, Ccolg;
-
-extern unsigned short Wsize;
-
-extern Qtree qtreeIn;
-
-extern double Displace;
 
 Qtree_t::Qtree_t(Vector2D c, float r) : center(c), radius(r) {
   for(int i = 0; i < 4; i++)
     quadrants[i] = NULL;
 }
 
-// tbb::task* Cell::execute(){
-//   int cellPoints;
-//   // center.x += i*Displace;
-//   Lpoint newmin = searchNeighborsMin(&center, qtreeIn, Wsize/2, &cellPoints);
-//   // printf("celda %d %d\n", i, j);
-//   if( cellPoints >= minNumPoints ){
-//       v.push_back(newmin.id);
-//   }
-//   bool recycle_into_east=false;
-//   bool recycle_into_south=false;
-//   if (i<Crow-1 && --counters[j*Crow+i+1]==0) recycle_into_east=true;
-//   if (j<Ccol-1 && --counters[(j+1)*Crow+i]==0){
-//       if (!recycle_into_east) recycle_into_south = true;
-//       else{
-//         Vector2D newCenter = {center.x,center.y+Displace};
-//         // center.y += Displace;
-//         spawn(*new(allocate_additional_child_of(*parent()))
-//           Cell{i,j+1,newCenter,counters,v});
-//       }
-//     }
-//   if (recycle_into_east) {
-//     recycle_as_child_of(*parent());
-//     center.x += Displace;
-//     i = i+1;
-//     return this;
-//   }
-//   else if(recycle_into_south){
-//     recycle_as_child_of(*parent());
-//     center.y += Displace;
-//     j = j+1;
-//     return this;
-//   }
-//   else return nullptr;
-// }
-
-// tbb::task* Cell::execute(){
-//   if (i<Crow-1){ // north cell ready
-//     // center.x += Displace;
-//     spawn(*new(allocate_additional_child_of(*parent()))
-//       // Cell{i+1,minNumPoints,Ccol,Crow,Wsize,displace,center,qtreeIn,v});
-//       Cell{i+1,center,v});
-//   }
-//   int cellPoints;
-//   center.x += i*Displace;
-//   Lpoint newmin = searchNeighborsMin(&center, qtreeIn, Wsize/2, &cellPoints);
-//   // printf("celda %d %d\n", i, j);
-//   if( cellPoints >= minNumPoints ){
-//       v.push_back(newmin.id);
-//   }
-
-//   return nullptr;
-// }
-
-// tbb::task* Cell::execute(){
-
-//   // if (i<Crow-1){ // north cell ready
-//   //   // center.x += Displace;
-//   //   spawn(*new(allocate_additional_child_of(*parent()))
-//   //     // Cell{i+1,minNumPoints,Ccol,Crow,Wsize,displace,center,qtreeIn,v});
-//   //     Cell{i+1,center,v});
-//   // }  
-  
-//   int cellPoints;
-//   // center.x += i*Displace;
-//   Lpoint newmin = searchNeighborsMin(&center, qtreeIn, Wsize/2, &cellPoints);
-//   // printf("celda %d %d\n", i, j);
-//   if( cellPoints >= minNumPoints ){
-//       v.push_back(newmin.id);
-//   }
-
-//   if (i<Crow-1) {
-//     recycle_as_child_of(*parent());
-//     center.x += Displace;
-//     i = i+1;
-//     return this;
-//   }
-
-//   return nullptr;
-// }
-
-// tbb::task* Cell::execute(){
-//   int cellPoints;
-//   if (i<Crow-1){ // north cell ready
-//     set_ref_count(2);
-//     spawn_and_wait_for_all(*new(allocate_child()) Cell{i+1,center,v});
-//   } else {
-//     set_ref_count(1);
-//   }
-//   center.x += i*Displace;
-//   Lpoint newmin = searchNeighborsMin(&center, qtreeIn, Wsize/2, &cellPoints);
-//   // printf("celda %d %d\n", i, j);
-//   if( cellPoints >= minNumPoints ){
-//       v.push_back(newmin.id);
-//   }
-//   return nullptr;
-// }
-
-
-// void Cell::operator()(task_t& id, tbb::parallel_do_feeder<task_t>& feeder) const{
-//   int i = id.first;
-//   int j = id.second;
-//   int cellPoints;
-//   center = {center.x + i*displace, center.y + j*displace};
-//   Lpoint newmin = searchNeighborsMin(&center, qtreeIn, Wsize/2, &cellPoints);
-//   // printf("celda %d %d\n", i, j);
-//   if( cellPoints >= 298 ){
-//       v.push_back(newmin.id);
-//   }
-//   if (j<Ccol){ // east cell ready
-//     feeder.add(task_t(i,j+1));
-//   }
-//   if (i<Crow){ // north cell ready
-//     feeder.add(task_t(i+1,j));
-//   }
-// }
-
-
-// double foo (int gs, double a, double b, double c){
-//       double x = (a + b + c)/3;
-//       //common::spinWaitForAtLeast(gs*(double)1.0e-9);
-//       int dummy=0;
-//       for (int i=0; i<gs; i++) dummy += (a + b + c)/4;
-//       //avoid dead code elimination:
-//       // if (!dummy) common::spinWaitForAtLeast((dummy+1)*1e-9);
-//       return x;
-// }
-
 double round2d(double z){
   return round(z*100.0)/100.0;
 }
-
 
 // Make a box with center the point and the specified radius
 void makeBox(Vector2D *point, float radius, Vector2D *min, Vector2D *max)
@@ -173,10 +36,9 @@ void makeBox(Vector2D *point, float radius, Vector2D *min, Vector2D *max)
     // printf("Centro: [ %.2lf, %.2lf]\n",point->x,point->y );
     min->x = point->x - radius;
     min->y = point->y - radius;
-    // min->z = point->z - radius;
     max->x = point->x + radius;
     max->y = point->y + radius;
-    // max->z = point->z + radius;
+
 }
 
 void makeBox(Vector2D *point, double radiusX, double radiusY, Vector2D *min, Vector2D *max)
@@ -269,7 +131,6 @@ Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius)
 
     radii.x = (max.x - min.x) / 2.0;
     radii.y = (max.y - min.y) / 2.0;
-    // radii.z = (max.z - min.z) / 2.0;
 
     if(radii.x >= radii.y)
     {
@@ -290,19 +151,17 @@ Vector2D getCenter(Vector2D min, Vector2D radius)
 
     center.x = min.x + radius.x;
     center.y = min.y + radius.y;
-    // center.z = min.z + radius.z;
 
     return center;
 }
 
-// Find the child corresponding a given point
+// Find the child index corresponding to a given point
 int quadrantIdx(Lpoint *point, Qtree qtree)
 {
     int child = 0;
 
     if(point->x >= qtree->center.x) child |= 2;
     if(point->y >= qtree->center.y) child |= 1;
-    // if(point->z >= qtree->center.z) child |= 1;
 
     return child;
 }
@@ -311,12 +170,10 @@ int quadrantIdx(Lpoint *point, Qtree qtree)
 // Lpoint findValidMin(Qtree qtree, const std::vector<std::function<bool(Vector2D, float)>>& conditions)
 Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside)
 {
-    // Lpoint tmp, min = nomin;
     Lpoint tmp, min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
     if(isLeaf(qtree))
     {
-
       if(boxInside2D(*boxMin, *boxMax, qtree)){
         for(Lpoint* p : qtree->points) {
           if (p->z < min.z) {
@@ -335,9 +192,7 @@ Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
           }
         }
       }
-
     } else {
-
         for(int i = 0; i < 4; i++) {
             // Check
             if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
@@ -348,9 +203,7 @@ Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
                     min = tmp;
                 }
             }
-
         }
-
     }
 
     return min;
@@ -493,175 +346,6 @@ void countNeighbors2D(Vector2D* point, Qtree qtree, float radius, int* numNeighs
     return;
 }
 
-// Lpoint findValidMinPath(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax,
-//                     int* numInside, std::vector<Qtree>& path)
-// {
-//   Lpoint tmp, min = {0,0.0,0.0,99999.0};
-//   int i;
-//
-//   if(isLeaf(qtree))
-//   {
-//     // printf("qtree with %d points\n", qtree->numPts);
-//     // printf("nodo hoja con radio %g\n", qtree->radius/2.0);
-//     uint64_t size = qtree->points.size();
-//     if(size > 0)
-//     {
-//       for (i = 0; i < size; i++) {
-//         if(insideBox2D(qtree->points[i], *boxMin, *boxMax))
-//         {
-//           tmp = *(qtree->points[i]);
-//           if (tmp.z < min.z) {
-//               min = tmp;
-//           }
-//           (*numInside)++;
-//         }
-//       }
-//     }
-//
-//   } else {
-//     std::vector<Qtree> local_path, best_path;
-//
-//     for(i = 0; i < 8; i++) {
-//       // Check
-//       if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
-//         continue;
-//       else {
-//         local_path.push_back(qtree->quadrants[i]);
-//         tmp = findValidMinPath(qtree->quadrants[i], boxMin, boxMax, numInside, local_path);
-//         if (tmp.z < min.z) {
-//           min = tmp;
-//           best_path = local_path;
-//         }
-//         local_path.clear();
-//       }
-//     }
-//
-//     path.insert(path.end(), best_path.begin(), best_path.end());
-//
-//   }
-//
-//     return min;
-// }
-//
-// Lpoint searchNeighborsMinPath(Lpoint* point, Qtree qtree, float radius, int* numNeighs, std::vector<Qtree>& path)
-// {
-//     Vector2D boxMin, boxMax;
-//
-//     *numNeighs = 0;
-//     makeBox(point, radius, &boxMin, &boxMax);
-//
-//     return findValidMinPath(qtree, &boxMin, &boxMax, numNeighs, path);
-// }
-
-
-// Lpoint findValidMinParent(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax,
-//                     int* numInside, Qtree* minparent)
-// {
-//   Lpoint tmp, min = {0,0.0,0.0,99999.0};
-//   int i;
-//
-//   if(isLeaf(qtree))
-//   {
-//     // printf("qtree with %d points\n", qtree->numPts);
-//     // printf("nodo hoja con radio %g\n", qtree->radius/2.0);
-//     uint64_t size = qtree->points.size();
-//     if(size > 0)
-//     {
-//       for (i = 0; i < size; i++) {
-//         if(insideBox2D(qtree->points[i], *boxMin, *boxMax))
-//         {
-//           tmp = *(qtree->points[i]);
-//           if (tmp.z < min.z) {
-//               min = tmp;
-//               // printf("min level %d\n", nivel);
-//           }
-//           (*numInside)++;
-//         }
-//       }
-//     }
-//
-//   } else {
-//     for(i = 0; i < 4; i++) {
-//       /*Tengo que seguir haciendo el chequeo*/
-//       if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
-//         continue;
-//       else {
-//         tmp = findValidMinParent(qtree->quadrants[i], boxMin, boxMax, numInside, minparent);
-//         if (tmp.z < min.z) {
-//           min = tmp;
-//           if(isLeaf(qtree->quadrants[i]))
-//             *minparent = qtree->quadrants[i];
-//         }
-//       }
-//     }
-//   }
-//
-//     return min;
-// }
-//
-//
-// Lpoint searchNeighborsMinParent(Lpoint* point, Qtree* oparent, float radius, int* numNeighs)
-// {
-//     Vector2D boxMin, boxMax;
-//     Qtree actual_parent = *oparent;
-//
-//     *numNeighs = 0;
-//     makeBox(point, radius, &boxMin, &boxMax);
-//
-//     while(actual_parent->oparent != NULL && !boxTotalOverlap2D(boxMin, boxMax, actual_parent)){
-//     // while(actual_parent->oparent != NULL){
-//       actual_parent = actual_parent->oparent;
-//     }
-//
-//     // if(actual_parent->oparent != NULL) {
-//     //   // printf("my size: %zu\n", (*oparent)->points.size());
-//     //   actual_parent = actual_parent->oparent;
-//     //   // printf("parent size: %zu\n", (*oparent)->points.size());
-//     //   // if(actual_parent->oparent != NULL)
-//     //   //   actual_parent = actual_parent->oparent;
-//     // }
-//
-//     return findValidMinParent(actual_parent, &boxMin, &boxMax, numNeighs, oparent);
-// }
-
-
-/** Create a qtree with the given center and radius */
-// Qtree createQtreeI(Vector2D center, float radius)
-// {
-//     int i = 0;
-//     Qtree qt = NULL;
-//
-//     qt = (Qtree_t*)mallocWrap(sizeof(Qtree_t));
-//     // qt = std::unique_ptr<Qtree_t>{ (Qtree_t*)mallocWrap(sizeof(Qtree_t)) };
-//     qt->center = center;
-//     qt->radius = radius;
-//     // qt->points = NULL;
-//     // qt->numPts = 0;
-//     for(i = 0; i < 8; i++)
-//       qt->quadrants[i] = NULL;
-//
-//     return qt;
-// }
-
-// uQtree createQtreeF(Vector2D center, float radius)
-// {
-//     int i = 0;
-//     // uQtree qt = uQtree{(Qtree_t*)malloc(sizeof(Qtree_t))};
-//     // uQtree qt( new Qtree_t );
-//     Qtree qt( new Qtree_t );
-//
-//     // qt = (Qtree_t*)mallocWrap(sizeof(Qtree_t));
-//     // qt = std::unique_ptr<Qtree_t>{ (Qtree_t*)mallocWrap(sizeof(Qtree_t)) };
-//     // qt = std::unique_ptr<Qtree_t>{ new Qtree_t };
-//     qt->center = center;
-//     qt->radius = radius;
-//     qt->points = NULL;
-//     qt->numPts = 0;
-//     for(i = 0; i < 8; i++)
-//       qt->quadrants[i] = NULL;
-//
-//     return qt;
-// }
 
 
 void createQuadrantsF(Qtree qt)
@@ -675,13 +359,9 @@ void createQuadrantsF(Qtree qt)
         newCenter = qt->center;
         newCenter.x += qt->radius * (i&2 ? 0.5f : -0.5f);
         newCenter.y += qt->radius * (i&1 ? 0.5f : -0.5f);
-        // newCenter.z += qt->radius * (i&1 ? 0.5f : -0.5f);
-        // printf("(%lf,%lf) ", newCenter.x, newCenter.y);
 
-        // qt->quadrants[i] = new Qtree_t(qt, newCenter, newRadius);
         qt->quadrants[i] = new Qtree_t(newCenter, newRadius);
     }
-    // printf("\n");
 }
 
 
@@ -692,11 +372,9 @@ void insertPointF(Lpoint *point, Qtree qtree, float minRadius)
 
     if(isLeaf(qtree))
     {
-        // printf("octante hoja nivel %d\n",nivel);
         if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
         {
           createQuadrantsF(qtree);
-          // fillOctants(qtree);
           idx = quadrantIdx(point, qtree);
           insertPointF(point, qtree->quadrants[idx], minRadius);
 
@@ -706,7 +384,6 @@ void insertPointF(Lpoint *point, Qtree qtree, float minRadius)
     }
     else                                // No leaf -> search the correct one
     {
-      // printf("octante intermedio nivel %d\n", nivel);
       idx = quadrantIdx(point, qtree);
       insertPointF(point, qtree->quadrants[idx], minRadius);
     }
@@ -737,7 +414,6 @@ void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize)
       }
       else
       {
-        // printf("octante hoja nivel %d\n",nivel);
         if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
         {
           createQuadrantsF(qtree);
@@ -752,7 +428,6 @@ void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize)
     }
     else                                // No leaf -> search the correct one
     {
-      // printf("octante intermedio nivel %d\n", nivel);
       idx = quadrantIdx(point, qtree);
       insertPointF(point, qtree->quadrants[idx], minRadius);
     }
@@ -778,40 +453,6 @@ void deleteQtree(Qtree qtree)
     return;
 }
 
-void stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min)
-{
-
-    double Displace = round2d(Wsize*(1-Overlap));
-
-    double initX = min.x - Wsize/2 + Displace;
-    double initY = min.y - Wsize/2 + Displace;
-
-    Vector2D cellCenter;
-
-    Lpoint newmin;
-
-    int cellPoints;
-
-    for(int jj = 0 ; jj < Ccol ; jj++ ){
-
-        cellCenter.y = initY + jj*Displace;
-
-        for(int ii = 0 ; ii < Crow ; ii++ ){
-
-            cellCenter.x = initX + ii*Displace;
-
-            newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
-            if(cellPoints >= minNumPoints ){
-                    minIDs.push_back(newmin.id);
-            }
-        }
-
-    }
-
-    return;
-}
 
 void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min)
@@ -832,14 +473,7 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
 
     for(int jj = 0 ; jj < Ccol ; jj++ ){
 
-        // cellCenter.x = initX;
         cellCenter.y = initY + jj*Displace;
-
-        // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
-        // if(cellPoints >= minNumPoints ){
-        //   minIDs.push_back(newmin.id);
-        // }
 
         for(int ii = 0 ; ii < Crow ; ii++ ){
 
@@ -995,68 +629,6 @@ void stage1cpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
     return;
 }
 
-// unsigned int stage1cppParent(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-//   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min)
-// {
-//
-//
-//   // double initX = min.x + Wsize/2 - Wsize*Overlap;
-//   // double initY = min.y + Wsize/2 - Wsize*Overlap;
-//   double initX = min.x - Wsize/2 + Wsize*Overlap;
-//   double initY = min.y - Wsize/2 + Wsize*Overlap;
-//
-//     double Displace = round2d(Wsize*(1-Overlap));
-//
-//     Lpoint cellCenter = {0,0.0,0.0,0.0};
-//
-//     // Lpoint** neighbors = NULL;
-//     Lpoint newmin;
-//
-//     unsigned int countMin = 0;
-//
-//     int cellPoints;
-//
-//     // std::vector<int> vcount(Ccol,0);
-//     Qtree mypointer;
-//
-//     #pragma omp parallel for private(cellCenter,cellPoints,newmin,mypointer) schedule(dynamic) reduction(+:countMin)
-//     for(int jj = 0 ; jj < Ccol ; jj++ ){
-//         /* lo renuevo para cada fila porque cada vez que cambio de fila voy
-//         a estar lejos de donde estaba antes en el mapa*/
-//         mypointer = qtreeIn;
-//
-//         cellCenter.y = initY + jj*Displace;
-//         // printf("\nCeldas no descartadas thread %d:   %d\n",omp_get_thread_num(), countMin);
-//
-//         for(int ii = 0 ; ii < Crow ; ii++ ){
-//
-//             // std::vector<std::function<bool(Vector2D,float)>> conditions = {
-//             //     [&diag,&cellCenter] (Vector2D c, float r) {
-//             //         double d = sqrt(pow(cellCenter.x - c.x,2) + pow(cellCenter.y - c.y,2));
-//             //         return d < (diag+r*sqrt(2)); // suma de las diagonales
-//             //     },
-//             // };
-//
-//             cellCenter.x = initX + ii*Displace;
-//             // printf("Centro de %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-//             // printf("Busco los vecinos\n");
-//             // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-//             newmin = searchNeighborsMinParent(&cellCenter, &mypointer, Wsize/2, &cellPoints);
-//             // printf("Numero de elementos de la celda: %d\n", cellPoints );
-//             if(cellPoints >= minNumPoints ){
-//
-//                 minIDs[jj*Crow+ii] = newmin.id; //los voy guardando por posición de celda; esto hace que tenga que modificar stage2
-//                 countMin++;
-//             }
-//         }
-//         // vcount[jj] = countMin;
-//         // countMin=0;
-//     }
-//
-//     // countMin = std::accumulate(vcount.begin(), vcount.end(), 0);
-//
-//     return countMin;
-// }
 
 std::vector<int> stage1tbb(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, Qtree qtreeIn, Vector2D min)

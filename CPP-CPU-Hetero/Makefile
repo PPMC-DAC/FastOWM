@@ -16,12 +16,9 @@ BIN=bin
 SRC=src
 APP=application
 
-#CFLAGS =-I/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/include -L/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/lib -fopenmp -g -lm -O3 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt
-#In Ubuntu -lbsd is needed for strlcpy (#include <bsd/string.h>) sudo apt-get install libbsd-dev
-#gsl sudo apt-get install libgsl0-dev
 CFLAGS = -fopenmp -g3 -lm -O2 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt -lbsd -llas_c
 
-CPPFLAGS_CESGA = -O3 -fopenmp -lm -ltbb -std=c++11
+CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
@@ -51,21 +48,10 @@ bin/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++2a
 #-DDEBUG -Wall -pedantic -g -Wextra
 
-bin/parent:
-		@mkdir -p "$(@D)"
-		$(CXX) application/owm_parent.cpp src/envi_parent.cpp -o $@ -O3 -fopenmp -lm -std=c++11
 
-bin/unique: application/owm_up.cpp src/envi_up.cpp
+bin/parallelcpp: application/owm_tfm.cpp src/envi.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^  -o $@ -O3 -fopenmp -lm -std=c++11
-
-bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/OWM_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
-
-bin/parallelcpp:
-		@mkdir -p "$(@D)"
-		$(CXX) application/owm_tfm.cpp src/envi.cpp $(CPPFLAGS_CESGA) -o $@
+		$(CXX) $^ $(CPPFLAGS_TBB) -o $@
 
 bin/paralleldpcpp:
 		@mkdir -p "$(@D)"

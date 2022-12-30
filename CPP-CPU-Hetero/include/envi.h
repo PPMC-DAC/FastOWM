@@ -19,8 +19,6 @@
 // #include "tbb/tbbmalloc_proxy.h"
 // #include <atomic>
 
-// extern int NUM_PROCS;
-
 typedef struct
 {
     double x;
@@ -55,60 +53,17 @@ typedef struct
 
 // using uQtree = std::unique_ptr<class Qtree_t>;
 
-typedef struct Qtree_t* Qtree;
-
-// struct Qtree_t {
-//     uQtree quadrants[8];
-//     Vector3D center;
-//     float radius;
-//     std::vector<Lpoint*> points;
-// };
+using Qtree = struct Qtree_t*;
 
 struct Qtree_t {
   Qtree quadrants[4];
-  // Qtree oparent;
-  // Vector3D center;
   Vector2D center;
   float radius;
   std::vector<Lpoint*> points;
 
   Qtree_t(Vector2D c, float r);
-  // ~Qtree_t();
 };
 
-// double foo (int gs, double a, double b, double c);
-
-
-// using task_t = std::pair<int,int>;
-
-// class Cell: public tbb::task {
-//   int i,j;
-//   Vector2D center;
-//
-//   std::vector<tbb::internal::atomic<int>>& counters;
-//   tbb::concurrent_vector<int>& v;
-// public:
-//
-//  Cell(int i_, int j_, Vector2D c_,
-//       std::vector<tbb::internal::atomic<int>>& counters_,
-//       tbb::concurrent_vector<int>& mins_) :
-//       i{i_},j{j_},center{c_},counters{counters_},v{mins_} {}
-//
-//   tbb::task* execute();
-//   // void operator()(task_t& id, tbb::parallel_do_feeder<task_t>& feeder) const{
-// };
-
-// class Cell: public tbb::task {
-//   int i;
-//   Vector2D center;
-//   tbb::concurrent_vector<int>& v;
-// public:
-//  Cell(int i_, Vector2D& c_,
-//       tbb::concurrent_vector<int>& mins_) :
-//       i{i_},center{c_},v{mins_} {}
-
-//   tbb::task* execute();
-// };
 
 double round2d(double z);
 
@@ -129,9 +84,6 @@ void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize);
 void deleteQtree( Qtree qtree );
 
 Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int* numNeighs);
-
-void stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min);
 
 void stage1cpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min);
