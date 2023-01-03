@@ -246,13 +246,10 @@ int main( int argc, char* argv[]) {
 
     }// Bsize
 
-        
-
-    // printf("REP %d\n", numRuns);
-    std::cout << "STAGE 1 time elapsed: " << cast_t(e_stage1 - s_func).count() << " ms\n\n";
-    std::cout << "STAGE 2 time elapsed: " << cast_t(e_stage2 - e_stage1).count() << " ms\n\n";
-    std::cout << "STAGE 3 time elapsed: " << cast_t(e_stage3 - e_stage2).count() << " ms\n\n";
-    std::cout << "TOTAL time elapsed: " << cast_t(e_stage3 - s_func).count() << " ms\n";
+    std::cout << "STAGE 1 time elapsed: " << cast_t(e_stage1 - s_func).count()/1e3 << " sec.\n\n";
+    std::cout << "STAGE 2 time elapsed: " << cast_t(e_stage2 - e_stage1).count()/1e3 << " sec.\n\n";
+    std::cout << "STAGE 3 time elapsed: " << cast_t(e_stage3 - e_stage2).count()/1e3 << " sec.\n\n";
+    std::cout << "TOTAL time elapsed: " << cast_t(e_stage3 - s_func).count()/1e3 << " sec.\n";
     results[--numRuns] = cast_t(e_stage3 - s_func).count()/1e3;
 
     printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs - addMin );
@@ -277,9 +274,9 @@ int main( int argc, char* argv[]) {
       if(best > results[i])
         best = results[i];
     }
-    printf("\nAverage: %.4lf ms.\t Best time: %4lf ms.\n\n", results[0]/numRuns, best);
+    printf("\nAverage: %.4lf sec.\t Best time: %4lf sec.\n\n", results[0]/numRuns, best);
   } else 
-    printf("\nAverage: %.4lf ms.\t Best time: %4lf ms.\n\n", results[0], best);
+    printf("\nAverage: %.4lf sec.\t Best time: %4lf sec.\n\n", results[0], best);
     
 
   // Append vector
