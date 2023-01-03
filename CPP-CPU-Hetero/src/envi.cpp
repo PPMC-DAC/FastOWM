@@ -1449,6 +1449,7 @@ int check_results(std::string filename, std::vector<int>& ids, Lpoint** pointer,
 
 uint64_t read_points(std::string filename, Lpoint** point_cloud) 
 {
+  
   std::ifstream input(filename);
   if (input.fail())
     return -1;
@@ -1470,7 +1471,44 @@ uint64_t read_points(std::string filename, Lpoint** point_cloud)
   return id;
 }
 
+int readXYZfile(std::string filename, Lpoint* & point_cloud, unsigned int & Npoints, Vector2D &min, Vector2D &max) 
+{
+  FILE* fileXYZ;
+  if((fileXYZ = fopen(filename.c_str(),"r")) == NULL){
+    printf("Unable to open file!\n");
+    return -1;
+  }
+  if ( filename.find("Arzua.xyz") != std::string::npos || filename.find("Alcoy.xyz") != std::string::npos || 
+       filename.find("BrionF.xyz") != std::string::npos || filename.find("BrionU.xyz") != std::string::npos ){
+    printf("Read header...\n");
+    if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+        printf("Imposible to read header values\n");
+        return -1;
+    }
+  }
+  // Allocate memory for the LiDAR points
+  point_cloud = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
+  if(point_cloud == NULL){
+    printf("Error allocating memory for the points\n");
+    return -1;
+  }
+  printf("Reading points...\n");
 
+  for(int i=0; i<Npoints ; i++){
+    point_cloud[i].id = i;
+    if(fscanf(fileXYZ, "%lf %lf %lf",&point_cloud[i].x,&point_cloud[i].y,&point_cloud[i].z) < 3){
+      printf("Error reading values\n");
+      return -1;
+    }
+    while(fgetc(fileXYZ)!='\n');
+  }
+
+  if(fclose(fileXYZ)){
+    printf("Cannot close the file\n");
+    return -1;
+  }
+  return 0;
+}
 
 
 // void prueba1( uQtree2& qtree )

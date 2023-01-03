@@ -73,6 +73,8 @@ int save_file(std::string file_name, std::vector<int>& ids, Lpoint** pointer);
 
 uint64_t read_points(std::string filename, Lpoint** point_cloud);
 
+int readXYZfile(std::string filename, Lpoint* & point_cloud, unsigned int &Npoints, Vector2D &min, Vector2D &max);
+
 Vector2D getRadius(Vector2D min, Vector2D max, float *maxRadius);
 
 Vector2D getCenter(Vector2D min, Vector2D radius);

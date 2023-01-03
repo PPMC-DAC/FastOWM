@@ -52,10 +52,11 @@ int main( int argc, char* argv[]) {
   // Radio mínimo del nodo hoja
   float minRadius = (argc>7)? atof(argv[7]) : 0.1;
 
+  int MaxNumber = (argc>8)? atoi(argv[8]) : -1;
+  
   tbb::global_control c(tbb::global_control::max_allowed_parallelism, NUM_PROCS);
 
   printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT.c_str(), NUM_PROCS);
-
 
   if( inputTXT.find("INAER_2011_Alcoy.xyz") != std::string::npos ){ // Alcoy mini
     Npoints = 2772832;
@@ -93,24 +94,22 @@ int main( int argc, char* argv[]) {
     max.x   = 513869.97;
     min.y   = 5403124.76;
     max.y   = 5403197.20;
-  } else {
+  } else if ( inputTXT.find("Arzua.xyz") == std::string::npos &&
+              inputTXT.find("Alcoy.xyz") == std::string::npos && 
+              inputTXT.find("BrionF.xyz") == std::string::npos && 
+              inputTXT.find("BrionU.xyz") == std::string::npos ){
     printf("No header data!\n");
     exit(-1);
   }
 
-  // Reservo memoria para la nube de puntos
-  point_cloud = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
-
-  printf("VOLCANDO PUNTOS...\n");
-  // Fichero de entrada
-  if(read_points(inputTXT, &point_cloud) != Npoints){
+  printf("Reading LiDAR points...\n");
+  if(readXYZfile(inputTXT, point_cloud, Npoints, min, max) == -1){
     printf("Unable to read file!\n");
     exit(-1);
   }
 
-  printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
+  printf("Npoints=%d; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
 
-  // Dimensiones de la nube para crear el arbol
   radius = getRadius(min, max, &maxRadius);
   center = getCenter(min, radius);
   printf("QTREE PARAMETERS:\n");
@@ -122,37 +121,41 @@ int main( int argc, char* argv[]) {
 
   Width = round2d(max.x-min.x);
   High = round2d(max.y-min.y);
-  // Densidad en puntos/m^2
   Density = Npoints/(Width*High);
 
-  // Defines a maximum number of points from which to divide the cell
-  int medSize = (int)(minRadius*minRadius*Density);
+  // Defines the maximum number of points a leaf node can contain
+  if(MaxNumber==-1) MaxNumber = (int)(minRadius*minRadius*Density);
 
-  Qtree qtreeIn = new Qtree_t( center, maxRadius);
+  using tempo_t = std::chrono::steady_clock;
+  using cast_t = std::chrono::duration<double, std::milli>;
+  std::chrono::time_point<tempo_t> e_tree, s_func, e_stage1, e_stage2, e_stage3;
 
   printf("INSERTING POINTS...\n");
-  for(int i = 0; i < Npoints; i++){
-    insertPointF2(&point_cloud[i], qtreeIn, minRadius, medSize);
-  }
 
+  e_tree = tempo_t::now();
+  Qtree qtreeIn = new Qtree_t( center, maxRadius);
+  for(int i = 0; i < Npoints; i++){
+    insertPointF2(&point_cloud[i], qtreeIn, minRadius, MaxNumber);
+  }
+  std::cout << "Time elapsed at Quadtree construction: " << cast_t(tempo_t::now() - e_tree).count() << " ms\n\n";
+  
   printf("CLOUD PARAMETERS:\n");
   printf("Number of LiDAR points      %d\n",Npoints);
   printf("Width:  %.2lf\n",Width);
   printf("Height:  %.2lf\n",High);
   printf("Density:  %.3lf\n",Density);
 
-  printf("\nTamaño de ventana     %u\n", Wsize);
-  printf("Tamaño de rejilla     %u\nSolape                %.2f\n", Bsize,Overlap);
+  printf("\nSize of sliding window (SW): %u\n", Wsize);
+  printf("Grid size     %u\nOverlap                %.2f\n", Bsize,Overlap);
 
-  // El numero minimo sera la mitad del numero de puntos medio por celda
   minNumPoints = 0.5*Density*Wsize*Wsize;
-  printf("Minimo numero de puntos por celda:   %u\n", minNumPoints);
+  printf("Minium number of points in the SW to be considered::   %u\n", minNumPoints);
 
   Displace = round2d(Wsize*(1-Overlap));
-  printf("Displacement   %.2f\n", Displace);
+  printf("SW x and y Displacement:  %.2f\n", Displace);
 
   // Stage 1 parameters
-  printf("\nVENTANA:\n");
+  printf("\nSliding Window (SW) parameters:\n");
   if(Overlap > 0.0) {
     Crow=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
     Ccol=(int)(round((High+2*Wsize*Overlap)/Displace))-1;
@@ -160,15 +163,16 @@ int main( int argc, char* argv[]) {
     Crow=(int)floor(Width/Wsize)+1;
     Ccol=(int)floor(High/Wsize)+1;
   }
-  printf("Celdas por columa: %d\n",Ccol);
-  printf("Celdas por fila:   %d\n",Crow);
+  printf("Number of SWs per column: %d\n",Ccol);
+  printf("Number of SWs per row:   %d\n",Crow);
   Ncells = Crow*Ccol;
-  
+  printf("Total number of OWM steps (Crow x CCol):   %d\n",Ncells);
+
   // Stage 3 parameters
-  printf("\nMALLA:\n");
+  printf("\nGrid (for stage 3) parameters:\n");
   Crowg=(int)floor(Width/Bsize)+1;
   Ccolg=(int)floor(High/Bsize)+1;
-  printf("Dimensiones de la malla %dx%d\n\n", Ccolg, Crowg);
+  printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, Ccolg, Crowg);
   Ngrid = Crowg*Ccolg;
 
   // Vectores para los mínimos
@@ -177,16 +181,9 @@ int main( int argc, char* argv[]) {
 
   printf("/////////////////////////////////////////////////////////////////////\n");
 
-  using tempo_t = std::chrono::steady_clock;
-  using cast_t = std::chrono::duration<double, std::milli>;
-  std::chrono::time_point<tempo_t> s_func, e_stage1, e_stage2, e_stage3;
-
-
   while(numRuns){
 
     s_func = tempo_t::now();
-
-    // Me devuelve un mínimo por cada ventana no descartada y guarda el ID en minIDs
 
     // stage1s(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
     // stage1rem(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
@@ -205,10 +202,8 @@ int main( int argc, char* argv[]) {
     // Para el caso de no hacer solpado; que numLLPs tenga un valor
     numLLPs = minIDs.size();
 
-    printf("\nCeldas no descartadas:\t\t%d\n", numLLPs);
+    printf("Number of found minima: %d\n", numLLPs);
 
-    // Descarto mínimos si hay solape
-    // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
     if(Overlap != 0.0){
 
         // Ordeno el array de IDs
@@ -219,18 +214,14 @@ int main( int argc, char* argv[]) {
         // Me quedo solo con los mínimos que se han repetido más de una vez
         numLLPs = stage2(numLLPs, minIDs);
 
-        printf("\nNumero de minimos que me quedo:\t%d \n", numLLPs);
+        printf("\nNumber of found LLPs: %d \n", numLLPs);
 
         e_stage2 = tempo_t::now();
     }
 
-
-    // Aplico la malla para ver si hay zonas sin puntos
     if(Bsize > 0){
 
-      // Creo un nuevo qtree con todos los mínimos; las mismas dimensiones que el grande
       Qtree grid =  new Qtree_t( center, maxRadius) ;
-      // Qtree grid =  new Qtree_t( NULL, center, maxRadius) ;
 
       if(Overlap != 0.0){
         for(int i = 0; i < numLLPs; i++)
@@ -247,7 +238,7 @@ int main( int argc, char* argv[]) {
       e_stage3 = tempo_t::now();
 
       addMin = minGridIDs.size();
-      printf("\nMinimos añadidos:\t\t%d\n", addMin);
+      printf("\nNumber of seed points added at stage 3: %d\n\n", addMin);
 
       // Ya no necesito este qtree
       deleteQtree(grid);
@@ -258,37 +249,38 @@ int main( int argc, char* argv[]) {
         
 
     // printf("REP %d\n", numRuns);
-    std::cout << "STAGE1 time elapsed: " << cast_t(e_stage1 - s_func).count() << "ms\n\n";
-    std::cout << "STAGE2 time elapsed: " << cast_t(e_stage2 - e_stage1).count() << "ms\n\n";
-    std::cout << "STAGE3 time elapsed: " << cast_t(e_stage3 - e_stage2).count() << "ms\n\n";
-    std::cout << "TOTAL time elapsed: " << cast_t(e_stage3 - s_func).count() << "ms\n";
+    std::cout << "STAGE 1 time elapsed: " << cast_t(e_stage1 - s_func).count() << " ms\n\n";
+    std::cout << "STAGE 2 time elapsed: " << cast_t(e_stage2 - e_stage1).count() << " ms\n\n";
+    std::cout << "STAGE 3 time elapsed: " << cast_t(e_stage3 - e_stage2).count() << " ms\n\n";
+    std::cout << "TOTAL time elapsed: " << cast_t(e_stage3 - s_func).count() << " ms\n";
     results[--numRuns] = cast_t(e_stage3 - s_func).count()/1e3;
 
-    printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", numLLPs+addMin, Npoints - numLLPs+addMin );
+    printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs - addMin );
 
     if(numRuns){
-
       minIDs.clear();
-
       minGridIDs.clear();
-      // Para parar un poco entre vuelta y vuelta
-      sleep(5);
     }
 
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
     printf("/////////////////////////////////////////////////////////////////////\n\n");
 
   } // while de numRuns
 
-  printf("Ejecuciones:  ");
+  printf("Time of each run:  ");
+  printf("  %.4lf  ", results[0]);
   numRuns = (argc>6)? atoi(argv[6]) : 1;
-  for( int i=0 ; i<numRuns ; i++ ){
-    printf("  %.4lfs  ", results[i]);
-    if(results[0] > results[i])
-        results[0] = results[i];
-  }
-  printf("\nBEST: %.4lf\n", results[0]);
+  double best = results[0];
+  if(numRuns > 1){
+    for( int i=1 ; i<numRuns ; i++ ){
+      printf("  %.4lf  ", results[i]);
+      results[0] += results[i];
+      if(best > results[i])
+        best = results[i];
+    }
+    printf("\nAverage: %.4lf ms.\t Best time: %4lf ms.\n\n", results[0]/numRuns, best);
+  } else 
+    printf("\nAverage: %.4lf ms.\t Best time: %4lf ms.\n\n", results[0], best);
+    
 
   // Append vector
   minGridIDs.insert(minGridIDs.end(), minIDs.begin(), minIDs.begin()+numLLPs);
@@ -296,11 +288,11 @@ int main( int argc, char* argv[]) {
   if (check_results(gold_results, minGridIDs, &point_cloud, Displace) < 0) {
       printf("Unable to check results\n");
   }
-
-  // Fichero de salida
+#ifdef DEBUG
   if(save_file(outputTXT, minGridIDs, &point_cloud) < 0){
     printf("Unable to create file!\n");
   }
+#endif
 
   // Libero memoria
   minIDs.clear();

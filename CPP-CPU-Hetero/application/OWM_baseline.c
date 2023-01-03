@@ -280,7 +280,7 @@ int main( int argc, char* argv[]){
         }
 
         printf("TOTAL time elapsed:     %.6f s\n", resultados[--numRuns] = omp_get_wtime() - t_func);
-        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs+addMin );
+        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs-addMin );
 
         printf("/////////////////////////////////////////////////////////////////////\n");
     }
