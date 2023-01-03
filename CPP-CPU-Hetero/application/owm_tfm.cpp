@@ -137,7 +137,7 @@ int main( int argc, char* argv[]) {
   for(int i = 0; i < Npoints; i++){
     insertPointF2(&point_cloud[i], qtreeIn, minRadius, MaxNumber);
   }
-  std::cout << "Time elapsed at Quadtree construction: " << cast_t(tempo_t::now() - e_tree).count() << " ms\n\n";
+  std::cout << "Time elapsed at Quadtree construction: " << cast_t(tempo_t::now() - e_tree).count()/1e3 << " sec.\n\n";
   
   printf("CLOUD PARAMETERS:\n");
   printf("Number of LiDAR points      %d\n",Npoints);
