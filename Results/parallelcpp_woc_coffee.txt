@@ -1,0 +1,2460 @@
+
+
+Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 1 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.17732 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   378
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SWs per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 6.12851 sec.
+
+Time elapsed at STAGE 2: 0.0126767 sec.
+
+Time elapsed at STAGE 3: 0.0147332 sec.
+
+TOTAL time elapsed: 6.15592 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 6.12523 sec.
+
+Time elapsed at STAGE 2: 0.0126564 sec.
+
+Time elapsed at STAGE 3: 0.0143609 sec.
+
+TOTAL time elapsed: 6.15225 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 6.12907 sec.
+
+Time elapsed at STAGE 2: 0.0126601 sec.
+
+Time elapsed at STAGE 3: 0.0143805 sec.
+
+TOTAL time elapsed: 6.15611 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 6.12566 sec.
+
+Time elapsed at STAGE 2: 0.0126573 sec.
+
+Time elapsed at STAGE 3: 0.014354 sec.
+
+TOTAL time elapsed: 6.15267 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 6.13152 sec.
+
+Time elapsed at STAGE 2: 0.0126684 sec.
+
+Time elapsed at STAGE 3: 0.0144545 sec.
+
+TOTAL time elapsed: 6.15864 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    6.1586    6.1527    6.1561    6.1522    6.1559  
+Average: 6.1551 sec.	 Best time: 6.152248 sec.
+
+58614 points correct; 99.90%
+
+
+Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 2 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.16938 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   378
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SWs per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 383062
+
+Number of found LLPs: 58602 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 3.23385 sec.
+
+Time elapsed at STAGE 2: 0.0154797 sec.
+
+Time elapsed at STAGE 3: 0.0115043 sec.
+
+TOTAL time elapsed: 3.26084 sec.
+Output ground seed-point cloud with 58661 points, 20321551 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58595 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 3.22003 sec.
+
+Time elapsed at STAGE 2: 0.0154271 sec.
+
+Time elapsed at STAGE 3: 0.0108518 sec.
+
+TOTAL time elapsed: 3.24631 sec.
+Output ground seed-point cloud with 58654 points, 20321558 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383056
+
+Number of found LLPs: 58601 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 3.16059 sec.
+
+Time elapsed at STAGE 2: 0.0163143 sec.
+
+Time elapsed at STAGE 3: 0.0110907 sec.
+
+TOTAL time elapsed: 3.188 sec.
+Output ground seed-point cloud with 58660 points, 20321552 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383058
+
+Number of found LLPs: 58601 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 3.28582 sec.
+
+Time elapsed at STAGE 2: 0.0157928 sec.
+
+Time elapsed at STAGE 3: 0.0113426 sec.
+
+TOTAL time elapsed: 3.31295 sec.
+Output ground seed-point cloud with 58660 points, 20321552 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383056
+
+Number of found LLPs: 58601 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 3.10064 sec.
+
+Time elapsed at STAGE 2: 0.0153467 sec.
+
+Time elapsed at STAGE 3: 0.011103 sec.
+
+TOTAL time elapsed: 3.12709 sec.
+Output ground seed-point cloud with 58660 points, 20321552 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    3.1271    3.3130    3.1880    3.2463    3.2608  
+Average: 3.2270 sec.	 Best time: 3.127088 sec.
+
+58614 points correct; 99.90%
+
+
+Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 4 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.16195 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   378
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SWs per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 383048
+
+Number of found LLPs: 58598 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 2.11502 sec.
+
+Time elapsed at STAGE 2: 0.0170968 sec.
+
+Time elapsed at STAGE 3: 0.0105294 sec.
+
+TOTAL time elapsed: 2.14265 sec.
+Output ground seed-point cloud with 58657 points, 20321555 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383049
+
+Number of found LLPs: 58570 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 2.11597 sec.
+
+Time elapsed at STAGE 2: 0.0184229 sec.
+
+Time elapsed at STAGE 3: 0.010052 sec.
+
+TOTAL time elapsed: 2.14444 sec.
+Output ground seed-point cloud with 58629 points, 20321583 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383052
+
+Number of found LLPs: 58595 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 2.11775 sec.
+
+Time elapsed at STAGE 2: 0.018172 sec.
+
+Time elapsed at STAGE 3: 0.0100391 sec.
+
+TOTAL time elapsed: 2.14596 sec.
+Output ground seed-point cloud with 58654 points, 20321558 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383026
+
+Number of found LLPs: 58569 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 2.11784 sec.
+
+Time elapsed at STAGE 2: 0.0182156 sec.
+
+Time elapsed at STAGE 3: 0.0100732 sec.
+
+TOTAL time elapsed: 2.14613 sec.
+Output ground seed-point cloud with 58628 points, 20321584 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58585 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 2.11334 sec.
+
+Time elapsed at STAGE 2: 0.0174204 sec.
+
+Time elapsed at STAGE 3: 0.00983625 sec.
+
+TOTAL time elapsed: 2.1406 sec.
+Output ground seed-point cloud with 58644 points, 20321568 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    2.1406    2.1461    2.1460    2.1444    2.1426  
+Average: 2.1440 sec.	 Best time: 2.140601 sec.
+
+58551 points correct; 99.79%
+
+
+Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 6 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.18868 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   378
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SWs per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 383062
+
+Number of found LLPs: 58574 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.46923 sec.
+
+Time elapsed at STAGE 2: 0.0178908 sec.
+
+Time elapsed at STAGE 3: 0.00975029 sec.
+
+TOTAL time elapsed: 1.49687 sec.
+Output ground seed-point cloud with 58633 points, 20321579 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383017
+
+Number of found LLPs: 58595 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.49317 sec.
+
+Time elapsed at STAGE 2: 0.020165 sec.
+
+Time elapsed at STAGE 3: 0.00973922 sec.
+
+TOTAL time elapsed: 1.52308 sec.
+Output ground seed-point cloud with 58654 points, 20321558 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383048
+
+Number of found LLPs: 58864 
+
+Number of seed points added at stage 3: 58
+
+Time elapsed at STAGE 1: 1.48416 sec.
+
+Time elapsed at STAGE 2: 0.0190062 sec.
+
+Time elapsed at STAGE 3: 0.00922628 sec.
+
+TOTAL time elapsed: 1.51239 sec.
+Output ground seed-point cloud with 58922 points, 20321290 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383062
+
+Number of found LLPs: 58581 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.49384 sec.
+
+Time elapsed at STAGE 2: 0.0206925 sec.
+
+Time elapsed at STAGE 3: 0.00940548 sec.
+
+TOTAL time elapsed: 1.52394 sec.
+Output ground seed-point cloud with 58640 points, 20321572 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383024
+
+Number of found LLPs: 58639 
+
+Number of seed points added at stage 3: 57
+
+Time elapsed at STAGE 1: 1.46602 sec.
+
+Time elapsed at STAGE 2: 0.019893 sec.
+
+Time elapsed at STAGE 3: 0.00921359 sec.
+
+TOTAL time elapsed: 1.49512 sec.
+Output ground seed-point cloud with 58696 points, 20321516 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.4951    1.5239    1.5124    1.5231    1.4969  
+Average: 1.5103 sec.	 Best time: 1.495123 sec.
+
+58498 points correct; 99.70%
+
+
+Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Alcoy.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.18881 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      20380212
+Width:  1413.08
+Height:  1904.30
+Density:  7.574
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   378
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 959
+Number of SWs per row:   714
+Total number of OWM steps (Crow x CCol):   684726
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 96x71
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 383026
+
+Number of found LLPs: 58559 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.19755 sec.
+
+Time elapsed at STAGE 2: 0.0179095 sec.
+
+Time elapsed at STAGE 3: 0.00979596 sec.
+
+TOTAL time elapsed: 1.22526 sec.
+Output ground seed-point cloud with 58618 points, 20321594 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 382996
+
+Number of found LLPs: 58514 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.17972 sec.
+
+Time elapsed at STAGE 2: 0.0204251 sec.
+
+Time elapsed at STAGE 3: 0.00933661 sec.
+
+TOTAL time elapsed: 1.20948 sec.
+Output ground seed-point cloud with 58573 points, 20321639 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383023
+
+Number of found LLPs: 58756 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.17734 sec.
+
+Time elapsed at STAGE 2: 0.0201168 sec.
+
+Time elapsed at STAGE 3: 0.00897737 sec.
+
+TOTAL time elapsed: 1.20644 sec.
+Output ground seed-point cloud with 58815 points, 20321397 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383059
+
+Number of found LLPs: 58639 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.19421 sec.
+
+Time elapsed at STAGE 2: 0.0204191 sec.
+
+Time elapsed at STAGE 3: 0.00898802 sec.
+
+TOTAL time elapsed: 1.22361 sec.
+Output ground seed-point cloud with 58698 points, 20321514 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 383042
+
+Number of found LLPs: 58594 
+
+Number of seed points added at stage 3: 59
+
+Time elapsed at STAGE 1: 1.18102 sec.
+
+Time elapsed at STAGE 2: 0.0195699 sec.
+
+Time elapsed at STAGE 3: 0.0087919 sec.
+
+TOTAL time elapsed: 1.20938 sec.
+Output ground seed-point cloud with 58653 points, 20321559 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.2094    1.2236    1.2064    1.2095    1.2253  
+Average: 1.2148 sec.	 Best time: 1.206436 sec.
+
+58433 points correct; 99.59%
+
+
+Running: ../bin/parallelcpp ../bin/data/Arzua 10 20 0.8 1 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 1 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.77025 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   2035
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SWs per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 3.97331 sec.
+
+Time elapsed at STAGE 2: 0.00541554 sec.
+
+Time elapsed at STAGE 3: 0.0590128 sec.
+
+TOTAL time elapsed: 4.03774 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 3.97638 sec.
+
+Time elapsed at STAGE 2: 0.00541305 sec.
+
+Time elapsed at STAGE 3: 0.0587917 sec.
+
+TOTAL time elapsed: 4.04058 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 3.97411 sec.
+
+Time elapsed at STAGE 2: 0.00541411 sec.
+
+Time elapsed at STAGE 3: 0.0587859 sec.
+
+TOTAL time elapsed: 4.03831 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 3.97389 sec.
+
+Time elapsed at STAGE 2: 0.00541344 sec.
+
+Time elapsed at STAGE 3: 0.05884 sec.
+
+TOTAL time elapsed: 4.03815 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 3.97814 sec.
+
+Time elapsed at STAGE 2: 0.00541955 sec.
+
+Time elapsed at STAGE 3: 0.0588391 sec.
+
+TOTAL time elapsed: 4.0424 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    4.0424    4.0381    4.0383    4.0406    4.0377  
+Average: 4.0394 sec.	 Best time: 4.037735 sec.
+
+27453 points correct; 99.27%
+
+
+Running: ../bin/parallelcpp ../bin/data/Arzua 10 20 0.8 2 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 2 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.76783 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   2035
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SWs per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 203323
+
+Number of found LLPs: 27555 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 2.16979 sec.
+
+Time elapsed at STAGE 2: 0.00708421 sec.
+
+Time elapsed at STAGE 3: 0.0367569 sec.
+
+TOTAL time elapsed: 2.21363 sec.
+Output ground seed-point cloud with 27854 points, 40678649 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203347
+
+Number of found LLPs: 27557 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 2.27644 sec.
+
+Time elapsed at STAGE 2: 0.00740571 sec.
+
+Time elapsed at STAGE 3: 0.0358671 sec.
+
+TOTAL time elapsed: 2.31971 sec.
+Output ground seed-point cloud with 27856 points, 40678647 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203322
+
+Number of found LLPs: 27554 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 2.14018 sec.
+
+Time elapsed at STAGE 2: 0.0071967 sec.
+
+Time elapsed at STAGE 3: 0.0333057 sec.
+
+TOTAL time elapsed: 2.18069 sec.
+Output ground seed-point cloud with 27853 points, 40678650 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203322
+
+Number of found LLPs: 27554 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 2.05073 sec.
+
+Time elapsed at STAGE 2: 0.00716962 sec.
+
+Time elapsed at STAGE 3: 0.0332135 sec.
+
+TOTAL time elapsed: 2.09111 sec.
+Output ground seed-point cloud with 27853 points, 40678650 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203315
+
+Number of found LLPs: 27554 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 2.04948 sec.
+
+Time elapsed at STAGE 2: 0.00705703 sec.
+
+Time elapsed at STAGE 3: 0.0328817 sec.
+
+TOTAL time elapsed: 2.08942 sec.
+Output ground seed-point cloud with 27853 points, 40678650 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    2.0894    2.0911    2.1807    2.3197    2.2136  
+Average: 2.1789 sec.	 Best time: 2.089417 sec.
+
+27453 points correct; 99.27%
+
+
+Running: ../bin/parallelcpp ../bin/data/Arzua 10 20 0.8 4 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 4 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.75817 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   2035
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SWs per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 203327
+
+Number of found LLPs: 27538 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.40734 sec.
+
+Time elapsed at STAGE 2: 0.0111259 sec.
+
+Time elapsed at STAGE 3: 0.025013 sec.
+
+TOTAL time elapsed: 1.44348 sec.
+Output ground seed-point cloud with 27837 points, 40678666 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203337
+
+Number of found LLPs: 27548 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.4074 sec.
+
+Time elapsed at STAGE 2: 0.0113331 sec.
+
+Time elapsed at STAGE 3: 0.0249738 sec.
+
+TOTAL time elapsed: 1.44371 sec.
+Output ground seed-point cloud with 27847 points, 40678656 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203354
+
+Number of found LLPs: 27560 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.41351 sec.
+
+Time elapsed at STAGE 2: 0.0113331 sec.
+
+Time elapsed at STAGE 3: 0.0248557 sec.
+
+TOTAL time elapsed: 1.4497 sec.
+Output ground seed-point cloud with 27859 points, 40678644 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203339
+
+Number of found LLPs: 27556 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.42099 sec.
+
+Time elapsed at STAGE 2: 0.00898738 sec.
+
+Time elapsed at STAGE 3: 0.0243066 sec.
+
+TOTAL time elapsed: 1.45428 sec.
+Output ground seed-point cloud with 27855 points, 40678648 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203335
+
+Number of found LLPs: 27541 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.42461 sec.
+
+Time elapsed at STAGE 2: 0.00962062 sec.
+
+Time elapsed at STAGE 3: 0.0242657 sec.
+
+TOTAL time elapsed: 1.4585 sec.
+Output ground seed-point cloud with 27840 points, 40678663 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.4585    1.4543    1.4497    1.4437    1.4435  
+Average: 1.4499 sec.	 Best time: 1.443477 sec.
+
+27403 points correct; 99.09%
+
+
+Running: ../bin/parallelcpp ../bin/data/Arzua 10 20 0.8 6 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 6 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.79928 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   2035
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SWs per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 203335
+
+Number of found LLPs: 27558 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.984509 sec.
+
+Time elapsed at STAGE 2: 0.00866612 sec.
+
+Time elapsed at STAGE 3: 0.0204403 sec.
+
+TOTAL time elapsed: 1.01362 sec.
+Output ground seed-point cloud with 27857 points, 40678646 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203308
+
+Number of found LLPs: 27545 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.96931 sec.
+
+Time elapsed at STAGE 2: 0.00838942 sec.
+
+Time elapsed at STAGE 3: 0.0202547 sec.
+
+TOTAL time elapsed: 0.997954 sec.
+Output ground seed-point cloud with 27844 points, 40678659 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203333
+
+Number of found LLPs: 27554 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.982928 sec.
+
+Time elapsed at STAGE 2: 0.0119489 sec.
+
+Time elapsed at STAGE 3: 0.0209813 sec.
+
+TOTAL time elapsed: 1.01586 sec.
+Output ground seed-point cloud with 27853 points, 40678650 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203320
+
+Number of found LLPs: 27548 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.996782 sec.
+
+Time elapsed at STAGE 2: 0.0119674 sec.
+
+Time elapsed at STAGE 3: 0.0211883 sec.
+
+TOTAL time elapsed: 1.02994 sec.
+Output ground seed-point cloud with 27847 points, 40678656 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203312
+
+Number of found LLPs: 27550 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 1.00018 sec.
+
+Time elapsed at STAGE 2: 0.0120069 sec.
+
+Time elapsed at STAGE 3: 0.0209652 sec.
+
+TOTAL time elapsed: 1.03315 sec.
+Output ground seed-point cloud with 27849 points, 40678654 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.0331    1.0299    1.0159    0.9980    1.0136  
+Average: 1.0181 sec.	 Best time: 0.997954 sec.
+
+27454 points correct; 99.27%
+
+
+Running: ../bin/parallelcpp ../bin/data/Arzua 10 20 0.8 8 5
+
+Input.txt: ../bin/data/Arzua.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.76815 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      40706503
+Width:  999.99
+Height:  999.99
+Density:  40.707
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   2035
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 507
+Number of SWs per row:   507
+Total number of OWM steps (Crow x CCol):   257049
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 50x50
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 203247
+
+Number of found LLPs: 27545 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.798152 sec.
+
+Time elapsed at STAGE 2: 0.00883691 sec.
+
+Time elapsed at STAGE 3: 0.0192663 sec.
+
+TOTAL time elapsed: 0.826255 sec.
+Output ground seed-point cloud with 27844 points, 40678659 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203328
+
+Number of found LLPs: 27545 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.791882 sec.
+
+Time elapsed at STAGE 2: 0.0104163 sec.
+
+Time elapsed at STAGE 3: 0.0194095 sec.
+
+TOTAL time elapsed: 0.821708 sec.
+Output ground seed-point cloud with 27844 points, 40678659 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203258
+
+Number of found LLPs: 27520 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.781327 sec.
+
+Time elapsed at STAGE 2: 0.0101391 sec.
+
+Time elapsed at STAGE 3: 0.0193141 sec.
+
+TOTAL time elapsed: 0.81078 sec.
+Output ground seed-point cloud with 27819 points, 40678684 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203378
+
+Number of found LLPs: 27518 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.788908 sec.
+
+Time elapsed at STAGE 2: 0.010382 sec.
+
+Time elapsed at STAGE 3: 0.0194532 sec.
+
+TOTAL time elapsed: 0.818743 sec.
+Output ground seed-point cloud with 27817 points, 40678686 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 203316
+
+Number of found LLPs: 27549 
+
+Number of seed points added at stage 3: 299
+
+Time elapsed at STAGE 1: 0.785176 sec.
+
+Time elapsed at STAGE 2: 0.0107979 sec.
+
+Time elapsed at STAGE 3: 0.0194497 sec.
+
+TOTAL time elapsed: 0.815424 sec.
+Output ground seed-point cloud with 27848 points, 40678655 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    0.8154    0.8187    0.8108    0.8217    0.8263  
+Average: 0.8186 sec.	 Best time: 0.810780 sec.
+
+27417 points correct; 99.14%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionF 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 1 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.00263 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   5984
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SWs per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 2.20826 sec.
+
+Time elapsed at STAGE 2: 0.00194839 sec.
+
+Time elapsed at STAGE 3: 0.00637519 sec.
+
+TOTAL time elapsed: 2.21658 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 2.20787 sec.
+
+Time elapsed at STAGE 2: 0.00195058 sec.
+
+Time elapsed at STAGE 3: 0.00627372 sec.
+
+TOTAL time elapsed: 2.21609 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 2.20659 sec.
+
+Time elapsed at STAGE 2: 0.00195658 sec.
+
+Time elapsed at STAGE 3: 0.00625685 sec.
+
+TOTAL time elapsed: 2.2148 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 2.20896 sec.
+
+Time elapsed at STAGE 2: 0.0019504 sec.
+
+Time elapsed at STAGE 3: 0.0062788 sec.
+
+TOTAL time elapsed: 2.21719 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 2.20786 sec.
+
+Time elapsed at STAGE 2: 0.00194971 sec.
+
+Time elapsed at STAGE 3: 0.00626698 sec.
+
+TOTAL time elapsed: 2.21608 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    2.2161    2.2172    2.2148    2.2161    2.2166  
+Average: 2.2161 sec.	 Best time: 2.214799 sec.
+
+9478 points correct; 99.55%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionF 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 2 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.95927 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   5984
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SWs per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 65378
+
+Number of found LLPs: 9467 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.40226 sec.
+
+Time elapsed at STAGE 2: 0.00236753 sec.
+
+Time elapsed at STAGE 3: 0.00434579 sec.
+
+TOTAL time elapsed: 1.40897 sec.
+Output ground seed-point cloud with 9519 points, 42375357 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9467 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.40274 sec.
+
+Time elapsed at STAGE 2: 0.00239203 sec.
+
+Time elapsed at STAGE 3: 0.00424622 sec.
+
+TOTAL time elapsed: 1.40937 sec.
+Output ground seed-point cloud with 9519 points, 42375357 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9467 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.39985 sec.
+
+Time elapsed at STAGE 2: 0.0024565 sec.
+
+Time elapsed at STAGE 3: 0.00423712 sec.
+
+TOTAL time elapsed: 1.40654 sec.
+Output ground seed-point cloud with 9519 points, 42375357 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9468 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.39462 sec.
+
+Time elapsed at STAGE 2: 0.00238377 sec.
+
+Time elapsed at STAGE 3: 0.00423067 sec.
+
+TOTAL time elapsed: 1.40123 sec.
+Output ground seed-point cloud with 9520 points, 42375356 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.39676 sec.
+
+Time elapsed at STAGE 2: 0.00239735 sec.
+
+Time elapsed at STAGE 3: 0.00423951 sec.
+
+TOTAL time elapsed: 1.4034 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.4034    1.4012    1.4065    1.4094    1.4090  
+Average: 1.4059 sec.	 Best time: 1.401231 sec.
+
+9478 points correct; 99.55%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionF 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 4 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.93676 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   5984
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SWs per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 65382
+
+Number of found LLPs: 9461 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.2266 sec.
+
+Time elapsed at STAGE 2: 0.0034656 sec.
+
+Time elapsed at STAGE 3: 0.00379451 sec.
+
+TOTAL time elapsed: 1.23386 sec.
+Output ground seed-point cloud with 9513 points, 42375363 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65375
+
+Number of found LLPs: 9463 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.24453 sec.
+
+Time elapsed at STAGE 2: 0.00351964 sec.
+
+Time elapsed at STAGE 3: 0.00379002 sec.
+
+TOTAL time elapsed: 1.25184 sec.
+Output ground seed-point cloud with 9515 points, 42375361 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65385
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.24816 sec.
+
+Time elapsed at STAGE 2: 0.00350738 sec.
+
+Time elapsed at STAGE 3: 0.00369471 sec.
+
+TOTAL time elapsed: 1.25536 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65377
+
+Number of found LLPs: 9465 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.24735 sec.
+
+Time elapsed at STAGE 2: 0.00353885 sec.
+
+Time elapsed at STAGE 3: 0.00373941 sec.
+
+TOTAL time elapsed: 1.25463 sec.
+Output ground seed-point cloud with 9517 points, 42375359 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9466 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.22811 sec.
+
+Time elapsed at STAGE 2: 0.00351492 sec.
+
+Time elapsed at STAGE 3: 0.00373138 sec.
+
+TOTAL time elapsed: 1.23536 sec.
+Output ground seed-point cloud with 9518 points, 42375358 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.2354    1.2546    1.2554    1.2518    1.2339  
+Average: 1.2462 sec.	 Best time: 1.233864 sec.
+
+9478 points correct; 99.55%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionF 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 6 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 3.99811 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   5984
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SWs per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 65377
+
+Number of found LLPs: 9464 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.2404 sec.
+
+Time elapsed at STAGE 2: 0.0026123 sec.
+
+Time elapsed at STAGE 3: 0.00318278 sec.
+
+TOTAL time elapsed: 1.2462 sec.
+Output ground seed-point cloud with 9516 points, 42375360 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65378
+
+Number of found LLPs: 9462 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.23354 sec.
+
+Time elapsed at STAGE 2: 0.0035924 sec.
+
+Time elapsed at STAGE 3: 0.00331279 sec.
+
+TOTAL time elapsed: 1.24044 sec.
+Output ground seed-point cloud with 9514 points, 42375362 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65379
+
+Number of found LLPs: 9460 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.2273 sec.
+
+Time elapsed at STAGE 2: 0.00353716 sec.
+
+Time elapsed at STAGE 3: 0.00335062 sec.
+
+TOTAL time elapsed: 1.23419 sec.
+Output ground seed-point cloud with 9512 points, 42375364 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65359
+
+Number of found LLPs: 9464 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.20847 sec.
+
+Time elapsed at STAGE 2: 0.00303695 sec.
+
+Time elapsed at STAGE 3: 0.00315384 sec.
+
+TOTAL time elapsed: 1.21466 sec.
+Output ground seed-point cloud with 9516 points, 42375360 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65379
+
+Number of found LLPs: 9464 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.25467 sec.
+
+Time elapsed at STAGE 2: 0.00320327 sec.
+
+Time elapsed at STAGE 3: 0.00325271 sec.
+
+TOTAL time elapsed: 1.26113 sec.
+Output ground seed-point cloud with 9516 points, 42375360 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.2611    1.2147    1.2342    1.2404    1.2462  
+Average: 1.2393 sec.	 Best time: 1.214664 sec.
+
+9470 points correct; 99.46%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionF 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionF.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.02514 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      42384876
+Width:  700.55
+Height:  505.45
+Density:  119.700
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   5984
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 260
+Number of SWs per row:   357
+Total number of OWM steps (Crow x CCol):   92820
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 26x36
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 65369
+
+Number of found LLPs: 9466 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.34526 sec.
+
+Time elapsed at STAGE 2: 0.00261234 sec.
+
+Time elapsed at STAGE 3: 0.00301475 sec.
+
+TOTAL time elapsed: 1.35089 sec.
+Output ground seed-point cloud with 9518 points, 42375358 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65370
+
+Number of found LLPs: 9468 
+
+Number of seed points added at stage 3: 53
+
+Time elapsed at STAGE 1: 1.33551 sec.
+
+Time elapsed at STAGE 2: 0.00307662 sec.
+
+Time elapsed at STAGE 3: 0.00307118 sec.
+
+TOTAL time elapsed: 1.34166 sec.
+Output ground seed-point cloud with 9521 points, 42375355 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65366
+
+Number of found LLPs: 9458 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.32929 sec.
+
+Time elapsed at STAGE 2: 0.00330693 sec.
+
+Time elapsed at STAGE 3: 0.00314787 sec.
+
+TOTAL time elapsed: 1.33574 sec.
+Output ground seed-point cloud with 9510 points, 42375366 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65373
+
+Number of found LLPs: 9463 
+
+Number of seed points added at stage 3: 52
+
+Time elapsed at STAGE 1: 1.32534 sec.
+
+Time elapsed at STAGE 2: 0.00327611 sec.
+
+Time elapsed at STAGE 3: 0.00317411 sec.
+
+TOTAL time elapsed: 1.33179 sec.
+Output ground seed-point cloud with 9515 points, 42375361 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 65344
+
+Number of found LLPs: 9459 
+
+Number of seed points added at stage 3: 53
+
+Time elapsed at STAGE 1: 1.36439 sec.
+
+Time elapsed at STAGE 2: 0.00318176 sec.
+
+Time elapsed at STAGE 3: 0.00311234 sec.
+
+TOTAL time elapsed: 1.37068 sec.
+Output ground seed-point cloud with 9512 points, 42375364 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.3707    1.3318    1.3357    1.3417    1.3509  
+Average: 1.3462 sec.	 Best time: 1.331789 sec.
+
+9470 points correct; 99.46%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionU 10 20 0.8 1 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 1 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.49963 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   6105
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SWs per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 2.44967 sec.
+
+Time elapsed at STAGE 2: 0.00200575 sec.
+
+Time elapsed at STAGE 3: 0.012882 sec.
+
+TOTAL time elapsed: 2.46456 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 2.45153 sec.
+
+Time elapsed at STAGE 2: 0.00199645 sec.
+
+Time elapsed at STAGE 3: 0.0116209 sec.
+
+TOTAL time elapsed: 2.46515 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 2.45129 sec.
+
+Time elapsed at STAGE 2: 0.0019985 sec.
+
+Time elapsed at STAGE 3: 0.011572 sec.
+
+TOTAL time elapsed: 2.46486 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 2.44684 sec.
+
+Time elapsed at STAGE 2: 0.00199485 sec.
+
+Time elapsed at STAGE 3: 0.0115713 sec.
+
+TOTAL time elapsed: 2.46041 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 2.44733 sec.
+
+Time elapsed at STAGE 2: 0.00199907 sec.
+
+Time elapsed at STAGE 3: 0.0115718 sec.
+
+TOTAL time elapsed: 2.4609 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    2.4609    2.4604    2.4649    2.4652    2.4646  
+Average: 2.4632 sec.	 Best time: 2.460409 sec.
+
+9720 points correct; 99.31%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionU 10 20 0.8 2 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 2 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.48576 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   6105
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SWs per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 67116
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.58587 sec.
+
+Time elapsed at STAGE 2: 0.00241714 sec.
+
+Time elapsed at STAGE 3: 0.00784767 sec.
+
+TOTAL time elapsed: 1.59613 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.58594 sec.
+
+Time elapsed at STAGE 2: 0.00242403 sec.
+
+Time elapsed at STAGE 3: 0.0072969 sec.
+
+TOTAL time elapsed: 1.59566 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.58728 sec.
+
+Time elapsed at STAGE 2: 0.00243703 sec.
+
+Time elapsed at STAGE 3: 0.00779487 sec.
+
+TOTAL time elapsed: 1.59751 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.58716 sec.
+
+Time elapsed at STAGE 2: 0.00240782 sec.
+
+Time elapsed at STAGE 3: 0.0072395 sec.
+
+TOTAL time elapsed: 1.59681 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.58596 sec.
+
+Time elapsed at STAGE 2: 0.00239391 sec.
+
+Time elapsed at STAGE 3: 0.00723174 sec.
+
+TOTAL time elapsed: 1.59558 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.5956    1.5968    1.5975    1.5957    1.5961  
+Average: 1.5963 sec.	 Best time: 1.595584 sec.
+
+9720 points correct; 99.31%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionU 10 20 0.8 4 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 4 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.48412 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   6105
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SWs per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 67119
+
+Number of found LLPs: 9690 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.40415 sec.
+
+Time elapsed at STAGE 2: 0.00355424 sec.
+
+Time elapsed at STAGE 3: 0.00588034 sec.
+
+TOTAL time elapsed: 1.41358 sec.
+Output ground seed-point cloud with 9767 points, 48014713 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9694 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.40811 sec.
+
+Time elapsed at STAGE 2: 0.00253654 sec.
+
+Time elapsed at STAGE 3: 0.00563038 sec.
+
+TOTAL time elapsed: 1.41628 sec.
+Output ground seed-point cloud with 9771 points, 48014709 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9694 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.42769 sec.
+
+Time elapsed at STAGE 2: 0.00356362 sec.
+
+Time elapsed at STAGE 3: 0.00571331 sec.
+
+TOTAL time elapsed: 1.43697 sec.
+Output ground seed-point cloud with 9771 points, 48014709 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67120
+
+Number of found LLPs: 9694 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.41587 sec.
+
+Time elapsed at STAGE 2: 0.00363665 sec.
+
+Time elapsed at STAGE 3: 0.00581723 sec.
+
+TOTAL time elapsed: 1.42532 sec.
+Output ground seed-point cloud with 9771 points, 48014709 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67111
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.40406 sec.
+
+Time elapsed at STAGE 2: 0.00257526 sec.
+
+Time elapsed at STAGE 3: 0.00546815 sec.
+
+TOTAL time elapsed: 1.4121 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.4121    1.4253    1.4370    1.4163    1.4136  
+Average: 1.4209 sec.	 Best time: 1.412101 sec.
+
+9723 points correct; 99.34%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionU 10 20 0.8 6 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 6 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.47741 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   6105
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SWs per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 67118
+
+Number of found LLPs: 9692 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.38681 sec.
+
+Time elapsed at STAGE 2: 0.00262052 sec.
+
+Time elapsed at STAGE 3: 0.00483188 sec.
+
+TOTAL time elapsed: 1.39426 sec.
+Output ground seed-point cloud with 9769 points, 48014711 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67094
+
+Number of found LLPs: 9689 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.37947 sec.
+
+Time elapsed at STAGE 2: 0.00329654 sec.
+
+Time elapsed at STAGE 3: 0.00489966 sec.
+
+TOTAL time elapsed: 1.38767 sec.
+Output ground seed-point cloud with 9766 points, 48014714 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67111
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.43238 sec.
+
+Time elapsed at STAGE 2: 0.00324535 sec.
+
+Time elapsed at STAGE 3: 0.00485019 sec.
+
+TOTAL time elapsed: 1.44048 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67120
+
+Number of found LLPs: 9691 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.41591 sec.
+
+Time elapsed at STAGE 2: 0.00307441 sec.
+
+Time elapsed at STAGE 3: 0.00487059 sec.
+
+TOTAL time elapsed: 1.42386 sec.
+Output ground seed-point cloud with 9768 points, 48014712 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67106
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.38164 sec.
+
+Time elapsed at STAGE 2: 0.00326499 sec.
+
+Time elapsed at STAGE 3: 0.00497863 sec.
+
+TOTAL time elapsed: 1.38989 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.3899    1.4239    1.4405    1.3877    1.3943  
+Average: 1.4072 sec.	 Best time: 1.387667 sec.
+
+9724 points correct; 99.35%
+
+
+Running: ../bin/parallelcpp ../bin/data/BrionU 10 20 0.8 8 5
+
+Input.txt: ../bin/data/BrionU.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+MinRadius:   0.10
+Building QTREE...
+INSERTING POINTS...
+Time elapsed at Quadtree construction: 4.46582 sec.
+
+CLOUD PARAMETERS:
+Number of LiDAR points      48024480
+Width:  730.54
+Height:  538.35
+Density:  122.111
+
+Size of sliding window (SW): 10
+Grid size     20
+Overlap                0.80
+Minium number of points in the SW to be considered::   6105
+SW x and y Displacement:  2.00
+
+Sliding Window (SW) parameters:
+Number of SWs per column: 276
+Number of SWs per row:   372
+Total number of OWM steps (Crow x CCol):   102672
+
+Grid (for stage 3) parameters:
+Grid dimesions in 20x20 boxes: 27x37
+
+/////////////////////////////////////////////////////////////////////
+Number of found minima: 67115
+
+Number of found LLPs: 9693 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.56562 sec.
+
+Time elapsed at STAGE 2: 0.00270173 sec.
+
+Time elapsed at STAGE 3: 0.00499404 sec.
+
+TOTAL time elapsed: 1.57331 sec.
+Output ground seed-point cloud with 9770 points, 48014710 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67112
+
+Number of found LLPs: 9701 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.54365 sec.
+
+Time elapsed at STAGE 2: 0.00333108 sec.
+
+Time elapsed at STAGE 3: 0.00477046 sec.
+
+TOTAL time elapsed: 1.55175 sec.
+Output ground seed-point cloud with 9778 points, 48014702 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67116
+
+Number of found LLPs: 9694 
+
+Number of seed points added at stage 3: 77
+
+Time elapsed at STAGE 1: 1.55123 sec.
+
+Time elapsed at STAGE 2: 0.00330785 sec.
+
+Time elapsed at STAGE 3: 0.00472649 sec.
+
+TOTAL time elapsed: 1.55927 sec.
+Output ground seed-point cloud with 9771 points, 48014709 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67123
+
+Number of found LLPs: 9697 
+
+Number of seed points added at stage 3: 76
+
+Time elapsed at STAGE 1: 1.55624 sec.
+
+Time elapsed at STAGE 2: 0.00331579 sec.
+
+Time elapsed at STAGE 3: 0.00518682 sec.
+
+TOTAL time elapsed: 1.56474 sec.
+Output ground seed-point cloud with 9773 points, 48014707 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Number of found minima: 67074
+
+Number of found LLPs: 9697 
+
+Number of seed points added at stage 3: 76
+
+Time elapsed at STAGE 1: 1.52018 sec.
+
+Time elapsed at STAGE 2: 0.00335256 sec.
+
+Time elapsed at STAGE 3: 0.00504349 sec.
+
+TOTAL time elapsed: 1.52858 sec.
+Output ground seed-point cloud with 9773 points, 48014707 fewer points than input cloud
+/////////////////////////////////////////////////////////////////////
+
+Time of each run:    1.5286    1.5647    1.5593    1.5517    1.5733  
+Average: 1.5555 sec.	 Best time: 1.528578 sec.
+
+9720 points correct; 99.31%
