@@ -246,9 +246,9 @@ int main( int argc, char* argv[]) {
 
     }// Bsize
 
-    std::cout << "STAGE 1 time elapsed: " << cast_t(e_stage1 - s_func).count()/1e3 << " sec.\n\n";
-    std::cout << "STAGE 2 time elapsed: " << cast_t(e_stage2 - e_stage1).count()/1e3 << " sec.\n\n";
-    std::cout << "STAGE 3 time elapsed: " << cast_t(e_stage3 - e_stage2).count()/1e3 << " sec.\n\n";
+    std::cout << "Time elapsed at STAGE 1: " << cast_t(e_stage1 - s_func).count()/1e3 << " sec.\n\n";
+    std::cout << "Time elapsed at STAGE 2: " << cast_t(e_stage2 - e_stage1).count()/1e3 << " sec.\n\n";
+    std::cout << "Time elapsed at STAGE 3: " << cast_t(e_stage3 - e_stage2).count()/1e3 << " sec.\n\n";
     std::cout << "TOTAL time elapsed: " << cast_t(e_stage3 - s_func).count()/1e3 << " sec.\n";
     results[--numRuns] = cast_t(e_stage3 - s_func).count()/1e3;
 

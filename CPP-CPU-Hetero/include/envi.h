@@ -85,7 +85,7 @@ void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize);
 
 void deleteQtree( Qtree qtree );
 
-Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int* numNeighs);
+Lpoint searchNeighborsMin(Vector2D* point, Qtree qtree, float radius, int& numInside);
 
 void stage1cpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min);
