@@ -198,7 +198,7 @@ void findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int &numInsid
             if(!boxOverlap2D(*boxMin, *boxMax, qtree->quadrants[i]))
                 continue;
             else {
-                findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside,minptr);
+                findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside, minptr);
             }
         }
     }
@@ -286,12 +286,14 @@ Lpoint searchNeighborsMinp(Vector2D* point, Qtree qtree, float radius, int* numN
     return findValidMin(qtree, &boxMin, &boxMax, numNeighs, 0);
 }
 */
+//The difference between this and searchNeighborsMin is that now the BBox is not a square but a rectangle
 Lpoint searchOverlap(Vector2D* SW_center, Qtree qtree, double radiusX, double radiusY, int &numInside)
 {
     Vector2D boxMin, boxMax;
     Lpoint temp{0, 0.0, 0.0, std::numeric_limits<double>::max()};
     Lpoint *minptr = &temp; 
     numInside = 0;
+    //Now we have radiusX and radiusY instead of radius
     makeBox(SW_center, radiusX, radiusY, &boxMin, &boxMax);
 
     findValidMin(qtree, &boxMin, &boxMax, numInside, minptr);
@@ -326,12 +328,8 @@ void countNeighbors(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numIns
             else {
               countNeighbors(qtree->quadrants[i], boxMin, boxMax, numInside);
             }
-
         }
-
     }
-
-    return;
 }
 
 void countNeighbors2D(Vector2D* point, Qtree qtree, float radius, int* numNeighs)
@@ -342,11 +340,7 @@ void countNeighbors2D(Vector2D* point, Qtree qtree, float radius, int* numNeighs
     makeBox(point, radius, &boxMin, &boxMax);
 
     countNeighbors(qtree, &boxMin, &boxMax, numNeighs);
-
-    return;
 }
-
-
 
 void createQuadrantsF(Qtree qt)
 {
@@ -374,21 +368,25 @@ void insertPointF(Lpoint *point, Qtree qtree, float minRadius)
     {
         if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
         {
+          //creates 4 cuadrants with the new center and radius
           createQuadrantsF(qtree);
+          //identifies the quadrant where the point should be located according to (x,y) coordinates
           idx = quadrantIdx(point, qtree);
+          //inserts the point in the quadrant
           insertPointF(point, qtree->quadrants[idx], minRadius);
-
         } else {
+          //actual point insertion is done only when we are in a definitive leaf
           qtree->points.push_back(point);
         }
     }
-    else                                // No leaf -> search the correct one
+    else                                // No leaf -> search the correct quadrant
     {
       idx = quadrantIdx(point, qtree);
       insertPointF(point, qtree->quadrants[idx], minRadius);
     }
 }
 
+//If a leaf becomes an inner node, the points in the leaf must be redistributed in the new quadrants
 void fillQuadrants(Qtree qtree, float minRadius)
 {
     int idx;
@@ -401,29 +399,35 @@ void fillQuadrants(Qtree qtree, float minRadius)
     qtree->points.clear();
 }
 
-// Insert a point in the qtree creating the appropiate childs
-void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize)
+// The difference with insertPointF is that now we have a max number of points per leaf
+void insertPointMaxNumber(Lpoint *point, Qtree qtree, float minRadius, int maxNumber)
 {
     int idx = 0;
 
     if(isLeaf(qtree))
-    {
-      if(qtree->points.size() < medSize)
+    {  //A leaf with empty space for more points (the size < maxNumber)
+      if(qtree->points.size() < maxNumber)
       {
         qtree->points.push_back(point);
       }
+      //A leaf with no empty space should be converted into an internal node
       else
       {
         if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
         {
           createQuadrantsF(qtree);
+          //the points in the leaf must be redistributed in the new quadrants of the new internal node
           fillQuadrants(qtree, minRadius);
+          // now we identify the quadrant where the point should be located according to (x,y) coordinates
           idx = quadrantIdx(point, qtree);
-          //insertPointF(point, qtree->quadrants[idx], minRadius);
-          insertPointF2(point, qtree->quadrants[idx], minRadius, medSize);
-
+          //and try to insert the point in that quadrant
+          insertPointMaxNumber(point, qtree->quadrants[idx], minRadius, maxNumber);
         } else {
+          //if by minRadius the node is not divisible we insert the point in the leaf anyway
+          //If we whant to enforce the maxNumber criterion we have to use a very small minRadius
+          //so that we never reach this situation
           qtree->points.push_back(point);
+          printf("Warning: maxNumber criterion not enforced\n");
         }
       }
     }
@@ -431,7 +435,7 @@ void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize)
     {
       idx = quadrantIdx(point, qtree);
       //insertPointF(point, qtree->quadrants[idx], minRadius);
-      insertPointF2(point, qtree->quadrants[idx], minRadius, medSize);
+      insertPointMaxNumber(point, qtree->quadrants[idx], minRadius, maxNumber);
     }
 }
 
@@ -455,7 +459,7 @@ void deleteQtree(Qtree qtree)
     return;
 }
 
-
+//rem stands for remember (the minimum), remembrance 
 void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, std::vector<int>& minIDs, Qtree qtreeIn, Vector2D min)
 {
@@ -469,7 +473,7 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
 
     int cellPoints;
 
-    Lpoint newmin = {0,0.0,0.0,0.0};
+    Lpoint previous_min = {0,0.0,0.0,0.0};
 
     Vector2D boxMax, boxMin;
 
@@ -480,34 +484,34 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
         for(int ii = 0 ; ii < Crow ; ii++ ){
 
             cellCenter.x = initX + ii*Displace;
-
+            //computes the BBox of the SW
             makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
-
-            if(insideBox2D(&newmin,boxMin,boxMax)){
-
-              Vector2D oCell = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
-
+            //If the min of the previous SW is inside the BBox of the current SW
+            //then we can just find the min in the new region (not previously visited)
+            if(insideBox2D(&previous_min,boxMin,boxMax)){
+            //This is the BBox/region of the SW that we haven't visited yet in the previous step
+              Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+            //We need to keep how many points were in the previous SW
               int old_cellPoints = cellPoints;
-
-              Lpoint tmp = searchOverlap(&oCell, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
-
-              // We're assuming the points were equidistant throughout the cell, which isn't always true.
+            //This search only in the unknown region of the SW (not previously visited)
+              Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+            //Since we have not visited the whole SW, we need to scale the number of points
+            // We're assuming the points are uniformly distributed, which isn't always true.
               cellPoints += (int)(old_cellPoints * Overlap);
-
-              if(tmp.z < newmin.z){
-                newmin = tmp;
+            //If the min of the new region is smaller than the previous min, then we update it
+              if(tmp.z < previous_min.z){
+                //This can be optimized by updating a pointer to the min instead of copying the whole struct
+                previous_min = tmp;
               }
 
-              // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
             } else {
-
-              newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
+            //If the min of the previous SW is not inside the BBox of the current SW we have to search in the whole SW
+              previous_min = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
 
             }
 
             if(cellPoints >= minNumPoints ){
-                    minIDs.push_back(newmin.id);
+                    minIDs.push_back(previous_min.id);
             }
         }
 
@@ -556,11 +560,11 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
 
             if(insideBox2D(&newmin,boxMin,boxMax)){
 
-              Vector2D oCell = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+              Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
 
               int old_cellPoints = cellPoints;
 
-              Lpoint tmp = searchOverlap(&oCell, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+              Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
 
               // We're assuming the points were equidistant throughout the cell, which isn't always true.
               cellPoints += (int)(old_cellPoints * Overlap);
@@ -714,11 +718,11 @@ std::vector<int> stage1tbbRem(unsigned short Wsize, double Overlap, unsigned sho
 
               if(insideBox2D(&newmin,boxMin,boxMax)){
 
-                Vector2D oCell = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+                Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
 
                 int old_cellPoints = cellPoints;
 
-                Lpoint tmp = searchOverlap(&oCell, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+                Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
 
                 // We're assuming the points were equidistant throughout the cell, which isn't always true.
                 cellPoints += (int)(old_cellPoints * Overlap);

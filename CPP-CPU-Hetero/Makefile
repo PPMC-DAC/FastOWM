@@ -48,14 +48,17 @@ bin/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++2a
 #-DDEBUG -Wall -pedantic -g -Wextra
 
-
 bin/parallelcpp: application/owm_tfm.cpp src/envi.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ $(CPPFLAGS_TBB) -o $@
 
-bin/paralleldpcpp:
+bin/parallelmaxnum: application/owm_tfm.cpp src/envi.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp src/envi_gpu.cpp -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
+		$(CXX) $^ $(CPPFLAGS_TBB) -o $@ -DMAXNUMBER
+
+bin/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
+		@mkdir -p "$(@D)"
+		dpcpp  $^ -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
 
 bin/parallelgpu:
 		@mkdir -p "$(@D)"

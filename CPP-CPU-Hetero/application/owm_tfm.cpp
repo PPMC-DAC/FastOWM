@@ -135,7 +135,12 @@ int main( int argc, char* argv[]) {
   e_tree = tempo_t::now();
   Qtree qtreeIn = new Qtree_t( center, maxRadius);
   for(int i = 0; i < Npoints; i++){
-    insertPointF2(&point_cloud[i], qtreeIn, minRadius, MaxNumber);
+#ifdef MAXNUMBER
+    insertPointMaxNumber(&point_cloud[i], qtreeIn, minRadius, MaxNumber);
+#else
+    insertPointF(&point_cloud[i], qtreeIn, minRadius);
+#endif
+
   }
   std::cout << "Time elapsed at Quadtree construction: " << cast_t(tempo_t::now() - e_tree).count()/1e3 << " sec.\n\n";
   

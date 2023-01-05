@@ -81,7 +81,7 @@ Vector2D getCenter(Vector2D min, Vector2D radius);
 
 void insertPointF(Lpoint *point, Qtree qtree, float minRadius);
 
-void insertPointF2(Lpoint *point, Qtree qtree, float minRadius, int medSize);
+void insertPointMaxNumber(Lpoint *point, Qtree qtree, float minRadius, int medSize);
 
 void deleteQtree( Qtree qtree );
 
