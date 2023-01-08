@@ -217,6 +217,7 @@ Lpoint searchNeighborsMin(Vector2D* SW_center, Qtree qtree, float radius, int & 
 }
 /*
 //overloaded version for parallelization for levels 0 and 1
+//Commented out because it is called from stage1 that already calls this function in parallel
 Lpoint findValidMin(Qtree qtree, Vector2D* boxMin, Vector2D* boxMax, int* numInside, int level)
 {
     // Lpoint tmp, min = nomin;
@@ -475,9 +476,9 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
 
     Vector2D boxMax, boxMin;
 
-    for(int jj = 0 ; jj < Ccol ; jj++ ){
+    for(int jj = 0 ; jj < Ccol ; jj++ ){ // traverses the columns (height, y-axis)
         cellCenter.y = initY + jj*Displace;
-        for(int ii = 0 ; ii < Crow ; ii++ ){
+        for(int ii = 0 ; ii < Crow ; ii++ ){ // traverses the rows (width, x-axis)
             cellCenter.x = initX + ii*Displace;
             //computes the BBox of the SW
             makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
@@ -485,11 +486,11 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
             //then we can just find the min in the new region (not previously visited)
             if(insideBox2D(&previous_min,boxMin,boxMax)){
             //This is the BBox/region of the SW that we haven't visited yet in the previous step
-              Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+              Vector2D unknownPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
             //We need to keep how many points were in the previous SW
               int old_cellPoints = cellPoints;
             //This search only in the unknown region of the SW (not previously visited)
-              Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+              Lpoint tmp = searchOverlap(&unknownPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
             //Since we have not visited the whole SW, we need to scale the number of points
             // We're assuming the points are uniformly distributed, which isn't always true.
               cellPoints += (int)(old_cellPoints * Overlap);
@@ -541,9 +542,9 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
             cellCenter.x = initX + ii*Displace;
             makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
             if(insideBox2D(&newmin,boxMin,boxMax)){
-              Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+              Vector2D unknownPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
               int old_cellPoints = cellPoints;
-              Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+              Lpoint tmp = searchOverlap(&unknownPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
               // We're assuming the points were equidistant throughout the cell, which isn't always true.
               cellPoints += (int)(old_cellPoints * Overlap);
               if(tmp.z < newmin.z){
@@ -661,9 +662,9 @@ std::vector<int> stage1tbbRem(unsigned short Wsize, double Overlap, unsigned sho
               cellCenter.x = initX + ii*Displace;
               makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
               if(insideBox2D(&newmin,boxMin,boxMax)){
-                Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+                Vector2D unknownPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
                 int old_cellPoints = cellPoints;
-                Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+                Lpoint tmp = searchOverlap(&unknownPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
                 // We're assuming the points were equidistant throughout the cell, which isn't always true.
                 cellPoints += (int)(old_cellPoints * Overlap);
                 if(tmp.z < newmin.z){
