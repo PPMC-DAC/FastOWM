@@ -16,10 +16,10 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 executable_par="../bin/parallelcpp"
-inputs=["../bin/data/Alcoy",
-        "../bin/data/Arzua",
-        "../bin/data/BrionF",
-        "../bin/data/BrionU"]
+inputs=["../bin/data/AlcoyH",
+        "../bin/data/ArzuaH",
+        "../bin/data/BrionFH",
+        "../bin/data/BrionUH"]
 
 for file in inputs:
     output="parallelcpp.out"

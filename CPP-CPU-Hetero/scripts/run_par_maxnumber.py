@@ -19,10 +19,10 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 executable_par="../bin/parallelmaxnum"
-inputs=["../bin/data/Alcoy",
-        "../bin/data/Arzua",
-        "../bin/data/BrionF",
-        "../bin/data/BrionU"]
+inputs=["../bin/data/AlcoyH",
+        "../bin/data/ArzuaH",
+        "../bin/data/BrionFH",
+        "../bin/data/BrionUH"]
 
 output="parallelcpp.out"
 maxNumber=[32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
