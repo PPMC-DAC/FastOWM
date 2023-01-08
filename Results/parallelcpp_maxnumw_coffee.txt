@@ -1,3 +1,6 @@
+Note: these results have this message "Warning: maxNumber criterion not enforced" for maxNumber values that has not 
+been enforced due to minRadius is not small enough
+
 
 Running: ../bin/parallelmaxnum ../bin/data/Alcoy 10 20 0.8 1 5 0.1 8
 

@@ -25,7 +25,7 @@ inputs=["../bin/data/Alcoy",
         "../bin/data/BrionU"]
 
 output="parallelcpp.out"
-maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
+maxNumber=[32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 for file in inputs:
     for mN in maxNumber:
         for nth in num_threads:

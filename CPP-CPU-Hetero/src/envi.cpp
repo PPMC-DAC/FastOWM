@@ -427,7 +427,7 @@ void insertPointMaxNumber(Lpoint *point, Qtree qtree, float minRadius, int maxNu
           //If we whant to enforce the maxNumber criterion we have to use a very small minRadius
           //so that we never reach this situation
           qtree->points.push_back(point);
-          printf("Warning: maxNumber criterion not enforced\n");
+          //printf("Warning: maxNumber criterion not enforced\n");
         }
       }
     }
