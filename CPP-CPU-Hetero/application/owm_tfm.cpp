@@ -100,10 +100,10 @@ int main( int argc, char* argv[]) {
     max.x   = 513869.97;
     min.y   = 5403124.76;
     max.y   = 5403197.20;
-  } else if ( inputTXT.find("Arzua.xyz") == std::string::npos &&
-              inputTXT.find("Alcoy.xyz") == std::string::npos && 
-              inputTXT.find("BrionF.xyz") == std::string::npos && 
-              inputTXT.find("BrionU.xyz") == std::string::npos ){
+  } else if ( inputTXT.find("ArzuaH.xyz") == std::string::npos &&
+              inputTXT.find("AlcoyH.xyz") == std::string::npos && 
+              inputTXT.find("BrionFH.xyz") == std::string::npos && 
+              inputTXT.find("BrionUH.xyz") == std::string::npos ){
     printf("No header data!\n");
     exit(-1);
   }

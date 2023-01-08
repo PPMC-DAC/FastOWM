@@ -1331,8 +1331,8 @@ int readXYZfile(std::string filename, Lpoint* & point_cloud, unsigned int & Npoi
     printf("Unable to open file!\n");
     return -1;
   }
-  if ( filename.find("Arzua.xyz") != std::string::npos || filename.find("Alcoy.xyz") != std::string::npos || 
-       filename.find("BrionF.xyz") != std::string::npos || filename.find("BrionU.xyz") != std::string::npos ){
+  if ( filename.find("ArzuaH.xyz") != std::string::npos || filename.find("AlcoyH.xyz") != std::string::npos || 
+       filename.find("BrionFH.xyz") != std::string::npos || filename.find("BrionUH.xyz") != std::string::npos ){
     printf("Read header...\n");
     if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
         printf("Imposible to read header values\n");
