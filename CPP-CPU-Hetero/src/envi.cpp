@@ -470,19 +470,14 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
     double initY = min.y - Wsize/2 + Displace;
 
     Vector2D cellCenter;
-
     int cellPoints;
-
     Lpoint previous_min = {0,0.0,0.0,0.0};
 
     Vector2D boxMax, boxMin;
 
     for(int jj = 0 ; jj < Ccol ; jj++ ){
-
         cellCenter.y = initY + jj*Displace;
-
         for(int ii = 0 ; ii < Crow ; ii++ ){
-
             cellCenter.x = initX + ii*Displace;
             //computes the BBox of the SW
             makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
@@ -503,21 +498,15 @@ void stage1rem(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
                 //This can be optimized by updating a pointer to the min instead of copying the whole struct
                 previous_min = tmp;
               }
-
             } else {
             //If the min of the previous SW is not inside the BBox of the current SW we have to search in the whole SW
               previous_min = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
             }
-
             if(cellPoints >= minNumPoints ){
                     minIDs.push_back(previous_min.id);
             }
         }
-
     }
-
-    return;
 }
 
 void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
@@ -530,11 +519,8 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
     double initY = min.y - Wsize/2 + Displace;
 
     Vector2D cellCenter;
-
     int cellPoints;
-
     Lpoint newmin;
-
     Vector2D boxMax, boxMin;
 
     #pragma omp parallel for private(cellCenter,cellPoints,newmin,boxMax,boxMin) schedule(dynamic)
@@ -544,7 +530,6 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
         cellCenter.y = initY + jj*Displace;
 
         newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
         if(cellPoints >= minNumPoints ){
           #pragma omp critical
           {
@@ -553,32 +538,19 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
         }
 
         for(int ii = 1 ; ii < Crow ; ii++ ){
-
             cellCenter.x = initX + ii*Displace;
-
             makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
-
             if(insideBox2D(&newmin,boxMin,boxMax)){
-
               Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
-
               int old_cellPoints = cellPoints;
-
               Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
-
               // We're assuming the points were equidistant throughout the cell, which isn't always true.
               cellPoints += (int)(old_cellPoints * Overlap);
-
               if(tmp.z < newmin.z){
                 newmin = tmp;
               }
-
-              // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
             } else {
-
               newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
             }
 
             if(cellPoints >= minNumPoints ){
@@ -588,10 +560,7 @@ void stage1remCpp(unsigned short Wsize, double Overlap, unsigned short Crow, uns
               }
             }
         }
-
     }
-
-    return;
 }
 
 void stage1cpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
@@ -604,34 +573,23 @@ void stage1cpp(unsigned short Wsize, double Overlap, unsigned short Crow, unsign
     double initY = min.y - Wsize/2 + Displace;
 
     Vector2D cellCenter;
-
     Lpoint newmin;
-
     int cellPoints;
 
     #pragma omp parallel for private(cellCenter,cellPoints,newmin) schedule(dynamic)
     for(int jj = 0 ; jj < Ccol ; jj++ ){
-
         cellCenter.y = initY + jj*Displace;
-
         for(int ii = 0 ; ii < Crow ; ii++ ){
-
             cellCenter.x = initX + ii*Displace;
-
             newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
             if(cellPoints >= minNumPoints ){
-
                 #pragma omp critical
                 {
                     minIDs.push_back(newmin.id);
                 }
-
             }
         }
-
     }
-
     return;
 }
 
@@ -647,7 +605,6 @@ std::vector<int> stage1tbb(unsigned short Wsize, double Overlap, unsigned short 
     double initY = min.y - Wsize/2 + Displace;
 
     // tbb::blocked_range<int>::size_type gs = 4;
-
     // tbb::affinity_partitioner aff_p;
 
     tbb::parallel_for( tbb::blocked_range2d<int,int>{0,Ccol,0,Crow},
@@ -660,23 +617,15 @@ std::vector<int> stage1tbb(unsigned short Wsize, double Overlap, unsigned short 
         int ie = r.cols().end();
 
         for(int jj = r.rows().begin(); jj < je; ++jj) {
-
             cellCenter.y = initY + jj*Displace;
-
             for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
-
                 cellCenter.x = initX + ii*Displace;
-
                 newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
                 if( cellPoints >= minNumPoints ){
-
                     v.push_back(newmin.id);
-
                 }
             }
         }
-
     });
 
     return std::vector<int>(v.begin(), v.end());
@@ -707,47 +656,29 @@ std::vector<int> stage1tbbRem(unsigned short Wsize, double Overlap, unsigned sho
         int ie = r.cols().end();
 
         for(int jj = r.rows().begin(); jj < je; ++jj) {
-
             cellCenter.y = initY + jj*Displace;
-
             for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
-
               cellCenter.x = initX + ii*Displace;
-
               makeBox(&cellCenter, Wsize*0.5, &boxMin, &boxMax);
-
               if(insideBox2D(&newmin,boxMin,boxMax)){
-
                 Vector2D unknowPartOfSW = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
-
                 int old_cellPoints = cellPoints;
-
                 Lpoint tmp = searchOverlap(&unknowPartOfSW, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
-
                 // We're assuming the points were equidistant throughout the cell, which isn't always true.
                 cellPoints += (int)(old_cellPoints * Overlap);
-
                 if(tmp.z < newmin.z){
                   newmin = tmp;
                 }
-
                 // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
-
               } else {
-
                 newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, cellPoints);
-
               }
 
               if( cellPoints >= minNumPoints ){
-
                   v.push_back(newmin.id);
-
               }
-
             }
         }
-
     });
 
     return std::vector<int>(v.begin(), v.end());
