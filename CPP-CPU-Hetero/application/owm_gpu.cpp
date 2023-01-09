@@ -27,17 +27,17 @@ int main( int argc, const char* argv[]) {
   std::chrono::time_point<tempo_t> s_stage1, e_stage1, s_stage2, e_stage2, s_stage3, e_stage3, s_gpu, e_gpu;
   std::chrono::time_point<tempo_t> i_start, i_end;
 
-  cxxopts::Options options("./reductionts [options]", "Application to reduce points based on Visvalingam algorithm");
+  cxxopts::Options options("./parallel [options]", "OWM algorithm to idetify the ground surface from LiDAR data");
 
   options.add_options()
           ("v,verbose", "Show data input/output", cxxopts::value<bool>()->default_value("false"))
           ("h,help", "Displays code help")
           ("i,input", "Input file name without extension where points are saved",
             cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
-          ("W,Wsize", "Window size", cxxopts::value<uint32_t>()->default_value("12"))
+          ("W,Wsize", "Window size", cxxopts::value<uint32_t>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
-          ("O,Overlap", "Overlap rate", cxxopts::value<double>()->default_value("0.5"))
-          ("n,npes", "Number of cores", cxxopts::value<int>()->default_value("2"))
+          ("O,Overlap", "Overlap rate", cxxopts::value<double>()->default_value("0.80"))
+          ("n,npes", "Number of cores", cxxopts::value<int>()->default_value("1"))
           ("l,loop", "Number of repetitions", cxxopts::value<int>()->default_value("1"))
           ("r,radius", "Leaf nodes radius value", cxxopts::value<float>()->default_value("1.0"))
           ("b,balancing", "Balancing rate", cxxopts::value<float>()->default_value("0.5"))
@@ -57,7 +57,7 @@ int main( int argc, const char* argv[]) {
   int bucle_reps = parameters["loop"].as<int>();
   float minRadius = parameters["radius"].as<float>();
   float rate = parameters["balancing"].as<float>();
-  int maxSize = parameters["size"].as<int>();
+  int maxNumber = parameters["size"].as<int>();
   uint32_t chunkGPU = parameters["chunk"].as<uint32_t>();
   int max_level = parameters["level"].as<int>();
   int divide_limit = parameters["divide_limit"].as<int>();
@@ -209,7 +209,7 @@ int main( int argc, const char* argv[]) {
   printf("Center:     %.2f , %.2f\n", center.x,center.y);
   printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
   printf("minRadius:   %.2f\n", minRadius);
-  printf("maxPoints:   %d\n\n", maxSize);
+  printf("maxPoints:   %d\n\n", maxNumber);
   // printf("CREANDO QTREE...\n");
 
   Width = round2d(max.x-min.x);
@@ -227,15 +227,15 @@ int main( int argc, const char* argv[]) {
 
   // for(int i = 0; i < Npoints; i++){
   //   // insertPoint(&point_cloud[i], cpu_qtree, minRadius);
-  //   insertPoint2(&point_cloud[i], cpu_qtree, maxSize);
+  //   insertPoint2(&point_cloud[i], cpu_qtree, maxNumber);
   // }
 
-  // cpu_qtree = parallel_qtree_creation(max_level, center, maxRadius, maxSize);
-  cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, maxSize);
+  // cpu_qtree = parallel_qtree_creation(max_level, center, maxRadius, maxNumber);
+  cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, maxNumber);
   // cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, minRadius);
-  // cpu_qtree = parallel_qtree_pf3(max_level, center, maxRadius, maxSize, maxSize*divide_limit);
-  // cpu_qtree = parallel_qtree_creationtg(max_level, center, maxRadius, maxSize);
-  // cpu_qtree = parallel_qtree_creationtg2(center, maxRadius, max_level, maxSize);
+  // cpu_qtree = parallel_qtree_pf3(max_level, center, maxRadius, maxNumber, maxNumber*divide_limit);
+  // cpu_qtree = parallel_qtree_creationtg(max_level, center, maxRadius, maxNumber);
+  // cpu_qtree = parallel_qtree_creationtg2(center, maxRadius, max_level, maxNumber);
 
   double cpu_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
   
@@ -266,7 +266,7 @@ int main( int argc, const char* argv[]) {
     std::cout << E.what() << std::endl;
   }
 
-  // Qtree parallel_qtree = parallel_qtree_creation(2, center, maxRadius, point_cloud, maxSize);
+  // Qtree parallel_qtree = parallel_qtree_creation(2, center, maxRadius, point_cloud, maxNumber);
   // deleteQtree(parallel_qtree);
   // delete(parallel_qtree);
 
@@ -337,9 +337,6 @@ int main( int argc, const char* argv[]) {
   // std::vector<int> minIDs;
   std::vector<int> minGridIDs;
 
-
-  printf("/////////////////////////////////////////////////////////////////////\n");
-  printf("/////////////////////////////////////////////////////////////////////\n");
   printf("/////////////////////////////////////////////////////////////////////\n\n");
 
   // Para no tener que volver a guardar en memoria y repetir la ejecución
@@ -508,8 +505,6 @@ int main( int argc, const char* argv[]) {
       sleep(3);
     }
 
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
     printf("/////////////////////////////////////////////////////////////////////\n\n");
 
   } // while de bucle_reps
@@ -518,7 +513,7 @@ int main( int argc, const char* argv[]) {
 
   for(double& item : resultados) printf("  %.4lfs  ", item);
   // printf("\nBEST: %.4lf; minRadius: %g\n", best_time, minRadius);
-  printf("\nBEST: %g s (rate = %g); minRadius: %g; maxSize: %d\n", best_time/1e3, best_rate, minRadius, maxSize);
+  printf("\nBEST: %g s (rate = %g); minRadius: %g; maxNumber: %d\n", best_time/1e3, best_rate, minRadius, maxNumber);
   printf("FINAL ( creation + copy + best ): %g s\n", cpu_tree_time + new_tree_time + best_time/1e3);
 
   // Append vector
@@ -536,7 +531,7 @@ int main( int argc, const char* argv[]) {
     printf("Unable to create results file!\n");
   }
 
-  if(save_time("resultados_maxPoints.csv", inputTXT, npes, chunkGPU, minRadius, maxSize, max_level,
+  if(save_time("resultados_maxPoints.csv", inputTXT, npes, chunkGPU, minRadius, maxNumber, max_level,
             cpu_tree_time, new_tree_time, best_time/1e3, best_rate, checked_rate) < 0){
 
     printf("Unable to create results file!\n");

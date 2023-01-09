@@ -748,8 +748,8 @@ void insertPoint2(Lpoint* point, Qtree qtree, int maxSize)
 }
 
 
-/* Creates nodes up to "max level" and form this level it starts
-saving the directions of the nodes to be distributed in a vector */
+/* Creates nodes up to "max level" and from this level it starts
+saving the pointer to the nodes to be distributed in a vector */
 void insert_leafs(Qtree qtree, int maxlevel, int level, std::vector<Qtree>& n_work)
 {
 

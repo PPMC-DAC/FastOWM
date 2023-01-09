@@ -15,8 +15,13 @@ nreps = 5
 #minRadius for the OWM
 mR=0.1
 
+output="parallelcpp.out"
+
 start = time.time()
 print("Start : %s" % time.ctime())
+f = open(output, "a")
+f.write("Start : {}".format(time.ctime()))
+f.close()
 
 executable_par="../bin/parallelmaxnum"
 inputs=["../bin/data/AlcoyH",
@@ -24,7 +29,6 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionFH",
         "../bin/data/BrionUH"]
 
-output="parallelcpp.out"
 maxNumber=[32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 for file in inputs:
     for mN in maxNumber:
@@ -38,3 +42,7 @@ for file in inputs:
 end = time.time()
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
+f = open(output, "a")
+f.write("End : {}".format(time.ctime()))
+f.write("Total Execution time: {} hours".format((end - start)/3600))
+f.close()

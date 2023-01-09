@@ -60,29 +60,29 @@ bin/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
 		@mkdir -p "$(@D)"
 		dpcpp  $^ -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
 
-bin/parallelgpu:
+bin/parallelgpu: application/owm_gpu.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -o $@
+		dpcpp $^ -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -o $@
 
-bin/paralleldyn:
+bin/paralleldyn: application/owm_gpu.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -o $@
+		dpcpp $^ -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -o $@
 
-bin/paralleldynidx:
+bin/paralleldynidx: application/owm_gpu.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -DINDEX -o $@
+		dpcpp $^ -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -DINDEX -o $@
 
-bin/parallelindex:
+bin/parallelindex: application/owm_gpu.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DINDEX -o $@
+		dpcpp $^ -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DINDEX -o $@
 
-bin/stats:
+bin/stats: application/owm_stats.cpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_stats.cpp -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
+		dpcpp $^ -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
 
-bin/cudaParallel:
+bin/cudaParallel: application/owm_gpu.cpp
 		@mkdir -p "$(@D)"
-		clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -o $@
+		clang++ $^ -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -o $@
 
 clean:
 	rm -rf bin/
