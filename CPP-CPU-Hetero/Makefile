@@ -60,19 +60,19 @@ $(BIN)/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
 		@mkdir -p "$(@D)"
 		icpx  $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
 
-$(BIN)/parallelgpu: application/owm_gpu.cpp
+$(BIN)/parallelgpu: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@
 
-$(BIN)/paralleldyn: application/owm_gpu.cpp
+$(BIN)/paralleldyn: application/owm_gpu.cpp src/envi_gpu.hpp 
 		@mkdir -p "$(@D)"
 		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
 
-$(BIN)/paralleldynidx: application/owm_gpu.cpp
+$(BIN)/paralleldynidx: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -DINDEX -o $@
 
-$(BIN)/parallelindex: application/owm_gpu.cpp
+$(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
 
@@ -80,7 +80,7 @@ $(BIN)/stats: application/owm_stats.cpp
 		@mkdir -p "$(@D)"
 		icpx $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
 
-$(BIN)/cudaParallel: application/owm_gpu.cpp
+$(BIN)/cudaParallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		clang++ $^ -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -o $@
 
