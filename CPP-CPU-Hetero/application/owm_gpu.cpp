@@ -30,20 +30,20 @@ int main( int argc, const char* argv[]) {
   cxxopts::Options options("./parallel [options]", "OWM algorithm to idetify the ground surface from LiDAR data");
 
   options.add_options()
-          ("v,verbose", "Show data input/output", cxxopts::value<bool>()->default_value("false"))
-          ("h,help", "Displays code help")
-          ("i,input", "Input file name without extension where points are saved",
+          ("v,verbose", "Dump input/output data", cxxopts::value<bool>()->default_value("false"))
+          ("h,help", "Help message")
+          ("i,input", "Input file name without .xyz extension (LiDAR data file)",
             cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
-          ("W,Wsize", "Window size", cxxopts::value<uint32_t>()->default_value("10"))
+          ("W,Wsize", "Sliding Window size", cxxopts::value<uint32_t>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
-          ("O,Overlap", "Overlap rate", cxxopts::value<double>()->default_value("0.80"))
-          ("n,npes", "Number of cores", cxxopts::value<int>()->default_value("1"))
-          ("l,loop", "Number of repetitions", cxxopts::value<int>()->default_value("1"))
-          ("r,radius", "Leaf nodes radius value", cxxopts::value<float>()->default_value("1.0"))
-          ("b,balancing", "Balancing rate", cxxopts::value<float>()->default_value("0.5"))
-          ("s,size", "Nodes maximum point size", cxxopts::value<int>()->default_value("32"))
+          ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
+          ("n,npes", "Number of threads", cxxopts::value<int>()->default_value("1"))
+          ("l,loop", "Number of runs of the OWM algorithm", cxxopts::value<int>()->default_value("1"))
+          ("r,radius", "Value of minRadius ()", cxxopts::value<float>()->default_value("1.0"))
+          ("b,balancing", "CPU-GPU partition ratio", cxxopts::value<float>()->default_value("0.5"))
+          ("s,size", "Value of maxNumber (max number of points per leaf-node)", cxxopts::value<int>()->default_value("32"))
           ("c,chunk", "GPU chunk", cxxopts::value<uint32_t>()->default_value("1024"))
-          ("L,level", "Maximum level up to which to distribute the creation", 
+          ("L,level", "Tree level at which the tree creation becomes parallel", 
             cxxopts::value<int>()->default_value("3"))
           ("d,divide_limit", "Factor limit for the depth of parallelization of the tree creation", 
             cxxopts::value<int>()->default_value("16"));
@@ -187,7 +187,7 @@ int main( int argc, const char* argv[]) {
 
   try {
     point_cloud = static_cast<Lpoint*>(mallocWrap(Npoints * sizeof(Lpoint)));
-  } catch (cl::sycl::invalid_parameter_error &E) {
+  } catch (sycl::exception &E) {
     std::cout << "point_cloud malloc: " << E.what() << std::endl;
   }
 
@@ -248,13 +248,13 @@ int main( int argc, const char* argv[]) {
 #ifdef INDEX
   try {
     array_indexes = static_cast<QtreeG5>(mallocWrap( cpu_tree_nodes * sizeof(QtreeG5_t)));
-  } catch (cl::sycl::invalid_parameter_error &E) {
+  } catch (sycl::exception &E) {
     std::cout << E.what() << std::endl;
   }
 #else
   try {
     array_pointers = static_cast<QtreeG4>(mallocWrap( cpu_tree_nodes * sizeof(QtreeG4_t)));
-  } catch (cl::sycl::invalid_parameter_error &E) {
+  } catch (sycl::exception &E) {
     std::cout << E.what() << std::endl;
   }
 #endif
@@ -262,7 +262,7 @@ int main( int argc, const char* argv[]) {
   try {
     // array_all_points = static_cast<Lpoint**>(mallocWrap( Npoints * sizeof(Lpoint*)));  
     array_all_points = static_cast<Lpoint*>(mallocWrap( Npoints * sizeof(Lpoint)));
-  } catch (cl::sycl::invalid_parameter_error &E) {
+  } catch (sycl::exception &E) {
     std::cout << E.what() << std::endl;
   }
 

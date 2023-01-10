@@ -5,6 +5,7 @@
 // #define TBB_PREVIEW_MEMORY_POOL 1
 #define TBB_PREVIEW_GLOBAL_CONTROL 1
 
+#include <sycl/sycl.hpp>
 #include <iostream>
 // #include <limits>
 #include <cmath>
@@ -20,7 +21,6 @@
 #include <sstream>
 #include <chrono>
 
-#include <CL/sycl.hpp>
 // #include <CL/sycl/backend/cuda.hpp>
 
 #include "tbb/global_control.h"
@@ -39,7 +39,7 @@
 // Processes input arguments
 #include "../include/cxxopts.hpp"
 
-using namespace cl::sycl;
+using namespace sycl;
 
 
 
@@ -245,7 +245,7 @@ int32_t cuda_num_pts_copiados = 0;
 // //host_selector selector;
 
 // queue q(selector);
-cl::sycl::queue gpu_queue(gpu_selector{} /*, propList*/);
+sycl::queue gpu_queue(gpu_selector_v /*, propList*/);
 
 // sycl::device qdevice = gpu_queue.get_device();
 // sycl::context qcontext = gpu_queue.get_context();
@@ -704,16 +704,16 @@ void insertPoint(Lpoint* point, Qtree qtree, float minRadius)
 }
 
 
-void insertPoint2(Lpoint *point, Qtree qtree, int maxSize);
+void insertPoint2(Lpoint *point, Qtree qtree, int maxNumber);
 
 /* Re-inserts the points when its exceed the set max. size  */
-void fillQuadrants(Qtree qtree, int maxSize)
+void fillQuadrants(Qtree qtree, int maxNumber)
 {
 
     for(Lpoint* p : qtree->points)
     {
       int idx = quadrantIdx(p, qtree);
-      insertPoint2(p, qtree->quadrants[idx], maxSize);
+      insertPoint2(p, qtree->quadrants[idx], maxNumber);
     }
 
     qtree->points.clear();
@@ -722,34 +722,33 @@ void fillQuadrants(Qtree qtree, int maxSize)
 
 /* Inserts a point in the qtree creating the appropiate childs
  by setting a maximum number of points*/
-void insertPoint2(Lpoint* point, Qtree qtree, int maxSize)
+void insertPoint2(Lpoint* point, Qtree qtree, int maxNumber)
 {
     if(isLeaf(qtree))
     {
-      if(qtree->points.size() < maxSize)
+      if(qtree->points.size() < maxNumber)
       {
         qtree->points.push_back(point);
       }
       else
       {
         createQuadrants(qtree);
-        fillQuadrants(qtree, maxSize);
+        fillQuadrants(qtree, maxNumber);
         int idx = quadrantIdx(point, qtree);
-        insertPoint2(point, qtree->quadrants[idx], maxSize);
+        insertPoint2(point, qtree->quadrants[idx], maxNumber);
 
       }
     }
     else                                // No leaf -> search the correct one
     {
-      // printf("octante intermedio nivel %d\n", nivel);
       int idx = quadrantIdx(point, qtree);
-      insertPoint2(point, qtree->quadrants[idx], maxSize);
+      insertPoint2(point, qtree->quadrants[idx], maxNumber);
     }
 }
 
 
 /* Creates nodes up to "max level" and from this level it starts
-saving the pointer to the nodes to be distributed in a vector */
+saving the pointer to the nodes in a vector that later on will be processed in parallel */
 void insert_leafs(Qtree qtree, int maxlevel, int level, std::vector<Qtree>& n_work)
 {
 
@@ -770,7 +769,7 @@ void insert_leafs(Qtree qtree, int maxlevel, int level, std::vector<Qtree>& n_wo
 
 
 /* Creates the tree in parallel using parallel_for */
-Qtree parallel_qtree_creation( int level, Vector2D center, float radius, int maxSize )
+Qtree parallel_qtree_creation( int level, Vector2D center, float radius, int maxNumber )
 {
 
   Qtree root = createQtree( NULL, center, radius);
@@ -795,7 +794,7 @@ Qtree parallel_qtree_creation( int level, Vector2D center, float radius, int max
 
       if( insideBox2D(point, boxMin, boxMax) ) {
         // insertPoint(point, qt, 0.5);
-        insertPoint2(point, qt, maxSize);
+        insertPoint2(point, qt, maxNumber);
       }
 
     }
@@ -829,11 +828,11 @@ Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t 
   Qtree root = createQtree( NULL, center, radius);
 
   std::vector<Qtree> n_work;
-
+//create the "transitory" leaves up to tree-level "level" (sequential) and store these leaves in the n_work vector
   insert_leafs( root, level, 0, n_work );
 
   // std::cout << "  N tareas: " << n_work.size() << std::endl << std::flush;
-
+//traverse the LiDAR points in parallel in the transitory leaves
   tbb:: parallel_for( tbb::blocked_range<int>{0, static_cast<int>(Npoints)},
                       [root](tbb::blocked_range<int> r ) {
 
@@ -845,7 +844,8 @@ Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t 
 
   });
 
-
+//Finally, traverse in parallel the transitory leaves and finish up the tree
+//that hangs from them storing the points in the final leaves
   tbb::parallel_for( 0, static_cast<int>(n_work.size()), 1,
     [&](int id){
 
@@ -898,9 +898,9 @@ Qtree parallel_qtree_stage3( int level, Vector2D center, float radius, delimiter
 }
 
 
-void go_deeper(Qtree qt, int maxSize, int limit);
+void go_deeper(Qtree qt, int maxNumber, int limit);
 
-Qtree parallel_qtree_pf3( int level, Vector2D center, float radius, int maxSize, int limit )
+Qtree parallel_qtree_pf3( int level, Vector2D center, float radius, int maxNumber, int limit )
 {
 
   Qtree root = createQtree( NULL, center, radius);
@@ -924,17 +924,17 @@ Qtree parallel_qtree_pf3( int level, Vector2D center, float radius, int maxSize,
 
 
   tbb::parallel_for( 0, static_cast<int>(n_work.size()), 1,
-    [&n_work,maxSize,limit](int id){
+    [&n_work,maxNumber,limit](int id){
 
     Qtree qt = n_work[id];
 
     createQuadrants(qt);
 
     if(qt->points.size() < limit) {
-      fillQuadrants(qt, maxSize);
+      fillQuadrants(qt, maxNumber);
     }
     else {
-      go_deeper(qt, maxSize, limit);
+      go_deeper(qt, maxNumber, limit);
       qt->points.clear();
     }
 
@@ -943,7 +943,7 @@ Qtree parallel_qtree_pf3( int level, Vector2D center, float radius, int maxSize,
   return root;
 }
 
-void go_deeper(Qtree qt, int maxSize, int limit)
+void go_deeper(Qtree qt, int maxNumber, int limit)
 {
   std::vector<Qtree> n_work;
 
@@ -974,17 +974,17 @@ void go_deeper(Qtree qt, int maxSize, int limit)
   });
 
   tbb::parallel_for( 0, static_cast<int>(n_work.size()), 1,
-    [&n_work,maxSize,limit](int id){
+    [&n_work,maxNumber,limit](int id){
 
     Qtree leaf = n_work[id];
 
     createQuadrants(leaf);
 
     if(leaf->points.size() < limit) {
-      fillQuadrants(leaf, maxSize);
+      fillQuadrants(leaf, maxNumber);
     }
     else {
-      go_deeper(leaf, maxSize, limit);
+      go_deeper(leaf, maxNumber, limit);
       leaf->points.clear();
     }
 
@@ -996,7 +996,7 @@ void go_deeper(Qtree qt, int maxSize, int limit)
 
 /* Creates nodes up to "max level" and form this level it starts
 creating tasks to insert points */
-void insert_leafs(Qtree qtree, int maxlevel, int level, int maxSize)
+void insert_leafs(Qtree qtree, int maxlevel, int level, int maxNumber)
 {
 
     if(level < maxlevel)
@@ -1004,7 +1004,7 @@ void insert_leafs(Qtree qtree, int maxlevel, int level, int maxSize)
       createQuadrants(qtree);
 
       for(int i = 0; i < 4; i++)
-        insert_leafs(qtree->quadrants[i], maxlevel, level+1, maxSize);
+        insert_leafs(qtree->quadrants[i], maxlevel, level+1, maxNumber);
 
     }
     else
@@ -1013,7 +1013,7 @@ void insert_leafs(Qtree qtree, int maxlevel, int level, int maxSize)
       Lpoint* captured_cloud = point_cloud;
       uint64_t size = Npoints;
 
-      global_tg.run( [qtree,captured_cloud,size,maxSize]{
+      global_tg.run( [qtree,captured_cloud,size,maxNumber]{
 
         Vector2D boxMin, boxMax;
         makeBox(qtree->center, qtree->radius, boxMin, boxMax);
@@ -1024,7 +1024,7 @@ void insert_leafs(Qtree qtree, int maxlevel, int level, int maxSize)
 
           if( insideBox2D(p, boxMin, boxMax) ) {
             // insertPoint(point, qtree, 0.5);
-            insertPoint2(p, qtree, maxSize);
+            insertPoint2(p, qtree, maxNumber);
           }
 
         } //for
@@ -1036,12 +1036,12 @@ void insert_leafs(Qtree qtree, int maxlevel, int level, int maxSize)
 }
 
 /* Creates the tree in parallel using task_group */
-Qtree parallel_qtree_creationtg( int level, Vector2D center, float radius, int maxSize )
+Qtree parallel_qtree_creationtg( int level, Vector2D center, float radius, int maxNumber )
 {
 
   Qtree root = createQtree( NULL, center, radius);
 
-  insert_leafs( root, level, 0, maxSize);
+  insert_leafs( root, level, 0, maxNumber);
 
   global_tg.wait();
 
@@ -1052,7 +1052,7 @@ Qtree parallel_qtree_creationtg( int level, Vector2D center, float radius, int m
 /* Creates nodes up to "max level" and form this level it starts
 creating tasks that first, look for all the points in that area,
 and then start the insertion creating the tree */
-void search_and_save(Qtree qtree, int maxlevel, int level, int maxsize)
+void search_and_save(Qtree qtree, int maxlevel, int level, int maxNumber)
 {
 
     if(level < maxlevel)
@@ -1060,7 +1060,7 @@ void search_and_save(Qtree qtree, int maxlevel, int level, int maxsize)
       createQuadrants(qtree);
 
       for(int i = 0; i < 4; i++)
-        search_and_save(qtree->quadrants[i], maxlevel, level+1, maxsize);
+        search_and_save(qtree->quadrants[i], maxlevel, level+1, maxNumber);
 
     }
     else
@@ -1069,7 +1069,7 @@ void search_and_save(Qtree qtree, int maxlevel, int level, int maxsize)
       Lpoint* captured_cloud = point_cloud;
       uint64_t size = Npoints;
 
-      global_tg.run( [qtree, captured_cloud, size, maxsize]{
+      global_tg.run( [qtree, captured_cloud, size, maxNumber]{
 
         Vector2D boxMin, boxMax;
         makeBox(qtree->center, qtree->radius, boxMin, boxMax);
@@ -1080,14 +1080,14 @@ void search_and_save(Qtree qtree, int maxlevel, int level, int maxsize)
 
           if( insideBox2D(p, boxMin, boxMax) ) {
             // insertPoint(point, qtree, 0.5);
-            // insertPoint2(p, qtree, maxSize);
+            // insertPoint2(p, qtree, maxNumber);
             qtree->points.push_back(p);
           }
 
         } //for
 
         createQuadrants(qtree);
-        fillQuadrants(qtree, maxsize);
+        fillQuadrants(qtree, maxNumber);
 
       }); //task
       
@@ -1095,12 +1095,12 @@ void search_and_save(Qtree qtree, int maxlevel, int level, int maxsize)
       
 }
 
-Qtree parallel_qtree_creationtg2( Vector2D center, float radius, int maxlevel, int maxsize )
+Qtree parallel_qtree_creationtg2( Vector2D center, float radius, int maxlevel, int maxNumber )
 {
 
   Qtree root = new Qtree_t( NULL, center, radius);
 
-  search_and_save( root, maxlevel, 0, maxsize);
+  search_and_save( root, maxlevel, 0, maxNumber);
 
   global_tg.wait();
 
@@ -1309,7 +1309,7 @@ void stage1heterOne(unsigned short Wsize, double Overlap, unsigned short nCols, 
 
     tg.run( [&]{
 
-      gpu_queue.parallel_for(range<1>(chunk), [=](cl::sycl::id<1> id) { 
+      gpu_queue.parallel_for(range<1>(chunk), [=](sycl::id<1> id) { 
 
         int i = static_cast<int>(id[0]);
 
@@ -1868,7 +1868,7 @@ void* mallocWrap(size_t size)
 {
   // void *ptr = std::malloc(size);
   void *ptr = malloc_host(size, gpu_queue);
-  // void *ptr = cl::sycl::malloc(size, qdevice, qcontext, global_alloc);
+  // void *ptr = sycl::malloc(size, qdevice, qcontext, global_alloc);
   if (ptr)
       return ptr;
   else
@@ -2776,7 +2776,7 @@ void stage1gpuRem(unsigned short Wsize, double Overlap, unsigned short nCols, un
     double initX = min.x - Wsize/2 + Displace;
     double initY = min.y - Wsize/2 + Displace;
 
-    gpu_queue.parallel_for(range<2>(nRows, nCols), [=](cl::sycl::id<2> index) { 
+    gpu_queue.parallel_for(range<2>(nRows, nCols), [=](sycl::id<2> index) { 
 
       int jj = static_cast<int>(index[0]);
       int ii = static_cast<int>(index[1]);
@@ -3068,7 +3068,7 @@ void stage1heter(unsigned short Wsize, double Overlap, unsigned short nCols, uns
     // QtreeG5 p_arbol = array_indexes;
     // Lpoint* p_puntos = array_all_points;
 
-    sycl::event e = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](cl::sycl::id<2> index) { 
+    sycl::event e = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](sycl::id<2> index) { 
     // gpu_queue.parallel_for(range<1>(nRows), [=](id<1> j) { 
 
       int jj = static_cast<int>(index[0]);
@@ -3164,7 +3164,7 @@ void stage1hetertg(unsigned short Wsize, double Overlap, unsigned short nCols, u
 
     global_tg.run( [&]{
 
-      gpu_queue.parallel_for(range<2>(chunk, nCols), [=](cl::sycl::id<2> index) { 
+      gpu_queue.parallel_for(range<2>(chunk, nCols), [=](sycl::id<2> index) { 
       // gpu_queue.parallel_for(range<1>(nRows), [=](id<1> j) { 
 
         int jj = static_cast<int>(index[0]);
@@ -3251,7 +3251,7 @@ void stage1heterTgMix(unsigned short Wsize, double Overlap, unsigned short Crow,
 
     tg.run([&]{
 
-      gpu_queue.parallel_for(range<2>(chunk, Crow), [=](cl::sycl::id<2> index) { 
+      gpu_queue.parallel_for(range<2>(chunk, Crow), [=](sycl::id<2> index) { 
 
         int jj = static_cast<int>(index[0]);
         int ii = static_cast<int>(index[1]);
@@ -3355,14 +3355,13 @@ void stage1heter2q(unsigned short Wsize, double Overlap, unsigned short nCols, u
     int chunk = static_cast<int>(nRows * rate);
 
     // CPU queue
-    cpu_selector hselector;
-    cl::sycl::queue hq(hselector);
+    sycl::queue hq{cpu_selector_v};
 
     // gpu_queue.prefetch(array_pointers, cpu_tree_nodes * sizeof(QtreeG4_t));
     // gpu_queue.prefetch(array_all_points, Npoints * sizeof(Lpoint));
 
-    sycl::event e1 = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](cl::sycl::id<2> index) { 
-    // sycl::event e1 = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](cl::sycl::id<2> index) { 
+    sycl::event e1 = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](sycl::id<2> index) { 
+    // sycl::event e1 = gpu_queue.parallel_for(range<2>(chunk, nCols), [=](sycl::id<2> index) { 
 
       int jj = static_cast<int>(index[0]);
       int ii = static_cast<int>(index[1]);
@@ -3380,8 +3379,8 @@ void stage1heter2q(unsigned short Wsize, double Overlap, unsigned short nCols, u
 
     });
 
-    sycl::event e2 = hq.parallel_for(range<2>(nRows-chunk, nCols), [=](cl::sycl::id<2> index) { 
-    // sycl::event e2 = hq.parallel_for<class hminSearch>(range<2>(nRows-chunk, nCols), [=](cl::sycl::id<2> index) { 
+    sycl::event e2 = hq.parallel_for(range<2>(nRows-chunk, nCols), [=](sycl::id<2> index) { 
+    // sycl::event e2 = hq.parallel_for<class hminSearch>(range<2>(nRows-chunk, nCols), [=](sycl::id<2> index) { 
 
       int jj = static_cast<int>(index[0]) + chunk;
       int ii = static_cast<int>(index[1]);
@@ -3699,7 +3698,7 @@ int save_levels(std::string file_name, std::vector<std::pair<int,int>>& ids)
 
 /* Saves the execution time and other markers of the algorithm  */
 int save_time(std::string file_name, std::string map_name, int cpu_cores, uint32_t chunkGPU, 
-  float minRadius, int maxSize, int level, double cputree_time, double gputree_time, 
+  float minRadius, int maxNumber, int level, double cputree_time, double gputree_time, 
   double time, double rate, double check_rate)
 {
   // uint32_t size = pointList.size();
@@ -3713,7 +3712,7 @@ int save_time(std::string file_name, std::string map_name, int cpu_cores, uint32
 
   out << map_name << " " << cpu_cores << " " << is_gpu_used << " " << chunkGPU << " ";
   // out.precision(3);
-  out << std::defaultfloat << minRadius << " " << maxSize << " " << level << " ";
+  out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";
   // out.precision(6);
   out << std::fixed << cputree_time << " " << gputree_time << " " << time << " ";
   // out.precision(1);
