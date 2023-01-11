@@ -1,6 +1,6 @@
-#ifndef ENVI_H
+#ifndef O2AND3_H
 
-#define ENVI_H
+#define O2AND3_H
 
 #pragma once
 

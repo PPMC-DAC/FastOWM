@@ -48,11 +48,11 @@ $(BIN)/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++2a
 #-DDEBUG -Wall -pedantic -g -Wextra
 
-$(BIN)/parallelcpp: application/owm_tfm.cpp src/envi.cpp
+$(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ $(CPPFLAGS_TBB) -o $@
 
-$(BIN)/parallelmaxnum: application/owm_tfm.cpp src/envi.cpp
+$(BIN)/o2and3maxnum: application/owm_optim2and3.cpp src/optim2and3_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ $(CPPFLAGS_TBB) -o $@ -DMAXNUMBER
 

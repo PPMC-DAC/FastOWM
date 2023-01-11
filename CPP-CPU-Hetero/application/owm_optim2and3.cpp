@@ -1,12 +1,13 @@
 //This version has some changes:
 // 1.- incorporates the use of the TBB library to parallelize the execution of the algorithm
-// 2.- implements minRadius and maxNumber policies to control the tree creation
-// 3.- implements a firt memoization function that can take advantage of the minimum found in the previous step for the next one
+// 2.- implements minRadius and maxNumber policies to control the tree creation (optimization 2 in the paper)
+// 3.- implements a firt memoization function that can take advantage of the using the minimum found in 
+//     the previous step for the next one (optimization 3-a)
 
 
 #define TBB_PREVIEW_GLOBAL_CONTROL 1
 
-#include "../include/envi.h"
+#include "../include/optim2and3_func.h"
 
 #include <chrono>
 #include "tbb/global_control.h"

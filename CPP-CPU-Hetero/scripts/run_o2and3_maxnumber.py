@@ -15,7 +15,7 @@ nreps = 5
 #minRadius for the OWM
 mR=0.1
 
-output="parallelcpp.out"
+output="o2and3_maxnum.out"
 
 start = time.time()
 print("Start : %s" % time.ctime())
@@ -23,7 +23,7 @@ f = open(output, "a")
 f.write("Start : {}".format(time.ctime()))
 f.close()
 
-executable_par="../bin/parallelmaxnum"
+executable_par="../bin/o2and3maxnum"
 inputs=["../bin/data/AlcoyH",
         "../bin/data/ArzuaH",
         "../bin/data/BrionFH",

@@ -1,4 +1,7 @@
+Note:
 
+These results are obtained with the o2and3 version (optimizations 2 and 3 implemented) but avoiding
+copies of large structs (Lpoint) in findValidMin function
 
 Running: ../bin/parallelcpp ../bin/data/Alcoy 10 20 0.8 1 5
 

@@ -17,9 +17,7 @@ int main( int argc, const char* argv[]) {
   double best_rate;
 
   uint32_t countMin = 0;
-
-  uint32_t searcher = 0;
-
+  uint32_t numLLPs = 0;
   uint32_t addMin = 0;
 
   using tempo_t = std::chrono::steady_clock;
@@ -66,8 +64,8 @@ int main( int argc, const char* argv[]) {
   std::string outputTXT = parameters["input"].as<std::string>() + "_salida.xyz";
   std::string gold_results = parameters["input"].as<std::string>() + "_salidaGOLD.xyz";
 
-  std::vector<double> resultados;
-  resultados.reserve(bucle_reps);
+  std::vector<double> results;
+  results.reserve(bucle_reps);
 
   if (parameters.count("help")) {
       std::cout << options.help() << std::endl;
@@ -87,9 +85,7 @@ int main( int argc, const char* argv[]) {
 
   tbb::global_control c(tbb::global_control::max_allowed_parallelism, npes);
 
-  // omp_set_num_threads(npes);
-
-  printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT.c_str(), npes);
+  printf("Input.txt: %s ---> EX. with %d CORES\n", inputTXT.c_str(), npes);
 
   if( inputTXT.find("INAER_2011_Alcoy.xyz") != std::string::npos ){ // Alcoy mini
     Npoints = 2772832;
@@ -97,88 +93,42 @@ int main( int argc, const char* argv[]) {
     max.x   = 716057.75;
     min.y   = 4286623.63;
     max.y   = 4287447.70;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
+
   } else if( inputTXT.find("INAER_2011_Alcoy_Core.xyz") != std::string::npos ){ // Alcoy
     Npoints = 20380212;
     min.x   = 714947.98;
     max.x   = 716361.06;
     min.y   = 4286501.93;
     max.y   = 4288406.23;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
-  } else if( inputTXT.find("INAER_2011_Alcoy_CoreX2.xyz") != std::string::npos ){ // Alcoy
-    Npoints = 20380212*2;
-    min.x   = 714947.98;
-    max.x   = 716361.06;
-    min.y   = 4286501.93;
-    max.y   = 4288406.23;
 
-    gold_results = "data/INAER_2011_Alcoy_Core_salidaGOLD.xyz"; // porque va a ser exactamente igual
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
-  } else if( inputTXT.find("INAER_2011_Alcoy_CoreX4.xyz") != std::string::npos ){ // Alcoy
-    Npoints = 20380212*4;
-    min.x   = 714947.98;
-    max.x   = 716361.06;
-    min.y   = 4286501.93;
-    max.y   = 4288406.23;
-
-    gold_results = "data/INAER_2011_Alcoy_Core_salidaGOLD.xyz"; // porque va a ser exactamente igual
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
-  } else if( inputTXT.find("INAER_2011_Alcoy_CoreX6.xyz") != std::string::npos ){ // Alcoy
-    Npoints = 20380212*6;
-    min.x   = 714947.98;
-    max.x   = 716361.06;
-    min.y   = 4286501.93;
-    max.y   = 4288406.23;
-
-    gold_results = "data/INAER_2011_Alcoy_Core_salidaGOLD.xyz"; // porque va a ser exactamente igual
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
-  } else if( inputTXT.find("INAER_2011_Alcoy_CoreX8.xyz") != std::string::npos ){ // Alcoy
-    Npoints = 20380212*8;
-    min.x   = 714947.98;
-    max.x   = 716361.06;
-    min.y   = 4286501.93;
-    max.y   = 4288406.23;
-
-    gold_results = "data/INAER_2011_Alcoy_Core_salidaGOLD.xyz"; // porque va a ser exactamente igual
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("BABCOCK_2017_Arzua_3B.xyz") != std::string::npos ){ //Arzua
     Npoints = 40706503;
     min.x   = 568000.00;
     max.x   = 568999.99;
     min.y   = 4752320.00;
     max.y   = 4753319.99;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
+
   } else if( inputTXT.find("V21_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion forestal
     Npoints = 42384876;
     min.x   = 526964.093;
     max.x   = 527664.647;
     min.y   = 4742610.292;
     max.y   = 4743115.738;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
+
   } else if( inputTXT.find("V19_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion urban
     Npoints = 48024480;
     min.x   = 526955.908;
     max.x   = 527686.445;
     min.y   = 4742586.025;
     max.y   = 4743124.373;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
+
   } else if( inputTXT.find("sample24.xyz") != std::string::npos ){
     Npoints = 7492;
     min.x   = 513748.12;
     max.x   = 513869.97;
     min.y   = 5403124.76;
     max.y   = 5403197.20;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
+
   } else {
     printf("No header data!\n");
     exit(-1);
@@ -404,9 +354,9 @@ int main( int argc, const char* argv[]) {
     // }
     // printf("%d celdas; %d minimos no descartados\n", Ncells, countMin);
 
-    // Para el caso de no hacer solpado; que searcher tenga un valor
-    // searcher = minIDs.size();
-    // for(int i=0; i<searcher; i++){
+    // Para el caso de no hacer solpado; que numLLPs tenga un valor
+    // numLLPs = minIDs.size();
+    // for(int i=0; i<numLLPs; i++){
     //   minGPU[i] = minIDs[i];
     // }
 
@@ -415,7 +365,7 @@ int main( int argc, const char* argv[]) {
     if(Overlap != 0.0){
 
         // Me quedo solo con los mínimos que se han repetido más de una vez
-        // searcher = stage2(searcher, minIDs);
+        // numLLPs = stage2(numLLPs, minIDs);
 
         s_stage2 = tempo_t::now();
 
@@ -478,8 +428,8 @@ int main( int argc, const char* argv[]) {
     std::cout << "STAGE3 time elapsed: " << cast_t(e_stage3 - s_stage3).count() << "ms\n\n";
     double aux_time = cast_t(e_stage3 - s_gpu).count();
     std::cout << "TOTAL time elapsed: " << aux_time << "ms\n";
-    // resultados[--bucle_reps] = aux_time/1e3;
-    resultados.push_back(aux_time/1e3);
+    // results[--bucle_reps] = aux_time/1e3;
+    results.push_back(aux_time/1e3);
     if(aux_time < best_time){
       best_time = aux_time;
       best_rate = rate;
@@ -487,7 +437,7 @@ int main( int argc, const char* argv[]) {
 
     bucle_reps--;
 
-    // printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", searcher+addMin, Npoints - searcher+addMin );
+    // printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", numLLPs+addMin, Npoints - numLLPs+addMin );
     printf("Finalmente, el mapa va a tener %d puntos, %lu puntos menos\n", countGPU+addMin, Npoints - countGPU+addMin );
 
     if(bucle_reps){
@@ -511,13 +461,13 @@ int main( int argc, const char* argv[]) {
 
   printf("Ejecuciones:  ");
 
-  for(double& item : resultados) printf("  %.4lfs  ", item);
+  for(double& item : results) printf("  %.4lfs  ", item);
   // printf("\nBEST: %.4lf; minRadius: %g\n", best_time, minRadius);
   printf("\nBEST: %g s (rate = %g); minRadius: %g; maxNumber: %d\n", best_time/1e3, best_rate, minRadius, maxNumber);
   printf("FINAL ( creation + copy + best ): %g s\n", cpu_tree_time + new_tree_time + best_time/1e3);
 
   // Append vector
-  // minGridIDs.insert(minGridIDs.end(), minIDs.begin(), minIDs.begin()+searcher);
+  // minGridIDs.insert(minGridIDs.end(), minIDs.begin(), minIDs.begin()+numLLPs);
   for(int i = 0; i < countGPU; i++)
     minGridIDs.push_back(minIDs[i]);
   // check results
@@ -531,7 +481,7 @@ int main( int argc, const char* argv[]) {
     printf("Unable to create results file!\n");
   }
 
-  if(save_time("resultados_maxPoints.csv", inputTXT, npes, chunkGPU, minRadius, maxNumber, max_level,
+  if(save_time("results_maxPoints.csv", inputTXT, npes, chunkGPU, minRadius, maxNumber, max_level,
             cpu_tree_time, new_tree_time, best_time/1e3, best_rate, checked_rate) < 0){
 
     printf("Unable to create results file!\n");
