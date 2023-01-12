@@ -1,4 +1,4 @@
-// This version differs from optim1_qtree in the following way:
+// This version differs from optim1_qtree in the following ways:
 // 1.- The function 'stage1' does not use the 'searchNeighbors2D' first to collect the points
 //     inside the SW and later find the minimum if the number of points is large enough.
 //     Instead, it uses findValidMin to find the minimum and the count of points inside the SW during the tree traversal.

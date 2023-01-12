@@ -93,63 +93,51 @@ int main( int argc, const char* argv[]) {
     max.x   = 716057.75;
     min.y   = 4286623.63;
     max.y   = 4287447.70;
-
   } else if( inputTXT.find("INAER_2011_Alcoy_Core.xyz") != std::string::npos ){ // Alcoy
     Npoints = 20380212;
     min.x   = 714947.98;
     max.x   = 716361.06;
     min.y   = 4286501.93;
     max.y   = 4288406.23;
-
   } else if( inputTXT.find("BABCOCK_2017_Arzua_3B.xyz") != std::string::npos ){ //Arzua
     Npoints = 40706503;
     min.x   = 568000.00;
     max.x   = 568999.99;
     min.y   = 4752320.00;
     max.y   = 4753319.99;
-
   } else if( inputTXT.find("V21_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion forestal
     Npoints = 42384876;
     min.x   = 526964.093;
     max.x   = 527664.647;
     min.y   = 4742610.292;
     max.y   = 4743115.738;
-
   } else if( inputTXT.find("V19_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion urban
     Npoints = 48024480;
     min.x   = 526955.908;
     max.x   = 527686.445;
     min.y   = 4742586.025;
     max.y   = 4743124.373;
-
   } else if( inputTXT.find("sample24.xyz") != std::string::npos ){
     Npoints = 7492;
     min.x   = 513748.12;
     max.x   = 513869.97;
     min.y   = 5403124.76;
     max.y   = 5403197.20;
-
-  } else {
+  } else if ( inputTXT.find("ArzuaH.xyz") == std::string::npos &&
+              inputTXT.find("AlcoyH.xyz") == std::string::npos && 
+              inputTXT.find("BrionFH.xyz") == std::string::npos && 
+              inputTXT.find("BrionUH.xyz") == std::string::npos ){
     printf("No header data!\n");
     exit(-1);
   }
 
-
-  try {
-    point_cloud = static_cast<Lpoint*>(mallocWrap(Npoints * sizeof(Lpoint)));
-  } catch (sycl::exception &E) {
-    std::cout << "point_cloud malloc: " << E.what() << std::endl;
-  }
-
-  printf("VOLCANDO PUNTOS...\n");
-  // Fichero de entrada
-  // if(read_points(inputTXT, &point_cloud) != Npoints){
-  if(read_pointsC(inputTXT, point_cloud) < 0){
+  printf("Reading LiDAR points...\n");
+  if(readXYZfile(inputTXT, point_cloud, Npoints, min, max) < 0){
     printf("Unable to read file!\n");
-    // exit(-1);
+    exit(-1);
   }
 
-  printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
+  printf("Npoints=%d; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
 
   // Dimensiones de la nube para crear el arbol
   radius = getRadius(min, max, &maxRadius);
