@@ -35,7 +35,7 @@ int main( int argc, const char* argv[]) {
           ("W,Wsize", "Sliding Window size", cxxopts::value<uint32_t>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
           ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
-          ("n,npes", "Number of threads", cxxopts::value<int>()->default_value("1"))
+          ("n,numthreads", "Number of threads", cxxopts::value<int>()->default_value("1"))
           ("l,loop", "Number of runs of the OWM algorithm", cxxopts::value<int>()->default_value("1"))
           ("r,radius", "Value of minRadius ()", cxxopts::value<float>()->default_value("1.0"))
           ("b,balancing", "CPU-GPU partition ratio", cxxopts::value<float>()->default_value("0.5"))
@@ -51,7 +51,7 @@ int main( int argc, const char* argv[]) {
   Wsize = parameters["Wsize"].as<uint32_t>();
   uint32_t Bsize = parameters["Bsize"].as<uint32_t>();
   Overlap = parameters["Overlap"].as<double>();
-  int npes = parameters["npes"].as<int>();
+  int numthreads = parameters["numthreads"].as<int>();
   int bucle_reps = parameters["loop"].as<int>();
   float minRadius = parameters["radius"].as<float>();
   float rate = parameters["balancing"].as<float>();
@@ -83,9 +83,9 @@ int main( int argc, const char* argv[]) {
   Dynamic * hs = Dynamic::getInstance(&p);
 #endif
 
-  tbb::global_control c(tbb::global_control::max_allowed_parallelism, npes);
+  tbb::global_control c(tbb::global_control::max_allowed_parallelism, numthreads);
 
-  printf("Input.txt: %s ---> EX. with %d CORES\n", inputTXT.c_str(), npes);
+  printf("Input.txt: %s ---> EX. with %d CORES\n", inputTXT.c_str(), numthreads);
 
   if( inputTXT.find("INAER_2011_Alcoy.xyz") != std::string::npos ){ // Alcoy mini
     Npoints = 2772832;
@@ -137,7 +137,7 @@ int main( int argc, const char* argv[]) {
     exit(-1);
   }
 
-  printf("Npoints=%d; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
+  printf("Npoints=%lu; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
 
   // Dimensiones de la nube para crear el arbol
   radius = getRadius(min, max, &maxRadius);
@@ -469,7 +469,7 @@ int main( int argc, const char* argv[]) {
     printf("Unable to create results file!\n");
   }
 
-  if(save_time("results_maxPoints.csv", inputTXT, npes, chunkGPU, minRadius, maxNumber, max_level,
+  if(save_time("results_maxPoints.csv", inputTXT, numthreads, chunkGPU, minRadius, maxNumber, max_level,
             cpu_tree_time, new_tree_time, best_time/1e3, best_rate, checked_rate) < 0){
 
     printf("Unable to create results file!\n");

@@ -141,7 +141,7 @@ public:
 
         // }
 
-        Lpoint newmin = {0,0.0,0.0,0.0};
+        Lpoint newmin = {0,0.0,0.0,std::numeric_limits<double>::max()};
         Vector2D cellCenter;
         Vector2D boxMax, boxMin;
         int cellPoints = 0;

@@ -1835,7 +1835,7 @@ uint64_t read_points(std::string filename, Lpoint** point_cloud)
 
 
 /* Reads the point cloud in .xyz format */
-int readXYZfile(std::string filename, Lpoint* & point_cloud, unsigned int & Npoints, Vector2D &min, Vector2D &max) 
+int readXYZfile(std::string filename, Lpoint* & point_cloud, uint64_t & Npoints, Vector2D &min, Vector2D &max) 
 {
   FILE* fileXYZ;
   if((fileXYZ = fopen(filename.c_str(),"r")) == NULL){
@@ -1845,7 +1845,7 @@ int readXYZfile(std::string filename, Lpoint* & point_cloud, unsigned int & Npoi
   if ( filename.find("ArzuaH.xyz") != std::string::npos || filename.find("AlcoyH.xyz") != std::string::npos || 
        filename.find("BrionFH.xyz") != std::string::npos || filename.find("BrionUH.xyz") != std::string::npos ){
     printf("Read header...\n");
-    if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+    if(fscanf(fileXYZ, "%lu\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
         printf("Imposible to read header values\n");
         return -1;
     }
@@ -2258,7 +2258,7 @@ de la reserva de memoria con USM debe ser diferente */
 //     // *numNeighs = 0;
 //     makeBox(center, radius, boxMin, boxMax);
 
-//     Lpoint min = {0,0.0,0.0,99999.0};
+//     Lpoint min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
 //     QtreeG4 parent = qtree;
 //     QtreeG4 current = qtree->quadrants[0];
@@ -2385,7 +2385,7 @@ Lpoint gpuSearchNeighborsMin(Vector2D& center, QtreeG4 qtree, float radiusX, flo
     // *numNeighs = 0;
     makeBox(center, radiusX, radiusY, boxMin, boxMax);
 
-    Lpoint min = {0,0.0,0.0,99999.0};
+    Lpoint min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
     QtreeG4 parent = qtree;
     QtreeG4 current = qtree->quadrants;
@@ -2509,7 +2509,7 @@ template<typename pointer_t>
 Lpoint findUpdated(pointer_t qtree, Vector2D& boxMin, Vector2D& boxMax, int& numInside)
 {
     // Lpoint tmp, min = nomin;
-    Lpoint tmp, min = {0,0.0,0.0,99999.0};
+    Lpoint tmp, min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
     if(qtree->quadrants == NULL)
     {
@@ -2634,7 +2634,7 @@ Lpoint gpuSearchIndex( Vector2D& center, accNode_t aNodes, accPoint_t aPoints, f
 
     makeBox(center, radiusX, radiusY, boxMin, boxMax);
 
-    Lpoint min = {0,0.0,0.0,99999.0};
+    Lpoint min = {0,0.0,0.0,std::numeric_limits<double>::max()};
 
     QtreeG5 root = &(aNodes[0]);
     

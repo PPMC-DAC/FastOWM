@@ -62,19 +62,19 @@ $(BIN)/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
 
 $(BIN)/parallelgpu: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@
 
 $(BIN)/paralleldyn: application/owm_gpu.cpp src/envi_gpu.hpp 
 		@mkdir -p "$(@D)"
-		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
 
 $(BIN)/paralleldynidx: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -DINDEX -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -DINDEX -o $@
 
 $(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		icpx $^ -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
 
 $(BIN)/stats: application/owm_stats.cpp
 		@mkdir -p "$(@D)"
