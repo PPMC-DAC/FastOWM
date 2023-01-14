@@ -279,7 +279,7 @@ int main( int argc, char* argv[]) {
   printf("  %.4lf  ", results[0]);
   numRuns = (argc>6)? atoi(argv[6]) : 1;
   double best = results[0];
-  if(numRuns > 1){
+  if(numRuns > 0){
     for( int i=1 ; i<numRuns ; i++ ){
       printf("  %.4lf  ", results[i]);
       results[0] += results[i];

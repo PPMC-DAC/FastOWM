@@ -278,7 +278,7 @@ int main( int argc, char* argv[]){
     printf("Time of each run:  ");
     printf("  %.4lf  ", resultados[0]);
     numRuns = atoi(argv[6]);
-    if(numRuns > 1){
+    if(numRuns > 0){
       for( int i=1 ; i<numRuns ; i++ ){
         printf("  %.4lf  ", resultados[i]);
         resultados[0] += resultados[i];

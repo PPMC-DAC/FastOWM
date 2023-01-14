@@ -30,10 +30,10 @@
 
 #include "DynamicOneApi.h"
 
-#include "CL/sycl.hpp"
+#include "sycl/sycl.hpp"
 #include "Functors.h"
 
-using namespace cl::sycl;
+using namespace sycl;
 
 using namespace std;
 using namespace tbb;
@@ -42,9 +42,9 @@ using namespace tbb;
  * Global variables
  * **************************************************************************/
 
-extern cl::sycl::queue gpu_queue;
-extern cl::sycl::context ctx;
-extern cl::sycl::event e1, e2, e3, e4, e5;
+extern sycl::queue gpu_queue;
+extern sycl::context ctx;
+extern sycl::event e1, e2, e3, e4, e5;
 
 // extern class vi vi;
 extern float *probability;
@@ -77,7 +77,7 @@ public:
 
 
     /*This function launches the kernel*/
-    void OperatorGPU(ulong begin, ulong end, cl::sycl::event *event)
+    void OperatorGPU(ulong begin, ulong end, sycl::event *event)
     {
 #ifdef L_DEBUG
         gpu_count += end - begin;
@@ -85,7 +85,7 @@ public:
 
         // std::cout << "\t\tTrabajo para GPU: " << end - begin << " celdas\n" << std::flush;
 
-        *event = gpu_queue.submit([&](cl::sycl::handler &cgh) {
+        *event = gpu_queue.submit([&](sycl::handler &cgh) {
 
 #ifdef INDEX
             LidarEvaluationFunctorIdx kernel(  begin,
@@ -110,7 +110,7 @@ public:
                                             minIDs);
 #endif
 
-            cgh.parallel_for(cl::sycl::range<1>(end - begin), kernel);
+            cgh.parallel_for(sycl::range<1>(end - begin), kernel);
         });
     }
 

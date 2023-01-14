@@ -14,7 +14,7 @@ int main( int argc, const char* argv[]) {
   double Width, High, Density;
 
   double best_time = 111111.0;
-  double best_rate;
+  double best_GPUratio;
 
   uint32_t countMin = 0;
   uint32_t numLLPs = 0;
@@ -52,9 +52,9 @@ int main( int argc, const char* argv[]) {
   uint32_t Bsize = parameters["Bsize"].as<uint32_t>();
   Overlap = parameters["Overlap"].as<double>();
   int numthreads = parameters["numthreads"].as<int>();
-  int bucle_reps = parameters["loop"].as<int>();
+  int numRuns = parameters["loop"].as<int>();
   float minRadius = parameters["radius"].as<float>();
-  float rate = parameters["balancing"].as<float>();
+  float GPUratio = parameters["balancing"].as<float>();
   int maxNumber = parameters["size"].as<int>();
   uint32_t chunkGPU = parameters["chunk"].as<uint32_t>();
   int max_level = parameters["level"].as<int>();
@@ -65,7 +65,7 @@ int main( int argc, const char* argv[]) {
   std::string gold_results = parameters["input"].as<std::string>() + "_salidaGOLD.xyz";
 
   std::vector<double> results;
-  results.reserve(bucle_reps);
+  results.reserve(numRuns);
 
   if (parameters.count("help")) {
       std::cout << options.help() << std::endl;
@@ -139,7 +139,6 @@ int main( int argc, const char* argv[]) {
 
   printf("Npoints=%lu; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
 
-  // Dimensiones de la nube para crear el arbol
   radius = getRadius(min, max, &maxRadius);
   center = getCenter(min, radius);
   printf("QTREE PARAMETERS:\n");
@@ -147,12 +146,10 @@ int main( int argc, const char* argv[]) {
   printf("Center:     %.2f , %.2f\n", center.x,center.y);
   printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
   printf("minRadius:   %.2f\n", minRadius);
-  printf("maxPoints:   %d\n\n", maxNumber);
-  // printf("CREANDO QTREE...\n");
+  printf("maxNumber:   %d\n\n", maxNumber);
 
   Width = round2d(max.x-min.x);
   High = round2d(max.y-min.y);
-  // Densidad en puntos/m^2
   Density = Npoints/(Width*High);
 
   printf("INSERTING POINTS...\n");
@@ -164,7 +161,7 @@ int main( int argc, const char* argv[]) {
   // cpu_qtree = createQtree(NULL, center, maxRadius);
 
   // for(int i = 0; i < Npoints; i++){
-  //   // insertPoint(&point_cloud[i], cpu_qtree, minRadius);
+  //   insertPoint(&point_cloud[i], cpu_qtree, minRadius);
   //   insertPoint2(&point_cloud[i], cpu_qtree, maxNumber);
   // }
 
@@ -181,7 +178,7 @@ int main( int argc, const char* argv[]) {
 
   // i_end = tempo_t::now();
   // std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
-  std::cout << "  INSERT CPU time elapsed: " << cpu_tree_time << " s\n";
+  std::cout << "Time elapsed at Quadtree construction: " << cpu_tree_time << " sec.\n";
 
 #ifdef INDEX
   try {
@@ -224,32 +221,31 @@ int main( int argc, const char* argv[]) {
   aligned_qtree = launchCopy(cpu_qtree);
 #endif
 
-  double new_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
+  double copy_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
 
   // printf("  Number of points saved in the new Qtree: %d\n", aligned_qtree->numPts);
   // printf("  Number of points saved in the cudaQtree: %d\n", array_indexes[0].numPts);
 
-  std::cout << "  COPY TREE time elapsed: " << new_tree_time << " s\n\n";
+  std::cout << "Time elapsed at tree copy: " << copy_tree_time << " sec.\n\n";
 
 
   printf("CLOUD PARAMETERS:\n");
-  printf("Número de puntos      %lu\n",Npoints);
-  printf("Ancho:  %.2lf\n",Width);
-  printf("Alto:  %.2lf\n",High);
-  printf("Densidad:  %.3lf\n",Density);
+  printf("Number of LiDAR points      %lu\n",Npoints);
+  printf("Width:  %.2lf\n",Width);
+  printf("Height:  %.2lf\n",High);
+  printf("Density:  %.3lf\n",Density);
 
-  printf("\nTamaño de ventana     %u\n", Wsize);
-  printf("Tamaño de rejilla     %u\nSolape                %.2f\n", Bsize,Overlap);
+  printf("\nSize of sliding window (SW): %u\n", Wsize);
+  printf("Grid size     %u\nOverlap                %.2f\n", Bsize,Overlap);
 
-  // El numero minimo sera la mitad del numero de puntos medio por celda
   minNumPoints = 0.5*Density*Wsize*Wsize;
-  printf("Minimo numero de puntos por celda:   %u\n", minNumPoints);
+  printf("Minium number of points in the SW to be considered::   %u\n", minNumPoints);
 
   Displace = round2d(Wsize*(1-Overlap));
-  printf("Displacement   %.2f\n", Displace);
+  printf("SW x and y Displacement:  %.2f\n", Displace);
 
   // Stage 1 parameters
-  printf("\nVENTANA:\n");
+  printf("\nSliding Window (SW) parameters:\n");
   if(Overlap > 0.0) {
     nCols=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
     nRows=(int)(round((High+2*Wsize*Overlap)/Displace))-1;
@@ -257,39 +253,29 @@ int main( int argc, const char* argv[]) {
     nCols=(int)floor(Width/Wsize)+1;
     nRows=(int)floor(High/Wsize)+1;
   }
-  printf("Celdas por columa: %d\n",nRows);
-  printf("Celdas por fila:   %d\n",nCols);
+  printf("Number of SWs per column: %d\n",nRows);
+  printf("Number of SWs per row:    %d\n",nCols);
   Ncells = nCols*nRows;
-  
+  printf("Total number of OWM steps (Crow x CCol):   %d\n",Ncells);
+
   // Stage 3 parameters
-  printf("\nMALLA:\n");
+  printf("\nGrid (for stage 3) parameters:\n");
   nColsg=(int)floor(Width/Bsize)+1;
   nRowsg=(int)floor(High/Bsize)+1;
-  printf("Dimensiones de la malla %dx%d\n\n", nRowsg, nColsg);
+  printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, nRowsg, nColsg);
+
   Ngrid = nColsg*nRowsg;
 
   initX = min.x - Wsize/2 + Displace;
   initY = min.y - Wsize/2 + Displace;
 
-  // Vectores para los mínimos
-  // std::vector<int> minIDs;
   std::vector<int> minGridIDs;
 
-  printf("/////////////////////////////////////////////////////////////////////\n\n");
-
-  // Para no tener que volver a guardar en memoria y repetir la ejecución
-  // TODO: Que vaya cambiando los parametros Wsize, Bsize y Overlap
-  // sleep(5);
-
-  // int* minIDs = NULL;
-  int countGPU=0;
-
-
-  while(bucle_reps){
+  while(numRuns){
 
     minIDs = static_cast<int*>(mallocWrap( Ncells*sizeof(int) ));
     memset(minIDs, -1, Ncells*sizeof(int));
-    countGPU = 0;
+    numLLPs = 0;
 
     // s_stage1 = tempo_t::now();
 
@@ -309,7 +295,7 @@ int main( int argc, const char* argv[]) {
 
     // e_stage1 = tempo_t::now();
 
-    s_gpu = tempo_t::now();
+    s_stage1 = tempo_t::now();
 
 #ifdef DYNAMIC
     hs->heterogeneous_parallel_for(0, Ncells, &lip);
@@ -321,64 +307,42 @@ int main( int argc, const char* argv[]) {
     // stage1gpu(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, qtreeGPU3, min);
     // stage1gpu(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
     // stage1gpuRem(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
-    // stage1heter(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, rate);
-    // stage1hetertg(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, rate);
-    // stage1heterOne(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, rate);
-    // stage1heterTgMix(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min, rate);
-    // stage1heter2q(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, rate);
+    // stage1heter(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
+    // stage1hetertg(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
+    // stage1heterOne(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
+    // stage1heterTgMix(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min, GPUratio);
+    // stage1heter2q(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
     // cudaStage1(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
     // stage1index(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min);
-    // stage1heterAcc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min, rate);
-    // stage1acc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, rate);
+    // stage1heterAcc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min, GPUratio);
+    // stage1acc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
     stage1tbbRem(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
 #endif
 
-    e_gpu = tempo_t::now();
+    e_stage1 = tempo_t::now();
 
-    // countMin=0;
-    // for(int i=0; i<Ncells; i++){
-    //   if(minIDs[i] != -1)
-    //     countMin++;
-    // }
-    // printf("%d celdas; %d minimos no descartados\n", Ncells, countMin);
-
-    // Para el caso de no hacer solpado; que numLLPs tenga un valor
-    // numLLPs = minIDs.size();
-    // for(int i=0; i<numLLPs; i++){
-    //   minGPU[i] = minIDs[i];
-    // }
-
-    // Descarto mínimos si hay solape
-    // Únicamente aquellos mínimos locales seleccionados más de una vez se considerarán puntos semilla
     if(Overlap != 0.0){
-
-        // Me quedo solo con los mínimos que se han repetido más de una vez
-        // numLLPs = stage2(numLLPs, minIDs);
 
         s_stage2 = tempo_t::now();
 
         qsort(minIDs, Ncells, sizeof(int), &cmpfunc);
 
-        countGPU = stage2GPU(Ncells, minIDs);
+        numLLPs = stage2GPU(Ncells, minIDs);
 
         e_stage2 = tempo_t::now();
 
     }
 
-
-    // Aplico la malla para ver si hay zonas sin puntos
     if(Bsize > 0){
 
       s_stage3 = tempo_t::now();
 
-      // Creo un nuevo qtree con todos los mínimos; las mismas dimensiones que el grande
       // Qtree grid =  new Qtree_t( center, maxRadius, NULL) ;
       // Qtree grid =  new Qtree_t( NULL, center, maxRadius) ;
       Qtree grid = createQtree(NULL, center, maxRadius);
 
-
       if(Overlap != 0.0){
-        for(int i = 0; i < countGPU; i++)
+        for(int i = 0; i < numLLPs; i++)
           // insertPoint(&point_cloud[minIDs[i]], grid, 4.0);
           insertPoint2(&point_cloud[minIDs[i]], grid, 128);
       } else { // because data is all out of order; NO stage2
@@ -386,7 +350,7 @@ int main( int argc, const char* argv[]) {
           if(minIDs[i] >= 0) insertPoint(&point_cloud[minIDs[i]], grid, 4.0);
       }
 
-      // Qtree grid = parallel_qtree_stage3(max_level, center, maxRadius, 128, minIDs, countGPU);
+      // Qtree grid = parallel_qtree_stage3(max_level, center, maxRadius, 128, minIDs, numLLPs);
 
       // stage3s(Bsize, nColsg, nRowsg, minGridIDs, cpu_qtree, grid, min);
       // stage3cpp(Bsize, nColsg, nRowsg, minGridIDs, cpu_qtree, grid, min);
@@ -399,81 +363,65 @@ int main( int argc, const char* argv[]) {
       e_stage3 = tempo_t::now();
 
       addMin = minGridIDs.size();
-      // printf("\nMinimos añadidos:\t\t%d\n", addMin);
 
-      // Ya no necesito este qtree
       deleteQtree(grid);
       delete(grid);
 
     }// Bsize
 
-        
-
-    // printf("REP %d\n", bucle_reps);
-    // std::cout << "STAGE1 time elapsed: " << cast_t(e_stage1 - s_stage1).count() << "ms\n";
-    std::cout << "STAGE1 HETEROGENEOUS " << rate*100 << "% time elapsed: " << cast_t(e_gpu - s_gpu).count() << "ms\n\n";
-    std::cout << "STAGE2 time elapsed: " << cast_t(e_stage2 - s_stage2).count() << "ms\n\n";
-    std::cout << "STAGE3 time elapsed: " << cast_t(e_stage3 - s_stage3).count() << "ms\n\n";
-    double aux_time = cast_t(e_stage3 - s_gpu).count();
-    std::cout << "TOTAL time elapsed: " << aux_time << "ms\n";
-    // results[--bucle_reps] = aux_time/1e3;
-    results.push_back(aux_time/1e3);
+    //std::cout << "STAGE1 HETEROGENEOUS " << GPUratio*100 << "% time elapsed: " << cast_t(e_gpu - s_gpu).count() << "ms\n\n";
+    std::cout << "Time elapsed at STAGE 1: " << cast_t(e_stage1 - s_stage1).count() << " ms\n";
+    std::cout << "Time elapsed at STAGE 2: " << cast_t(e_stage2 - s_stage2).count() << " ms\n";
+    std::cout << "Time elapsed at STAGE 3: " << cast_t(e_stage3 - s_stage3).count() << " ms\n";
+    double aux_time = cast_t(e_stage3 - s_stage1).count();
+    std::cout << "TOTAL time elapsed: " << aux_time << " ms\n";
+    results.push_back(aux_time/1e3); //In seconds.
     if(aux_time < best_time){
-      best_time = aux_time;
-      best_rate = rate;
+      best_time = aux_time; // In milliseconds
+      best_GPUratio = GPUratio;
     }
 
-    bucle_reps--;
+    numRuns--;
 
-    // printf("Finalmente, el mapa va a tener %d puntos, %d puntos menos\n", numLLPs+addMin, Npoints - numLLPs+addMin );
-    printf("Finalmente, el mapa va a tener %d puntos, %lu puntos menos\n", countGPU+addMin, Npoints - countGPU+addMin );
+    printf("Output ground seed-point cloud with %d points, %lu fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs+addMin );
 
-    if(bucle_reps){
+    if(numRuns){
 
-      if(rate > 0.0) rate += 0.01;
+      if(GPUratio > 0.0) GPUratio += 0.01;
 
       freeWrap(minIDs);
-      // freeWrap(minIDs);
-      // minIDs = NULL;
-
-      // minIDs.clear();
-
       minGridIDs.clear();
-      // Para parar un poco entre vuelta y vuelta
-      sleep(3);
     }
 
     printf("/////////////////////////////////////////////////////////////////////\n\n");
 
-  } // while de bucle_reps
+  } // while numRuns
 
-  printf("Ejecuciones:  ");
-
+  printf("Time of each run:  ");
   for(double& item : results) printf("  %.4lfs  ", item);
+  double average = std::accumulate(results.begin(), results.end(), 0.0) / results.size();
   // printf("\nBEST: %.4lf; minRadius: %g\n", best_time, minRadius);
-  printf("\nBEST: %g s (rate = %g); minRadius: %g; maxNumber: %d\n", best_time/1e3, best_rate, minRadius, maxNumber);
-  printf("FINAL ( creation + copy + best ): %g s\n", cpu_tree_time + new_tree_time + best_time/1e3);
+  //printf("\nBEST: %g s (GPUratio = %g); minRadius: %g; maxNumber: %d\n", best_time/1e3, best_GPUratio, minRadius, maxNumber);
+  printf("\nAverage: %g sec.; minRadius: %g; maxNumber: %d\n", average, minRadius, maxNumber);
+  printf("FINAL ( creation + copy + owm ): %g s\n", cpu_tree_time + copy_tree_time + average);
 
-  // Append vector
-  // minGridIDs.insert(minGridIDs.end(), minIDs.begin(), minIDs.begin()+numLLPs);
-  for(int i = 0; i < countGPU; i++)
+  for(int i = 0; i < numLLPs; i++)
     minGridIDs.push_back(minIDs[i]);
   // check results
-  double checked_rate = check_results(gold_results, minGridIDs, &point_cloud, Displace);
-  if (checked_rate < 0) {
+  double correctness = check_results(gold_results, minGridIDs, &point_cloud, Displace);
+  if (correctness < 0) {
       printf("Unable to check results\n");
   }
 
-  // Fichero de salida
+#ifdef DEBUG
   if(save_file(outputTXT, minGridIDs, &point_cloud) < 0){
     printf("Unable to create results file!\n");
   }
+#endif
 
-  if(save_time("results_maxPoints.csv", inputTXT, numthreads, chunkGPU, minRadius, maxNumber, max_level,
-            cpu_tree_time, new_tree_time, best_time/1e3, best_rate, checked_rate) < 0){
-
-    printf("Unable to create results file!\n");
-
+  if(save_time("results_owm.csv", inputTXT, numthreads, minRadius, maxNumber, max_level,
+            cpu_tree_time, copy_tree_time, average, best_GPUratio, chunkGPU, correctness) < 0){
+    printf("Unable to create time report file!\n");
   }
 
   // Libero memoria

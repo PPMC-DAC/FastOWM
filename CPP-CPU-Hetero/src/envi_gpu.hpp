@@ -20,6 +20,7 @@
 #include <fstream>
 #include <sstream>
 #include <chrono>
+#include <numeric>
 
 // #include <CL/sycl/backend/cuda.hpp>
 
@@ -3736,9 +3737,9 @@ int save_levels(std::string file_name, std::vector<std::pair<int,int>>& ids)
 
 
 /* Saves the execution time and other markers of the algorithm  */
-int save_time(std::string file_name, std::string map_name, int cpu_cores, uint32_t chunkGPU, 
-  float minRadius, int maxNumber, int level, double cputree_time, double gputree_time, 
-  double time, double rate, double check_rate)
+int save_time(std::string file_name, std::string map_name, int numthreads, 
+  float minRadius, int maxNumber, int level, double tree_time, double copytree_time, 
+  double owm_time, double GPUratio, uint32_t chunkGPU, double correctness)
 {
   // uint32_t size = pointList.size();
   std::fstream out(file_name, out.out | out.app);
@@ -3749,13 +3750,14 @@ int save_time(std::string file_name, std::string map_name, int cpu_cores, uint32
   if(!out.is_open())
     return -1;
 
-  out << map_name << " " << cpu_cores << " " << is_gpu_used << " " << chunkGPU << " ";
+  out << map_name << " " << numthreads << " ";
   // out.precision(3);
   out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";
   // out.precision(6);
-  out << std::fixed << cputree_time << " " << gputree_time << " " << time << " ";
+  out << std::fixed << tree_time << " " << copytree_time << " " << owm_time << " ";
   // out.precision(1);
-  out << std::defaultfloat << rate << " " << check_rate << std::endl;
+  out << is_gpu_used << " " << chunkGPU << " ";
+  out << std::defaultfloat << GPUratio << " " << correctness << std::endl;
 
   out.close();
   if(out.is_open())
