@@ -12,6 +12,7 @@ Overlap = 0.8
 num_threads = [1, 2, 4, 6, 8]
 #number of times the OWM is executed
 nreps = 5
+maxNumber=65536
 
 output="sycl_minradius.out"
 
@@ -32,11 +33,11 @@ minRadius=list(np.arange(0.1,2.1,0.1))
 for file in inputs:
     for mR in minRadius:
         for nth in num_threads:
-            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR))
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber))
             f = open(output, "a")
-            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR))
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber))
             f.close()
-            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, output))
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, output))
 
 end = time.time()
 print("End : %s" % time.ctime())
