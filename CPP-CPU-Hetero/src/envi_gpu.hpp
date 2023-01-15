@@ -822,7 +822,8 @@ void insertPoint3(Lpoint* point, Qtree qtree)
     }
 }
 
-template<typename delimiter_t>
+//This function can be called with node_delimiter as MinRadius or MaxNumber
+template<typename delimiter_t> // int for MaxNumber or float for MinRadius
 Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t node_delimiter )
 {
 
@@ -853,6 +854,7 @@ Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t 
     Qtree qt = n_work[id];
 
     createQuadrants(qt);
+    //Depending on the type of node delimiter it will call to the MinRadius or MaxNumber version
     fillQuadrants(qt, node_delimiter);
 
   });
