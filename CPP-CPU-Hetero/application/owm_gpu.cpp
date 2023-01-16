@@ -166,10 +166,13 @@ int main( int argc, const char* argv[]) {
   // }
 
   // cpu_qtree = parallel_qtree_creation(max_level, center, maxRadius, maxNumber);
+#ifdef MAXNUMBER  
 //To use maxNumber criterion, uncomment next line
-  // cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, maxNumber);
+  cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, maxNumber);
+#else  
 //To use minRadius criterion, uncomment next line
   cpu_qtree = parallel_qtree_pf2(max_level, center, maxRadius, minRadius);
+#endif  
   // cpu_qtree = parallel_qtree_pf3(max_level, center, maxRadius, maxNumber, maxNumber*divide_limit);
   // cpu_qtree = parallel_qtree_creationtg(max_level, center, maxRadius, maxNumber);
   // cpu_qtree = parallel_qtree_creationtg2(center, maxRadius, max_level, maxNumber);

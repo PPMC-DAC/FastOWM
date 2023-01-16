@@ -64,6 +64,10 @@ $(BIN)/parallelgpu: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@
 
+$(BIN)/parallelmaxnum: application/owm_gpu.cpp src/envi_gpu.hpp
+		@mkdir -p "$(@D)"
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -DMAXNUMBER
+
 $(BIN)/paralleldyn: application/owm_gpu.cpp src/envi_gpu.hpp 
 		@mkdir -p "$(@D)"
 		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
