@@ -1794,9 +1794,10 @@ double check_results(std::string filename, std::vector<int>& ids, Lpoint** point
     makeBox(aux, Displace*0.5, boxMin, boxMax);
     for(auto pg : vgold){
       if(insideBox2D(pg,boxMin,boxMax)){
-        // if(fabs(p.z - pg.z) < 0.01){
+        if(fabs(p.z - pg.z) < 0.01){
           count++;
           break;
+          }
         }
     }
   }
