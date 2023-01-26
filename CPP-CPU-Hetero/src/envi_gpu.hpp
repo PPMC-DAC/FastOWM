@@ -1801,10 +1801,10 @@ double check_results(std::string filename, std::vector<int>& ids, Lpoint** point
     }
   }
 
-  double rate = count/((double)(npoints))*100.0;
-  printf("%d points correct; %.2f%%\n", count, rate);
+  double ratio = count/((double)(npoints))*100.0;
+  printf("%d points correct; %.2f%%\n", count, ratio);
 
-  return rate;
+  return ratio;
 
   // return std::equal(v.begin(), v.end(), v2.begin(), [](const Vector3D a, const Vector3D b){
   //   return fabs(a.z - b.z) < 0.01;
@@ -3738,7 +3738,7 @@ int save_levels(std::string file_name, std::vector<std::pair<int,int>>& ids)
 }
 
 
-/* Saves the execution time and other markers of the algorithm  */
+/* Saves the execution time and other metrics of the algorithm  */
 int save_time(std::string file_name, std::string map_name, int numthreads, 
   float minRadius, int maxNumber, int level, double tree_time, double copytree_time, 
   double owm_time, double GPUratio, uint32_t chunkGPU, double correctness)

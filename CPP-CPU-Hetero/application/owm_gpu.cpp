@@ -392,7 +392,7 @@ int main( int argc, const char* argv[]) {
 
     if(numRuns){
 
-      if(GPUratio > 0.0) GPUratio += 0.01;
+      //if(GPUratio > 0.0) GPUratio += 0.01;
 
       freeWrap(minIDs);
       minGridIDs.clear();
