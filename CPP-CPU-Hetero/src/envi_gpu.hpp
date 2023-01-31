@@ -2374,7 +2374,7 @@ Lpoint gpuSearchNeighborsMin(Vector2D& center, QtreeG4 qtree, float radiusX, flo
     makeBox(center, radiusX, radiusY, boxMin, boxMax);
 
     Lpoint min = {0,0.0,0.0,std::numeric_limits<double>::max()};
-    Lpoint *minptr = &temp;
+    Lpoint *minptr = &min;
     QtreeG4 parent = qtree;
     QtreeG4 current = qtree->quadrants;
 
@@ -2451,11 +2451,6 @@ Lpoint gpuSearchNeighborsMin(Vector2D& center, QtreeG4 qtree, float radiusX, flo
             }
           }
           //If partially overlapped, navigate the children
-          else {
-            idx = 0;
-            parent = current;
-            current = current->quadrants;
-          }
           else {
             idx = 0;
             parent = current;

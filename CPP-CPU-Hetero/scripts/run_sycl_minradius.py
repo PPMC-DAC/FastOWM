@@ -29,15 +29,16 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionUH"]
 
 minRadius=list(np.arange(0.1,2.1,0.1))
+lev=5
 
 for file in inputs:
     for mR in minRadius:
         for nth in num_threads:
-            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber))
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f = open(output, "a")
-            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber))
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f.close()
-            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, output))
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
 
 end = time.time()
 print("End : %s" % time.ctime())
