@@ -1538,7 +1538,7 @@ void stage1tbbRem(unsigned short Wsize, double Overlap, unsigned short Crow, uns
     tbb::parallel_for( tbb::blocked_range2d<int,int>{0,Ccol,0,Crow},
                        [&](tbb::blocked_range2d<int,int> r ) {
 
-        Lpoint newmin = {0,0.0,0.0,0.0};
+        Lpoint newmin = {0, 0.0, 0.0, std::numeric_limits<double>::max()};
         Vector2D cellCenter;
         Vector2D boxMax, boxMin;
         // int cellPoints = 0;
@@ -1546,50 +1546,35 @@ void stage1tbbRem(unsigned short Wsize, double Overlap, unsigned short Crow, uns
         int ie = r.cols().end();
 
         for(int jj = r.rows().begin(); jj < je; ++jj) {
-
             int cellPoints = 0;
-
             cellCenter.y = initY + jj*Displace;
-
             for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
-
               cellCenter.x = initX + ii*Displace;
-
               makeBox(cellCenter, Wsize*0.5, boxMin, boxMax);
-
+              //Memoization: if the previous minimum is inside the box, we don't need to search in the whole SW
               if(insideBox2D(&newmin,boxMin,boxMax)){
               // if(cellPoints > 0 && insideBox2D(&newmin,boxMin,boxMax)){
-
                 Vector2D oCell = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
-
                 int old_cellPoints = cellPoints;
-
                 Lpoint tmp = gpuSearchNeighborsMin(oCell, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
 
-                // We're assuming the points were equidistant throughout the cell, which isn't always true.
-
-                /*En este punto, si queremos ser estrictos, en vez de hacer esta suposición podemos
-                lanzar una búsqueda "countMin" en la zona en la que conocemos el mínimo, pudiendo lanzar
-                las dos búsquedas diferentes en paralelo con un "parallel_invoke" */
+                // We're assuming homogeneous densities around the SW to compute the number of points inside the SW.
+                /*If we need more precission, we could count with countMin() the number of points inside SW*/
                 cellPoints += (int)(old_cellPoints * Overlap);
 
                 if(tmp.z < newmin.z){
                   newmin = tmp;
                 }
 
-
               } else {
-
+              //Memoization: if the previous minimum is not inside the box, we need to search in the whole SW
                 // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
                 newmin = gpuSearchNeighborsMin(cellCenter, qtreeIn, Wsize*0.5, Wsize*0.5, cellPoints);
-
               }
 
               if( cellPoints >= minNumPoints ){
-
                   // v.push_back(newmin.id);
                   minIDs[jj*Crow + ii] = newmin.id;
-
               }
 
             }
@@ -2380,133 +2365,108 @@ de la reserva de memoria con USM debe ser diferente */
 
 
 /* Performs the search when the quadrants are contiguos in memory */
-Lpoint gpuSearchNeighborsMin(Vector2D& center, QtreeG4 qtree, float radiusX, float radiusY, int& numNeighs)
+Lpoint gpuSearchNeighborsMin(Vector2D& center, QtreeG4 qtree, float radiusX, float radiusY, int& numPoints)
 {
     int idx = 0;
     int numInside = 0;
     Vector2D boxMin, boxMax;
 
-    // *numNeighs = 0;
     makeBox(center, radiusX, radiusY, boxMin, boxMax);
 
     Lpoint min = {0,0.0,0.0,std::numeric_limits<double>::max()};
-
+    Lpoint *minptr = &temp;
     QtreeG4 parent = qtree;
     QtreeG4 current = qtree->quadrants;
 
     while(current != qtree) {
-
-
       if(idx > 3) {
-
         current = current->parent;
-
         if(current != qtree){
-
           parent = current->parent;
-
           findPosition(parent, current, idx);
-
         }
         
       } else {
-
         if( current->quadrants == NULL ) { // isLeaf??
-
           if( current->numPts > 0 ) { //isEmpty??
-
-            /*Si está completamente solapada, solo tengo que comprobar 1 punto*/
+            //if node totallly overlapped by SW just read min and numPts from node
             if(boxInside2D(boxMin, boxMax, current)) {
 
-              if(current->min->z < min.z)
-                min = *(current->min);
+              if(current->min->z < minptr->z)
+                minptr = current->min;
               numInside += current->numPts;
 
-            /*Si está parcialmente solapada, tengo dos opciones*/
+            //If partially overlapped, there are two options
             } else if(boxOverlap2D(boxMin, boxMax, current)) {
 
               int N = current->numPts;
               Lpoint* pointer = current->points;
 
-              /*Si el mínimo está dentro solo comparo una vez y cuento */
+              // In node->minimum is inside the SW, just use it and count points overlapped
               if( insideBox2D(current->min, boxMin, boxMax) ) {
 
-                if(current->min->z < min.z)
-                  min = *(current->min);
+                if(current->min->z < minptr->z)
+                  minptr = current->min;
 
                 for(int i=0; i<N; ++i) {
-                  if(insideBox2D(&pointer[i], boxMin, boxMax))
-                  {
-                    numInside++;
-                  }
+                  if(insideBox2D(&pointer[i], boxMin, boxMax)) numInside++;
                 }
               }
-              /*Si el mínimo está fuera, tengo que comprobarlo todo*/
+              //Otherwise, we have to check all points in the node
               else {
                 for(int i=0; i<N; ++i) {
                   if(insideBox2D(&pointer[i], boxMin, boxMax))
                   {
-                    if (pointer[i].z < min.z) {
-                        min = pointer[i];
+                    if (pointer[i].z < minptr->z) {
+                        minptr = &pointer[i];
                     }
                     numInside++;
                   }
                 }
               }
-
             }
-            // else {
-            //   std::cout << "Ni lo uno ni lo otro\n" << std::flush;
-            // }
-
           }
 
           idx++;
           if(idx < 4) {
             current = &(parent->quadrants[idx]);
-
           }
 
         } else {
-          
-          if(!boxOverlap2D(boxMin, boxMax, current) || current->numPts == 0) { //No solapada o vacia
-
+          if(!boxOverlap2D(boxMin, boxMax, current) || current->numPts == 0) { //Non overlaping or empty node
             idx++;
             if(idx < 4) {
               current = &(parent->quadrants[idx]);
-
             }
           }
-          /*si la caja está completamente solapada, capturo el mínmo
-           y el numero de puntos, y continuo*/
+          //if internal node totallly overlapped by SW just read min and numPts from node
           else if( boxInside2D(boxMin, boxMax, current) ) {
-
-            if(current->min->z < min.z)
-              min = *(current->min);
+            if(current->min->z < minptr->z)
+              minptr = current->min;
             numInside += current->numPts;
 
             idx++;
             if(idx < 4) {
               current = &(parent->quadrants[idx]);
-
             }
           }
-          /*pero si solo está parcialmente solapada, profundizo*/
+          //If partially overlapped, navigate the children
           else {
-
             idx = 0;
             parent = current;
             current = current->quadrants;
-
+          }
+          else {
+            idx = 0;
+            parent = current;
+            current = current->quadrants;
           }
         }
       }
-
     }
+    numPoints = numInside;
 
-    numNeighs = numInside;
-
-    return min;
+    return *minptr;
 }
 
 template<typename pointer_t>

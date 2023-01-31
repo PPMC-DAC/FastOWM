@@ -279,7 +279,7 @@ int main( int argc, const char* argv[]) {
   while(numRuns){
 
     minIDs = static_cast<int*>(mallocWrap( Ncells*sizeof(int) ));
-    memset(minIDs, -1, Ncells*sizeof(int));
+    memset(minIDs, -1, Ncells*sizeof(int)); // initialize to -1 since some positions may not have a minimum
     numLLPs = 0;
 
     // s_stage1 = tempo_t::now();
@@ -327,19 +327,13 @@ int main( int argc, const char* argv[]) {
     e_stage1 = tempo_t::now();
 
     if(Overlap != 0.0){
-
         s_stage2 = tempo_t::now();
-
         qsort(minIDs, Ncells, sizeof(int), &cmpfunc);
-
         numLLPs = stage2GPU(Ncells, minIDs);
-
-        e_stage2 = tempo_t::now();
-
     }
+    e_stage2 = tempo_t::now();
 
     if(Bsize > 0){
-
       s_stage3 = tempo_t::now();
 
       // Qtree grid =  new Qtree_t( center, maxRadius, NULL) ;
