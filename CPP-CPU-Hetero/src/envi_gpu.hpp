@@ -633,7 +633,7 @@ Qtree createQtree(Qtree parent, Vector2D center, float radius)
     for( int i = 0; i < 4; i++)
       qt->quadrants[i] = NULL;
 
-    cpu_tree_nodes++;
+    //cpu_tree_nodes++;
 
     return qt;
 }
@@ -654,7 +654,7 @@ void createQuadrants(Qtree qt)
         // qt->quadrants[i] = createQtree(qt, newCenter, newRadius);
         qt->quadrants[i] = new Qtree_t(qt, newCenter, newRadius);
 
-        cpu_tree_nodes++;
+        //cpu_tree_nodes++;
 
     }
 }
