@@ -82,11 +82,11 @@ $(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
 
 $(BIN)/stats: application/owm_stats.cpp
 		@mkdir -p "$(@D)"
-		icpx $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
+		icpx $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
 
 $(BIN)/cudaParallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		clang++ $^ -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -o $@
+		clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda -ltbbmalloc_proxy -O3 -lm -ltbb -o $@
 
 clean:
 	rm -rf bin/

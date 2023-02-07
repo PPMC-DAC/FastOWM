@@ -2,27 +2,19 @@
 
 #define ENVI_GPU_HPP
 
-// #define TBB_PREVIEW_MEMORY_POOL 1
 #define TBB_PREVIEW_GLOBAL_CONTROL 1
 
 #include <sycl/sycl.hpp>
 #include <iostream>
-// #include <limits>
 #include <cmath>
-// #include <omp.h>
 #include <vector>
 #include <unistd.h>
-// #include <functional>
-// #include <algorithm>
 #include <string.h>
-// #include <numeric>
 #include <atomic>
 #include <fstream>
 #include <sstream>
 #include <chrono>
 #include <numeric>
-
-// #include <CL/sycl/backend/cuda.hpp>
 
 #include "tbb/global_control.h"
 #include "tbb/parallel_reduce.h"
@@ -30,21 +22,13 @@
 #include "tbb/concurrent_vector.h"
 #include "tbb/blocked_range2d.h"
 #include "tbb/task_group.h"
-// #include "tbb/cache_aligned_allocator.h"
-// #include "tbb/scalable_allocator.h"
 #include "tbb/tbbmalloc_proxy.h"
-// #include "tbb/task_arena.h"
-// #include "tbb/memory_pool.h"
-// #include "tbb/atomic.h"
+#include "tbb/enumerable_thread_specific.h"
 
 // Processes input arguments
 #include "../include/cxxopts.hpp"
 
 using namespace sycl;
-
-
-
-
 
 // NEW TYPES
 
@@ -52,7 +36,6 @@ typedef struct
 {
     double x;
     double y;
-
 } Vector2D;
 
 
@@ -61,7 +44,6 @@ typedef struct
     double x;
     double y;
     double z;
-
 } Vector3D;
 
 
@@ -71,7 +53,6 @@ typedef struct
     double x;
     double y;
     double z;
-
 } Lpoint;
 
 
@@ -191,9 +172,6 @@ struct QtreeG5_t {
 };
 
 
-
-
-
 // GLOBAL DEFINITIONS
 
 uint32_t Wsize;
@@ -215,8 +193,10 @@ Lpoint* point_cloud = NULL;
 Qtree cpu_qtree = NULL;
 
 // uint64_t cpu_tree_nodes = 0;
-std::atomic<uint64_t> cpu_tree_nodes = {0};
-// tbb::internal::atomic<uint64_t> cpu_tree_nodes = {0};
+//std::atomic<uint64_t> cpu_tree_nodes{0};
+
+using private_int_t = tbb::enumerable_thread_specific<uint64_t>;
+private_int_t node_counter{0};
 
 // Lpoint** array_all_points = NULL;
 Lpoint* array_all_points = NULL;
@@ -633,6 +613,8 @@ Qtree createQtree(Qtree parent, Vector2D center, float radius)
     for( int i = 0; i < 4; i++)
       qt->quadrants[i] = NULL;
 
+    private_int_t::reference my_counter=node_counter.local();
+    my_counter++;
     //cpu_tree_nodes++;
 
     return qt;
@@ -644,6 +626,7 @@ void createQuadrants(Qtree qt)
 {
     Vector2D newCenter;
     float newRadius = qt->radius * 0.5;
+    private_int_t::reference my_counter=node_counter.local();
 
     for( int i = 0; i < 4; i++)
     {
@@ -654,6 +637,7 @@ void createQuadrants(Qtree qt)
         // qt->quadrants[i] = createQtree(qt, newCenter, newRadius);
         qt->quadrants[i] = new Qtree_t(qt, newCenter, newRadius);
 
+        my_counter++;
         //cpu_tree_nodes++;
 
     }

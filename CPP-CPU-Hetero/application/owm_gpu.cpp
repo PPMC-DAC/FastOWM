@@ -179,7 +179,12 @@ int main( int argc, const char* argv[]) {
 
   double cpu_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
   
-  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
+  // Reduces the thread_private counters
+  uint64_t cpu_tree_nodes = node_counter.combine([](uint64_t a, uint64_t b)
+                            {return a+b;});
+
+//  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
+  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes);
 
   // i_end = tempo_t::now();
   // std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
