@@ -1,6 +1,7 @@
 data
 bin
 build
+experimental
 
 # files
 *.xyz

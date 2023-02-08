@@ -6,8 +6,7 @@
 int main( int argc, const char* argv[]) 
 {
 
-  //Listas
-  // Lpoint* point_cloud = NULL;
+  // Lpoint* point_cloud = NULL; //GLOBAL VARIABLE
 
   // unsigned int Npoints=0, Ncells, Ngrid;
   unsigned int Ncells, Ngrid;
@@ -26,52 +25,19 @@ int main( int argc, const char* argv[])
   using cast_t = std::chrono::duration<double, std::milli>;
   std::chrono::time_point<tempo_t> s_stage1, e_stage1, s_stage2, e_stage2, s_stage3, e_stage3, s_gpu, e_gpu;
   std::chrono::time_point<tempo_t> i_start, i_end;
-
-  // std::string inputTXT = {"./data/INAER_2011_Alcoy.xyz"};
-  // std::string outputTXT = {"./data/INAER_2011_Alcoy_salida.xyz"};
-  // std::string gold_results = {"./data/INAER_2011_Alcoy_salidaGOLD.xyz"};
-
-  // // Compruebo los argumentos de entrada
-  // if(argc>1) {
-  //   inputTXT = argv[1];
-  //   inputTXT += ".xyz";
-
-  //   outputTXT = argv[1];
-  //   outputTXT += "_salida.xyz";
-
-  //   gold_results = argv[1];
-  //   gold_results += "_salidaGOLD.xyz";
-  // }
-  // // Tamaño de la ventana deslizante
-  // unsigned short Wsize = (argc>2)? atoi(argv[2]) : 12;
-  // // Tamaño de la rejilla
-  // unsigned short Bsize = (argc>3)? atoi(argv[3]) : 20;
-  // // Solape de la ventana deslizante
-  // double Overlap = (argc>4)? atof(argv[4]) : 0.5;
-  // // Número de cores
-  // int NUM_PROCS = (argc>5)? atoi(argv[5]) : 2;
-  // // Número de repeticiones del experimento
-  // int bucle_entrada = (argc>6)? atoi(argv[6]) : 1;
-  // double resultados[bucle_entrada];
-  // // Radio mínimo del nodo hoja
-  // float minRadius = (argc>7)? atof(argv[7]) : 1.0;
-  // // Factor de reparto de trabajo GPU-CPU
-  // float rate = (argc>8)? atof(argv[8]) : 0.5;
-  // // Defines a maximum number of points from which to divide the cell
-  // int maxSize = (argc>9)? atoi(argv[9]) : 16;
-
-  cxxopts::Options options("./reductionts [options]", "Application to reduce points based on Visvalingam algorithm");
+  
+  cxxopts::Options options("./parallel [options]", "OWM algorithm to idetify the ground surface from LiDAR data");
 
   options.add_options()
           ("v,verbose", "Show data input/output", cxxopts::value<bool>()->default_value("false"))
           ("h,help", "Displays code help")
           ("i,input", "Input file name without extension where points are saved",
             cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
-          ("W,Wsize", "Window size", cxxopts::value<unsigned short>()->default_value("12"))
+          ("W,Wsize", "Window size", cxxopts::value<unsigned short>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<unsigned short>()->default_value("20"))
-          ("O,Overlap", "Overlap rate", cxxopts::value<double>()->default_value("0.5"))
-          ("n,npes", "Number of cores", cxxopts::value<int>()->default_value("2"))
-          ("l,loop", "Number of repetitions", cxxopts::value<int>()->default_value("2"))
+          ("O,Overlap", "Overlap rate", cxxopts::value<double>()->default_value("0.8"))
+          ("n,npes", "Number of cores", cxxopts::value<int>()->default_value("1"))
+          ("l,loop", "Number of repetitions", cxxopts::value<int>()->default_value("1"))
           ("r,radius", "Leaf nodes radius value", cxxopts::value<float>()->default_value("1.0"))
           ("b,balancing", "Balancing rate", cxxopts::value<float>()->default_value("0.5"))
           ("s,size", "Nodes maximum point size", cxxopts::value<int>()->default_value("32"))
@@ -93,8 +59,6 @@ int main( int argc, const char* argv[])
   int maxSize = parameters["size"].as<int>();
   int max_level = parameters["level"].as<int>();
 
-  double resultados[bucle_entrada];
-
   if (parameters.count("help")) {
       std::cout << options.help() << std::endl;
       exit(0);
@@ -108,73 +72,51 @@ int main( int argc, const char* argv[])
     max.x   = 716057.75;
     min.y   = 4286623.63;
     max.y   = 4287447.70;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("INAER_2011_Alcoy_Core.xyz") != std::string::npos ){ // Alcoy
     Npoints = 20380212;
     min.x   = 714947.98;
     max.x   = 716361.06;
     min.y   = 4286501.93;
     max.y   = 4288406.23;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("BABCOCK_2017_Arzua_3B.xyz") != std::string::npos ){ //Arzua
     Npoints = 40706503;
     min.x   = 568000.00;
     max.x   = 568999.99;
     min.y   = 4752320.00;
     max.y   = 4753319.99;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("V21_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion forestal
     Npoints = 42384876;
     min.x   = 526964.093;
     max.x   = 527664.647;
     min.y   = 4742610.292;
     max.y   = 4743115.738;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("V19_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion urban
     Npoints = 48024480;
     min.x   = 526955.908;
     max.x   = 527686.445;
     min.y   = 4742586.025;
     max.y   = 4743124.373;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
   } else if( inputTXT.find("sample24.xyz") != std::string::npos ){
     Npoints = 7492;
     min.x   = 513748.12;
     max.x   = 513869.97;
     min.y   = 5403124.76;
     max.y   = 5403197.20;
-    // min.z   = 0;
-    // max.z   = 0; //No lo consulto nunca
-  } else {
+  } else if ( inputTXT.find("ArzuaH.xyz") == std::string::npos &&
+              inputTXT.find("AlcoyH.xyz") == std::string::npos && 
+              inputTXT.find("BrionFH.xyz") == std::string::npos && 
+              inputTXT.find("BrionUH.xyz") == std::string::npos ){
     printf("No header data!\n");
     exit(-1);
   }
 
-
-  try {
-    point_cloud = static_cast<Lpoint*>(mallocWrap(Npoints * sizeof(Lpoint)));
-  } catch (cl::sycl::invalid_parameter_error &E) {
-    std::cout << E.what() << std::endl;
-  }
-
-  // std::atomic<int> at_cpu_tree_nodes = 0;
-
-
-  printf("VOLCANDO PUNTOS...\n");
-  // Fichero de entrada
-  // if(read_points(inputTXT, &point_cloud) != Npoints){
-  //   printf("Unable to read file!\n");
-  // }
-  if(read_pointsC(inputTXT, point_cloud) < 0){
+  printf("Reading LiDAR points...\n");
+  if(readXYZfile(inputTXT, point_cloud, Npoints, min, max) < 0){
     printf("Unable to read file!\n");
+    exit(-1);
   }
 
-  printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
+  printf("Npoints=%lu; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
 
   // Dimensiones de la nube para crear el arbol
   radius = getRadius(min, max, &maxRadius);
@@ -197,21 +139,18 @@ int main( int argc, const char* argv[])
   printf("INSERTING POINTS...\n");
   i_start = tempo_t::now();
 
-  // Qtree qtreeIn = createQtreeF(NULL, center, maxRadius);
 
-  // for(int i = 0; i < Npoints; i++){
-  //   // insertPointF(&point_cloud[i], qtreeIn, minRadius);
-  //   insertPointF2(&point_cloud[i], qtreeIn, maxSize);
-  // }
-
-  Qtree qtreeIn = parallel_qtree_creation(max_level, center, maxRadius, point_cloud, maxSize);
-  // deleteQtree(parallel_qtree);
-  // delete(parallel_qtree);
-
-  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
+  //Qtree qtreeIn = parallel_qtree_creation(max_level, center, maxRadius, point_cloud, maxSize);
+  Qtree qtreeIn= parallel_qtree_pf2(max_level, center, maxRadius, minRadius);
 
   i_end = tempo_t::now();
   std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
+
+  // Reduces the thread_private counters
+  uint64_t cpu_tree_nodes = node_counter.combine([](uint64_t a, uint64_t b)
+                            {return a+b;});
+  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes);
+
 
   printf("CLOUD PARAMETERS:\n");
   printf("Número de puntos      %lu\n",Npoints);
@@ -256,38 +195,34 @@ int main( int argc, const char* argv[])
   save_histogram(out_histogram, vhistogram, minRadius, cpu_tree_nodes, Density);
   vhistogram.clear();
 
-  printf("Pinta la búsqueda\n");
-  std::vector<int> lcpu;
-  std::vector<int> lgpu;
-  stageRateStats(Wsize, Overlap, Crow, Ccol, minNumPoints, lcpu, lgpu, qtreeIn, min, rate);
-  printf("GPU: ");
-  makeHistogram(vhistogram, lgpu);
-  save_leafs(out_histogram, vhistogram);
-  vhistogram.clear();
-  sleep(2);
-  printf("CPU: ");
-  makeHistogram(vhistogram, lcpu);
-  save_leafs(out_histogram, vhistogram);
-  vhistogram.clear();
-  lcpu.clear();
-  lgpu.clear();
+  // printf("Pinta la búsqueda\n");
+  // std::vector<int> lcpu;
+  // std::vector<int> lgpu;
+  // stageRateStats(Wsize, Overlap, Crow, Ccol, minNumPoints, lcpu, lgpu, qtreeIn, min, rate);
+  // printf("GPU: ");
+  // makeHistogram(vhistogram, lgpu);
+  // save_leafs(out_histogram, vhistogram);
+  // vhistogram.clear();
+  // sleep(2);
+  // printf("CPU: ");
+  // makeHistogram(vhistogram, lcpu);
+  // save_leafs(out_histogram, vhistogram);
+  // vhistogram.clear();
+  // lcpu.clear();
+  // lgpu.clear();
 
-  printf("Pinta los niveles\n");
+  printf("Compute the level of each leaf\n");
   std::vector<int> nlevels;
   countLevels(nlevels, qtreeIn);
+  printf("Levels computed\n");
   makeHistogram(vhistogram, nlevels);
   save_levels(out_histogram, vhistogram);
   vhistogram.clear();
   nlevels.clear();
   
-
-  free(point_cloud, q);
-  // free(point_cloud);
-  point_cloud = NULL;
+  freeWrap(point_cloud);
 
   deleteQtree(qtreeIn);
-  delete(qtreeIn);
 
   return 0;
-
 }

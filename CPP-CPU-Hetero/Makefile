@@ -80,9 +80,9 @@ $(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
 		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
 
-$(BIN)/stats: application/owm_stats.cpp
+$(BIN)/stats: application/owm_stats.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		icpx $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
+		icpx application/owm_stats.cpp -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
 
 $(BIN)/cudaParallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"

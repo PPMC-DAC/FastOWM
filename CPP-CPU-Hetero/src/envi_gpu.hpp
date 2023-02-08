@@ -1100,10 +1100,7 @@ void deleteQtree(Qtree qtree)
 {
     if(isLeaf(qtree))
     {
-
       qtree->points.clear();
-      // qtree->quadrants.clear();
-
     } else {
         // aqui no borro porque los nodos intermedios no van a tener vector
         for(int i = 0; i < 4; i++) {
@@ -1894,8 +1891,6 @@ void freeWrap(pointer_t& ptr)
   // free(ptr);
   free(ptr, gpu_queue);
   ptr = NULL;
-
-  return;
 }
 
 
@@ -3491,7 +3486,7 @@ void makeHistogram(std::vector<std::pair<int,int>>& histogram, std::vector<int>&
         });
 
   int idex = 0;
-  int ii, jj, id, reps;
+  int ii, jj{0}, id, reps;
   size_t endCount = v.size();
 
   printf("Se han analizado %zu nodos hoja\n", endCount);
