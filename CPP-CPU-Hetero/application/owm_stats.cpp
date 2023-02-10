@@ -56,7 +56,7 @@ int main( int argc, const char* argv[])
   int bucle_entrada = parameters["loop"].as<int>();
   float minRadius = parameters["radius"].as<float>();
   float rate = parameters["balancing"].as<float>();
-  int maxSize = parameters["size"].as<int>();
+  int maxNumber = parameters["size"].as<int>();
   int max_level = parameters["level"].as<int>();
 
   if (parameters.count("help")) {
@@ -126,7 +126,7 @@ int main( int argc, const char* argv[])
   printf("Center:     %.2f , %.2f\n", center.x,center.y);
   printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
   printf("minRadius:   %.2f\n", minRadius);
-  printf("maxPoints:   %d\n\n", maxSize);
+  printf("maxNumber:   %d\n\n", maxNumber);
 
   Width = round2d(max.x-min.x);
   High = round2d(max.y-min.y);
@@ -134,14 +134,20 @@ int main( int argc, const char* argv[])
   Density = Npoints/(Width*High);
 
   // Defines a maximum number of points from which to divide the cell
-  // int maxSize = (int)(minRadius*minRadius*Density);
+  // int maxNumber = (int)(minRadius*minRadius*Density);
 
   printf("INSERTING POINTS...\n");
   i_start = tempo_t::now();
 
 
-  //Qtree qtreeIn = parallel_qtree_creation(max_level, center, maxRadius, point_cloud, maxSize);
-  Qtree qtreeIn= parallel_qtree_pf2(max_level, center, maxRadius, minRadius);
+  //Qtree qtreeIn = parallel_qtree_creation(max_level, center, maxRadius, point_cloud, maxNumber);
+#ifdef MAXNUMBER  
+//To use maxNumber criterion, uncomment next line
+  Qtree qtreeIn = parallel_qtree_pf2(max_level, center, maxRadius, maxNumber);
+#else  
+//To use minRadius criterion, uncomment next line
+  Qtree qtreeIn = parallel_qtree_pf2(max_level, center, maxRadius, minRadius);
+#endif 
 
   i_end = tempo_t::now();
   std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
