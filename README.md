@@ -10,8 +10,8 @@ This repo includes different implementations of the [OWM algorithm](https://www.
 With more details, the **CPP-CPU-Hetero directory**, includes several implementations and optimizations that are validated (using the python scripts in the ``scripts`` directory) and reported in the ``Results`` directory. The summary of the implementations and optimizations are described in this [paper](https://www.overleaf.com/project/615584a8f2c4278161fc2b94):
 
 * Baseline: see [process_baseline_results.ipynb](Results/process_baseline_results.ipynb)
-* Optimization 1: 2D-space bipartition instead of 3D-space bipartition: see [process_opt1_results.ipynb](Results/process_opt1_results.ipynb), [o2and3_minradius.ipynb](Results/o2and3_minradius.ipynb) and [o2and3_maxnumber.ipynb](Results/o2and3_maxnumber.ipynb).
-* Optimization 2: tune the granularity and load balance: see [process_o2and3_results.ipynb](Results/process_o2and3_results.ipynb).
+* Optimization 1: 2D-space bipartition instead of 3D-space bipartition: see [process_opt1_results.ipynb](Results/process_opt1_results.ipynb).
+* Optimization 2: tune the granularity and load balance: see [process_o2and3_results.ipynb](Results/process_o2and3_results.ipynb), [o2and3_minradius.ipynb](Results/o2and3_minradius.ipynb) and [o2and3_maxnumber.ipynb](Results/o2and3_maxnumber.ipynb).
 * Optimization 3: reduce the number of accesses by memoization: see [sycl_minrad_maxnum.ipynb](Results/sycl_minrad_maxnum.ipynb)
 * Parallelization: see the results with more than one core in [sycl_minrad_maxnum.ipynb](Results/sycl_minrad_maxnum.ipynb)
 * Comparison of all optimizations: see [process_all_optimizations.ipynb](Results/process_all_optimizations.ipynb)
