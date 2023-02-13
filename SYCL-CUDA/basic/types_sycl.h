@@ -51,24 +51,24 @@ aabb_t default_aabb = {-inf,
 // using atomic_t = cl::sycl::atomic<uint32_t>;
 
 // #include <CL/sycl/atomic.hpp>
-using atomic_acc = sycl::ONEAPI::atomic_ref<uint32_t,   sycl::ONEAPI::memory_order::seq_cst, 
-                                                        sycl::ONEAPI::memory_scope::device,
-                                                        sycl::access::address_space::global_device_space>;
+using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::seq_cst, 
+                                                        sycl::memory_scope::device>;
+                                                        //sycl::access::address_space::global_device_space>;
 
-using atomic_wg = sycl::ONEAPI::atomic_ref<uint32_t,   sycl::ONEAPI::memory_order::seq_cst, 
-                                                        sycl::ONEAPI::memory_scope::work_group,
-                                                        sycl::access::address_space::global_device_space>;
+using atomic_wg = sycl::atomic_ref<uint32_t,   sycl::memory_order::seq_cst, 
+                                                        sycl::memory_scope::work_group>;
+                                                        //, sycl::access::address_space::global_device_space>;
 
-// using atomic_acc = sycl::ONEAPI::atomic_ref<uint32_t,   sycl::ONEAPI::memory_order::relaxed, 
-//                                                         sycl::ONEAPI::memory_scope::device,
+// using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::relaxed, 
+//                                                         sycl::memory_scope::device,
 //                                                         sycl::access::address_space::global_device_space>;
 
-// using atomic_acc = sycl::ONEAPI::atomic_ref<uint32_t,   sycl::ONEAPI::memory_order::relaxed, 
-//                                                         sycl::ONEAPI::memory_scope::system,
+// using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::relaxed, 
+//                                                         sycl::memory_scope::system,
 //                                                         sycl::access::address_space::global_space>;
 
-// using atomic_acc = sycl::ONEAPI::atomic_ref<uint32_t,   sycl::ONEAPI::memory_order::acq_rel, 
-//                                                         sycl::ONEAPI::memory_scope::device,
+// using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::acq_rel, 
+//                                                         sycl::memory_scope::device,
 //                                                         sycl::access::address_space::global_device_space>;
 
 

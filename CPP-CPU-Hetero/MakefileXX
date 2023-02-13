@@ -1,17 +1,18 @@
-CUDACXX=${DPCPP_HOME}/llvm/build/bin/clang++
+DPCPP_HOME=/opt/intel/oneapi/compiler/2023.0.0/linux
+CUDACXX=${DPCPP_HOME}/bin-llvm/clang++
 
-SYCL_INCLUDE=${DPCPP_HOME}/llvm/build/include/sycl/
+SYCL_INCLUDE=${DPCPP_HOME}/include/sycl/
 
-CUDAFLAGS=--cuda-gpu-arch=sm_60
+CUDAFLAGS=--cuda-gpu-arch=sm_75
 
 CXXFLAGS=-std=c++17 ${CUDAFLAGS} -I${SYCL_INCLUDE}
 
-LIBS=-L${DPCPP_HOME}/include/lib -lOpenCL -lsycl -ltbb -L/usr/local/cuda-10.1/lib64 -lcudart
+LIBS= -lOpenCL -lsycl -ltbb -L/usr/local/cuda/lib64 -lcudart
 
 default: owm_gpu.exe
 
-owm_gpu.exe: 
+owm_gpu.exe: application/owm_gpu.cu
 	${CUDACXX} ${CXXFLAGS} application/owm_gpu.cu ${LIBS} -o $@
 
 clean:
-	rm -f owm_gpu.exe usm_owm_gpu.exe
+	rm -f owm_gpu.exe

@@ -295,7 +295,7 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
         // int overlap = 0;
 
         if(child != uint32_t(-1)){
-          
+#ifdef MEMO          
           if( isAllOverlaped(queryAABB, lbvh.getAABB(child)) ){ // completely overlaped
 
             const auto pack = lbvh.getMinPack(child);
@@ -309,6 +309,7 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
           }
           else
           {
+#endif
             // overlap = boxOverlap2D(queryAABB, lbvh.getAABB(child));
 
             if( boxOverlap2D(queryAABB, lbvh.getAABB(child)) ) // overlaped
@@ -337,9 +338,9 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
               }
 
             }
-
-          }
-
+#ifdef MEMO
+          } //else
+#endif
         } // child
 
       } // for

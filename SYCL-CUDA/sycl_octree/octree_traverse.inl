@@ -84,7 +84,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 #endif
 
 #ifndef DEBUG
-    int n_tests = 50;
+    int n_tests = 5;
     std::cout << "Performing " << n_tests << " tests\n";
 #else
     int n_tests = 1;

@@ -2,7 +2,7 @@ CUDA = --expt-extended-lambda -gencode arch=compute_75,code=[sm_75,compute_75] -
 
 CPPFLAGS = -std=c++14 -O2
 
-INCLUDES = -I/users/fmlopez/new-lbvh
+INCLUDES = -I.
 
 all: builder
 
@@ -15,11 +15,15 @@ builder64:
 builderDebug:
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb -DDEBUG mainBuilder.cu -o $@.out
 
-builderSYCL:
-	dpcpp -DCPU -std=c++17 -O2 ${INCLUDES} -o sycl-builder.out mainBuilder.cpp -tbb
+sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -DMEMO -Wno-deprecated-declarations
+
+#without memoization
+sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
 
 builderSYCLnvidia:
-	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75' -I/users/fmlopez/new-lbvh mainBuilder.cpp -ltbb -o sycl-builder.out
+	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75' -I. mainBuilder.cpp -ltbb -o sycl-builder.out
 
 builderSYCLcuda:
 	clang++ -DGPU -DDEVICE -std=c++17 -O2 --cuda-gpu-arch=sm_75 -I/opt/intel/llvm/build/include/sycl -I/users/fmlopez/thrust -I/users/fmlopez/thrust/dependencies/cub ${INCLUDES} mainBuilder.cu -L/opt/intel/llvm/build/lib -lsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o sycl-builder.out
