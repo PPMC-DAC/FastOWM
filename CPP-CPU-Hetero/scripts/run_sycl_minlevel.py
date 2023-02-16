@@ -14,7 +14,7 @@ num_threads = [1, 2, 4, 6, 8]
 nreps = 5
 maxNumber=65536
 
-output="sycl_minradius.out"
+output="sycl_level.out"
 
 start = time.time()
 print("Start : %s" % time.ctime())
@@ -28,12 +28,14 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionFH",
         "../bin/data/BrionUH"]
 
-minRadius=list(np.arange(0.1,2.1,0.1))
-lev=5
+minRadius=list(np.arange(0.1,1.9,0.1))
+levels = list(range(3,10))
+mR=1
+nth=8
 
 for file in inputs:
-    for mR in minRadius:
-        for nth in num_threads:
+    for lev in levels:
+        for mR in minRadius:
             print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f = open(output, "a")
             f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))

@@ -179,7 +179,12 @@ int main( int argc, const char* argv[]) {
 
   double cpu_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
   
-  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
+  // Reduces the thread_private counters
+  uint64_t cpu_tree_nodes = node_counter.combine([](uint64_t a, uint64_t b)
+                            {return a+b;});
+
+//  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
+  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes);
 
   // i_end = tempo_t::now();
   // std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
@@ -279,7 +284,7 @@ int main( int argc, const char* argv[]) {
   while(numRuns){
 
     minIDs = static_cast<int*>(mallocWrap( Ncells*sizeof(int) ));
-    memset(minIDs, -1, Ncells*sizeof(int));
+    memset(minIDs, -1, Ncells*sizeof(int)); // initialize to -1 since some positions may not have a minimum
     numLLPs = 0;
 
     // s_stage1 = tempo_t::now();
@@ -327,19 +332,13 @@ int main( int argc, const char* argv[]) {
     e_stage1 = tempo_t::now();
 
     if(Overlap != 0.0){
-
         s_stage2 = tempo_t::now();
-
         qsort(minIDs, Ncells, sizeof(int), &cmpfunc);
-
         numLLPs = stage2GPU(Ncells, minIDs);
-
-        e_stage2 = tempo_t::now();
-
     }
+    e_stage2 = tempo_t::now();
 
     if(Bsize > 0){
-
       s_stage3 = tempo_t::now();
 
       // Qtree grid =  new Qtree_t( center, maxRadius, NULL) ;
@@ -392,7 +391,7 @@ int main( int argc, const char* argv[]) {
 
     if(numRuns){
 
-      if(GPUratio > 0.0) GPUratio += 0.01;
+      //if(GPUratio > 0.0) GPUratio += 0.01;
 
       freeWrap(minIDs);
       minGridIDs.clear();
