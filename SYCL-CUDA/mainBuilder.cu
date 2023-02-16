@@ -1,7 +1,7 @@
 // #include <bintree/bintree_test.h>
 // #include <bintree64/bintree64_test.h>
-#include <ordered/ordered_test.h>
-// #include <octree/octree_test.h>
+//#include <ordered/ordered_test.h>
+#include <octree/octree_test.h>
 
 
 
@@ -29,10 +29,10 @@ int main(int argc, char* argv[])
 	// bintree64_test(inputTXT, leafSize);
 	// bintree64_traverse(inputTXT, leafSize);
 	// ordered_test(inputTXT, leafSize);
-	ordered_traverse(inputTXT, leafSize);
+	// ordered_traverse(inputTXT, leafSize);
 	// ordered_traverse_S3CPU(inputTXT, leafSize);
 	// octree_test(inputTXT, leafSize);
-	// octree_traverse(inputTXT, leafSize);
+	 octree_traverse(inputTXT, leafSize);
 	// octree_traverse_heter(inputTXT, leafSize, factor);
 	// sycl_test(inputTXT, leafSize);
 	// sycl_traverse(inputTXT, leafSize);

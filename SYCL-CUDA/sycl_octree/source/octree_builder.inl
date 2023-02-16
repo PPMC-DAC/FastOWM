@@ -63,6 +63,7 @@ inline T scan_warp_total(volatile T *red) {
     }
 
 
+#ifdef NVIDIA
 /// alloc n elements per thread from a common pool, using a synchronous warp scan
 ///
 /// \param n                number of elements to alloc
@@ -79,6 +80,23 @@ uint32_t myalloc(uint32_t n, uint32_t* pool, const int32_t warp_tid, volatile ui
 
     return *warp_broadcast + warp_scan;
 }
+#else
+inline
+uint32_t myalloc(uint32_t n, uint32_t* pool, const int32_t warp_tid, volatile uint32_t* warp_red, volatile uint32_t* warp_broadcast, sycl::nd_item<1>& it)
+{
+    uint32_t warp_scan  = scan_warp( n, warp_tid, warp_red, it ) - n;
+
+    uint32_t warp_count = scan_warp_total( warp_red );
+
+    if (warp_tid == 0)
+        // *warp_broadcast = atomic_wg(*pool).fetch_add(warp_count);
+        *warp_broadcast = sycl::atomic<uint32_t>(sycl::global_ptr<uint32_t>(pool)).fetch_add(warp_count);
+
+    it.barrier(sycl::access::fence_space::local_space);
+
+    return *warp_broadcast + warp_scan;
+}
+#endif
 
 // template <typename T> 
 // inline T _scan(T val, const int32_t tidx, volatile T *red, sycl::nd_item<1>& it )
@@ -107,21 +125,6 @@ uint32_t myalloc(uint32_t n, uint32_t* pool, const int32_t warp_tid, volatile ui
 
 // }
 
-inline
-uint32_t myalloc(uint32_t n, uint32_t* pool, const int32_t warp_tid, volatile uint32_t* warp_red, volatile uint32_t* warp_broadcast, sycl::nd_item<1>& it)
-{
-    uint32_t warp_scan  = scan_warp( n, warp_tid, warp_red, it ) - n;
-
-    uint32_t warp_count = scan_warp_total( warp_red );
-
-    if (warp_tid == 0)
-        // *warp_broadcast = atomic_wg(*pool).fetch_add(warp_count);
-        *warp_broadcast = sycl::atomic<uint32_t>(sycl::global_ptr<uint32_t>(pool)).fetch_add(warp_count);
-
-    it.barrier(sycl::access::fence_space::local_space);
-
-    return *warp_broadcast + warp_scan;
-}
 
 
 
