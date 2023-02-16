@@ -56,7 +56,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     cudaMallocManaged((void**)&count, Ncells*sizeof(uint32_t));
 
 #ifndef DEBUG
-    int n_tests = 50;
+    int n_tests = 5;
 #else
     int n_tests = 1;
 #endif
@@ -100,20 +100,20 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
             if(count[i] != 0xFFFFFFFFu)
                 countMin++;
         }
-        printf("Numero de minimos STAGE1: %u\n", countMin);
+        //printf("Numero de minimos STAGE1: %u\n", countMin);
 
         /* STAGE 2 */
 
         if(Overlap != 0.0){
             qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
             countMin = stage2CPU(Ncells, count);
-            printf("Numero de minimos STAGE2: %u\n", countMin);
+            //printf("Numero de minimos STAGE2: %u\n", countMin);
         }
 
         // Fichero de salida
-        if(save_file("prueba_INAER_octree.xyz", count, countMin, builder.bintree.ord_point_cloud) < 0){
-            printf("Unable to create results file!\n");
-        }
+        // if(save_file("prueba_INAER_octree.xyz", count, countMin, builder.bintree.ord_point_cloud) < 0){
+        //     printf("Unable to create results file!\n");
+        // }
     }
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total/n_tests << " ms\n";
     printf("Numero de minimos: %u\n", countMin);

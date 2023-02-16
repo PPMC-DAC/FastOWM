@@ -6,27 +6,31 @@ INCLUDES = -I.
 
 all: builder
 
-builder:
-	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@.out
+owm-cuda: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
+	mv $@ bin
 
-builder64:
-	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@.out
-
-builderDebug:
+owm-cuda-Debug: mainBuilder.cu
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb -DDEBUG mainBuilder.cu -o $@.out
+	mv $@ bin
 
-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
 	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -DMEMO -Wno-deprecated-declarations
+	mv $@ bin
 
 #without memoization
-sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+owm-sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
 	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
+	mv $@ bin
 
-builderSYCLnvidia:
-	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75' -I. mainBuilder.cpp -ltbb -o sycl-builder.out
+owm-sycl-dgpu: mainBuilder.cpp
+	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -I. mainBuilder.cpp -ltbb -o $@
+	mv $@ bin
+#-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
 
-builderSYCLcuda:
-	clang++ -DGPU -DDEVICE -std=c++17 -O2 --cuda-gpu-arch=sm_75 -I/opt/intel/llvm/build/include/sycl -I/users/fmlopez/thrust -I/users/fmlopez/thrust/dependencies/cub ${INCLUDES} mainBuilder.cu -L/opt/intel/llvm/build/lib -lsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o sycl-builder.out
+owm-sycl-dgpu-interop: mainBuilder.cu
+	clang++ -DGPU -DDEVICE -std=c++17 -O2 --cuda-gpu-arch=sm_75 -I/opt/intel/llvm/build/include/sycl -I/users/fmlopez/thrust -I/users/fmlopez/thrust/dependencies/cub ${INCLUDES} mainBuilder.cu -L/opt/intel/llvm/build/lib -lsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o $@
+	mv $@ bin
 
 example:
 	nvcc -ltbb ${CPPFLAGS} ${CUDA} main.cu -o $@.out
