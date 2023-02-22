@@ -7,15 +7,22 @@
 void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 {
 
-#ifdef FEMU
-    cl::sycl::INTEL::fpga_emulator_selector device_selector{};
-#elif GPU
-    cl::sycl::gpu_selector device_selector{};
-#elif CPU
-    cl::sycl::cpu_selector device_selector{};
-#endif
+auto CUDASelector = [](sycl::device const &dev) {
+    if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
+      std::cout << " CUDA device found " << std::endl;
+      return 1;
+    } else {
+      return -1;
+    }
+};
 
-    cl::sycl::queue device_queue(device_selector);
+#ifdef NVIDIA
+    sycl::queue device_queue(CUDASelector);
+#elif GPU
+    sycl::queue device_queue(sycl::gpu_selector_v);
+#elif CPU
+    sycl::queue device_queue(sycl::cpu_selector_v);
+#endif
 
     std::cout << "Device : " << device_queue.get_device().get_info<sycl::info::device::name>()  
     << " @ " << device_queue.get_device().get_info<sycl::info::device::max_clock_frequency>() << "Mhz (" << 
@@ -178,15 +185,22 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const float factor)
 {
 
-#ifdef FEMU
-    cl::sycl::INTEL::fpga_emulator_selector device_selector{};
-#elif GPU
-    cl::sycl::gpu_selector device_selector{};
-#elif CPU
-    cl::sycl::cpu_selector device_selector{};
-#endif
+auto CUDASelector = [](sycl::device const &dev) {
+    if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
+      std::cout << " CUDA device found " << std::endl;
+      return 1;
+    } else {
+      return -1;
+    }
+};
 
-    cl::sycl::queue device_queue(device_selector);
+#ifdef NVIDIA
+    sycl::queue device_queue(CUDASelector);
+#elif GPU
+    sycl::queue device_queue(sycl::gpu_selector_v);
+#elif CPU
+    sycl::queue device_queue(sycl::cpu_selector_v);
+#endif
 
     std::cout << "Device : " << device_queue.get_device().get_info<sycl::info::device::name>()  
     << " @ " << device_queue.get_device().get_info<sycl::info::device::max_clock_frequency>() << "Mhz (" << 

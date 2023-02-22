@@ -179,7 +179,7 @@ class _query{
           lbvh(_lbvh), initBox(_initBox), Displace(_Displace), count(_count),
           nCols(_nCols), nRows(_nRows), minNumPoints(_minNumPoints) {}
 
-    void operator()(cl::sycl::id<1> index) const
+    void operator()(sycl::id<1> index) const
     {
 
       int idx = static_cast<int>(index[0]);
@@ -204,7 +204,7 @@ class _query{
       return;
     }
     
-    void operator()(cl::sycl::id<2> index) const
+    void operator()(sycl::id<2> index) const
     {
       int idx = static_cast<int>(index[0]);
       int jdx = static_cast<int>(index[1]);
@@ -243,7 +243,7 @@ class _query{
 
 void stage1query2D(SYCL_builder& builder, uint32_t* count, uint32_t Wsize, 
   double Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
-  cl::sycl::queue device_queue){
+  sycl::queue device_queue){
 
   // size_t Ncells = nRows*nCols;
 
@@ -260,11 +260,11 @@ void stage1query2D(SYCL_builder& builder, uint32_t* count, uint32_t Wsize,
   initBox.upper.x = builder.BBox.lower.x + Displace;
   initBox.upper.y = builder.BBox.lower.y + Displace;
 
-  device_queue.submit([&](cl::sycl::handler &cgh) {
+  device_queue.submit([&](sycl::handler &cgh) {
 
-    // cgh.parallel_for( cl::sycl::range<1>(nCols*nRows), 
+    // cgh.parallel_for( sycl::range<1>(nCols*nRows), 
     //                   _query(lbvh, initBox, Displace, count, nCols, nRows, minNumPoints));
-    cgh.parallel_for( cl::sycl::range<2>(nCols,nRows), 
+    cgh.parallel_for( sycl::range<2>(nCols,nRows), 
                       _query(lbvh, initBox, Displace, count, nCols, nRows, minNumPoints) );
 
   }).wait_and_throw();
@@ -295,7 +295,7 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
         // int overlap = 0;
 
         if(child != uint32_t(-1)){
-#ifdef MEMO          
+#ifndef NOMEMO          
           if( isAllOverlaped(queryAABB, lbvh.getAABB(child)) ){ // completely overlaped
 
             const auto pack = lbvh.getMinPack(child);
@@ -338,7 +338,7 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
               }
 
             }
-#ifdef MEMO
+#ifndef NOMEMO
           } //else
 #endif
         } // child
@@ -535,7 +535,7 @@ void traverseIterative(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts,
           uint32_t child = children[i];
 
           if(child != uint32_t(-1)){
-            
+#ifndef NOMEMO            
             if(isAllOverlaped(queryAABB, lbvh.getAABB(child))){
               // overlap = false;
 
@@ -553,8 +553,11 @@ void traverseIterative(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts,
             }
             else
             {
+#endif
               overlap |= boxOverlap2D(queryAABB, lbvh.getAABB(child)) << i;
+#ifndef NOMEMO
             }
+#endif
           }
 
         }
@@ -627,7 +630,7 @@ class _queryOct{
           lbvh(_lbvh), initBox(_initBox), Displace(_Displace), count(_count),
           nCols(_nCols), nRows(_nRows), minNumPoints(_minNumPoints) {}
     
-    void operator()(cl::sycl::id<2> index) const
+    void operator()(sycl::id<2> index) const
     {
       int idx = static_cast<int>(index[0]);
       int jdx = static_cast<int>(index[1]);
@@ -666,7 +669,7 @@ class _queryOct{
 
 sycl::event stage1query2D(Octree_builder& builder, uint32_t* count, uint32_t Wsize, 
   double Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
-  cl::sycl::queue device_queue){
+  sycl::queue device_queue){
 
   // size_t Ncells = nRows*nCols;
 
@@ -684,9 +687,9 @@ sycl::event stage1query2D(Octree_builder& builder, uint32_t* count, uint32_t Wsi
   initBox.upper.x = builder.bintree.BBox.lower.x + Displace;
   initBox.upper.y = builder.bintree.BBox.lower.y + Displace;
 
-  return device_queue.submit([&](cl::sycl::handler &cgh) {
+  return device_queue.submit([&](sycl::handler &cgh) {
 
-    cgh.parallel_for( cl::sycl::range<2>(nCols,nRows), 
+    cgh.parallel_for( sycl::range<2>(nCols,nRows), 
                       _queryOct(lbvh, initBox, Displace, count, nCols, nRows, minNumPoints) );
 
   });

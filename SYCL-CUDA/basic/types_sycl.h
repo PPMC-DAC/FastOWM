@@ -48,16 +48,16 @@ aabb_t default_aabb = {-inf,
 // using atomic_t = std::atomic<uint32_t>;
 
 // #include <CL/sycl/atomic.hpp>
-// using atomic_t = cl::sycl::atomic<uint32_t>;
+// using atomic_t = sycl::atomic<uint32_t>;
 
 // #include <CL/sycl/atomic.hpp>
-using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::seq_cst, 
-                                                        sycl::memory_scope::device>;
-                                                        //sycl::access::address_space::global_device_space>;
+using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::relaxed,//seq_cst, 
+                                                        sycl::memory_scope::device,
+                                                        sycl::access::address_space::global_space>;
 
-using atomic_wg = sycl::atomic_ref<uint32_t,   sycl::memory_order::seq_cst, 
-                                                        sycl::memory_scope::work_group>;
-                                                        //, sycl::access::address_space::global_device_space>;
+using atomic_wg = sycl::atomic_ref<uint32_t,   sycl::memory_order::relaxed,//seq_cst, 
+                                                        sycl::memory_scope::work_group,
+                                                        sycl::access::address_space::local_space>;
 
 // using atomic_acc = sycl::atomic_ref<uint32_t,   sycl::memory_order::relaxed, 
 //                                                         sycl::memory_scope::device,

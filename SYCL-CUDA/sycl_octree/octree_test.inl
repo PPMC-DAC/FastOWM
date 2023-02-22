@@ -2,18 +2,25 @@
 
 #include <sycl_octree/source/octree_builder.h>
 
+
 void octree_test(std::string inputTXT, const uint32_t chunkDim)
 {
 
-#ifdef FEMU
-    cl::sycl::INTEL::fpga_emulator_selector device_selector{};
-#elif GPU
-    cl::sycl::gpu_selector device_selector{};
+auto CUDASelector = [](sycl::device const &dev) {
+    if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
+      std::cout << " CUDA device found " << std::endl;
+      return 1;
+    } else {
+      return -1;
+    }
+};
+
+#ifdef GPU
+    sycl::queue device_queue(CUDASelector);
 #elif CPU
-    cl::sycl::cpu_selector device_selector{};
+    sycl::queue device_queue(sycl::cpu_selector_v);
 #endif
 
-    cl::sycl::queue device_queue(device_selector);
 
     std::cout << "Device : " << device_queue.get_device().get_info<sycl::info::device::name>()  
     << " @ " << device_queue.get_device().get_info<sycl::info::device::max_clock_frequency>() << "Mhz (" << 

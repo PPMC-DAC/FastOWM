@@ -186,10 +186,10 @@ void map_file_atof_tbb_th(std::string fname, point_t* cloud, uint32_t num_object
 inline aabb_t merge(const aabb_t& lhs, const aabb_t& rhs) noexcept
 {
     aabb_t merged;
-    merged.upper.x = cl::sycl::fmax(lhs.upper.x, rhs.upper.x);
-    merged.upper.y = cl::sycl::fmax(lhs.upper.y, rhs.upper.y);
-    merged.lower.x = cl::sycl::fmin(lhs.lower.x, rhs.lower.x);
-    merged.lower.y = cl::sycl::fmin(lhs.lower.y, rhs.lower.y);
+    merged.upper.x = sycl::fmax(lhs.upper.x, rhs.upper.x);
+    merged.upper.y = sycl::fmax(lhs.upper.y, rhs.upper.y);
+    merged.lower.x = sycl::fmin(lhs.lower.x, rhs.lower.x);
+    merged.lower.y = sycl::fmin(lhs.lower.y, rhs.lower.y);
     return merged;
 }
 

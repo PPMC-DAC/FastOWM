@@ -51,7 +51,7 @@ class _init_struct{
                   default_node(_default_node), default_aabb(_default_aabb), num_nodes(_n),
                   num_internal_nodes(_nin) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       indices[idx] = idx;
       morton[idx] = 0u;
@@ -67,7 +67,7 @@ class _init_struct{
       
       flags[idx] = 0u;
       // // atomic_acc(flags[idx]).store(0u);
-      // // cl::sycl::atomic_store(flags[idx], 0u);
+      // // sycl::atomic_store(flags[idx], 0u);
 
       return;
     }
@@ -117,7 +117,7 @@ class _get_morton{
         uint32_t* m) : 
         point_cloud(p), whole(BBox), diff(diffBox), morton(m) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       point_t aux = point_cloud[idx];
 
@@ -179,7 +179,7 @@ class _order_points{
     _order_points( const point_t* p, point_t* op, const uint32_t* idxs) : 
         point_cloud(p), ordered_point_cloud(op), indices(idxs) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       ordered_point_cloud[idx] = point_cloud[indices[idx]];
 
@@ -266,7 +266,7 @@ class _init_leafs{
         node_list(n), aabb_list(bb), ordered_point_cloud(op), numObjects(num_objects),
         leafSize(_leafSize), default_aabb(dbb) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       const uint32_t start = idx*leafSize;
       const uint32_t end = idx*leafSize+leafSize;
@@ -436,18 +436,18 @@ class _init_nodes{
   public:
     _init_nodes( bintree_node* n, const uint32_t num_leafs) : node_list(n), numLeafs(num_leafs) {}
 
-    void operator()(cl::sycl::id<1> i) const
+    void operator()(sycl::id<1> i) const
     {
       uint32_t idx = i;
 
       const uint64_t self_code = idx;
-      const int L_delta = (i==0)? 0 : cl::sycl::clz(self_code ^ (idx-1));
-      const int R_delta = cl::sycl::clz(self_code ^ (idx+1));
+      const int L_delta = (i==0)? 0 : sycl::clz(self_code ^ (idx-1));
+      const int R_delta = sycl::clz(self_code ^ (idx+1));
       const int d = (R_delta > L_delta) ? 1 : -1;
 
       // Compute upper bound for the length of the range
 
-      const int delta_min = cl::sycl::min(L_delta, R_delta);
+      const int delta_min = sycl::min(L_delta, R_delta);
       uint32_t l_max = 64;
       int i_tmp = idx + l_max * d;
 
@@ -456,7 +456,7 @@ class _init_nodes{
         l_max<<=1;
         i_tmp = idx + l_max * d;
 
-      } while( 0 <= i_tmp && i_tmp < numLeafs && delta_min < cl::sycl::clz(self_code ^ i_tmp) );
+      } while( 0 <= i_tmp && i_tmp < numLeafs && delta_min < sycl::clz(self_code ^ i_tmp) );
 
 
       // Find the other end by binary search
@@ -464,7 +464,7 @@ class _init_nodes{
       for(uint32_t t= l_max >> 1; t>0; t>>=1)
       {
         i_tmp = idx + (l + t) * d;
-        if( 0 <= i_tmp && i_tmp < numLeafs && delta_min < cl::sycl::clz(self_code ^ i_tmp))
+        if( 0 <= i_tmp && i_tmp < numLeafs && delta_min < sycl::clz(self_code ^ i_tmp))
           l += t;
       }
 
@@ -475,7 +475,7 @@ class _init_nodes{
       }
 
       const uint64_t first_code = idx;
-      const uint32_t prefix_node = cl::sycl::clz(first_code ^ jdx);
+      const uint32_t prefix_node = sycl::clz(first_code ^ jdx);
 
       // binary search...
       uint32_t gamma  = idx;
@@ -485,7 +485,7 @@ class _init_nodes{
       {
           stride = (stride + 1) >> 1;
           const uint32_t middle = gamma + stride;
-          if( middle < jdx && prefix_node < cl::sycl::clz(first_code ^ middle))
+          if( middle < jdx && prefix_node < sycl::clz(first_code ^ middle))
             gamma = middle;
 
       } while(stride > 1);
@@ -515,13 +515,13 @@ class _init_nodes{
 //         uint32_t idx = i;
 
 //         const uint64_t self_code = idx;
-//         const int L_delta = (i==0)? 0 : cl::sycl::clz(self_code ^ (idx-1));
-//         const int R_delta = cl::sycl::clz(self_code ^ (idx+1));
+//         const int L_delta = (i==0)? 0 : sycl::clz(self_code ^ (idx-1));
+//         const int R_delta = sycl::clz(self_code ^ (idx+1));
 //         const int d = (R_delta > L_delta) ? 1 : -1;
 
 //         // Compute upper bound for the length of the range
 
-//         const int delta_min = cl::sycl::min(L_delta, R_delta);
+//         const int delta_min = sycl::min(L_delta, R_delta);
 //         uint32_t l_max = 64;
 //         int i_tmp = idx + l_max * d;
 
@@ -530,7 +530,7 @@ class _init_nodes{
 //           l_max<<=1;
 //           i_tmp = idx + l_max * d;
 
-//         } while( 0 <= i_tmp && i_tmp < numLeafs && delta_min < cl::sycl::clz(self_code ^ i_tmp) );
+//         } while( 0 <= i_tmp && i_tmp < numLeafs && delta_min < sycl::clz(self_code ^ i_tmp) );
 
 
 //         // Find the other end by binary search
@@ -538,7 +538,7 @@ class _init_nodes{
 //         for(uint32_t t= l_max >> 1; t>0; t>>=1)
 //         {
 //           i_tmp = idx + (l + t) * d;
-//           if( 0 <= i_tmp && i_tmp < numLeafs && delta_min < cl::sycl::clz(self_code ^ i_tmp))
+//           if( 0 <= i_tmp && i_tmp < numLeafs && delta_min < sycl::clz(self_code ^ i_tmp))
 //             l += t;
 //         }
 
@@ -549,7 +549,7 @@ class _init_nodes{
 //         }
 
 //         const uint64_t first_code = idx;
-//         const uint32_t prefix_node = cl::sycl::clz(first_code ^ jdx);
+//         const uint32_t prefix_node = sycl::clz(first_code ^ jdx);
 
 //         // binary search...
 //         uint32_t gamma  = idx;
@@ -559,7 +559,7 @@ class _init_nodes{
 //         {
 //             stride = (stride + 1) >> 1;
 //             const uint32_t middle = gamma + stride;
-//             if( middle < jdx && prefix_node < cl::sycl::clz(first_code ^ middle))
+//             if( middle < jdx && prefix_node < sycl::clz(first_code ^ middle))
 //               gamma = middle;
 
 //         } while(stride > 1);
@@ -642,7 +642,7 @@ class _create_aabbs{
         node_list(n), aabb_list(bb), flags(f), ordered_point_cloud(op),
         numNodes(nn), numInternalNodes(nin) {}
 
-    // void operator()(cl::sycl::id<1> idx) const
+    // void operator()(sycl::id<1> idx) const
     // {
 
     //   uint32_t parent = node_list[idx].parent_idx;
@@ -732,7 +732,7 @@ class _create_aabbs{
 };
 
 
-void* mallocWrap(const size_t& size, cl::sycl::queue device_queue)
+void* mallocWrap(const size_t& size, sycl::queue device_queue)
 {
 #ifdef SHARED
   void *ptr = malloc_shared(size, device_queue);
@@ -752,7 +752,7 @@ void* mallocWrap(const size_t& size, cl::sycl::queue device_queue)
 } // namespace sycl_builder
 
 
-SYCL_builder::SYCL_builder( std::string inputTXT, const uint32_t chunk, cl::sycl::queue& q) : 
+SYCL_builder::SYCL_builder( std::string inputTXT, const uint32_t chunk, sycl::queue& q) : 
   leafSize(chunk), device_queue(q)
 {
 #ifndef CHECK
@@ -790,7 +790,7 @@ SYCL_builder::SYCL_builder( std::string inputTXT, const uint32_t chunk, cl::sycl
   aabb_list = (aabb_t*)sycl_builder::mallocWrap(numNodes * sizeof(aabb_t), device_queue);
 
   flags = (uint32_t*)sycl_builder::mallocWrap(numInternalNodes*sizeof(uint32_t), device_queue);
-  // flags = (uint32_t*)cl::sycl::malloc_device(numInternalNodes*sizeof(uint32_t), device_queue);
+  // flags = (uint32_t*)sycl::malloc_device(numInternalNodes*sizeof(uint32_t), device_queue);
 
   tbb::global_control c(tbb::global_control::max_allowed_parallelism, NUM_PROCS);
   
@@ -882,9 +882,9 @@ void SYCL_builder::build()
 #endif
 
 
-  device_queue.submit([&](cl::sycl::handler &cgh) {
+  device_queue.submit([&](sycl::handler &cgh) {
 
-    cgh.parallel_for(cl::sycl::range<1>(numObjects), 
+    cgh.parallel_for(sycl::range<1>(numObjects), 
                       sycl_builder::_get_morton(point_cloud, BBox, diffBox, morton));
 
   }).wait_and_throw();
@@ -950,9 +950,9 @@ void SYCL_builder::build()
 #endif
 
 
-  cl::sycl::event e1 = device_queue.submit([&](cl::sycl::handler &cgh) {
+  sycl::event e1 = device_queue.submit([&](sycl::handler &cgh) {
 
-    cgh.parallel_for(cl::sycl::range<1>(numObjects), 
+    cgh.parallel_for(sycl::range<1>(numObjects), 
                       sycl_builder::_order_points(point_cloud, ord_point_cloud, indices));
 
   });
@@ -970,11 +970,11 @@ void SYCL_builder::build()
   i_start = tempo_t::now();
 #endif
 
-  cl::sycl::event e2 = device_queue.submit([&](cl::sycl::handler &cgh) {
+  sycl::event e2 = device_queue.submit([&](sycl::handler &cgh) {
 
     cgh.depends_on(e1);
 
-    cgh.parallel_for(cl::sycl::range<1>(numLeafs), 
+    cgh.parallel_for(sycl::range<1>(numLeafs), 
                       sycl_builder::_init_leafs(&node_list[numInternalNodes], &aabb_list[numInternalNodes], 
                                   ord_point_cloud, numObjects, leafSize, default_aabb));
 
@@ -993,9 +993,9 @@ void SYCL_builder::build()
 #endif
 																		  
 
-  cl::sycl::event e3 = device_queue.submit([&](cl::sycl::handler &cgh) {
+  sycl::event e3 = device_queue.submit([&](sycl::handler &cgh) {
     
-    cgh.parallel_for(cl::sycl::range<1>(numInternalNodes), 
+    cgh.parallel_for(sycl::range<1>(numInternalNodes), 
                       sycl_builder::_init_nodes(node_list, numLeafs));
 
   });
@@ -1031,7 +1031,7 @@ void SYCL_builder::build()
   i_start = tempo_t::now();
 #endif
 									
-  device_queue.submit([&](cl::sycl::handler &cgh) {
+  device_queue.submit([&](sycl::handler &cgh) {
 
     cgh.depends_on({e2,e3});
 
@@ -1077,9 +1077,9 @@ void SYCL_builder::build()
 void SYCL_builder::reset()
 {
 
-  device_queue.submit([&](cl::sycl::handler &cgh) {
+  device_queue.submit([&](sycl::handler &cgh) {
 
-    cgh.parallel_for( cl::sycl::range<1>(numObjects), 
+    cgh.parallel_for( sycl::range<1>(numObjects), 
                       sycl_builder::_init_struct(node_list, aabb_list, indices, morton, flags,
                                       default_node, default_aabb, numNodes, numInternalNodes));
 

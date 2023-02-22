@@ -11,7 +11,7 @@
 #include <basic/utils_sycl.h>
 #include <basic/morton_sycl.h>
 
-#include <CL/sycl.hpp>
+#include <sycl/sycl.hpp>
 
 struct SYCL_builder {
 
@@ -37,13 +37,13 @@ struct SYCL_builder {
     whole_t BBox; // whole scenario
     point_t diffBox;
 
-    cl::sycl::queue& device_queue;
+    sycl::queue& device_queue;
 
     size_t num_groups;
     size_t items_per_group;
     size_t grid_dim;
 
-    SYCL_builder( std::string inputTXT, const uint32_t chunk, cl::sycl::queue& q);
+    SYCL_builder( std::string inputTXT, const uint32_t chunk, sycl::queue& q);
 
     void build();
 

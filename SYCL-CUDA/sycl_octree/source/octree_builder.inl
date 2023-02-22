@@ -244,13 +244,13 @@ inline void collect_octants(
 
     device_queue.submit([&](sycl::handler& cgh) {
 
-        sycl::accessor<uint32_t, 1, sycl::access::mode::read_write, sycl::access::target::local>
+        sycl::local_accessor<uint32_t, 1>
             warp_offset(sycl::range<1>(BLOCK_SIZE >> LOG_WARP_SIZE), cgh);
 
-        sycl::accessor<uint32_t, 1, sycl::access::mode::read_write, sycl::access::target::local>
+        sycl::local_accessor<uint32_t, 1>
             sm_red(sycl::range<1>(BLOCK_SIZE*2), cgh);
 
-        sycl::accessor<uint32_t, 1, sycl::access::mode::read_write, sycl::access::target::local>
+        sycl::local_accessor<uint32_t, 1>
             sm_children(sycl::range<1>(BLOCK_SIZE*8), cgh);
 
         // sycl::stream out(16 * 1024, 16 * 1024, cgh);
@@ -535,7 +535,7 @@ class _reset_tasks{
     _reset_tasks( Split_task* q1, Split_task* q2) : 
         in_queue(q1), out_queue(q2) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       in_queue[idx] = Split_task(0u,0u,0u,0u);
       out_queue[idx] = Split_task(0u,0u,0u,0u);
@@ -555,7 +555,7 @@ class _reset_octree{
     _reset_octree( octree_node* n, aabb_t* bb, const aabb_t def_bb) : 
         octree_list(n), aabb_list(bb), default_aabb(def_bb) {}
 
-    void operator()(cl::sycl::id<1> idx) const
+    void operator()(sycl::id<1> idx) const
     {
       octree_list[idx] = octree_node(0u,0u,0u,0u);
       aabb_list[idx] = default_aabb;
@@ -584,16 +584,16 @@ void Octree_builder::reset()
     m_counters[ 2 ]     = 1; // output node counter
 #endif
 
-    device_queue.submit([&](cl::sycl::handler &cgh) {
+    device_queue.submit([&](sycl::handler &cgh) {
 
-        cgh.parallel_for(cl::sycl::range<1>(maxNumTasks), 
+        cgh.parallel_for(sycl::range<1>(maxNumTasks), 
                             _reset_tasks(m_task_queues[0], m_task_queues[1]));
 
     });
 
-    device_queue.submit([&](cl::sycl::handler &cgh) {
+    device_queue.submit([&](sycl::handler &cgh) {
 
-        cgh.parallel_for(cl::sycl::range<1>(maxNumNodes), 
+        cgh.parallel_for(sycl::range<1>(maxNumNodes), 
                             _reset_octree(m_octree, m_aabb, default_aabb));
 
     });

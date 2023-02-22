@@ -15,18 +15,29 @@ owm-cuda-Debug: mainBuilder.cu
 	mv $@ bin
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
-	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -DMEMO -Wno-deprecated-declarations
+	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
 	mv $@ bin
 
 #without memoization
 owm-sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
-	icpx -fsycl -DCPU -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
+	icpx -fsycl -DCPU -DNOMEMO -std=c++17 -O2 ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
+	mv $@ bin
+
+owm-sycl-igpu: mainBuilder.cpp
+	clang++ -DGPU -DDEVICE -std=c++17 -O2 -fsycl -I. mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
+owm-sycl-igpu-nomemo: mainBuilder.cpp
+	clang++ -DGPU -DDEVICE -DNOMEMO -std=c++17 -O2 -fsycl -I. mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
 owm-sycl-dgpu: mainBuilder.cpp
-	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -I. mainBuilder.cpp -ltbb -o $@
+	clang++ -DGPU -DDEVICE -DNVIDIA -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -I. mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 #-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
+owm-sycl-dgpu-nomemo: mainBuilder.cpp
+	clang++ -DGPU -DDEVICE -DNVIDIA -DNOMEMO -std=c++17 -O2 -fsycl -fsycl-targets=nvptx64-nvidia-cuda -I. mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
 
 owm-sycl-dgpu-interop: mainBuilder.cu
 	clang++ -DGPU -DDEVICE -std=c++17 -O2 --cuda-gpu-arch=sm_75 -I/opt/intel/llvm/build/include/sycl -I/users/fmlopez/thrust -I/users/fmlopez/thrust/dependencies/cub ${INCLUDES} mainBuilder.cu -L/opt/intel/llvm/build/lib -lsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o $@
