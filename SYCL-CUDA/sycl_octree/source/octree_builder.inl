@@ -90,7 +90,8 @@ uint32_t myalloc(uint32_t n, uint32_t* pool, const int32_t warp_tid, volatile ui
 
     if (warp_tid == 0)
         // *warp_broadcast = atomic_wg(*pool).fetch_add(warp_count);
-        *warp_broadcast = sycl::atomic<uint32_t>(sycl::global_ptr<uint32_t>(pool)).fetch_add(warp_count);
+        //*warp_broadcast = sycl::atomic<uint32_t>(sycl::global_ptr<uint32_t>(pool)).fetch_add(warp_count);
+        *warp_broadcast = atomic_acc(*pool).fetch_add(warp_count);
 
     it.barrier(sycl::access::fence_space::local_space);
 

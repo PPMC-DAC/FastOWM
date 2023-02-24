@@ -365,7 +365,7 @@ auto CUDASelector = [](sycl::device const &dev) {
 #endif
 
     std::cout << " Stage1 KERNEL time elapsed: " << total/n_tests << " ms\n";
-    printf("Numero de minimos: %u\n", countMin);
+    printf("Number of minima: %u\n", countMin);
 
     free(count, device_queue);
     free(count_cpu);

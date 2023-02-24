@@ -15,8 +15,10 @@ auto CUDASelector = [](sycl::device const &dev) {
     }
 };
 
-#ifdef GPU
+#ifdef NVIDIA
     sycl::queue device_queue(CUDASelector);
+#elif GPU
+    sycl::queue device_queue(sycl::gpu_selector_v);
 #elif CPU
     sycl::queue device_queue(sycl::cpu_selector_v);
 #endif

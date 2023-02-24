@@ -83,16 +83,6 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
             std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
         total += dtime;
 
-        // builder.reset();
-
-        // cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), cudaCpuDeviceId);
-
-        // countMin=0;
-        // for(int i=0; i<Ncells; i++){
-        //     if(count[i] != 0xFFFFFFFFu)
-        //         countMin++;
-        //     count[i] = 0xFFFFFFFFu;
-        // }
 
         cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), cudaCpuDeviceId);
 
@@ -105,7 +95,8 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
         /* STAGE 2 */
 
         if(Overlap != 0.0){
-            qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+            //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+            std::sort(count, count+Ncells); //std::execution::par, std::execution::par_unseq,
             countMin = stage2CPU(Ncells, count);
             //printf("Numero de minimos STAGE2: %u\n", countMin);
         }
@@ -116,7 +107,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
         // }
     }
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total/n_tests << " ms\n";
-    printf("Numero de minimos: %u\n", countMin);
+    printf("Number of seed points: %u\n", countMin);
 
     cudaFree(count);
 
@@ -186,7 +177,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     // std::memset(cpu_count, 0u, Ncells*sizeof(uint32_t));
 
 #ifndef DEBUG
-    int n_tests = 50;
+    int n_tests = 5;
     std::cout << "Performing " << n_tests << " tests (" << chunkDim << ", " << factor  << ")\n";
 #else
     int n_tests = 1;
@@ -237,7 +228,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     }
 
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total/(n_tests) << " ms\n";
-    printf("Numero de minimos: %u\n", countMin);
+    printf("Number of minima: %u\n", countMin);
 
     cudaFree(count);
     cudaFreeHost(cpu_count);
