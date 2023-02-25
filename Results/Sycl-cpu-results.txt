@@ -1,0 +1,87 @@
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu data/INAER_2011_Alcoy_Core.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 440.353 ms
+Performing 5 tests
+ Partial 0 time elapsed: 655.558 ms
+ Stage1 KERNEL time elapsed: 654.12 ms
+        BUILD: 451.402 ms
+        TRAV.: 202.718 ms
+Numero de minimos: 382839
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu-nomemo data/INAER_2011_Alcoy_Core.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 445.931 ms
+Performing 5 tests
+ Partial 0 time elapsed: 703.242 ms
+ Stage1 KERNEL time elapsed: 696.147 ms
+        BUILD: 452.732 ms
+        TRAV.: 243.415 ms
+Numero de minimos: 382523
+
+1.20x
+
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu data/BABCOCK_2017_Arzua_3B.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 950.495 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1182.86 ms
+ Stage1 KERNEL time elapsed: 1183.84 ms
+        BUILD: 979.91 ms
+        TRAV.: 203.928 ms
+Numero de minimos: 196364
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu-nomemo data/BABCOCK_2017_Arzua_3B.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 948.92 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1313.87 ms
+ Stage1 KERNEL time elapsed: 1317.99 ms
+        BUILD: 977.553 ms
+        TRAV.: 340.441 ms
+Numero de minimos: 185543
+
+1.66x
+
+
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu data/V21_group1_densified_point_cloud.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 1102.32 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1274.73 ms
+ Stage1 KERNEL time elapsed: 1271.34 ms
+        BUILD: 1146.74 ms
+        TRAV.: 124.603 ms
+Numero de minimos: 65165
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu-nomemo data/V21_group1_densified_point_cloud.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 1107.99 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1463.86 ms
+ Stage1 KERNEL time elapsed: 1467.58 ms
+        BUILD: 1136.7 ms
+        TRAV.: 330.879 ms
+Numero de minimos: 64444
+
+2.65x
+
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu data/V19_group1_densified_point_cloud
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+No header data: Success
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu data/V19_group1_densified_point_cloud.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 1245.55 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1438.02 ms
+ Stage1 KERNEL time elapsed: 1433.54 ms
+        BUILD: 1296.34 ms
+        TRAV.: 137.193 ms
+Numero de minimos: 66974
+pc-denisa:~/FastOWM/SYCL-CUDA>./sycl-cpu-nomemo data/V19_group1_densified_point_cloud.xyz 
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+  CREATION takes: 1244.77 ms
+Performing 5 tests
+ Partial 0 time elapsed: 1694.63 ms
+ Stage1 KERNEL time elapsed: 1678.47 ms
+        BUILD: 1296.38 ms
+        TRAV.: 382.093 ms
+Numero de minimos: 66402
+
+2.78x
