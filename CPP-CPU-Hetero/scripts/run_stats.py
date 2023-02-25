@@ -27,7 +27,7 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionFH",
         "../bin/data/BrionUH"]
 
-minRadius=[1.4,0.5,0.6,0.6]
+minRadius=[0.9,0.6,0.2,0.2] #Best minRadius according to tree+owm time without memo (see o2and3_minradius.ipynb)
 lev=5
 nth=1
 
@@ -46,7 +46,7 @@ f.write("End : {}".format(time.ctime()))
 f.write("Total Execution time: {} hours".format((end - start)/3600))
 f.close()
 
-os.system("mkdir ../bin/data/MinRadHisto && mv ../bin/data/*.csv ../bin/data/MinRadHisto")
+os.system("mkdir ../bin/data/MinRadHisto && mv ../bin/data/*.csv ../bin/data/MinRadHisto && mv sycl_statsminrad.out ../bin/data/MinRadHisto/sycl_statsminrad.txt")
 
 output="sycl_statsmaxnum.out"
 
@@ -58,7 +58,7 @@ f.close()
 
 executable_par="../bin/statsmaxnum"
 
-maxNumber=[256,512,512,512]
+maxNumber=[512,512,1024,512] #Best maxNumber according to tree+owm time without memo (see o2and3_maxnumber.ipynb)
 mR=0.1
 lev=5
 nth=1
@@ -78,4 +78,4 @@ f.write("End : {}".format(time.ctime()))
 f.write("Total Execution time: {} hours".format((end - start)/3600))
 f.close()
 
-os.system("mkdir ../bin/data/MaxNumHisto && mv ../bin/data/*.csv ../bin/data/MaxNumHisto")
+os.system("mkdir ../bin/data/MaxNumHisto && mv ../bin/data/*.csv ../bin/data/MaxNumHisto && mv sycl_statsmaxnum.out ../bin/data/MaxNumHisto/sycl_statsmaxnum.txt")
