@@ -1,6 +1,6 @@
-Start : Fri Feb 10 14:39:08 2023
+Start : Sat Feb 25 18:18:39 2023
 
-Running: ../bin/statsmaxnum -i ../bin/data/AlcoyH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 256 -L 5
+Running: ../bin/stats -i ../bin/data/AlcoyH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.9 -s 65536 -L 5
 
 Input.txt: ../bin/data/AlcoyH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -11,12 +11,12 @@ QTREE PARAMETERS:
 MaxRadius:  952.150
 Center:     715654.52 , 4287454.08
 Radius:     706.54 , 952.15
-minRadius:   0.10
-maxNumber:   256
+minRadius:   0.90
+maxNumber:   65536
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 160.804ms
-  CPU Reserved nodes: 254873
+INSERT CPU time elapsed: 136.515ms
+  CPU Reserved nodes: 597725
 CLOUD PARAMETERS:
 Número de puntos      20380212
 Ancho:  1413.08
@@ -38,10 +38,15 @@ Dimensiones de la malla 96x71
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 191155 nodos hoja
+Se han analizado 448294 nodos hoja
+ii=0, jj=0, endCount=448294, v[ii]=6, v[jj]=6
+ii=2266, jj=2266, endCount=448294, v[ii]=7, v[jj]=7
+ii=2452, jj=2452, endCount=448294, v[ii]=8, v[jj]=8
+ii=3016, jj=3016, endCount=448294, v[ii]=9, v[jj]=9
+ii=3774, jj=3774, endCount=448294, v[ii]=10, v[jj]=10
 
 
-Running: ../bin/statsmaxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
+Running: ../bin/stats -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.6 -s 65536 -L 5
 
 Input.txt: ../bin/data/ArzuaH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -52,12 +57,12 @@ QTREE PARAMETERS:
 MaxRadius:  499.995
 Center:     568499.99 , 4752820.00
 Radius:     499.99 , 500.00
-minRadius:   0.10
-maxNumber:   512
+minRadius:   0.60
+maxNumber:   65536
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 279.456ms
-  CPU Reserved nodes: 224485
+INSERT CPU time elapsed: 204.906ms
+  CPU Reserved nodes: 349525
 CLOUD PARAMETERS:
 Número de puntos      40706503
 Ancho:  999.99
@@ -79,10 +84,11 @@ Dimensiones de la malla 50x50
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 168364 nodos hoja
+Se han analizado 262144 nodos hoja
+ii=0, jj=0, endCount=262144, v[ii]=9, v[jj]=9
 
 
-Running: ../bin/statsmaxnum -i ../bin/data/BrionFH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
+Running: ../bin/stats -i ../bin/data/BrionFH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.2 -s 65536 -L 5
 
 Input.txt: ../bin/data/BrionFH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -93,12 +99,12 @@ QTREE PARAMETERS:
 MaxRadius:  350.277
 Center:     527314.37 , 4742863.02
 Radius:     350.28 , 252.72
-minRadius:   0.10
-maxNumber:   512
+minRadius:   0.20
+maxNumber:   65536
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 605.635ms
-  CPU Reserved nodes: 230189
+INSERT CPU time elapsed: 499.015ms
+  CPU Reserved nodes: 803725
 CLOUD PARAMETERS:
 Número de puntos      42384876
 Ancho:  700.55
@@ -120,10 +126,15 @@ Dimensiones de la malla 26x36
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 172642 nodos hoja
+Se han analizado 602794 nodos hoja
+ii=0, jj=0, endCount=602794, v[ii]=6, v[jj]=6
+ii=1593, jj=1593, endCount=602794, v[ii]=7, v[jj]=7
+ii=1911, jj=1911, endCount=602794, v[ii]=8, v[jj]=8
+ii=2723, jj=2723, endCount=602794, v[ii]=9, v[jj]=9
+ii=5174, jj=5174, endCount=602794, v[ii]=10, v[jj]=10
 
 
-Running: ../bin/statsmaxnum -i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
+Running: ../bin/stats -i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.2 -s 65536 -L 5
 
 Input.txt: ../bin/data/BrionUH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -134,12 +145,12 @@ QTREE PARAMETERS:
 MaxRadius:  365.268
 Center:     527321.18 , 4742855.20
 Radius:     365.27 , 269.17
-minRadius:   0.10
-maxNumber:   512
+minRadius:   0.20
+maxNumber:   65536
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 713.69ms
-  CPU Reserved nodes: 281365
+INSERT CPU time elapsed: 521.286ms
+  CPU Reserved nodes: 781581
 CLOUD PARAMETERS:
 Número de puntos      48024480
 Ancho:  730.54
@@ -161,5 +172,10 @@ Dimensiones de la malla 27x37
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 211024 nodos hoja
-End : Fri Feb 10 14:40:08 2023Total Execution time: 0.016802831225925022 hours
+Se han analizado 586186 nodos hoja
+ii=0, jj=0, endCount=586186, v[ii]=6, v[jj]=6
+ii=1664, jj=1664, endCount=586186, v[ii]=7, v[jj]=7
+ii=1959, jj=1959, endCount=586186, v[ii]=8, v[jj]=8
+ii=2782, jj=2782, endCount=586186, v[ii]=9, v[jj]=9
+ii=5162, jj=5162, endCount=586186, v[ii]=10, v[jj]=10
+End : Sat Feb 25 18:19:40 2023Total Execution time: 0.01682229353321923 hours

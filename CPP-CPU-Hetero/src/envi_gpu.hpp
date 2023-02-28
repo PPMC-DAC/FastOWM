@@ -3439,9 +3439,7 @@ void countLevels(std::vector<int>& lCount, Qtree qtree, int level = 0)
 /* Creates the histogram form a tree */
 void makeHistogram(std::vector<std::pair<int,int>>& histogram, Qtree qtree) 
 {
-
   std::vector<int> pCount;
-
   countPoints(pCount, qtree);
 
   std::sort(pCount.begin(), pCount.end(), [](int& a, int& b){
@@ -3449,19 +3447,15 @@ void makeHistogram(std::vector<std::pair<int,int>>& histogram, Qtree qtree)
         });
 
   int idex = 0;
-  int ii, jj, id, reps;
+  int ii, jj{0}, id, reps;
   size_t endCount = pCount.size();
 
   for( int ii=jj ; ii<endCount ; ii=jj ) {
-
+      //printf("ii=%d, jj=%d, endCount=%d, v[ii]=%d, v[jj]=%d\n", ii,jj,endCount, v[ii], v[jj]);
       id = pCount[ii];
-
       for( jj=ii+1 ; id==pCount[jj] && jj<endCount ; jj++ );
-
       reps = jj-ii;
-
       histogram.push_back({id, reps});
-
   }
 
   pCount.clear();
@@ -3492,15 +3486,11 @@ void makeHistogram(std::vector<std::pair<int,int>>& histogram, std::vector<int>&
   printf("Se han analizado %zu nodos hoja\n", endCount);
 
   for( int ii=jj ; ii<endCount ; ii=jj ) {
-
+      //printf("ii=%d, jj=%d, endCount=%d, v[ii]=%d, v[jj]=%d\n", ii,jj,endCount, v[ii], v[jj]);
       id = v[ii];
-
       for( jj=ii+1 ; id==v[jj] && jj<endCount ; jj++ );
-
       reps = jj-ii;
-
       histogram.push_back({id, reps});
-
   }
 
 }

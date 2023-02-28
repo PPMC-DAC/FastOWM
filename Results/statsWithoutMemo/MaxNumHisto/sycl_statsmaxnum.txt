@@ -1,6 +1,6 @@
-Start : Fri Feb 10 14:38:08 2023
+Start : Sat Feb 25 18:19:40 2023
 
-Running: ../bin/stats -i ../bin/data/AlcoyH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 1.4 -s 65536 -L 5
+Running: ../bin/statsmaxnum -i ../bin/data/AlcoyH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
 
 Input.txt: ../bin/data/AlcoyH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -11,12 +11,12 @@ QTREE PARAMETERS:
 MaxRadius:  952.150
 Center:     715654.52 , 4287454.08
 Radius:     706.54 , 952.15
-minRadius:   1.40
-maxPoints:   65536
+minRadius:   0.10
+maxNumber:   512
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 108.471ms
-  CPU Reserved nodes: 153205
+INSERT CPU time elapsed: 144.022ms
+  CPU Reserved nodes: 112049
 CLOUD PARAMETERS:
 Número de puntos      20380212
 Ancho:  1413.08
@@ -38,10 +38,10 @@ Dimensiones de la malla 96x71
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 114904 nodos hoja
+Se han analizado 84037 nodos hoja
 
 
-Running: ../bin/stats -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.5 -s 65536 -L 5
+Running: ../bin/statsmaxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
 
 Input.txt: ../bin/data/ArzuaH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -52,12 +52,12 @@ QTREE PARAMETERS:
 MaxRadius:  499.995
 Center:     568499.99 , 4752820.00
 Radius:     499.99 , 500.00
-minRadius:   0.50
-maxPoints:   65536
+minRadius:   0.10
+maxNumber:   512
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 208.548ms
-  CPU Reserved nodes: 349525
+INSERT CPU time elapsed: 283.382ms
+  CPU Reserved nodes: 224485
 CLOUD PARAMETERS:
 Número de puntos      40706503
 Ancho:  999.99
@@ -79,10 +79,10 @@ Dimensiones de la malla 50x50
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 262144 nodos hoja
+Se han analizado 168364 nodos hoja
 
 
-Running: ../bin/stats -i ../bin/data/BrionFH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.6 -s 65536 -L 5
+Running: ../bin/statsmaxnum -i ../bin/data/BrionFH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 1024 -L 5
 
 Input.txt: ../bin/data/BrionFH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -93,12 +93,12 @@ QTREE PARAMETERS:
 MaxRadius:  350.277
 Center:     527314.37 , 4742863.02
 Radius:     350.28 , 252.72
-minRadius:   0.60
-maxPoints:   65536
+minRadius:   0.10
+maxNumber:   1024
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 450.394ms
-  CPU Reserved nodes: 206105
+INSERT CPU time elapsed: 665.885ms
+  CPU Reserved nodes: 129797
 CLOUD PARAMETERS:
 Número de puntos      42384876
 Ancho:  700.55
@@ -120,10 +120,10 @@ Dimensiones de la malla 26x36
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 154579 nodos hoja
+Se han analizado 97348 nodos hoja
 
 
-Running: ../bin/stats -i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.6 -s 65536 -L 5
+Running: ../bin/statsmaxnum -i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 1 -l 5 -r 0.1 -s 512 -L 5
 
 Input.txt: ../bin/data/BrionUH.xyz ---> EX. CON 1 CORES
 Reading LiDAR points...
@@ -134,12 +134,12 @@ QTREE PARAMETERS:
 MaxRadius:  365.268
 Center:     527321.18 , 4742855.20
 Radius:     365.27 , 269.17
-minRadius:   0.60
-maxPoints:   65536
+minRadius:   0.10
+maxNumber:   512
 
 INSERTING POINTS...
-INSERT CPU time elapsed: 482.835ms
-  CPU Reserved nodes: 200557
+INSERT CPU time elapsed: 741.815ms
+  CPU Reserved nodes: 281365
 CLOUD PARAMETERS:
 Número de puntos      48024480
 Ancho:  730.54
@@ -161,5 +161,5 @@ Dimensiones de la malla 27x37
 
 Compute the level of each leaf
 Levels computed
-Se han analizado 150418 nodos hoja
-End : Fri Feb 10 14:39:08 2023Total Execution time: 0.01668096191353268 hours
+Se han analizado 211024 nodos hoja
+End : Sat Feb 25 18:20:40 2023Total Execution time: 0.016775604287783304 hours
