@@ -1,25 +1,3 @@
-// // #include <cub/cub.cuh>
-// #include <cub/device/device_radix_sort.cuh>
-
-// /*Esto evita un problema de compilación con thrust y el método
-// va_printf. Consultar los comentarios en:
-// https://github.com/NVIDIA/thrust/issues/1032*/
-// using namespace cub;
-
-// #include <thrust/pair.h>
-// #include <thrust/tuple.h>
-// #include <thrust/host_vector.h>
-// #include <thrust/device_vector.h>
-// #include <thrust/functional.h>
-// #include <thrust/scan.h>
-// #include <thrust/sort.h>
-// #include <thrust/fill.h>
-// #include <thrust/for_each.h>
-// #include <thrust/transform.h>
-// #include <thrust/reduce.h>
-// #include <thrust/iterator/constant_iterator.h>
-// #include <thrust/iterator/counting_iterator.h>
-// #include <thrust/execution_policy.h>
 
 #ifdef CHECK
 #include <random>

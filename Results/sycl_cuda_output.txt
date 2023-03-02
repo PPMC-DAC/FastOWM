@@ -1,0 +1,2346 @@
+Start : Thu Mar  2 10:50:57 2023
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 438.448 ms
+ Stage1 KERNEL SYCL time elapsed: 201.869 ms
+ Stage2 KERNEL SYCL time elapsed: 4.35985 ms
+ Total KERNEL SYCL time elapsed: 206.229 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 644.677 ms
+Numer of seed points: 59832
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 405.436 ms
+ Stage1 KERNEL SYCL time elapsed: 193.493 ms
+ Stage2 KERNEL SYCL time elapsed: 4.43799 ms
+ Total KERNEL SYCL time elapsed: 197.931 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 603.367 ms
+Numer of seed points: 65314
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 389.042 ms
+ Stage1 KERNEL SYCL time elapsed: 186.569 ms
+ Stage2 KERNEL SYCL time elapsed: 4.37391 ms
+ Total KERNEL SYCL time elapsed: 190.942 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 579.984 ms
+Numer of seed points: 66270
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 379.818 ms
+ Stage1 KERNEL SYCL time elapsed: 229.027 ms
+ Stage2 KERNEL SYCL time elapsed: 4.26183 ms
+ Total KERNEL SYCL time elapsed: 233.289 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 613.107 ms
+Numer of seed points: 60308
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 378.175 ms
+ Stage1 KERNEL SYCL time elapsed: 243.583 ms
+ Stage2 KERNEL SYCL time elapsed: 4.59327 ms
+ Total KERNEL SYCL time elapsed: 248.176 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 626.351 ms
+Numer of seed points: 65656
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 372.763 ms
+ Stage1 KERNEL SYCL time elapsed: 255.611 ms
+ Stage2 KERNEL SYCL time elapsed: 4.13041 ms
+ Total KERNEL SYCL time elapsed: 259.741 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 632.504 ms
+Numer of seed points: 58880
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 373.006 ms
+ Stage1 KERNEL SYCL time elapsed: 462.723 ms
+ Stage2 KERNEL SYCL time elapsed: 4.23422 ms
+ Total KERNEL SYCL time elapsed: 466.958 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 839.964 ms
+Numer of seed points: 58470
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 961.601 ms
+ Stage1 KERNEL SYCL time elapsed: 202.786 ms
+ Stage2 KERNEL SYCL time elapsed: 2.008 ms
+ Total KERNEL SYCL time elapsed: 204.794 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1166.39 ms
+Numer of seed points: 28795
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 865.685 ms
+ Stage1 KERNEL SYCL time elapsed: 201.04 ms
+ Stage2 KERNEL SYCL time elapsed: 1.95873 ms
+ Total KERNEL SYCL time elapsed: 202.999 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1068.68 ms
+Numer of seed points: 28599
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 834.865 ms
+ Stage1 KERNEL SYCL time elapsed: 201.029 ms
+ Stage2 KERNEL SYCL time elapsed: 2.10277 ms
+ Total KERNEL SYCL time elapsed: 203.131 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1038 ms
+Numer of seed points: 29177
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 815.024 ms
+ Stage1 KERNEL SYCL time elapsed: 195.857 ms
+ Stage2 KERNEL SYCL time elapsed: 1.90205 ms
+ Total KERNEL SYCL time elapsed: 197.759 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1012.78 ms
+Numer of seed points: 27862
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 805.311 ms
+ Stage1 KERNEL SYCL time elapsed: 279.384 ms
+ Stage2 KERNEL SYCL time elapsed: 2.01872 ms
+ Total KERNEL SYCL time elapsed: 281.402 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1086.71 ms
+Numer of seed points: 28424
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 802.926 ms
+ Stage1 KERNEL SYCL time elapsed: 299.876 ms
+ Stage2 KERNEL SYCL time elapsed: 1.9733 ms
+ Total KERNEL SYCL time elapsed: 301.849 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1104.78 ms
+Numer of seed points: 30325
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 802.446 ms
+ Stage1 KERNEL SYCL time elapsed: 330.376 ms
+ Stage2 KERNEL SYCL time elapsed: 1.81947 ms
+ Total KERNEL SYCL time elapsed: 332.195 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1134.64 ms
+Numer of seed points: 25399
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1120.38 ms
+ Stage1 KERNEL SYCL time elapsed: 123.114 ms
+ Stage2 KERNEL SYCL time elapsed: 0.752567 ms
+ Total KERNEL SYCL time elapsed: 123.867 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1244.24 ms
+Numer of seed points: 9561
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1023.23 ms
+ Stage1 KERNEL SYCL time elapsed: 126.998 ms
+ Stage2 KERNEL SYCL time elapsed: 0.706299 ms
+ Total KERNEL SYCL time elapsed: 127.704 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1150.94 ms
+Numer of seed points: 9519
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 989.133 ms
+ Stage1 KERNEL SYCL time elapsed: 116.965 ms
+ Stage2 KERNEL SYCL time elapsed: 0.800051 ms
+ Total KERNEL SYCL time elapsed: 117.765 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1106.9 ms
+Numer of seed points: 9823
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 971.439 ms
+ Stage1 KERNEL SYCL time elapsed: 110.873 ms
+ Stage2 KERNEL SYCL time elapsed: 0.708257 ms
+ Total KERNEL SYCL time elapsed: 111.581 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1083.02 ms
+Numer of seed points: 9667
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 955.93 ms
+ Stage1 KERNEL SYCL time elapsed: 207.368 ms
+ Stage2 KERNEL SYCL time elapsed: 0.720662 ms
+ Total KERNEL SYCL time elapsed: 208.088 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1164.02 ms
+Numer of seed points: 9522
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 961.283 ms
+ Stage1 KERNEL SYCL time elapsed: 159.262 ms
+ Stage2 KERNEL SYCL time elapsed: 0.755811 ms
+ Total KERNEL SYCL time elapsed: 160.018 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1121.3 ms
+Numer of seed points: 9937
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 955.031 ms
+ Stage1 KERNEL SYCL time elapsed: 233.458 ms
+ Stage2 KERNEL SYCL time elapsed: 0.752781 ms
+ Total KERNEL SYCL time elapsed: 234.211 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1189.24 ms
+Numer of seed points: 9562
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1277.99 ms
+ Stage1 KERNEL SYCL time elapsed: 136.786 ms
+ Stage2 KERNEL SYCL time elapsed: 0.786157 ms
+ Total KERNEL SYCL time elapsed: 137.572 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1415.56 ms
+Numer of seed points: 9845
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1169.74 ms
+ Stage1 KERNEL SYCL time elapsed: 138.207 ms
+ Stage2 KERNEL SYCL time elapsed: 0.763507 ms
+ Total KERNEL SYCL time elapsed: 138.97 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1308.71 ms
+Numer of seed points: 9703
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1133.05 ms
+ Stage1 KERNEL SYCL time elapsed: 130.845 ms
+ Stage2 KERNEL SYCL time elapsed: 0.780084 ms
+ Total KERNEL SYCL time elapsed: 131.625 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1264.68 ms
+Numer of seed points: 9873
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1105.58 ms
+ Stage1 KERNEL SYCL time elapsed: 125.695 ms
+ Stage2 KERNEL SYCL time elapsed: 0.781839 ms
+ Total KERNEL SYCL time elapsed: 126.477 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1232.06 ms
+Numer of seed points: 9801
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1094.35 ms
+ Stage1 KERNEL SYCL time elapsed: 219.506 ms
+ Stage2 KERNEL SYCL time elapsed: 0.792996 ms
+ Total KERNEL SYCL time elapsed: 220.299 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1314.65 ms
+Numer of seed points: 9681
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1091.67 ms
+ Stage1 KERNEL SYCL time elapsed: 177.51 ms
+ Stage2 KERNEL SYCL time elapsed: 0.769589 ms
+ Total KERNEL SYCL time elapsed: 178.279 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1269.95 ms
+Numer of seed points: 9949
+
+
+Running: ../bin/owm-sycl-cpu ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1089.65 ms
+ Stage1 KERNEL SYCL time elapsed: 283.55 ms
+ Stage2 KERNEL SYCL time elapsed: 0.753174 ms
+ Total KERNEL SYCL time elapsed: 284.303 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1373.95 ms
+Numer of seed points: 9937
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 440.822 ms
+ Stage1 KERNEL SYCL time elapsed: 243.215 ms
+ Stage2 KERNEL SYCL time elapsed: 14.7617 ms
+ Total KERNEL SYCL time elapsed: 257.977 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 698.799 ms
+Numer of seed points: 59734
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 409.645 ms
+ Stage1 KERNEL SYCL time elapsed: 227.835 ms
+ Stage2 KERNEL SYCL time elapsed: 14.583 ms
+ Total KERNEL SYCL time elapsed: 242.417 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 652.063 ms
+Numer of seed points: 64597
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 394.228 ms
+ Stage1 KERNEL SYCL time elapsed: 211.857 ms
+ Stage2 KERNEL SYCL time elapsed: 15.0762 ms
+ Total KERNEL SYCL time elapsed: 226.933 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 621.161 ms
+Numer of seed points: 65303
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 381.893 ms
+ Stage1 KERNEL SYCL time elapsed: 248.275 ms
+ Stage2 KERNEL SYCL time elapsed: 15.5205 ms
+ Total KERNEL SYCL time elapsed: 263.795 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 645.688 ms
+Numer of seed points: 60264
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 379.162 ms
+ Stage1 KERNEL SYCL time elapsed: 254.046 ms
+ Stage2 KERNEL SYCL time elapsed: 14.6621 ms
+ Total KERNEL SYCL time elapsed: 268.708 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 647.871 ms
+Numer of seed points: 65629
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 375.955 ms
+ Stage1 KERNEL SYCL time elapsed: 260.169 ms
+ Stage2 KERNEL SYCL time elapsed: 13.93 ms
+ Total KERNEL SYCL time elapsed: 274.099 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 650.054 ms
+Numer of seed points: 58924
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 375.407 ms
+ Stage1 KERNEL SYCL time elapsed: 470.034 ms
+ Stage2 KERNEL SYCL time elapsed: 15.3967 ms
+ Total KERNEL SYCL time elapsed: 485.431 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 860.838 ms
+Numer of seed points: 58488
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 962.968 ms
+ Stage1 KERNEL SYCL time elapsed: 340.42 ms
+ Stage2 KERNEL SYCL time elapsed: 7.22784 ms
+ Total KERNEL SYCL time elapsed: 347.648 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1310.62 ms
+Numer of seed points: 27148
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 867.547 ms
+ Stage1 KERNEL SYCL time elapsed: 299.167 ms
+ Stage2 KERNEL SYCL time elapsed: 6.89416 ms
+ Total KERNEL SYCL time elapsed: 306.061 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1173.61 ms
+Numer of seed points: 28329
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 834.286 ms
+ Stage1 KERNEL SYCL time elapsed: 284.084 ms
+ Stage2 KERNEL SYCL time elapsed: 7.14352 ms
+ Total KERNEL SYCL time elapsed: 291.227 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1125.51 ms
+Numer of seed points: 28378
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 817.608 ms
+ Stage1 KERNEL SYCL time elapsed: 261.301 ms
+ Stage2 KERNEL SYCL time elapsed: 6.21504 ms
+ Total KERNEL SYCL time elapsed: 267.516 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1085.12 ms
+Numer of seed points: 26437
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 805.446 ms
+ Stage1 KERNEL SYCL time elapsed: 331.887 ms
+ Stage2 KERNEL SYCL time elapsed: 7.44348 ms
+ Total KERNEL SYCL time elapsed: 339.33 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1144.78 ms
+Numer of seed points: 28266
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 801.944 ms
+ Stage1 KERNEL SYCL time elapsed: 335.643 ms
+ Stage2 KERNEL SYCL time elapsed: 6.86324 ms
+ Total KERNEL SYCL time elapsed: 342.506 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1144.45 ms
+Numer of seed points: 30244
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 799.596 ms
+ Stage1 KERNEL SYCL time elapsed: 351.953 ms
+ Stage2 KERNEL SYCL time elapsed: 6.27234 ms
+ Total KERNEL SYCL time elapsed: 358.226 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1157.82 ms
+Numer of seed points: 25258
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1116.43 ms
+ Stage1 KERNEL SYCL time elapsed: 329.751 ms
+ Stage2 KERNEL SYCL time elapsed: 2.26918 ms
+ Total KERNEL SYCL time elapsed: 332.02 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1448.45 ms
+Numer of seed points: 9345
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1019.59 ms
+ Stage1 KERNEL SYCL time elapsed: 316.874 ms
+ Stage2 KERNEL SYCL time elapsed: 2.24051 ms
+ Total KERNEL SYCL time elapsed: 319.114 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1338.71 ms
+Numer of seed points: 9482
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 988.087 ms
+ Stage1 KERNEL SYCL time elapsed: 284.372 ms
+ Stage2 KERNEL SYCL time elapsed: 2.28464 ms
+ Total KERNEL SYCL time elapsed: 286.656 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1274.74 ms
+Numer of seed points: 9415
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 979.503 ms
+ Stage1 KERNEL SYCL time elapsed: 186.172 ms
+ Stage2 KERNEL SYCL time elapsed: 2.21055 ms
+ Total KERNEL SYCL time elapsed: 188.383 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1167.89 ms
+Numer of seed points: 9240
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 961.441 ms
+ Stage1 KERNEL SYCL time elapsed: 336.715 ms
+ Stage2 KERNEL SYCL time elapsed: 2.23664 ms
+ Total KERNEL SYCL time elapsed: 338.951 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1300.39 ms
+Numer of seed points: 9472
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 963.477 ms
+ Stage1 KERNEL SYCL time elapsed: 203.618 ms
+ Stage2 KERNEL SYCL time elapsed: 2.26343 ms
+ Total KERNEL SYCL time elapsed: 205.881 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1169.36 ms
+Numer of seed points: 9627
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 962.604 ms
+ Stage1 KERNEL SYCL time elapsed: 276.037 ms
+ Stage2 KERNEL SYCL time elapsed: 2.26908 ms
+ Total KERNEL SYCL time elapsed: 278.306 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1240.91 ms
+Numer of seed points: 9265
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1265.94 ms
+ Stage1 KERNEL SYCL time elapsed: 386.367 ms
+ Stage2 KERNEL SYCL time elapsed: 2.37702 ms
+ Total KERNEL SYCL time elapsed: 388.744 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1654.68 ms
+Numer of seed points: 9591
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1167.08 ms
+ Stage1 KERNEL SYCL time elapsed: 365.221 ms
+ Stage2 KERNEL SYCL time elapsed: 2.34418 ms
+ Total KERNEL SYCL time elapsed: 367.565 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1534.65 ms
+Numer of seed points: 9594
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1130.03 ms
+ Stage1 KERNEL SYCL time elapsed: 339.119 ms
+ Stage2 KERNEL SYCL time elapsed: 2.40565 ms
+ Total KERNEL SYCL time elapsed: 341.525 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1471.55 ms
+Numer of seed points: 9457
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1109.52 ms
+ Stage1 KERNEL SYCL time elapsed: 227.064 ms
+ Stage2 KERNEL SYCL time elapsed: 2.39783 ms
+ Total KERNEL SYCL time elapsed: 229.462 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1338.98 ms
+Numer of seed points: 9459
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1093.69 ms
+ Stage1 KERNEL SYCL time elapsed: 373.118 ms
+ Stage2 KERNEL SYCL time elapsed: 2.18008 ms
+ Total KERNEL SYCL time elapsed: 375.298 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1468.99 ms
+Numer of seed points: 9536
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1084.88 ms
+ Stage1 KERNEL SYCL time elapsed: 230.909 ms
+ Stage2 KERNEL SYCL time elapsed: 2.38258 ms
+ Total KERNEL SYCL time elapsed: 233.292 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1318.17 ms
+Numer of seed points: 9584
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz @ 3600Mhz (16 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1094.85 ms
+ Stage1 KERNEL SYCL time elapsed: 339.403 ms
+ Stage2 KERNEL SYCL time elapsed: 2.22245 ms
+ Total KERNEL SYCL time elapsed: 341.626 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1436.47 ms
+Numer of seed points: 9675
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2977.35 ms
+ Stage1 KERNEL SYCL time elapsed: 1163.88 ms
+ Stage2 KERNEL SYCL time elapsed: 15.4256 ms
+ Total KERNEL SYCL time elapsed: 1179.31 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4156.66 ms
+Numer of seed points: 59715
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2941.45 ms
+ Stage1 KERNEL SYCL time elapsed: 1212.78 ms
+ Stage2 KERNEL SYCL time elapsed: 15.5153 ms
+ Total KERNEL SYCL time elapsed: 1228.3 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4169.75 ms
+Numer of seed points: 65510
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2928.89 ms
+ Stage1 KERNEL SYCL time elapsed: 1225.38 ms
+ Stage2 KERNEL SYCL time elapsed: 15.42 ms
+ Total KERNEL SYCL time elapsed: 1240.8 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4169.69 ms
+Numer of seed points: 67016
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2918.76 ms
+ Stage1 KERNEL SYCL time elapsed: 1874.99 ms
+ Stage2 KERNEL SYCL time elapsed: 15.3431 ms
+ Total KERNEL SYCL time elapsed: 1890.33 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4809.09 ms
+Numer of seed points: 60332
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2916.12 ms
+ Stage1 KERNEL SYCL time elapsed: 2058.13 ms
+ Stage2 KERNEL SYCL time elapsed: 15.0964 ms
+ Total KERNEL SYCL time elapsed: 2073.23 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4989.35 ms
+Numer of seed points: 65754
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2922.29 ms
+ Stage1 KERNEL SYCL time elapsed: 2108.24 ms
+ Stage2 KERNEL SYCL time elapsed: 15.0026 ms
+ Total KERNEL SYCL time elapsed: 2123.24 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5045.54 ms
+Numer of seed points: 60678
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2926.85 ms
+ Stage1 KERNEL SYCL time elapsed: 3132.29 ms
+ Stage2 KERNEL SYCL time elapsed: 15.0787 ms
+ Total KERNEL SYCL time elapsed: 3147.37 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6074.22 ms
+Numer of seed points: 58564
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2653.58 ms
+ Stage1 KERNEL SYCL time elapsed: 1125.11 ms
+ Stage2 KERNEL SYCL time elapsed: 7.06595 ms
+ Total KERNEL SYCL time elapsed: 1132.18 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 3785.76 ms
+Numer of seed points: 27905
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2659.67 ms
+ Stage1 KERNEL SYCL time elapsed: 1603.79 ms
+ Stage2 KERNEL SYCL time elapsed: 6.90624 ms
+ Total KERNEL SYCL time elapsed: 1610.7 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4270.37 ms
+Numer of seed points: 27613
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2524.13 ms
+ Stage1 KERNEL SYCL time elapsed: 1754.67 ms
+ Stage2 KERNEL SYCL time elapsed: 7.05739 ms
+ Total KERNEL SYCL time elapsed: 1761.72 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4285.86 ms
+Numer of seed points: 28894
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2518.35 ms
+ Stage1 KERNEL SYCL time elapsed: 1801.22 ms
+ Stage2 KERNEL SYCL time elapsed: 6.73138 ms
+ Total KERNEL SYCL time elapsed: 1807.95 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4326.3 ms
+Numer of seed points: 28668
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2510.03 ms
+ Stage1 KERNEL SYCL time elapsed: 3236.02 ms
+ Stage2 KERNEL SYCL time elapsed: 6.85238 ms
+ Total KERNEL SYCL time elapsed: 3242.87 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5752.9 ms
+Numer of seed points: 28012
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2497.05 ms
+ Stage1 KERNEL SYCL time elapsed: 3629.42 ms
+ Stage2 KERNEL SYCL time elapsed: 6.91453 ms
+ Total KERNEL SYCL time elapsed: 3636.33 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6133.38 ms
+Numer of seed points: 30844
+
+Running: ../bin/owm-sycl-igpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2507.98 ms
+ Stage1 KERNEL SYCL time elapsed: 3738.98 ms
+ Stage2 KERNEL SYCL time elapsed: 6.53281 ms
+ Total KERNEL SYCL time elapsed: 3745.51 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6253.49 ms
+Numer of seed points: 27585
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7386.97 ms
+ Stage1 KERNEL SYCL time elapsed: 645.316 ms
+ Stage2 KERNEL SYCL time elapsed: 2.20576 ms
+ Total KERNEL SYCL time elapsed: 647.522 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 8034.49 ms
+Numer of seed points: 9587
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7286.15 ms
+ Stage1 KERNEL SYCL time elapsed: 898.156 ms
+ Stage2 KERNEL SYCL time elapsed: 2.15802 ms
+ Total KERNEL SYCL time elapsed: 900.314 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 8186.47 ms
+Numer of seed points: 9543
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7255.07 ms
+ Stage1 KERNEL SYCL time elapsed: 926.197 ms
+ Stage2 KERNEL SYCL time elapsed: 2.21933 ms
+ Total KERNEL SYCL time elapsed: 928.417 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 8183.49 ms
+Numer of seed points: 10027
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7243.65 ms
+ Stage1 KERNEL SYCL time elapsed: 1128.05 ms
+ Stage2 KERNEL SYCL time elapsed: 2.2784 ms
+ Total KERNEL SYCL time elapsed: 1130.33 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 8373.98 ms
+Numer of seed points: 9953
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7235.73 ms
+ Stage1 KERNEL SYCL time elapsed: 2049.79 ms
+ Stage2 KERNEL SYCL time elapsed: 2.24505 ms
+ Total KERNEL SYCL time elapsed: 2052.03 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9287.76 ms
+Numer of seed points: 9643
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7235.35 ms
+ Stage1 KERNEL SYCL time elapsed: 2154.55 ms
+ Stage2 KERNEL SYCL time elapsed: 2.16666 ms
+ Total KERNEL SYCL time elapsed: 2156.72 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9392.07 ms
+Numer of seed points: 10307
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7257.09 ms
+ Stage1 KERNEL SYCL time elapsed: 2569.44 ms
+ Stage2 KERNEL SYCL time elapsed: 2.08977 ms
+ Total KERNEL SYCL time elapsed: 2571.53 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9828.63 ms
+Numer of seed points: 9955
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3395.15 ms
+ Stage1 KERNEL SYCL time elapsed: 700.888 ms
+ Stage2 KERNEL SYCL time elapsed: 2.27219 ms
+ Total KERNEL SYCL time elapsed: 703.16 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4098.31 ms
+Numer of seed points: 9848
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3282.53 ms
+ Stage1 KERNEL SYCL time elapsed: 917.599 ms
+ Stage2 KERNEL SYCL time elapsed: 2.41545 ms
+ Total KERNEL SYCL time elapsed: 920.015 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4202.55 ms
+Numer of seed points: 9797
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3369.2 ms
+ Stage1 KERNEL SYCL time elapsed: 968.339 ms
+ Stage2 KERNEL SYCL time elapsed: 2.41993 ms
+ Total KERNEL SYCL time elapsed: 970.759 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4339.96 ms
+Numer of seed points: 10150
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3237.19 ms
+ Stage1 KERNEL SYCL time elapsed: 1241.11 ms
+ Stage2 KERNEL SYCL time elapsed: 2.39642 ms
+ Total KERNEL SYCL time elapsed: 1243.51 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4480.7 ms
+Numer of seed points: 10002
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3225.6 ms
+ Stage1 KERNEL SYCL time elapsed: 2075.47 ms
+ Stage2 KERNEL SYCL time elapsed: 2.28917 ms
+ Total KERNEL SYCL time elapsed: 2077.75 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5303.35 ms
+Numer of seed points: 9905
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3225.52 ms
+ Stage1 KERNEL SYCL time elapsed: 2230.22 ms
+ Stage2 KERNEL SYCL time elapsed: 2.31046 ms
+ Total KERNEL SYCL time elapsed: 2232.53 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5458.05 ms
+Numer of seed points: 10370
+
+
+Running: ../bin/owm-sycl-igpu ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3224.66 ms
+ Stage1 KERNEL SYCL time elapsed: 2771.64 ms
+ Stage2 KERNEL SYCL time elapsed: 2.18191 ms
+ Total KERNEL SYCL time elapsed: 2773.83 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5998.49 ms
+Numer of seed points: 10331
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2975.28 ms
+ Stage1 KERNEL SYCL time elapsed: 1414.08 ms
+ Stage2 KERNEL SYCL time elapsed: 13.3727 ms
+ Total KERNEL SYCL time elapsed: 1427.45 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4402.73 ms
+Numer of seed points: 59676
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2942.35 ms
+ Stage1 KERNEL SYCL time elapsed: 1410.6 ms
+ Stage2 KERNEL SYCL time elapsed: 13.3645 ms
+ Total KERNEL SYCL time elapsed: 1423.96 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4366.31 ms
+Numer of seed points: 64762
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2928.83 ms
+ Stage1 KERNEL SYCL time elapsed: 1392.85 ms
+ Stage2 KERNEL SYCL time elapsed: 13.4698 ms
+ Total KERNEL SYCL time elapsed: 1406.32 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4335.15 ms
+Numer of seed points: 65992
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2919.34 ms
+ Stage1 KERNEL SYCL time elapsed: 1960.56 ms
+ Stage2 KERNEL SYCL time elapsed: 13.3744 ms
+ Total KERNEL SYCL time elapsed: 1973.94 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4893.27 ms
+Numer of seed points: 60308
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2916.44 ms
+ Stage1 KERNEL SYCL time elapsed: 2093.21 ms
+ Stage2 KERNEL SYCL time elapsed: 13.4275 ms
+ Total KERNEL SYCL time elapsed: 2106.63 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5023.07 ms
+Numer of seed points: 65713
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2925.73 ms
+ Stage1 KERNEL SYCL time elapsed: 2111.72 ms
+ Stage2 KERNEL SYCL time elapsed: 12.7191 ms
+ Total KERNEL SYCL time elapsed: 2124.44 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5050.17 ms
+Numer of seed points: 60628
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2926.52 ms
+ Stage1 KERNEL SYCL time elapsed: 3122 ms
+ Stage2 KERNEL SYCL time elapsed: 12.993 ms
+ Total KERNEL SYCL time elapsed: 3134.99 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6061.51 ms
+Numer of seed points: 58586
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2654.2 ms
+ Stage1 KERNEL SYCL time elapsed: 2428.7 ms
+ Stage2 KERNEL SYCL time elapsed: 7.24018 ms
+ Total KERNEL SYCL time elapsed: 2435.94 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5090.14 ms
+Numer of seed points: 26644
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2661.24 ms
+ Stage1 KERNEL SYCL time elapsed: 2404.44 ms
+ Stage2 KERNEL SYCL time elapsed: 5.95579 ms
+ Total KERNEL SYCL time elapsed: 2410.4 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5071.64 ms
+Numer of seed points: 27371
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2521.47 ms
+ Stage1 KERNEL SYCL time elapsed: 2422.96 ms
+ Stage2 KERNEL SYCL time elapsed: 6.10296 ms
+ Total KERNEL SYCL time elapsed: 2429.07 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4950.54 ms
+Numer of seed points: 27830
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2518.99 ms
+ Stage1 KERNEL SYCL time elapsed: 2410.66 ms
+ Stage2 KERNEL SYCL time elapsed: 5.89434 ms
+ Total KERNEL SYCL time elapsed: 2416.56 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 4935.55 ms
+Numer of seed points: 26702
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2510.31 ms
+ Stage1 KERNEL SYCL time elapsed: 3597.81 ms
+ Stage2 KERNEL SYCL time elapsed: 6.00869 ms
+ Total KERNEL SYCL time elapsed: 3603.82 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6114.13 ms
+Numer of seed points: 27740
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2499.7 ms
+ Stage1 KERNEL SYCL time elapsed: 3866.9 ms
+ Stage2 KERNEL SYCL time elapsed: 5.92614 ms
+ Total KERNEL SYCL time elapsed: 3872.83 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6372.53 ms
+Numer of seed points: 30643
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 2509.27 ms
+ Stage1 KERNEL SYCL time elapsed: 3888.29 ms
+ Stage2 KERNEL SYCL time elapsed: 5.73388 ms
+ Total KERNEL SYCL time elapsed: 3894.02 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6403.3 ms
+Numer of seed points: 27468
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7386.34 ms
+ Stage1 KERNEL SYCL time elapsed: 2282.76 ms
+ Stage2 KERNEL SYCL time elapsed: 1.93326 ms
+ Total KERNEL SYCL time elapsed: 2284.69 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9671.03 ms
+Numer of seed points: 9401
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7284.93 ms
+ Stage1 KERNEL SYCL time elapsed: 2022.55 ms
+ Stage2 KERNEL SYCL time elapsed: 1.89058 ms
+ Total KERNEL SYCL time elapsed: 2024.44 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9309.37 ms
+Numer of seed points: 9507
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7252.75 ms
+ Stage1 KERNEL SYCL time elapsed: 1959.53 ms
+ Stage2 KERNEL SYCL time elapsed: 1.9012 ms
+ Total KERNEL SYCL time elapsed: 1961.43 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9214.18 ms
+Numer of seed points: 9465
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7243.98 ms
+ Stage1 KERNEL SYCL time elapsed: 2005.62 ms
+ Stage2 KERNEL SYCL time elapsed: 1.88959 ms
+ Total KERNEL SYCL time elapsed: 2007.51 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9251.48 ms
+Numer of seed points: 9371
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7234.67 ms
+ Stage1 KERNEL SYCL time elapsed: 2575.35 ms
+ Stage2 KERNEL SYCL time elapsed: 1.864 ms
+ Total KERNEL SYCL time elapsed: 2577.21 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9811.89 ms
+Numer of seed points: 9507
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7233.17 ms
+ Stage1 KERNEL SYCL time elapsed: 2590.39 ms
+ Stage2 KERNEL SYCL time elapsed: 1.87601 ms
+ Total KERNEL SYCL time elapsed: 2592.27 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 9825.43 ms
+Numer of seed points: 9699
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 7256.76 ms
+ Stage1 KERNEL SYCL time elapsed: 2900.45 ms
+ Stage2 KERNEL SYCL time elapsed: 1.83907 ms
+ Total KERNEL SYCL time elapsed: 2902.29 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 10159 ms
+Numer of seed points: 9460
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3394.66 ms
+ Stage1 KERNEL SYCL time elapsed: 2625.46 ms
+ Stage2 KERNEL SYCL time elapsed: 2.07012 ms
+ Total KERNEL SYCL time elapsed: 2627.53 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6022.19 ms
+Numer of seed points: 9636
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3281.74 ms
+ Stage1 KERNEL SYCL time elapsed: 2296.15 ms
+ Stage2 KERNEL SYCL time elapsed: 2.05032 ms
+ Total KERNEL SYCL time elapsed: 2298.2 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5579.94 ms
+Numer of seed points: 9665
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3368.78 ms
+ Stage1 KERNEL SYCL time elapsed: 2235.07 ms
+ Stage2 KERNEL SYCL time elapsed: 2.12389 ms
+ Total KERNEL SYCL time elapsed: 2237.2 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5605.98 ms
+Numer of seed points: 9596
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3230.3 ms
+ Stage1 KERNEL SYCL time elapsed: 2269.85 ms
+ Stage2 KERNEL SYCL time elapsed: 1.96407 ms
+ Total KERNEL SYCL time elapsed: 2271.81 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5502.11 ms
+Numer of seed points: 9544
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3226.47 ms
+ Stage1 KERNEL SYCL time elapsed: 2681.77 ms
+ Stage2 KERNEL SYCL time elapsed: 1.95698 ms
+ Total KERNEL SYCL time elapsed: 2683.73 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5910.2 ms
+Numer of seed points: 9639
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3227.42 ms
+ Stage1 KERNEL SYCL time elapsed: 2732.48 ms
+ Stage2 KERNEL SYCL time elapsed: 1.91917 ms
+ Total KERNEL SYCL time elapsed: 2734.4 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 5961.82 ms
+Numer of seed points: 9694
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) UHD Graphics 630 [0x3e98] @ 1200Mhz (24 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 3224.55 ms
+ Stage1 KERNEL SYCL time elapsed: 3158.15 ms
+ Stage2 KERNEL SYCL time elapsed: 1.96796 ms
+ Total KERNEL SYCL time elapsed: 3160.12 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 6384.67 ms
+Numer of seed points: 9847
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 330.195 ms
+ Stage1 KERNEL SYCL time elapsed: 205.683 ms
+ Stage2 KERNEL SYCL time elapsed: 5.81195 ms
+ Total KERNEL SYCL time elapsed: 211.495 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 541.69 ms
+Numer of seed points: 59778
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 304.172 ms
+ Stage1 KERNEL SYCL time elapsed: 221.543 ms
+ Stage2 KERNEL SYCL time elapsed: 5.4336 ms
+ Total KERNEL SYCL time elapsed: 226.977 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 531.149 ms
+Numer of seed points: 65490
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 290.682 ms
+ Stage1 KERNEL SYCL time elapsed: 224.311 ms
+ Stage2 KERNEL SYCL time elapsed: 5.199 ms
+ Total KERNEL SYCL time elapsed: 229.51 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 520.192 ms
+Numer of seed points: 66532
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 283.813 ms
+ Stage1 KERNEL SYCL time elapsed: 457.16 ms
+ Stage2 KERNEL SYCL time elapsed: 5.51275 ms
+ Total KERNEL SYCL time elapsed: 462.673 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 746.487 ms
+Numer of seed points: 60248
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 278.656 ms
+ Stage1 KERNEL SYCL time elapsed: 512.72 ms
+ Stage2 KERNEL SYCL time elapsed: 5.00311 ms
+ Total KERNEL SYCL time elapsed: 517.723 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 796.379 ms
+Numer of seed points: 65570
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 276.262 ms
+ Stage1 KERNEL SYCL time elapsed: 519.025 ms
+ Stage2 KERNEL SYCL time elapsed: 5.45548 ms
+ Total KERNEL SYCL time elapsed: 524.48 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 800.742 ms
+Numer of seed points: 60233
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 278.747 ms
+ Stage1 KERNEL SYCL time elapsed: 960.794 ms
+ Stage2 KERNEL SYCL time elapsed: 6.11347 ms
+ Total KERNEL SYCL time elapsed: 966.908 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1245.65 ms
+Numer of seed points: 58551
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 461.198 ms
+ Stage1 KERNEL SYCL time elapsed: 231.816 ms
+ Stage2 KERNEL SYCL time elapsed: 2.80894 ms
+ Total KERNEL SYCL time elapsed: 234.625 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 695.823 ms
+Numer of seed points: 27638
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 466.278 ms
+ Stage1 KERNEL SYCL time elapsed: 281.068 ms
+ Stage2 KERNEL SYCL time elapsed: 2.64726 ms
+ Total KERNEL SYCL time elapsed: 283.715 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 749.993 ms
+Numer of seed points: 27573
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 372.328 ms
+ Stage1 KERNEL SYCL time elapsed: 317.518 ms
+ Stage2 KERNEL SYCL time elapsed: 2.89462 ms
+ Total KERNEL SYCL time elapsed: 320.413 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 692.741 ms
+Numer of seed points: 28667
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 354.789 ms
+ Stage1 KERNEL SYCL time elapsed: 325.396 ms
+ Stage2 KERNEL SYCL time elapsed: 2.79528 ms
+ Total KERNEL SYCL time elapsed: 328.191 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 682.98 ms
+Numer of seed points: 28152
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 347.734 ms
+ Stage1 KERNEL SYCL time elapsed: 701.839 ms
+ Stage2 KERNEL SYCL time elapsed: 3.20482 ms
+ Total KERNEL SYCL time elapsed: 705.044 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1052.78 ms
+Numer of seed points: 27987
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 350.755 ms
+ Stage1 KERNEL SYCL time elapsed: 808.672 ms
+ Stage2 KERNEL SYCL time elapsed: 2.57142 ms
+ Total KERNEL SYCL time elapsed: 811.244 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1162 ms
+Numer of seed points: 30521
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 347.404 ms
+ Stage1 KERNEL SYCL time elapsed: 812.228 ms
+ Stage2 KERNEL SYCL time elapsed: 2.56257 ms
+ Total KERNEL SYCL time elapsed: 814.791 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1162.19 ms
+Numer of seed points: 26963
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1026.65 ms
+ Stage1 KERNEL SYCL time elapsed: 136.373 ms
+ Stage2 KERNEL SYCL time elapsed: 1.65583 ms
+ Total KERNEL SYCL time elapsed: 138.029 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1164.67 ms
+Numer of seed points: 9625
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 959.909 ms
+ Stage1 KERNEL SYCL time elapsed: 153.119 ms
+ Stage2 KERNEL SYCL time elapsed: 1.91881 ms
+ Total KERNEL SYCL time elapsed: 155.038 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1114.95 ms
+Numer of seed points: 9532
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 931.427 ms
+ Stage1 KERNEL SYCL time elapsed: 159.929 ms
+ Stage2 KERNEL SYCL time elapsed: 1.38977 ms
+ Total KERNEL SYCL time elapsed: 161.319 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1092.75 ms
+Numer of seed points: 9972
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 913.772 ms
+ Stage1 KERNEL SYCL time elapsed: 210.44 ms
+ Stage2 KERNEL SYCL time elapsed: 1.3699 ms
+ Total KERNEL SYCL time elapsed: 211.81 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1125.58 ms
+Numer of seed points: 9896
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 903.312 ms
+ Stage1 KERNEL SYCL time elapsed: 397.491 ms
+ Stage2 KERNEL SYCL time elapsed: 1.27947 ms
+ Total KERNEL SYCL time elapsed: 398.77 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1302.08 ms
+Numer of seed points: 9623
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 897.13 ms
+ Stage1 KERNEL SYCL time elapsed: 410.243 ms
+ Stage2 KERNEL SYCL time elapsed: 1.80422 ms
+ Total KERNEL SYCL time elapsed: 412.047 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1309.18 ms
+Numer of seed points: 10215
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 904.324 ms
+ Stage1 KERNEL SYCL time elapsed: 543.021 ms
+ Stage2 KERNEL SYCL time elapsed: 1.64078 ms
+ Total KERNEL SYCL time elapsed: 544.662 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1448.99 ms
+Numer of seed points: 9913
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 744.287 ms
+ Stage1 KERNEL SYCL time elapsed: 152.583 ms
+ Stage2 KERNEL SYCL time elapsed: 1.7399 ms
+ Total KERNEL SYCL time elapsed: 154.323 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 898.609 ms
+Numer of seed points: 9839
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 676.765 ms
+ Stage1 KERNEL SYCL time elapsed: 164.941 ms
+ Stage2 KERNEL SYCL time elapsed: 1.39876 ms
+ Total KERNEL SYCL time elapsed: 166.339 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 843.105 ms
+Numer of seed points: 9778
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 722.193 ms
+ Stage1 KERNEL SYCL time elapsed: 178.818 ms
+ Stage2 KERNEL SYCL time elapsed: 1.69074 ms
+ Total KERNEL SYCL time elapsed: 180.508 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 902.702 ms
+Numer of seed points: 10122
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 626.261 ms
+ Stage1 KERNEL SYCL time elapsed: 244.434 ms
+ Stage2 KERNEL SYCL time elapsed: 1.96079 ms
+ Total KERNEL SYCL time elapsed: 246.395 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 872.656 ms
+Numer of seed points: 9976
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 615.137 ms
+ Stage1 KERNEL SYCL time elapsed: 413.528 ms
+ Stage2 KERNEL SYCL time elapsed: 1.57273 ms
+ Total KERNEL SYCL time elapsed: 415.1 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1030.24 ms
+Numer of seed points: 9861
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 608.434 ms
+ Stage1 KERNEL SYCL time elapsed: 455.084 ms
+ Stage2 KERNEL SYCL time elapsed: 1.97789 ms
+ Total KERNEL SYCL time elapsed: 457.061 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1065.5 ms
+Numer of seed points: 10337
+
+
+Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 612.737 ms
+ Stage1 KERNEL SYCL time elapsed: 637.435 ms
+ Stage2 KERNEL SYCL time elapsed: 1.52381 ms
+ Total KERNEL SYCL time elapsed: 638.959 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1251.7 ms
+Numer of seed points: 10296
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 329.327 ms
+ Stage1 KERNEL SYCL time elapsed: 274.443 ms
+ Stage2 KERNEL SYCL time elapsed: 12.8182 ms
+ Total KERNEL SYCL time elapsed: 287.261 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 616.587 ms
+Numer of seed points: 59663
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 304.002 ms
+ Stage1 KERNEL SYCL time elapsed: 260.547 ms
+ Stage2 KERNEL SYCL time elapsed: 12.9421 ms
+ Total KERNEL SYCL time elapsed: 273.489 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 577.491 ms
+Numer of seed points: 64659
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 290.154 ms
+ Stage1 KERNEL SYCL time elapsed: 259.213 ms
+ Stage2 KERNEL SYCL time elapsed: 12.9359 ms
+ Total KERNEL SYCL time elapsed: 272.149 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 562.303 ms
+Numer of seed points: 65411
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 284.082 ms
+ Stage1 KERNEL SYCL time elapsed: 468.25 ms
+ Stage2 KERNEL SYCL time elapsed: 13.1531 ms
+ Total KERNEL SYCL time elapsed: 481.403 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 765.486 ms
+Numer of seed points: 60238
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 278.594 ms
+ Stage1 KERNEL SYCL time elapsed: 514.861 ms
+ Stage2 KERNEL SYCL time elapsed: 12.7807 ms
+ Total KERNEL SYCL time elapsed: 527.642 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 806.235 ms
+Numer of seed points: 65463
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 276.56 ms
+ Stage1 KERNEL SYCL time elapsed: 517.214 ms
+ Stage2 KERNEL SYCL time elapsed: 12.6524 ms
+ Total KERNEL SYCL time elapsed: 529.867 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 806.426 ms
+Numer of seed points: 60104
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 278.733 ms
+ Stage1 KERNEL SYCL time elapsed: 954.629 ms
+ Stage2 KERNEL SYCL time elapsed: 12.762 ms
+ Total KERNEL SYCL time elapsed: 967.391 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1246.12 ms
+Numer of seed points: 58562
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 460.887 ms
+ Stage1 KERNEL SYCL time elapsed: 621.104 ms
+ Stage2 KERNEL SYCL time elapsed: 5.65332 ms
+ Total KERNEL SYCL time elapsed: 626.758 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1087.64 ms
+Numer of seed points: 25900
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 465.866 ms
+ Stage1 KERNEL SYCL time elapsed: 477.803 ms
+ Stage2 KERNEL SYCL time elapsed: 5.82753 ms
+ Total KERNEL SYCL time elapsed: 483.63 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 949.497 ms
+Numer of seed points: 27285
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 371.876 ms
+ Stage1 KERNEL SYCL time elapsed: 471.541 ms
+ Stage2 KERNEL SYCL time elapsed: 5.81048 ms
+ Total KERNEL SYCL time elapsed: 477.351 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 849.227 ms
+Numer of seed points: 27522
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 354.871 ms
+ Stage1 KERNEL SYCL time elapsed: 467.481 ms
+ Stage2 KERNEL SYCL time elapsed: 5.63609 ms
+ Total KERNEL SYCL time elapsed: 473.117 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 827.988 ms
+Numer of seed points: 26035
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 347.656 ms
+ Stage1 KERNEL SYCL time elapsed: 764.549 ms
+ Stage2 KERNEL SYCL time elapsed: 5.99843 ms
+ Total KERNEL SYCL time elapsed: 770.547 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1118.2 ms
+Numer of seed points: 27705
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 350.812 ms
+ Stage1 KERNEL SYCL time elapsed: 849.373 ms
+ Stage2 KERNEL SYCL time elapsed: 5.75276 ms
+ Total KERNEL SYCL time elapsed: 855.125 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1205.94 ms
+Numer of seed points: 30328
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 347.422 ms
+ Stage1 KERNEL SYCL time elapsed: 843.771 ms
+ Stage2 KERNEL SYCL time elapsed: 5.49199 ms
+ Total KERNEL SYCL time elapsed: 849.263 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1196.69 ms
+Numer of seed points: 26831
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1026.59 ms
+ Stage1 KERNEL SYCL time elapsed: 589.192 ms
+ Stage2 KERNEL SYCL time elapsed: 1.79875 ms
+ Total KERNEL SYCL time elapsed: 590.991 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1617.58 ms
+Numer of seed points: 9304
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 960.933 ms
+ Stage1 KERNEL SYCL time elapsed: 465.784 ms
+ Stage2 KERNEL SYCL time elapsed: 1.79581 ms
+ Total KERNEL SYCL time elapsed: 467.58 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1428.51 ms
+Numer of seed points: 9500
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 931.985 ms
+ Stage1 KERNEL SYCL time elapsed: 441.839 ms
+ Stage2 KERNEL SYCL time elapsed: 1.8221 ms
+ Total KERNEL SYCL time elapsed: 443.661 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1375.65 ms
+Numer of seed points: 9415
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 914.361 ms
+ Stage1 KERNEL SYCL time elapsed: 437.615 ms
+ Stage2 KERNEL SYCL time elapsed: 1.80128 ms
+ Total KERNEL SYCL time elapsed: 439.416 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1353.78 ms
+Numer of seed points: 9292
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 903.092 ms
+ Stage1 KERNEL SYCL time elapsed: 479.948 ms
+ Stage2 KERNEL SYCL time elapsed: 1.78104 ms
+ Total KERNEL SYCL time elapsed: 481.729 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1384.82 ms
+Numer of seed points: 9497
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 897.023 ms
+ Stage1 KERNEL SYCL time elapsed: 485.962 ms
+ Stage2 KERNEL SYCL time elapsed: 1.78953 ms
+ Total KERNEL SYCL time elapsed: 487.752 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1384.77 ms
+Numer of seed points: 9605
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 903.8 ms
+ Stage1 KERNEL SYCL time elapsed: 600.909 ms
+ Stage2 KERNEL SYCL time elapsed: 1.76605 ms
+ Total KERNEL SYCL time elapsed: 602.675 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1506.48 ms
+Numer of seed points: 9399
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 744.222 ms
+ Stage1 KERNEL SYCL time elapsed: 668.694 ms
+ Stage2 KERNEL SYCL time elapsed: 1.89316 ms
+ Total KERNEL SYCL time elapsed: 670.587 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1414.81 ms
+Numer of seed points: 9602
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 677.263 ms
+ Stage1 KERNEL SYCL time elapsed: 526.831 ms
+ Stage2 KERNEL SYCL time elapsed: 1.89252 ms
+ Total KERNEL SYCL time elapsed: 528.724 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1205.99 ms
+Numer of seed points: 9622
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 721.687 ms
+ Stage1 KERNEL SYCL time elapsed: 502.223 ms
+ Stage2 KERNEL SYCL time elapsed: 1.9006 ms
+ Total KERNEL SYCL time elapsed: 504.124 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1225.81 ms
+Numer of seed points: 9522
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 625.333 ms
+ Stage1 KERNEL SYCL time elapsed: 496.515 ms
+ Stage2 KERNEL SYCL time elapsed: 1.90659 ms
+ Total KERNEL SYCL time elapsed: 498.421 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1123.75 ms
+Numer of seed points: 9499
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 614.595 ms
+ Stage1 KERNEL SYCL time elapsed: 521.399 ms
+ Stage2 KERNEL SYCL time elapsed: 1.9167 ms
+ Total KERNEL SYCL time elapsed: 523.315 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1137.91 ms
+Numer of seed points: 9585
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 607.905 ms
+ Stage1 KERNEL SYCL time elapsed: 554.009 ms
+ Stage2 KERNEL SYCL time elapsed: 1.88097 ms
+ Total KERNEL SYCL time elapsed: 555.89 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1163.79 ms
+Numer of seed points: 9651
+
+
+Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+ CUDA device found 
+Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 612.342 ms
+ Stage1 KERNEL SYCL time elapsed: 707.698 ms
+ Stage2 KERNEL SYCL time elapsed: 1.9268 ms
+ Total KERNEL SYCL time elapsed: 709.624 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1321.97 ms
+Numer of seed points: 9803
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 16
+
+ Tree Construction CUDA time elapased: 27.5025 ms
+ Stage1 KERNEL CUDA time elapsed: 117.571 ms
+ Stage2 KERNEL CUDA time elapsed: 14.513 ms
+ Total KERNEL CUDA time elapsed: 132.084 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 159.587 ms
+Numer of seed points: 58632
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 32
+
+ Tree Construction CUDA time elapased: 25.3721 ms
+ Stage1 KERNEL CUDA time elapsed: 125.481 ms
+ Stage2 KERNEL CUDA time elapsed: 14.6165 ms
+ Total KERNEL CUDA time elapsed: 140.098 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 165.47 ms
+Numer of seed points: 58620
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 64
+
+ Tree Construction CUDA time elapased: 24.2567 ms
+ Stage1 KERNEL CUDA time elapsed: 128.023 ms
+ Stage2 KERNEL CUDA time elapsed: 14.6053 ms
+ Total KERNEL CUDA time elapsed: 142.628 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 166.885 ms
+Numer of seed points: 58636
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 128
+
+ Tree Construction CUDA time elapased: 23.3077 ms
+ Stage1 KERNEL CUDA time elapsed: 220.065 ms
+ Stage2 KERNEL CUDA time elapsed: 14.5179 ms
+ Total KERNEL CUDA time elapsed: 234.583 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 257.891 ms
+Numer of seed points: 58631
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 256
+
+ Tree Construction CUDA time elapased: 22.7569 ms
+ Stage1 KERNEL CUDA time elapsed: 255.405 ms
+ Stage2 KERNEL CUDA time elapsed: 14.7134 ms
+ Total KERNEL CUDA time elapsed: 270.118 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 292.875 ms
+Numer of seed points: 58627
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 512
+
+ Tree Construction CUDA time elapased: 23.0501 ms
+ Stage1 KERNEL CUDA time elapsed: 278.497 ms
+ Stage2 KERNEL CUDA time elapsed: 14.5543 ms
+ Total KERNEL CUDA time elapsed: 293.051 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 316.101 ms
+Numer of seed points: 58620
+
+
+Running: ../bin/owm-cuda ../bin/data/INAER_2011_Alcoy_Core.xyz 1024
+
+ Tree Construction CUDA time elapased: 24.7892 ms
+ Stage1 KERNEL CUDA time elapsed: 389.471 ms
+ Stage2 KERNEL CUDA time elapsed: 14.5398 ms
+ Total KERNEL CUDA time elapsed: 404.011 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 428.8 ms
+Numer of seed points: 58625
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 16
+
+ Tree Construction CUDA time elapased: 63.7218 ms
+ Stage1 KERNEL CUDA time elapsed: 193.2 ms
+ Stage2 KERNEL CUDA time elapsed: 6.47405 ms
+ Total KERNEL CUDA time elapsed: 199.674 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 263.396 ms
+Numer of seed points: 27421
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 32
+
+ Tree Construction CUDA time elapased: 57.5092 ms
+ Stage1 KERNEL CUDA time elapsed: 186.028 ms
+ Stage2 KERNEL CUDA time elapsed: 6.57781 ms
+ Total KERNEL CUDA time elapsed: 192.605 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 250.115 ms
+Numer of seed points: 27454
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 64
+
+ Tree Construction CUDA time elapased: 51.7574 ms
+ Stage1 KERNEL CUDA time elapsed: 200.96 ms
+ Stage2 KERNEL CUDA time elapsed: 6.49175 ms
+ Total KERNEL CUDA time elapsed: 207.452 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 259.21 ms
+Numer of seed points: 27503
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 128
+
+ Tree Construction CUDA time elapased: 52.194 ms
+ Stage1 KERNEL CUDA time elapsed: 208.977 ms
+ Stage2 KERNEL CUDA time elapsed: 6.50248 ms
+ Total KERNEL CUDA time elapsed: 215.48 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 267.674 ms
+Numer of seed points: 27570
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 256
+
+ Tree Construction CUDA time elapased: 52.0156 ms
+ Stage1 KERNEL CUDA time elapsed: 384.617 ms
+ Stage2 KERNEL CUDA time elapsed: 6.53263 ms
+ Total KERNEL CUDA time elapsed: 391.15 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 443.166 ms
+Numer of seed points: 27595
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 512
+
+ Tree Construction CUDA time elapased: 46.3866 ms
+ Stage1 KERNEL CUDA time elapsed: 443.661 ms
+ Stage2 KERNEL CUDA time elapsed: 6.51642 ms
+ Total KERNEL CUDA time elapsed: 450.177 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 496.564 ms
+Numer of seed points: 27544
+
+
+Running: ../bin/owm-cuda ../bin/data/BABCOCK_2017_Arzua_3B.xyz 1024
+
+ Tree Construction CUDA time elapased: 58.4552 ms
+ Stage1 KERNEL CUDA time elapsed: 486.589 ms
+ Stage2 KERNEL CUDA time elapsed: 6.56572 ms
+ Total KERNEL CUDA time elapsed: 493.155 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 551.61 ms
+Numer of seed points: 27490
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 16
+
+ Tree Construction CUDA time elapased: 83.5334 ms
+ Stage1 KERNEL CUDA time elapsed: 163.94 ms
+ Stage2 KERNEL CUDA time elapsed: 1.97859 ms
+ Total KERNEL CUDA time elapsed: 165.919 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 249.452 ms
+Numer of seed points: 9468
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 32
+
+ Tree Construction CUDA time elapased: 78.6813 ms
+ Stage1 KERNEL CUDA time elapsed: 151.619 ms
+ Stage2 KERNEL CUDA time elapsed: 1.97434 ms
+ Total KERNEL CUDA time elapsed: 153.594 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 232.275 ms
+Numer of seed points: 9467
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 64
+
+ Tree Construction CUDA time elapased: 74.5728 ms
+ Stage1 KERNEL CUDA time elapsed: 156.784 ms
+ Stage2 KERNEL CUDA time elapsed: 1.9767 ms
+ Total KERNEL CUDA time elapsed: 158.761 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 233.334 ms
+Numer of seed points: 9469
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 128
+
+ Tree Construction CUDA time elapased: 73.0203 ms
+ Stage1 KERNEL CUDA time elapsed: 183.048 ms
+ Stage2 KERNEL CUDA time elapsed: 1.97948 ms
+ Total KERNEL CUDA time elapsed: 185.028 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 258.048 ms
+Numer of seed points: 9473
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 256
+
+ Tree Construction CUDA time elapased: 72.158 ms
+ Stage1 KERNEL CUDA time elapsed: 270.339 ms
+ Stage2 KERNEL CUDA time elapsed: 1.98822 ms
+ Total KERNEL CUDA time elapsed: 272.327 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 344.485 ms
+Numer of seed points: 9476
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 512
+
+ Tree Construction CUDA time elapased: 71.6068 ms
+ Stage1 KERNEL CUDA time elapsed: 281.906 ms
+ Stage2 KERNEL CUDA time elapsed: 1.99999 ms
+ Total KERNEL CUDA time elapsed: 283.906 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 355.512 ms
+Numer of seed points: 9478
+
+
+Running: ../bin/owm-cuda ../bin/data/V21_group1_densified_point_cloud.xyz 1024
+
+ Tree Construction CUDA time elapased: 79.0211 ms
+ Stage1 KERNEL CUDA time elapsed: 357.91 ms
+ Stage2 KERNEL CUDA time elapsed: 1.99538 ms
+ Total KERNEL CUDA time elapsed: 359.906 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 438.927 ms
+Numer of seed points: 9485
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 16
+
+ Tree Construction CUDA time elapased: 96.2362 ms
+ Stage1 KERNEL CUDA time elapsed: 186.307 ms
+ Stage2 KERNEL CUDA time elapsed: 2.11695 ms
+ Total KERNEL CUDA time elapsed: 188.424 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 284.66 ms
+Numer of seed points: 9696
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 32
+
+ Tree Construction CUDA time elapased: 84.2976 ms
+ Stage1 KERNEL CUDA time elapsed: 167.273 ms
+ Stage2 KERNEL CUDA time elapsed: 2.11858 ms
+ Total KERNEL CUDA time elapsed: 169.392 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 253.689 ms
+Numer of seed points: 9696
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 64
+
+ Tree Construction CUDA time elapased: 83.3601 ms
+ Stage1 KERNEL CUDA time elapsed: 173.157 ms
+ Stage2 KERNEL CUDA time elapsed: 2.1251 ms
+ Total KERNEL CUDA time elapsed: 175.282 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 258.643 ms
+Numer of seed points: 9694
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 128
+
+ Tree Construction CUDA time elapased: 80.1862 ms
+ Stage1 KERNEL CUDA time elapsed: 202.324 ms
+ Stage2 KERNEL CUDA time elapsed: 2.12618 ms
+ Total KERNEL CUDA time elapsed: 204.45 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 284.636 ms
+Numer of seed points: 9695
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 256
+
+ Tree Construction CUDA time elapased: 82.5218 ms
+ Stage1 KERNEL CUDA time elapsed: 286.276 ms
+ Stage2 KERNEL CUDA time elapsed: 2.12724 ms
+ Total KERNEL CUDA time elapsed: 288.404 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 370.925 ms
+Numer of seed points: 9695
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 512
+
+ Tree Construction CUDA time elapased: 82.8154 ms
+ Stage1 KERNEL CUDA time elapsed: 304.961 ms
+ Stage2 KERNEL CUDA time elapsed: 2.13122 ms
+ Total KERNEL CUDA time elapsed: 307.092 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 389.908 ms
+Numer of seed points: 9701
+
+
+Running: ../bin/owm-cuda ../bin/data/V19_group1_densified_point_cloud.xyz 1024
+
+ Tree Construction CUDA time elapased: 84.7238 ms
+ Stage1 KERNEL CUDA time elapsed: 391.972 ms
+ Stage2 KERNEL CUDA time elapsed: 2.11904 ms
+ Total KERNEL CUDA time elapsed: 394.091 ms
+ Total TIME (Tree+OWM) CUDA time elapsed: 478.815 ms
+Numer of seed points: 9709
+End : Thu Mar  2 11:55:17 2023Total Execution time: 1.0722530982891718 hours
