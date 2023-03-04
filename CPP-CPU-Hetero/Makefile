@@ -39,6 +39,10 @@ $(BIN)/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) application/cesgaOWM_seq.c src/OWM_functions.c -o $@ $(CFLAGS_BASELINE)
 
+$(BIN)/o0parallel: application/owm_optim0.cpp src/optim0_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ $(CPPFLAGS_TBB) -DPARALLEL
+
 $(BIN)/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DDEBUG
