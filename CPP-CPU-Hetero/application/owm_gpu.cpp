@@ -1,3 +1,5 @@
+#include <oneapi/dpl/execution>
+#include <oneapi/dpl/algorithm>
 #include "../src/envi_gpu.hpp"
 
 #ifdef DYNAMIC
@@ -37,7 +39,7 @@ int main( int argc, const char* argv[]) {
           ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
           ("n,numthreads", "Number of threads", cxxopts::value<int>()->default_value("1"))
           ("l,loop", "Number of runs of the OWM algorithm", cxxopts::value<int>()->default_value("1"))
-          ("r,radius", "Value of minRadius ()", cxxopts::value<float>()->default_value("1.0"))
+          ("r,radius", "Value of minRadius ()", cxxopts::value<float>()->default_value("0.1"))
           ("b,balancing", "CPU-GPU partition ratio", cxxopts::value<float>()->default_value("0.5"))
           ("s,size", "Value of maxNumber (max number of points per leaf-node)", cxxopts::value<int>()->default_value("32"))
           ("c,chunk", "GPU chunk", cxxopts::value<uint32_t>()->default_value("1024"))
@@ -185,11 +187,11 @@ int main( int argc, const char* argv[]) {
 
 //  printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes.load());
   printf("  CPU Reserved nodes: %zu\n", cpu_tree_nodes);
+  double copy_tree_time = 0;
 
-  // i_end = tempo_t::now();
-  // std::cout << "INSERT CPU time elapsed: " << cast_t(i_end - i_start).count() << "ms\n";
   std::cout << "Time elapsed at Quadtree construction: " << cpu_tree_time << " sec.\n";
 
+#ifndef NOMEMO
 #ifdef INDEX
   try {
     array_indexes = static_cast<QtreeG5>(mallocWrap( cpu_tree_nodes * sizeof(QtreeG5_t)));
@@ -231,13 +233,13 @@ int main( int argc, const char* argv[]) {
   aligned_qtree = launchCopy(cpu_qtree);
 #endif
 
-  double copy_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
+  copy_tree_time = cast_t(tempo_t::now() - i_start).count()/1e3;
 
   // printf("  Number of points saved in the new Qtree: %d\n", aligned_qtree->numPts);
   // printf("  Number of points saved in the cudaQtree: %d\n", array_indexes[0].numPts);
 
   std::cout << "Time elapsed at tree copy: " << copy_tree_time << " sec.\n\n";
-
+#endif // NOMEMO
 
   printf("CLOUD PARAMETERS:\n");
   printf("Number of LiDAR points      %lu\n",Npoints);
@@ -311,7 +313,11 @@ int main( int argc, const char* argv[]) {
     hs->heterogeneous_parallel_for(0, Ncells, &lip);
 #else
     // stage1s(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
-    // stage1tbbOne(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
+#ifdef NOMEMO
+    stage1tbbOne(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cpu_qtree, min);
+#else
+
+//    stage1tbbOne(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
     // minIDs = stage1reduce(Wsize, Overlap, nCols, nRows, minNumPoints, aligned_qtree, min);
     // stage1gpu(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, qtreeGPU2, min);
     // stage1gpu(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, qtreeGPU3, min);
@@ -326,14 +332,16 @@ int main( int argc, const char* argv[]) {
     // stage1index(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min);
     // stage1heterAcc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, min, GPUratio);
     // stage1acc(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min, GPUratio);
-    stage1tbbRem(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
-#endif
+     stage1tbbRem(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, aligned_qtree, min);
+#endif // NoMEMO
+#endif // DYNAMIC
 
     e_stage1 = tempo_t::now();
 
     if(Overlap != 0.0){
         s_stage2 = tempo_t::now();
-        qsort(minIDs, Ncells, sizeof(int), &cmpfunc);
+        //qsort(minIDs, Ncells, sizeof(int), &cmpfunc);
+        std::sort(oneapi::dpl::execution::par_unseq,minIDs, minIDs+Ncells); //std::execution::par, std::execution::par_unseq,
         numLLPs = stage2GPU(Ncells, minIDs);
     }
     e_stage2 = tempo_t::now();
@@ -358,7 +366,7 @@ int main( int argc, const char* argv[]) {
 
       // stage3s(Bsize, nColsg, nRowsg, minGridIDs, cpu_qtree, grid, min);
       // stage3cpp(Bsize, nColsg, nRowsg, minGridIDs, cpu_qtree, grid, min);
-#ifdef INDEX      
+#if defined INDEX || defined NOMEMO      
       minGridIDs = stage3reduce(Bsize, nColsg, nRowsg, cpu_qtree, grid, min);
 #else
       minGridIDs = stage3reduce(Bsize, nColsg, nRowsg, aligned_qtree, grid, min);

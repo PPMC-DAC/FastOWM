@@ -7,7 +7,7 @@
 // 3.- Stage1 in previous version used a induction variable to write the array of minimums (minIDs) so a critical section was
 //     necessary for the parallel version. Now this induction is removed and minIDs can be written in parallel.
 
-#include "../include/envi_qmin.h"
+#include "../include/optim2_func.hpp"
 #include <algorithm>
 
 int cmpfunc (const void * a, const void * b) {
@@ -215,14 +215,14 @@ int main( int argc, char* argv[]){
 
         // The array minIDs that store the valid min of each cell/SW is initialized with -1
         // The cells/SWs without a valid minimum will keep the -1
-        std::fill(minIDs, minIDs+Ncells, -1);
-        stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
+        //std::fill(minIDs, minIDs+Ncells, -1);
+        stage1tbb(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
 
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
         if(Overlap != 0){
             t_stage=omp_get_wtime();
-            std::sort(minIDs,minIDs+Ncells);
+            std::sort(oneapi::dpl::execution::par_unseq,minIDs,minIDs+Ncells); //std::execution::par, std::execution::par_unseq,
 
 #ifdef DEBUG
           if((fileDeb1 = fopen("sortedmins.txt","w")) == NULL){

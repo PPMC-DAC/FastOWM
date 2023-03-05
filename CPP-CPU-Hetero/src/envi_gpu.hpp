@@ -90,7 +90,6 @@ typedef struct Qtree_t* Qtree;
 
 struct Qtree_t {
   Qtree quadrants[4];
-  // std::vector<Qtree> quadrants;
   Qtree parent;
   // Vector3D center;
   Vector2D center;
@@ -102,11 +101,8 @@ struct Qtree_t {
   Qtree_t( Qtree p, Vector2D& c, float r ) : 
               parent(p), center(c), radius(r) {
 
-      // quadrants.reserve(4);
-
       for(int i=0; i<4; ++i)
         quadrants[i] = NULL;
-
     };
 };
 
@@ -130,12 +126,10 @@ struct QtreeG4_t {
   
   QtreeG4_t( QtreeG4 p, Vector2D& c, float r ) : 
               parent(p), center(c), radius(r) {
-
-      quadrants = NULL;
+      quadrants = nullptr;
       numPts = 0;
-      points = NULL;
-      min = NULL;
-
+      points = nullptr;
+      min = nullptr;
     };
 };
 
@@ -437,18 +431,15 @@ int quadrantIdx(Lpoint *point, pointer_t qtree)
 
 /* Recursive search of the minimum in an area */
 template<typename pointer_t>
-Lpoint findValidMin(pointer_t qtree, Vector2D& boxMin, Vector2D& boxMax, int& numInside)
+void findValidMin(pointer_t qtree, Vector2D& boxMin, Vector2D& boxMax, int& numInside, Lpoint * &minptr)
 {
-    // Lpoint tmp, min = nomin;
-    Lpoint tmp, min = {0,0.0,0.0,99999.0};
 
     if(isLeaf(qtree))
     {
-
       if(boxInside2D(boxMin, boxMax, qtree)){
         for(Lpoint* p : qtree->points) {
-          if (p->z < min.z) {
-              min = *p;
+          if (p->z < minptr->z) {
+              minptr = p;
           }
           numInside++;
         }
@@ -456,8 +447,8 @@ Lpoint findValidMin(pointer_t qtree, Vector2D& boxMin, Vector2D& boxMax, int& nu
         for(Lpoint* p : qtree->points) {
           if(insideBox2D(p, boxMin, boxMax))
           {
-            if (p->z < min.z) {
-                min = *p;
+            if (p->z < minptr->z) {
+                minptr = p;
             }
             numInside++;
           }
@@ -465,46 +456,43 @@ Lpoint findValidMin(pointer_t qtree, Vector2D& boxMin, Vector2D& boxMax, int& nu
       }
 
     } else {
-
         for(int i = 0; i < 4; i++) {
             // Check
             if(!boxOverlap2D(boxMin, boxMax, qtree->quadrants[i]))
                 continue;
             else {
-                tmp = findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside);
-                if (tmp.z < min.z) {
-                    min = tmp;
-                }
+                findValidMin(qtree->quadrants[i], boxMin, boxMax, numInside,minptr);
             }
-
         }
-
     }
-
-    return min;
 }
 
 template<typename pointer_t>
-Lpoint searchNeighborsMin(Vector2D& center, pointer_t qtree, float radius, int& numNeighs)
+Lpoint searchNeighborsMin(Vector2D& center, pointer_t qtree, float radius, int& numInside)
 {
     Vector2D boxMin, boxMax;
-
-    numNeighs = 0;
+    Lpoint temp{0, 0.0, 0.0, std::numeric_limits<double>::max()};
+    Lpoint *minptr = &temp; 
+    numInside = 0;
     makeBox(center, radius, boxMin, boxMax);
 
-    return findValidMin(qtree, boxMin, boxMax, numNeighs);
+    findValidMin(qtree, boxMin, boxMax, numInside, minptr);
+    return *minptr;
 }
 
 /* Same as searchNeighborsMin, but creating a search area with
  uneven sides for the algorithm where we remember the minimum */
-Lpoint searchOverlap(Vector2D& center, Qtree qtree, double radiusX, double radiusY, int& numNeighs)
+Lpoint searchOverlap(Vector2D& center, Qtree qtree, double radiusX, double radiusY, int& numInside)
 {
     Vector2D boxMin, boxMax;
-
-    numNeighs = 0;
+    Lpoint temp{0, 0.0, 0.0, std::numeric_limits<double>::max()};
+    Lpoint *minptr = &temp; 
+    numInside = 0;
     makeBox(center, radiusX, radiusY, boxMin, boxMax);
 
-    return findValidMin(qtree, boxMin, boxMax, numNeighs);
+    findValidMin(qtree, boxMin, boxMax, numInside,minptr);
+    return *minptr;
+
 }
 
 
@@ -538,11 +526,8 @@ void countNeighbors(Qtree qtree, Vector2D& boxMin, Vector2D& boxMax, int& numIns
             else {
               countNeighbors(qtree->quadrants[i], boxMin, boxMax, numInside);
             }
-
         }
-
     }
-
     return;
 }
 
@@ -821,13 +806,10 @@ Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t 
 //traverse the LiDAR points in parallel in the transitory leaves
   tbb:: parallel_for( tbb::blocked_range<int>{0, static_cast<int>(Npoints)},
                       [root](tbb::blocked_range<int> r ) {
-
     int end = r.end();
-
     for(int i = static_cast<int>(r.begin()); i < end; i++) {
       insertPoint3(&point_cloud[i], root);
     }
-
   });
 
 //Finally, traverse in parallel the transitory leaves and finish up the tree
@@ -836,11 +818,9 @@ Qtree parallel_qtree_pf2( int level, Vector2D center, float radius, delimiter_t 
     [&](int id){
 
     Qtree qt = n_work[id];
-
     createQuadrants(qt);
     //Depending on the type of node delimiter it will call to the MinRadius or MaxNumber version
     fillQuadrants(qt, node_delimiter);
-
   });
 
   return root;
@@ -1253,9 +1233,9 @@ void stage1tbbOne(unsigned short Wsize, double Overlap, unsigned short nCols, un
 
         Vector2D cellCenter = {initX + (i%nCols)*Displace, initY + (int)(i/nCols)*Displace};
 
-        // newmin = searchNeighborsMin(&cellCenter, qtreeIn, Wsize/2, &cellPoints);
+        Lpoint newmin = searchNeighborsMin(cellCenter, qtreeIn, Wsize/2, cellPoints);
         // newmin = cpuSearchNeighborsMin(cellCenter, qtreeIn, Wsize/2, cellPoints);
-        Lpoint newmin = gpuSearchNeighborsMin(cellCenter, qtreeIn, Wsize*0.5, Wsize*0.5, cellPoints);
+        //Lpoint newmin = gpuSearchNeighborsMin(cellCenter, qtreeIn, Wsize*0.5, Wsize*0.5, cellPoints);
         // newmin = gpuSearchIndex(cellCenter, p_arbol, p_puntos, Wsize*0.5, Wsize*0.5, cellPoints);
 
         if(cellPoints >= minNumPoints ){
@@ -1661,7 +1641,7 @@ std::vector<int> stage3reduce(unsigned short Bsize, unsigned short nCols, unsign
 
                 if( cellPoints == 0 ){
 
-#ifdef INDEX
+#if defined INDEX || defined NOMEMO
                     newmin = searchNeighborsMin(cellCenter, qtree, Bsize*0.5, cellPoints);
 #else                    
                     newmin = gpuSearchNeighborsMin(cellCenter, qtree, Bsize*0.5, Bsize*0.5, cellPoints);

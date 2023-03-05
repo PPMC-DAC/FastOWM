@@ -4,7 +4,7 @@
 // #include <float.h>
 // #include <math.h>
 // #include <omp.h>
-#include "../include/envi_qmin.h"
+#include "../include/optim2_func.hpp"
 
 static const int REALLOC_INCREMENT = 256;
 
@@ -404,6 +404,50 @@ void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned 
 #endif
   }
 }
+
+void stage1tbb(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min){
+
+  double Displace = round2d(Wsize*(1-Overlap));
+
+  double initX = min.x - Wsize/2 + Displace;
+  double initY = min.y - Wsize/2 + Displace;
+
+  tbb::parallel_for(tbb::blocked_range<int>{0,Crow*Ccol},
+                      [&](tbb::blocked_range<int> r ) {
+        for( int step = r.begin() ; step < r.end() ; step++ ){
+                int ii=step/Ccol, jj=step%Ccol;
+                Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
+                int cellPoints = 0;
+        //New method          
+                Lpoint newmin = searchNeighborsMin(cellCenter, qtreeIn, Wsize/2, cellPoints);
+                //printf("Step: %d.%d; Min id: %.2f; cellPoints: %d\n",ii,jj,newmin.id, cellPoints);
+        //Old method
+        #ifdef DEBUG
+                Vector2D cellCenter_org = {initX + ii*Displace, initY + jj*Displace};
+                int cellPoints_org=0;
+                Lpoint** neighbors = searchNeighbors2D(cellCenter_org, qtreeIn, Wsize/2, cellPoints_org);
+        #endif
+                if(cellPoints >= minNumPoints ){
+        #ifdef DEBUG
+                    int idmin = findMin(neighbors, cellPoints_org);
+                    if(neighbors[idmin]->id != newmin.id && neighbors[idmin]->z < newmin.z){
+                        printf("Step: %d.%d; Center of SW: %.2f %.2f\n",ii,jj,cellCenter_org.x, cellCenter_org.y);
+                        printf("ERROR (old,new) ids: (%d, %d), z: (%.3f %.3f); count:(%d, %d)\n", 
+                        neighbors[idmin]->id, newmin.id,neighbors[idmin]->z, newmin.z, cellPoints_org, cellPoints);
+                    }
+        #endif
+                    minIDs[step] = newmin.id;
+                }
+                else minIDs[step] = -1;
+        #ifdef DEBUG
+                free(neighbors);
+                neighbors = NULL;
+        #endif
+        }
+  });
+}
+
 
 //Receives a sorted list of minIDs with -1s at the beginning due to the SWs that do not have an LLP
 unsigned int stage2(unsigned int Ncells, int* minIDs){

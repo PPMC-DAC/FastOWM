@@ -2,6 +2,10 @@
 
 #define ENVI_QMIN_H
 
+#include <oneapi/dpl/execution>
+#include <oneapi/dpl/algorithm>
+
+#include <tbb/tbb.h>
 #include <iostream>
 #include <limits>
 #include <cmath>
@@ -64,8 +68,8 @@ void deleteQtree(Qtree qtree);
 void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
-// unsigned int stage1cppParent(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-//   unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
+void stage1tbb(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+  unsigned short minNumPoints, int* minIDs, Qtree qtreeIn, Vector2D min);
 
 unsigned int stage2(unsigned int countMin, int* minIDs);
 

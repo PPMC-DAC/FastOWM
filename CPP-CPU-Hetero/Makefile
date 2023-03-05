@@ -45,11 +45,12 @@ $(BIN)/o0parallel: application/owm_optim0.cpp src/optim0_func.cpp
 
 $(BIN)/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DDEBUG
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+#-DDEBUG
 
-$(BIN)/qmin: application/owm_qmin.cpp src/envi_qmin.cpp
+$(BIN)/o2par: application/owm_optim2.cpp src/optim2_func.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++2a
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++17 -ltbb -ltbbmalloc_proxy
 #-DDEBUG -Wall -pedantic -g -Wextra
 
 $(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
@@ -64,9 +65,13 @@ $(BIN)/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
 		@mkdir -p "$(@D)"
 		icpx  $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
 
-$(BIN)/parallelgpu: application/owm_gpu.cpp src/envi_gpu.hpp
+$(BIN)/parallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations
+
+$(BIN)/parallel-nomemo: application/owm_gpu.cpp src/envi_gpu.hpp
+		@mkdir -p "$(@D)"
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations -DNOMEMO
 
 $(BIN)/parallelmaxnum: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
