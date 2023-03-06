@@ -48,7 +48,7 @@ int main( int argc, char* argv[]){
     // Solape de la ventana deslizante
     double Overlap = 0.8;
     // Numero de procesadores
-    unsigned short num_procs = 1;
+    unsigned short num_threads = 1;
 
     //Control del bucle de ejecución
     unsigned int numRuns = 1;
@@ -66,15 +66,16 @@ int main( int argc, char* argv[]){
     if(argc>2) Wsize = atoi(argv[2]);
     if(argc>3) Bsize = atoi(argv[3]);
     if(argc>4) Overlap = atof(argv[4]);
-    if(argc>5) num_procs = atoi(argv[5]);
+    if(argc>5) num_threads = atoi(argv[5]);
     if(argc>6) numRuns = atoi(argv[6]);
     float minRadius = (argc>7)? atof(argv[7]) : 0.1;
 
     double* resultados=new double[numRuns];
 
-    omp_set_num_threads(num_procs);
+    //omp_set_num_threads(num_threads);
+    tbb::global_control c{tbb::global_control::max_allowed_parallelism, num_threads};
 
-    printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT, num_procs);
+    printf("Input.txt: %s ---> EX. CON %d CORES\n", inputTXT, num_threads);
 
     // Abro el fichero
     if((fileXYZ = fopen(inputTXT,"r")) == NULL){
