@@ -23,7 +23,7 @@ int main( int argc, char* argv[]){
     FILE* fileDeb1, fileDeb2;
 #endif
     //Listas
-    Lpoint* pointer = NULL;
+    
     int* minIDs = NULL;
     int* minGridIDs = NULL;
 
@@ -69,6 +69,7 @@ int main( int argc, char* argv[]){
     if(argc>5) num_threads = atoi(argv[5]);
     if(argc>6) numRuns = atoi(argv[6]);
     float minRadius = (argc>7)? atof(argv[7]) : 0.1;
+    int level = (argc>8)? atoi(argv[8]) : 5;
 
     double* resultados=new double[numRuns];
 
@@ -126,16 +127,16 @@ int main( int argc, char* argv[]){
         exit(-1);
         }
     }
-
+    Npoints++; // we insert at position 0 an artificial point to compare: {0.0, 0.0, std::numeric_limits<double>::max()}
     // Reservo memoria para la nube de puntos
-    pointer = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
+    Lpoint* cloud = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
+    cloud[0]={0.0, 0.0, std::numeric_limits<double>::max()};
 
     printf("VOLCANDO PUNTOS...\n");
-
-    for(int i=0; i<Npoints ; i++){
+    for(int i=1; i<Npoints ; i++){
       //Obtengo los datos id X Y Z
-      pointer[i].id = i;
-      if(fscanf(fileXYZ, "%lf %lf %lf",&pointer[i].x,&pointer[i].y,&pointer[i].z) < 3){
+      //cloud[i].id = i;
+      if(fscanf(fileXYZ, "%lf %lf %lf",&cloud[i].x,&cloud[i].y,&cloud[i].z) < 3){
         printf("Imposible to obtain values\n");
         exit(-1);
       }
@@ -160,17 +161,19 @@ int main( int argc, char* argv[]){
 
     printf("Inserting points with minRadius: %g\n", minRadius);
     t_qtree=omp_get_wtime();
-    Qtree qtreeIn = new Qtree_t( center, maxRadius );
+    // Qtree qtreeIn = new Qtree_t( center, maxRadius );
+    // for(int i = 1; i <= Npoints; i++)
+    //    insertPoint(i, cloud, qtreeIn, minRadius);
+    
+    Qtree qtreeIn = parallel_qtree( level, center, maxRadius, cloud, Npoints, minRadius );
 
-    for(int i = 0; i < Npoints; i++)
-       insertPointF(&pointer[i], qtreeIn, minRadius);
     printf("Time elapsed at Quadtree construction:     %.6f s\n\n", omp_get_wtime()-t_qtree);
 
     Width = round2d(max.x-min.x);
     High = round2d(max.y-min.y);
-    Density = Npoints/(Width*High);
+    Density = (Npoints-1)/(Width*High);
     printf("CLOUD PARAMETERS:\n");
-    printf("Número de puntos      %d\n",Npoints);
+    printf("Número de puntos      %d\n",Npoints-1);
     printf("Ancho:  %.2lf\n",Width);
     printf("Alto:  %.2lf\n",High);
     printf("Densidad:  %.3lf\n",Density);
@@ -208,6 +211,7 @@ int main( int argc, char* argv[]){
     minIDs = (int*)malloc(Ncells*sizeof(int));
     minGridIDs = (int*)malloc(Ngrid*sizeof(int));
 
+    int numRuns_saved=numRuns;
     while(numRuns){
 
         t_func=omp_get_wtime();
@@ -217,7 +221,7 @@ int main( int argc, char* argv[]){
         // The array minIDs that store the valid min of each cell/SW is initialized with -1
         // The cells/SWs without a valid minimum will keep the -1
         //std::fill(minIDs, minIDs+Ncells, -1);
-        stage1tbb(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, qtreeIn, min);
+        stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, cloud, qtreeIn, min);
 
         printf("Time elapsed at STAGE 1:     %.6f s\n\n", omp_get_wtime()-t_stage);
 
@@ -231,7 +235,7 @@ int main( int argc, char* argv[]){
             return -1;
           }
           for(int i=0 ; i<Ncells ; i++)
-              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
           fclose(fileDeb1);
 #endif
             // Detect repeated ids and store them in minIDs. NumLLPs is the number of LLPs found and stored at the beggining of minIDs
@@ -242,7 +246,7 @@ int main( int argc, char* argv[]){
             return -1;
           }
           for(int i=0 ; i<numLLPs ; i++)
-              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
           fclose(fileDeb1);
 #endif
 
@@ -261,9 +265,9 @@ int main( int argc, char* argv[]){
             Qtree grid =  new Qtree_t( center, maxRadius) ;
 
             for(int i = 0; i < numLLPs; i++)
-               insertPointF(&pointer[minIDs[i]], grid, minRadius);
+               insertPoint(minIDs[i], cloud, grid, minRadius);
 
-            addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, qtreeIn, grid, min);
+            addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, cloud, qtreeIn, grid, min);
             printf("Time elapsed at STAGE 3:     %.6f s\n\n",omp_get_wtime() - t_stage );
             printf("Number of points added at stage 3: %d \n\n", addMin);
             deleteQtree(grid);
@@ -271,23 +275,20 @@ int main( int argc, char* argv[]){
         }
 
         printf("TOTAL time elapsed:     %.6f s\n", resultados[--numRuns] = omp_get_wtime() - t_func);
-        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints - numLLPs+addMin );
+        printf("Output ground seed-point cloud with %d points, %d fewer points than input cloud\n", numLLPs+addMin, Npoints-1 - numLLPs+addMin );
 
         printf("/////////////////////////////////////////////////////////////////////\n");
     }
 
     printf("Time of each run:  ");
     printf("  %.4lf  ", resultados[0]);
-    numRuns = atoi(argv[6]);
-    if(numRuns > 0){
-      for( int i=1 ; i<numRuns ; i++ ){
+    numRuns = numRuns_saved;
+    for( int i=1 ; i<numRuns ; i++ ){
         printf("  %.4lf  ", resultados[i]);
         resultados[0] += resultados[i];
-      }
-      printf("\nAverage: %.4lf\n\n", resultados[0]/numRuns);
-    } else 
-      printf("\nAverage: %.4lf\n\n", resultados[0]);
-
+    }
+    printf("\nAverage: %.4lf\n\n", resultados[0]/numRuns);
+    
 #ifdef DEBUG
     // Fichero de salida
     printf("Creo el fichero %s ...\n", outputTXT);
@@ -297,10 +298,10 @@ int main( int argc, char* argv[]){
     }
 
     for(int i=0 ; i<numLLPs ; i++)
-      fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minIDs[i]].x, pointer[minIDs[i]].y,pointer[minIDs[i]].z);
+      fprintf(fileMin, "%.2f %.2f %.2f\n", cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
 
     for(int i=0 ; i<addMin ; i++)
-      fprintf(fileMin, "%.2f %.2f %.2f\n", pointer[minGridIDs[i]].x, pointer[minGridIDs[i]].y,pointer[minGridIDs[i]].z);
+      fprintf(fileMin, "%.2f %.2f %.2f\n", cloud[minGridIDs[i]].x, cloud[minGridIDs[i]].y,cloud[minGridIDs[i]].z);
 
     //Ya no necesito mas el fichero
     if(fclose(fileMin)){
@@ -313,8 +314,8 @@ int main( int argc, char* argv[]){
     minIDs=NULL;
     free(minGridIDs);
     minGridIDs=NULL;
-    free(pointer);
-    pointer=NULL;
+    free(cloud);
+    cloud=NULL;
 
     deleteQtree(qtreeIn);
     delete(qtreeIn);

@@ -48,9 +48,9 @@ $(BIN)/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
 #-DDEBUG
 
-$(BIN)/o2par: application/owm_optim2.cpp src/optim2_func.cpp
+$(BIN)/o2par: application/owm_optim2.cpp src/optim2_func.cpp include/optim2_func.hpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++17 -ltbb -ltbbmalloc_proxy
+		$(CXX) application/owm_optim2.cpp -o $@ -O3 -fopenmp -lm -std=c++17 -ltbb -ltbbmalloc_proxy
 #-DDEBUG -Wall -pedantic -g -Wextra
 
 $(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
