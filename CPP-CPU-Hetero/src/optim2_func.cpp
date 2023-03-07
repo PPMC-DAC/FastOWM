@@ -4,6 +4,11 @@ Qtree_t::Qtree_t(Vector2D c, float r) : center(c), radius(r) {
     quadrants[i] = NULL;
 }
 
+QtreeConc_t::QtreeConc_t(Vector2D c, float r) : center(c), radius(r) {
+  for(int i = 0; i < 4; i++)
+    quadrants[i] = NULL;
+}
+
 double round2d(double z){
   return round(z*100.0)/100.0;
 }
@@ -37,7 +42,8 @@ Vector2D getCenter(Vector2D &min, Vector2D &radius)
     return center;
 }
 
-int isLeaf(Qtree quad)
+template<typename Tree>
+int isLeaf(Tree quad)
 {
     return quad->quadrants[0] == NULL;
 }
@@ -88,12 +94,28 @@ void createQuadrants(Qtree quad)
         newCenter.x += quad->radius * (i&2 ? 0.5f : -0.5f);
         newCenter.y += quad->radius * (i&1 ? 0.5f : -0.5f);
 
-        quad->quadrants[i] = new Qtree_t(newCenter, newRadius);
+        quad->quadrants[i] = new Qtree_t{newCenter, newRadius};
+    }
+}
+void createQuadrants(QtreeConc quad)
+{
+    int i = 0;
+    Vector2D newCenter;
+    float newRadius = quad->radius * 0.5;
+
+    for(i = 0; i < 4; i++)
+    {
+        newCenter = quad->center;
+        newCenter.x += quad->radius * (i&2 ? 0.5f : -0.5f);
+        newCenter.y += quad->radius * (i&1 ? 0.5f : -0.5f);
+
+        quad->quadrants[i] = new QtreeConc_t{newCenter, newRadius};
     }
 }
 
 // Find the child corresponding a given point
-int quadrantIdx(LpointID point, Lpoint * cloud, Qtree qtree)
+template<typename Tree>
+int quadrantIdx(LpointID point, Lpoint * cloud, Tree qtree)
 {
     int child = 0;
 
@@ -106,8 +128,6 @@ int quadrantIdx(LpointID point, Lpoint * cloud, Qtree qtree)
 
 void insertPoint(LpointID point, Lpoint * cloud, Qtree qtree, float minRadius)
 {
-//    int idx = 0;
-
     if(isLeaf(qtree))
     {
         if(qtree->radius * 0.5 > minRadius)    // still divisible -> divide
@@ -128,22 +148,23 @@ void insertPoint(LpointID point, Lpoint * cloud, Qtree qtree, float minRadius)
 
 /* Creates nodes up to "max level" and from this level it starts
 saving the pointer to the nodes in a vector that later on will be processed in parallel */
-void tree_phase1(Qtree qtree, int maxlevel, int level, std::vector<Qtree>& n_work)
+void tree_phase1(QtreeConc qtreeC, Qtree qtree , int maxlevel, int level, std::vector<std::pair<QtreeConc,Qtree>>& n_work)
 {
     if(level < maxlevel)
     {
+      createQuadrants(qtreeC);
       createQuadrants(qtree);
       for(int i = 0; i < 4; i++)
-        tree_phase1(qtree->quadrants[i], maxlevel, level+1, n_work);
+        tree_phase1(qtreeC->quadrants[i], qtree->quadrants[i], maxlevel, level+1, n_work);
     }
     else
     { 
-      n_work.push_back(qtree);
+      n_work.emplace_back(std::make_pair(qtreeC,qtree));
     }
 }
 
 /* Accumulates the points on a certain level of the tree */
-void insertPointConcurrent(LpointID point, Lpoint* cloud, Qtree qtree)
+void insertPointConcurrent(LpointID point, Lpoint* cloud, QtreeConc qtree)
 {
     if(isLeaf(qtree))
     {
@@ -184,25 +205,35 @@ void insertPointMaxNum(LpointID point, Lpoint* cloud, Qtree qtree, int maxNumber
 }
 
 /* Inserts the points according to minRadius policy  */
-void fillQuadrants(Lpoint* cloud, Qtree qtree, float minRadius)
+void fillQuadrants(Lpoint* cloud, Qtree qtree, QtreeConc qtreeC, float minRadius)
 {
-    for(LpointID p : qtree->concurrent_points)
+    for(LpointID p : qtreeC->concurrent_points)
     {
       int idx = quadrantIdx(p, cloud, qtree);
       insertPoint(p, cloud, qtree->quadrants[idx], minRadius);
     }
-    qtree->concurrent_points.clear();
+    //qtree->concurrent_points.clear();
 }
 
 /* Re-inserts the points when it exceeds maxNumber   */
-void fillQuadrants(Lpoint* cloud, Qtree qtree, int maxNumber)
+void fillQuadrants(Lpoint* cloud, Qtree qtree, QtreeConc qtreeC, int maxNumber)
 {
-  for(LpointID p : qtree->concurrent_points)
+  for(LpointID p : qtreeC->concurrent_points)
     {
       int idx = quadrantIdx(p, cloud, qtree);
       insertPointMaxNum(p, cloud, qtree->quadrants[idx], maxNumber);
     }
-    qtree->concurrent_points.clear();
+    //qtreeC->concurrent_points.clear();
+}
+
+void fillQuadrants(Lpoint* cloud, Qtree qtree, int maxNumber)
+{
+  for(LpointID p : qtree->points)
+    {
+      int idx = quadrantIdx(p, cloud, qtree);
+      insertPointMaxNum(p, cloud, qtree->quadrants[idx], maxNumber);
+    }
+    //qtreeC->concurrent_points.clear();
 }
 
 //This function can be called with node_delimiter as MinRadius or MaxNumber
@@ -210,18 +241,19 @@ template<typename tree_policy> // int for MaxNumber or float for MinRadius
 Qtree parallel_qtree( int level, Vector2D center, float radius, Lpoint* cloud, int Npoints, tree_policy policy )
 {
 
+  QtreeConc rootConc = new QtreeConc_t{center, radius};
   Qtree root = new Qtree_t{center, radius};
 
-  std::vector<Qtree> n_work;
+  std::vector<std::pair<QtreeConc,Qtree>> n_work;
 //create the "transitory" leaves up to tree-level "level" (sequential) and store these leaves in the n_work vector
-  tree_phase1( root, level, 0, n_work );
+  tree_phase1( rootConc, root, level, 0, n_work );
 
   // std::cout << "  N tasks: " << n_work.size() << std::endl << std::flush;
 //traverse the LiDAR points in parallel in the transitory leaves
   tbb:: parallel_for( tbb::blocked_range<int>{1, Npoints},
-                      [root,cloud](tbb::blocked_range<int> r ) {
+                      [rootConc,cloud](tbb::blocked_range<int> r ) {
     for(int i = r.begin(); i < r.end(); i++) {
-      insertPointConcurrent(i, cloud, root);
+      insertPointConcurrent(i, cloud, rootConc);
     }
   });
 
@@ -230,12 +262,14 @@ Qtree parallel_qtree( int level, Vector2D center, float radius, Lpoint* cloud, i
   tbb::parallel_for( 0, static_cast<int>(n_work.size()), 1,
     [&](int id){
 
-    Qtree qt = n_work[id];
+    Qtree qt = n_work[id].second;
+    QtreeConc qtc = n_work[id].first;
     createQuadrants(qt);
     //Depending on the type of node delimiter it will call to the MinRadius or MaxNumber version
-    fillQuadrants(cloud, qt, policy);
+    fillQuadrants(cloud, qt, qtc, policy);
   });
-
+  deleteQtree(rootConc);
+  delete(rootConc);
   return root;
 }
 
@@ -295,12 +329,14 @@ int boxTotalOverlap2D(Vector2D &boxMin, Vector2D &boxMax, Qtree &quad)
     return 1;
 }
 
-void deleteQtree(Qtree qtree)
+template<typename Tree>
+void deleteQtree(Tree qtree)
 {
     int i;
     if(isLeaf(qtree))
     {
-      qtree->points.clear();
+      if constexpr (std::is_same_v<Tree,Qtree>) qtree->points.clear();
+      else qtree->concurrent_points.clear();
     } else {
         for(i = 0; i < 4; i++) {
             // Check
