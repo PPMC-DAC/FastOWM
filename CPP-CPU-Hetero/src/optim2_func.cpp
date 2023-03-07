@@ -472,32 +472,112 @@ unsigned int stage2(unsigned int Ncells, int* minIDs){
   return counter;
 }
 
-unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Lpoint* cloud, Qtree qtreeIn, Qtree grid, Vector2D min){
+std::vector<int> stage3(unsigned short Bsize, unsigned short nCols, unsigned short nRows,
+           Lpoint* cloud, Qtree qtreeIn, Qtree grid, Vector2D min){
 
-    unsigned int addMin = 0;
+    double initX =  min.x + Bsize/2;
+    double initY = min.y + Bsize/2;
 
-    #pragma omp parallel for schedule(dynamic)
-    for( int jj = 0 ; jj < Ccol ; jj++ ){
-       Vector2D cellCenter;
-       cellCenter.y = min.y + Bsize/2 + jj*Bsize;
+    std::vector<int> init;
+    return tbb::parallel_reduce(
+      tbb::blocked_range2d<int,int>{0,nRows,0,nCols},
+      init,
+      [&](const tbb::blocked_range2d<int,int>& r, std::vector<int> v) {
 
-       for( int ii = 0 ; ii < Crow ; ii++ ){
-           cellCenter.x = min.x + Bsize/2 + ii*Bsize;
-           int cellPoints = 0;
-           countNeighbors2D(cellCenter, cloud, grid, Bsize/2, cellPoints);
-           if(cellPoints == 0){
-               LpointID newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Bsize/2, cellPoints);
-               if(cellPoints>0){
-                   #pragma omp critical
-                   {
-                      minGridIDs[addMin] = newmin;
-                      addMin++;
-                   }
-                   // printf("%d: %.2f , %.2f , %.2f\n", addMin, pointer[neighbors[idmin]->id].x, pointer[neighbors[idmin]->id].y,pointer[neighbors[idmin]->id].z);
-               }
+        Lpoint newmin;
+        Vector2D cellCenter;
+        int cellPoints;
+        int je = r.rows().end();
+        int ie = r.cols().end();
+
+        for(int jj = r.rows().begin(); jj < je; ++jj) {
+            cellCenter.y = initY + jj*Bsize;
+            for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
+                cellCenter.x = initX + ii*Bsize;
+                countNeighbors2D(cellCenter, cloud, grid, Bsize/2, cellPoints);
+                if(cellPoints == 0){
+                    LpointID newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Bsize/2, cellPoints);
+                    if(cellPoints>0) v.push_back(newmin);
+                }
            }
        }
+       return v;
+    },
+    [](std::vector<int> a, std::vector<int> b) {
+        a.insert(a.end(), b.begin(), b.end());
+        return a;
+    });
+}
+
+
+/* Checks results by comparing with GOLD result */
+double check_results(char* filename, std::vector<int>& ids, Lpoint* cloud, float Displace)
+{
+  std::string line;
+  // char delim;
+  Vector3D aux;
+  uint32_t npoints = 0;
+  std::vector<Vector3D> vgold, v;
+
+  std::ifstream input(filename);
+  if (input.fail()) {
+      std::cout << "The GOLD point list doesn't exits" << std::endl;
+      return -1.;
+  }
+
+  while(getline(input,line)) {
+    std::stringstream s(line);
+    // s >> aux.x >> delim >> aux.y >> delim >> aux.z;
+    s >> aux.x >> aux.y >> aux.z;
+    vgold.push_back(aux);
+    npoints++;
+  }
+
+  (input).close();
+  if((input).is_open())
+    return -1.;
+
+  std::sort(oneapi::dpl::execution::par_unseq, vgold.begin(), vgold.end(), [](const Vector3D a, const Vector3D b){
+    return a.z < b.z;
+  });
+
+  // for(auto p1 : v){
+  //   printf("%lf %lf %lf\n", p1.x, p1.y, p1.z);
+  // }
+
+  for( int i : ids ){
+    aux.x = cloud[i].x;
+    aux.y = cloud[i].y;
+    aux.z = cloud[i].z;
+    v.push_back(aux);
+  }
+
+  std::sort(oneapi::dpl::execution::par_unseq, v.begin(), v.end(), [](const Vector3D a, const Vector3D b){
+    return a.z < b.z;
+  });
+
+  int count = 0;
+  // float Displace = 1.0;
+  Vector2D boxMin, boxMax;
+  for(auto p : v){
+    Vector2D aux = {p.x, p.y};
+    makeBox(aux, Displace*0.5, boxMin, boxMax);
+    for(auto pg : vgold){
+      if(pg.x > boxMin.x && pg.y > boxMin.y && pg.x < boxMax.x && pg.y < boxMax.y){
+        if(fabs(p.z - pg.z) < 0.01){
+          count++;
+          break;
+          }
+        }
     }
-    return addMin;
+  }
+
+  double ratio = count/((double)(npoints))*100.0;
+  printf("%d points correct; %.2f%%\n", count, ratio);
+
+  return ratio;
+
+  // return std::equal(v.begin(), v.end(), v2.begin(), [](const Vector3D a, const Vector3D b){
+  //   return fabs(a.z - b.z) < 0.01;
+  // });
 }

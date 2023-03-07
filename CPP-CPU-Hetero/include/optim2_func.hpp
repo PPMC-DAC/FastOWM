@@ -9,13 +9,14 @@
 #include <iostream>
 #include <limits>
 #include <cmath>
-#include <omp.h>
 #include <vector>
 #include <unistd.h>
 #include <functional>
 #include <chrono>
 #include <algorithm>
 #include <string.h>
+#include <fstream>
+#include <sstream>
 
 typedef struct
 {
@@ -78,9 +79,8 @@ void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned 
 
 unsigned int stage2(unsigned int countMin, int* minIDs);
 
-unsigned int stage3(unsigned short Bsize, unsigned short Crow, unsigned short Ccol,
-          int* minGridIDs, Lpoint* cloud, Qtree qtreeIn, Qtree grid, Vector2D min);
-
+std::vector<int> stage3(unsigned short Bsize, unsigned short nCols, unsigned short nRows,
+           Lpoint* cloud, Qtree qtreeIn, Qtree grid, Vector2D min);
 
 #include "../src/optim2_func.cpp"
 
