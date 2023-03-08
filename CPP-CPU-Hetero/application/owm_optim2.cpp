@@ -23,7 +23,7 @@ int main( int argc, char* argv[]){
   Vector2D center, radius, min, max;
   float maxRadius = 0.0;
   double Width, Height, Density, Displace;
-  unsigned short  minNumPoints, Crow, Ccol, Crowg, Ccolg;
+  unsigned short  minNumPoints, nCols, nRows, nColsg, nRowsg;
 
   unsigned int countMin;
 
@@ -66,6 +66,7 @@ int main( int argc, char* argv[]){
   if(argc>6) numRuns = atoi(argv[6]);
   float minRadius = (argc>7)? atof(argv[7]) : 0.1;
   int level = (argc>8)? atoi(argv[8]) : 5;
+  int maxNumber = (argc>9)? atoi(argv[9]) : 32;
 
   double* results=new double[numRuns];
 
@@ -168,42 +169,43 @@ int main( int argc, char* argv[]){
   Height = round2d(max.y-min.y);
   Density = (Npoints-1)/(Width*Height);
   printf("CLOUD PARAMETERS:\n");
-  printf("Number of points:      %d\n",Npoints-1);
-  printf("Width:  %.2lf\n",Width);
+  printf("Number of points: %d\n",Npoints-1);
+  printf("Width:   %.2lf\n",Width);
   printf("Height:  %.2lf\n",Height);
-  printf("Density:  %.3lf\n",Density);
+  printf("Density: %.3lf\n",Density);
 
   printf("\nSize of the sliding window (SW): %u\n", Wsize);
-  printf("Size of the grid     %u\nOverlap                %.2f\n", Bsize,Overlap);
+  printf("Size of the grid cell: %u\n", Bsize);
+  printf("Overlap:               %.2f\n", Overlap);
 
   // El numero minimo sera la mitad del numero de puntos medio por celda
   minNumPoints = 0.5*Density*Wsize*Wsize;
-  printf("Minium number of points in the SW to be considered:   %u\n", minNumPoints);
+  printf("Minium number of points in the SW to be considered: %u\n", minNumPoints);
 
   Displace = round2d(Wsize*(1-Overlap));
-  printf("SW x and y Displacement   %.2f\n", Displace);
+  printf("SW x and y Displacement: %.2f\n", Displace);
 
   // Stage 1 parameters
   printf("\nSliding Window (SW) parameters:\n");
 
   if(Overlap > 0.0) {
-    Crow=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
-    Ccol=(int)(round((Height+2*Wsize*Overlap)/Displace))-1;
+    nCols=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
+    nRows=(int)(round((Height+2*Wsize*Overlap)/Displace))-1;
   } else {
-    Crow=(int)floor(Width/Wsize)+1;
-    Ccol=(int)floor(Height/Wsize)+1;
+    nCols=(int)floor(Width/Wsize)+1;
+    nRows=(int)floor(Height/Wsize)+1;
   }
-  printf("Number of SWs per column: %d\n",Ccol);
-  printf("Number of SW per row:   %d\n",Crow);
-  Ncells = Crow*Ccol;
-  printf("Total number of OWM steps (Crow x CCol):   %d\n",Ncells);
+  printf("Number of SWs per column (number of rows): %d\n",nRows);
+  printf("Number of SWs per row (number of colums):  %d\n",nCols);
+  Ncells = nCols*nRows;
+  printf("Total number of OWM steps (nCols x nRows): %d\n",Ncells);
 
   // Stage 3 parameter
   printf("\nGrid (for stage 3) parameters:\n");
-  Crowg=(int)floor(Width/Bsize)+1;
-  Ccolg=(int)floor(Height/Bsize)+1;
-  printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, Ccolg, Crowg);
-  Ngrid = Crowg*Ccolg;
+  nColsg=(int)floor(Width/Bsize)+1;
+  nRowsg=(int)floor(Height/Bsize)+1;
+  printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, nRowsg, nColsg);
+  Ngrid = nColsg*nRowsg;
   // At most one LLP per SW and there are Ncells SWs
   int* minIDs = new int[Ncells];
   // This vector will have the points added at stage 3
@@ -218,7 +220,7 @@ int main( int argc, char* argv[]){
         // The array minIDs stores the valid minima found 
         // The cells/SWs without a valid minimum will have a -1
         //std::fill(minIDs, minIDs+Ncells, -1);
-        stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, cloud, qtreeIn, min);
+        stage1(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cloud, qtreeIn, min);
         t_s1=(tbb::tick_count::now()-t_stage).seconds();
         
         if(Overlap != 0){
@@ -261,7 +263,7 @@ int main( int argc, char* argv[]){
             for(int i = 0; i < numLLPs; i++)
                insertPoint(minIDs[i], cloud, grid, minRadius);
 
-            minGridIDs = stage3(Bsize, Crowg, Ccolg, cloud, qtreeIn, grid, min);
+            minGridIDs = stage3(Bsize, nColsg, nRowsg, cloud, qtreeIn, grid, min);
             t_s3=(tbb::tick_count::now() - t_stage).seconds();
             addMin = minGridIDs.size();
             //printf("Number of points added at stage 3: %d \n\n", addMin);
@@ -286,7 +288,9 @@ int main( int argc, char* argv[]){
         printf("  %.4lf  ", results[i]);
         results[0] += results[i];
     }
-    printf("\nAverage: %.4lf\n\n", results[0]/numRuns);
+    double OWMaverage=results[0]/numRuns;
+    printf("\nAverage OWM: %.6lf\n", OWMaverage);
+    printf("Total Tree Construction + OWM: %.6lf\n\n", OWMaverage + time_tree);
     
 
     for(int i = 0; i < numLLPs; i++)
@@ -296,7 +300,12 @@ int main( int argc, char* argv[]){
   if (correctness < 0) {
       printf("Unable to check results\n");
   }
-  
+
+  if(save_time("results_o2.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
+            time_tree, OWMaverage, correctness) < 0){
+    printf("Unable to create time report file!\n");
+  }
+
 #ifdef DEBUG
     // Fichero de salida
     printf("Creo el fichero %s ...\n", outputXYZ);

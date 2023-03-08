@@ -581,3 +581,31 @@ double check_results(char* filename, std::vector<int>& ids, Lpoint* cloud, float
   //   return fabs(a.z - b.z) < 0.01;
   // });
 }
+
+/* Saves the execution time and other metrics of the algorithm  */
+int save_time(std::string file_name, char* map_name, int numthreads, 
+  float minRadius, int maxNumber, int level, double tree_time,  
+  double owm_time, double correctness)
+{
+  // uint32_t size = pointList.size();
+  std::fstream out(file_name, out.out | out.app);
+  // std::ofstream out;
+  // out.precision(std::numeric_limits<double>::digits10);
+  // out.open(file_name);
+  // Point aux;
+  if(!out.is_open())
+    return -1;
+
+  out << map_name << " " << numthreads << " ";
+  // out.precision(3);
+  out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";
+  // out.precision(6);
+  out << std::fixed << tree_time << " " <<  owm_time << " ";
+  // out.precision(1);
+  out << std::defaultfloat  << correctness << std::endl;
+
+  out.close();
+  if(out.is_open())
+    return -1;
+  return 0;
+}

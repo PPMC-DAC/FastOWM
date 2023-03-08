@@ -24,7 +24,7 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionUH"]
 
 num_threads = [1, 2, 4, 6, 8]
-levels = list(range(3,9))
+levels = list(range(2,10))
 mR=0.1
 
 for file in inputs:
