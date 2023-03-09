@@ -17,6 +17,10 @@
 #include <string.h>
 #include <fstream>
 #include <sstream>
+#include <filesystem>
+
+// Processes input arguments
+#include "../include/cxxopts.hpp"
 
 typedef struct
 {

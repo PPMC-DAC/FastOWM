@@ -6,156 +6,94 @@
 //     x,y coordinates are not read. If the overlap is partial, x,y coordinate of all points have to be checked
 // 3.- Stage1 in previous version used a induction variable to write the array of minimums (minIDs) so a critical section was
 //     necessary for the parallel version. Now this induction is removed and minIDs can be written in parallel.
+// 4.- OpenMP has been replaced by TBB in parallel stages 1 and 3
+// 5.- Sorting is done with std::sort and oneapi::dpl::execution::par_unseq policy
+// 6.- Tree data structure does not have id member. Now the index of the point is used as ID
+// 7.- The tree is built in parallel in three phases
 
 #include "../include/optim2_func.hpp"
-#include <algorithm>
 
-int main( int argc, char* argv[]){
+int main( int argc, const char* argv[]){
 
-  // Ficheros
-  FILE* fileXYZ;
-  FILE* fileMin;
-#ifdef DEBUG
-    FILE* fileDeb1, fileDeb2;
-#endif
+  cxxopts::Options options("./owm [options]", "OWM algorithm to idetify the ground surface from LiDAR data");
 
-  unsigned int Npoints=0, Ncells, Ngrid;
-  Vector2D center, radius, min, max;
-  float maxRadius = 0.0;
-  double Width, Height, Density, Displace;
-  unsigned short  minNumPoints, nCols, nRows, nColsg, nRowsg;
+  options.add_options()
+          ("v,verbose", "Dump input/output data", cxxopts::value<bool>()->default_value("false"))
+          ("h,help", "Help message")
+          ("i,input", "Input file name without .xyz extension (LiDAR data file)",
+            cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
+          ("W,Wsize", "Sliding Window size", cxxopts::value<uint32_t>()->default_value("10"))
+          ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
+          ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
+          ("n,num_threads", "Number of threads", cxxopts::value<int>()->default_value("1"))
+          ("l,loop", "Number of runs of the OWM algorithm", cxxopts::value<int>()->default_value("1"))
+          ("r,radius", "Value of minRadius (tree cutoff policy)", cxxopts::value<float>()->default_value("0.1"))
+          ("s,size", "Value of maxNumber (max number of points per leaf-node)", cxxopts::value<int>()->default_value("32"))
+          ("L,level", "Tree level at which the tree creation becomes parallel", 
+            cxxopts::value<int>()->default_value("5"));
 
-  unsigned int countMin;
+  auto parameters = options.parse(argc, argv);
 
-  unsigned int numLLPs = 0;
+  uint32_t Wsize = parameters["Wsize"].as<uint32_t>();
+  uint32_t Bsize = parameters["Bsize"].as<uint32_t>();
+  double Overlap = parameters["Overlap"].as<double>();
+  size_t num_threads = parameters["num_threads"].as<int>();
+  int numRuns = parameters["loop"].as<int>();
+  float minRadius = parameters["radius"].as<float>();
+  int maxNumber = parameters["size"].as<int>();
+  int level = parameters["level"].as<int>();
 
-  unsigned int addMin = 0;
+  std::string inputXYZ = parameters["input"].as<std::string>() + ".xyz";
+  std::string outputXYZ = parameters["input"].as<std::string>() + "_salida.xyz";
+  std::string goldXYZ = parameters["input"].as<std::string>() + "_salidaGOLD.xyz";
 
-  tbb::tick_count t_stage, t_func, t_qtree;
-
-  // Tamaño de la ventana deslizante
-  unsigned short Wsize = 10;
-  // Tamaño de la rejilla
-  unsigned short Bsize = 20;
-  // Solape de la ventana deslizante
-  double Overlap = 0.8;
-  // Numero de procesadores
-  unsigned short num_threads = 1;
-
-  //Control del bucle de ejecución
-  unsigned int numRuns = 1;
-
-  char inputXYZ[128] = {"./data/INAER_2011_Alcoy.xyz"};
-  char outputXYZ[128] = {"./data/INAER_2011_Alcoy_salida.xyz"};
-  char goldXYZ[128] = {"./data/INAER_2011_Alcoy_salidaGOLD.xyz"};
-
-  if(argc>1) {
-    strcpy(inputXYZ,argv[1]);
-    strcat(inputXYZ,".xyz");
-
-    strcpy(outputXYZ,argv[1]);
-    strcat(outputXYZ,"_salida.xyz");
-
-    strcpy(goldXYZ,argv[1]);
-    strcat(goldXYZ,"_salidaGOLD.xyz");
+  if (parameters.count("help")) {
+      std::cout << options.help() << std::endl;
+      exit(0);
   }
-  if(argc>2) Wsize = atoi(argv[2]);
-  if(argc>3) Bsize = atoi(argv[3]);
-  if(argc>4) Overlap = atof(argv[4]);
-  if(argc>5) num_threads = atoi(argv[5]);
-  if(argc>6) numRuns = atoi(argv[6]);
-  float minRadius = (argc>7)? atof(argv[7]) : 0.1;
-  int level = (argc>8)? atoi(argv[8]) : 5;
-  int maxNumber = (argc>9)? atoi(argv[9]) : 32;
-
-  double* results=new double[numRuns];
 
   //omp_set_num_threads(num_threads);
   tbb::global_control c{tbb::global_control::max_allowed_parallelism, num_threads};
 
-  printf("Input.txt: %s ---> EX. CON %d CORES\n", inputXYZ, num_threads);
-
-  // Abro el fichero
-  if((fileXYZ = fopen(inputXYZ,"r")) == nullptr){
-    printf("Unable to open file!\n");
+  printf("Input.txt: %s ---> EX. CON %ld CORES\n", inputXYZ.c_str(), num_threads);
+  uint32_t Npoints=0; // Number of points of the LiDAR point cloud
+  Vector2D  min, max; //min and max (x,y) coordinates of each cloud
+  if( inputXYZ.find("INAER_2011_Alcoy.xyz") != std::string::npos ){ // Alcoy mini
+    Npoints = 2772832; min={715244.96,4286623.63}; max={716057.75,4287447.70};
+  } else if( inputXYZ.find("INAER_2011_Alcoy_Core.xyz") != std::string::npos ){ // Alcoy
+    Npoints = 20380212; min={714947.98, 4286501.93}; max={716361.06, 4288406.23};
+  } else if( inputXYZ.find("BABCOCK_2017_Arzua_3B.xyz") != std::string::npos ){ //Arzua
+    Npoints = 40706503; min={568000.00, 4752320.00}; max={568999.99, 4753319.99};
+  } else if( inputXYZ.find("V21_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion forestal
+    Npoints = 42384876; min={526964.093, 4742610.292}; max={527664.647, 4743115.738};
+  } else if( inputXYZ.find("V19_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion urban
+    Npoints = 48024480; min={526955.908, 4742586.025}; max={527686.445, 4743124.373};
+  } else if( inputXYZ.find("sample24.xyz") != std::string::npos ){
+    Npoints = 7492; min={513748.12, 5403124.76}; max={513869.97, 5403197.20};
+  } else if ( inputXYZ.find("ArzuaH.xyz") == std::string::npos &&
+              inputXYZ.find("AlcoyH.xyz") == std::string::npos && 
+              inputXYZ.find("BrionFH.xyz") == std::string::npos && 
+              inputXYZ.find("BrionUH.xyz") == std::string::npos ){
+    printf("No header data!\n");
     exit(-1);
   }
-
-  if( !strcmp(inputXYZ,"./data/INAER_2011_Alcoy.xyz") ){
-    Npoints = 2772832;
-    min.x   = 715244.96;
-    max.x   = 716057.75;
-    min.y   = 4286623.63;
-    max.y   = 4287447.70;
-  } else if( !strcmp(inputXYZ,"./data/INAER_2011_Alcoy_Core.xyz") ){
-    Npoints = 20380212;
-    min.x   = 714947.98;
-    max.x   = 716361.06;
-    min.y   = 4286501.93;
-    max.y   = 4288406.23;
-  } else if(!strcmp(inputXYZ,"./data/BABCOCK_2017_Arzua_3B.xyz")){
-    Npoints = 40706503;
-    min.x   = 568000.00;
-    max.x   = 568999.99;
-    min.y   = 4752320.00;
-    max.y   = 4753319.99;
-  } else if(!strcmp(inputXYZ,"./data/V21_group1_densified_point_cloud.xyz")){
-    Npoints = 42384876;
-    min.x   = 526964.093;
-    max.x   = 527664.647;
-    min.y   = 4742610.292;
-    max.y   = 4743115.738;
-  } else if(!strcmp(inputXYZ,"./data/V19_group1_densified_point_cloud.xyz")){
-    Npoints = 48024480;
-    min.x   = 526955.908;
-    max.x   = 527686.445;
-    min.y   = 4742586.025;
-    max.y   = 4743124.373;
-  } else if(!strcmp(inputXYZ,"./data/sample24.xyz")){
-    Npoints = 7492;
-    min.x   = 513748.12;
-    max.x   = 513869.97;
-    min.y   = 5403124.76;
-    max.y   = 5403197.20;
-  } else {// For files with header values (Npoints, min.x, max.x, min.y, max.y)
-  //Read header values
-    if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
-      printf("Imposible to read header values\n");
-      exit(-1);
-      }
-  }
-  Npoints++; // we insert at position 0 an artificial point to compare: {0.0, 0.0, std::numeric_limits<double>::max()}
-  Lpoint* cloud = (Lpoint*)malloc(Npoints*sizeof(Lpoint));
-  cloud[0]={0.0, 0.0, std::numeric_limits<double>::max()};
-
-  printf("Reading LiDAR point cloud...\n");
-  for(int i=1; i<Npoints ; i++){
-    //Obtengo los datos id X Y Z
-    //cloud[i].id = i;
-    if(fscanf(fileXYZ, "%lf %lf %lf",&cloud[i].x,&cloud[i].y,&cloud[i].z) < 3){
-      printf("Imposible to obtain values\n");
-      exit(-1);
-    }
-    while(fgetc(fileXYZ)!='\n');
-  }
-
-  if(fclose(fileXYZ)){
-    printf("Cannot close the file\n");
+  Lpoint* cloud=nullptr; //Allocated and filled inside factory readXYZfile()
+  printf("Reading LiDAR points...\n");
+  if(readXYZfile(inputXYZ, cloud, Npoints, min, max) < 0){
+    printf("Unable to read file!\n");
     exit(-1);
   }
-
-  printf("xmin = %.2lf\nxmax = %.2lf\nymin = %.2lf\nymax = %.2lf\n",min.x,max.x,min.y,max.y );
-
-  radius = getRadius(min, max, &maxRadius);
-  center = getCenter(min, radius);
+  float maxRadius = 0.0; // highest distance (x or y direction) of the cloud area
+  Vector2D radius = getRadius(min, max, &maxRadius); //maxRadius initialized here
+  Vector2D center = getCenter(min, radius);
   printf("QTREE PARAMETERS:\n");
   printf("MaxRadius:  %.3f\n", maxRadius);
   printf("Center:     %.2f , %.2f\n", center.x,center.y);
   printf("Radius:     %.2f , %.2f\n", radius.x,radius.y);
   printf("BUILDING QTREE...\n");
 
-  printf("Inserting points with minRadius: %g\n", minRadius);
-  t_qtree=tbb::tick_count::now();
+  printf("Building quadtree with minRadius: %g\n", minRadius);
+  tbb::tick_count t_qtree=tbb::tick_count::now();
 
   // Alternative that construct the tree sequentially: 
   // Qtree qtreeIn = new Qtree_t( center, maxRadius );
@@ -165,9 +103,9 @@ int main( int argc, char* argv[]){
   Qtree qtreeIn = parallel_qtree( level, center, maxRadius, cloud, Npoints, minRadius );
   double time_tree = (tbb::tick_count::now()-t_qtree).seconds();
   
-  Width = round2d(max.x-min.x);
-  Height = round2d(max.y-min.y);
-  Density = (Npoints-1)/(Width*Height);
+  double Width = round2d(max.x-min.x);
+  double Height = round2d(max.y-min.y);
+  double Density = (Npoints-1)/(Width*Height);
   printf("CLOUD PARAMETERS:\n");
   printf("Number of points: %d\n",Npoints-1);
   printf("Width:   %.2lf\n",Width);
@@ -178,16 +116,16 @@ int main( int argc, char* argv[]){
   printf("Size of the grid cell: %u\n", Bsize);
   printf("Overlap:               %.2f\n", Overlap);
 
-  // El numero minimo sera la mitad del numero de puntos medio por celda
-  minNumPoints = 0.5*Density*Wsize*Wsize;
+  // A minimum of a slide window, SW, is valid if there are at least minNumPoints inside the SW
+  uint32_t minNumPoints = 0.5*Density*Wsize*Wsize;
   printf("Minium number of points in the SW to be considered: %u\n", minNumPoints);
 
-  Displace = round2d(Wsize*(1-Overlap));
-  printf("SW x and y Displacement: %.2f\n", Displace);
+  double Displace = round2d(Wsize*(1-Overlap));
+  printf("SW x and y Displacements: %.2f\n", Displace);
 
   // Stage 1 parameters
   printf("\nSliding Window (SW) parameters:\n");
-
+  ushort nCols, nRows;
   if(Overlap > 0.0) {
     nCols=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
     nRows=(int)(round((Height+2*Wsize*Overlap)/Displace))-1;
@@ -197,21 +135,25 @@ int main( int argc, char* argv[]){
   }
   printf("Number of SWs per column (number of rows): %d\n",nRows);
   printf("Number of SWs per row (number of colums):  %d\n",nCols);
-  Ncells = nCols*nRows;
+  uint32_t Ncells = nCols*nRows;
   printf("Total number of OWM steps (nCols x nRows): %d\n",Ncells);
 
   // Stage 3 parameter
   printf("\nGrid (for stage 3) parameters:\n");
-  nColsg=(int)floor(Width/Bsize)+1;
-  nRowsg=(int)floor(Height/Bsize)+1;
+  ushort nColsg=(int)floor(Width/Bsize)+1;
+  ushort nRowsg=(int)floor(Height/Bsize)+1;
   printf("Grid dimesions in %dx%d boxes: %dx%d\n\n", Bsize, Bsize, nRowsg, nColsg);
-  Ngrid = nColsg*nRowsg;
+  uint32_t Ngrid = nColsg*nRowsg;
   // At most one LLP per SW and there are Ncells SWs
   int* minIDs = new int[Ncells];
   // This vector will have the points added at stage 3
   std::vector<int> minGridIDs;
+  uint32_t countMin, numLLPs = 0, addMin = 0;
 
-  double t_s1, t_s2, t_s3;
+  tbb::tick_count t_stage, t_func;
+  double t_s1, t_s2, t_s3; // execution time of stages 1, 2 and 3
+  std::vector<double> results(numRuns); //To store the time results of each run
+  
   for(int nR=0; nR<numRuns; nR++){
 
         t_func=tbb::tick_count::now();
@@ -228,25 +170,26 @@ int main( int argc, char* argv[]){
             std::sort(oneapi::dpl::execution::par_unseq,minIDs,minIDs+Ncells); //std::execution::par, std::execution::par_unseq,
 
 #ifdef DEBUG
-          if((fileDeb1 = fopen("sortedmins.txt","w")) == nullptr){
+          FILE* fileDeb;
+          if((fileDeb = fopen("sortedmins.txt","w")) == nullptr){
             printf("Unable to create file!\n");
             return -1;
           }
           for(int i=0 ; i<Ncells ; i++)
-              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
-          fclose(fileDeb1);
+              fprintf(fileDeb, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
+          fclose(fileDeb);
 #endif
             // Detect repeated ids and store them in minIDs. NumLLPs is the number of LLPs found and stored at the beggining of minIDs
             numLLPs = stage2(Ncells, minIDs);
             t_s2=(tbb::tick_count::now() - t_stage).seconds();
 #ifdef DEBUG
-          if((fileDeb1 = fopen("LLPs.txt","w")) == nullptr){
+          if((fileDeb = fopen("LLPs.txt","w")) == nullptr){
             printf("Unable to create file!\n");
             return -1;
           }
           for(int i=0 ; i<numLLPs ; i++)
-              fprintf(fileDeb1, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
-          fclose(fileDeb1);
+              fprintf(fileDeb, "%d %.2f %.2f %.15f\n", minIDs[i], cloud[minIDs[i]].x, cloud[minIDs[i]].y,cloud[minIDs[i]].z);
+          fclose(fileDeb);
 #endif
         }
         else{
@@ -301,15 +244,16 @@ int main( int argc, char* argv[]){
       printf("Unable to check results\n");
   }
 
-  if(save_time("results_o2.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
+  if(save_time("o2_partree.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
             time_tree, OWMaverage, correctness) < 0){
     printf("Unable to create time report file!\n");
   }
 
 #ifdef DEBUG
     // Fichero de salida
+    FILE* fileMin;
     printf("Creo el fichero %s ...\n", outputXYZ);
-    if((fileMin = fopen(outputXYZ,"w")) == nullptr){
+    if((fileMin = fopen(outputXYZ.c_str(),"w")) == nullptr){
       printf("Unable to create file!\n");
       return -1;
     }
@@ -329,8 +273,7 @@ int main( int argc, char* argv[]){
     // Free memory
     delete[] minIDs;
     minGridIDs.clear();
-    free(cloud);
-    cloud=nullptr;
+    freeWrap(cloud);
 
     deleteQtree(qtreeIn);
     delete(qtreeIn);

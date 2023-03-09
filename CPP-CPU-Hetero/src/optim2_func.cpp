@@ -66,21 +66,12 @@ int isLeaf(Tree quad)
      return ptr;
  }
 
- void* reallocWrap(void *ptr, size_t size)
- {
-     void *tmp = realloc(ptr, size);
-     if(tmp == NULL)
-     {
-         fprintf(stderr, "Error in realloc() of size %zu\n", size);
-         exit(EXIT_FAILURE);
-     }
-     else
-     {
-         ptr = tmp;
-     }
-     return ptr;
- }
-
+template<typename pointer_t>
+void freeWrap(pointer_t& ptr)
+{
+  free(ptr);
+  ptr = nullptr;
+}
 
 void createQuadrants(Qtree quad)
 {
@@ -509,9 +500,47 @@ std::vector<int> stage3(unsigned short Bsize, unsigned short nCols, unsigned sho
     });
 }
 
+/* Reads the point cloud in .xyz format */
+int readXYZfile(std::string filename, Lpoint* & point_cloud, uint32_t & Npoints, Vector2D &min, Vector2D &max) 
+{
+  FILE* fileXYZ;
+  if((fileXYZ = fopen(filename.c_str(),"r")) == NULL){
+    printf("Unable to open file!\n");
+    return -1;
+  }
+  if ( filename.find("ArzuaH.xyz") != std::string::npos || filename.find("AlcoyH.xyz") != std::string::npos || 
+       filename.find("BrionFH.xyz") != std::string::npos || filename.find("BrionUH.xyz") != std::string::npos ){
+    printf("Read header...\n");
+    if(fscanf(fileXYZ, "%d\n%lf\n%lf\n%lf\n%lf\n",&Npoints, &min.x, &max.x, &min.y, &max.y) < 5){
+        printf("Imposible to read header values\n");
+        return -1;
+    }
+  }
+  printf("Npoints=%d; xmin = %.2lf; xmax = %.2lf; ymin = %.2lf; ymax = %.2lf\n",Npoints,min.x,max.x,min.y,max.y );
+  Npoints++; // we insert at position 0 an artificial point to compare: {0.0, 0.0, std::numeric_limits<double>::max()}
+
+  // Allocate memory for the LiDAR points
+  point_cloud = static_cast<Lpoint*>(mallocWrap(Npoints * sizeof(Lpoint)));
+
+  printf("Reading LiDAR points...\n");
+  point_cloud[0]={0.0, 0.0, std::numeric_limits<double>::max()};
+  for(int i=1; i<Npoints ; i++){
+    if(fscanf(fileXYZ, "%lf %lf %lf",&point_cloud[i].x,&point_cloud[i].y,&point_cloud[i].z) < 3){
+      printf("Error reading values\n");
+      return -1;
+    }
+    while(fgetc(fileXYZ)!='\n');
+  }
+
+  if(fclose(fileXYZ)){
+    printf("Cannot close the file\n");
+    return -1;
+  }
+  return 0;
+}
 
 /* Checks results by comparing with GOLD result */
-double check_results(char* filename, std::vector<int>& ids, Lpoint* cloud, float Displace)
+double check_results(std::string filename, std::vector<int>& ids, Lpoint* cloud, float Displace)
 {
   std::string line;
   // char delim;
@@ -583,10 +612,13 @@ double check_results(char* filename, std::vector<int>& ids, Lpoint* cloud, float
 }
 
 /* Saves the execution time and other metrics of the algorithm  */
-int save_time(std::string file_name, char* map_name, int numthreads, 
+int save_time(std::string file_name, std::string map_name, int numthreads, 
   float minRadius, int maxNumber, int level, double tree_time,  
   double owm_time, double correctness)
 {
+  bool newFile=false;
+  if(!std::filesystem::exists(file_name)) newFile=true;
+
   // uint32_t size = pointList.size();
   std::fstream out(file_name, out.out | out.app);
   // std::ofstream out;
@@ -596,6 +628,9 @@ int save_time(std::string file_name, char* map_name, int numthreads,
   if(!out.is_open())
     return -1;
 
+  if(newFile){
+    out << "InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness\n";
+  }
   out << map_name << " " << numthreads << " ";
   // out.precision(3);
   out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";

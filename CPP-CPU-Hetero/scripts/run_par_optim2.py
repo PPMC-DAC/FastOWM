@@ -7,10 +7,10 @@ Wsize = 10
 Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
-#number of times the OWM is executed
+#number of times the OWM traversal code is executed
 nreps = 5
 
-output="o2parallel.out"
+output="o2_partree.out"
 start = time.time()
 print("Start : %s" % time.ctime())
 f = open(output, "a")
@@ -26,15 +26,16 @@ inputs=["../bin/data/AlcoyH",
 num_threads = [1, 2, 4, 6, 8]
 levels = list(range(2,10))
 mR=0.1
+maxNumber=32
 
 for file in inputs:
     for lev in levels:
         for nth in num_threads:
-            print("Running: {} {} {} {} {} {} {} {} {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,lev))
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f = open(output, "a")
-            f.write("\n\nRunning: {} {} {} {} {} {} {} {} {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,lev))
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f.close()
-            os.system("%s %s %d %d %f %d %d %f %d | tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps, mR, lev, output))
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
 
 end = time.time()
 print("End : %s" % time.ctime())
