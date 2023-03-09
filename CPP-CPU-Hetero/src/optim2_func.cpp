@@ -503,6 +503,27 @@ std::vector<int> stage3(unsigned short Bsize, unsigned short nCols, unsigned sho
 /* Reads the point cloud in .xyz format */
 int readXYZfile(std::string filename, Lpoint* & point_cloud, uint32_t & Npoints, Vector2D &min, Vector2D &max) 
 {
+  //Long file names correspond to xyz files without header data, so we provide the info here:
+  if( filename.find("INAER_2011_Alcoy.xyz") != std::string::npos ){ // Alcoy mini
+    Npoints = 2772832; min={715244.96,4286623.63}; max={716057.75,4287447.70};
+  } else if( filename.find("INAER_2011_Alcoy_Core.xyz") != std::string::npos ){ // Alcoy
+    Npoints = 20380212; min={714947.98, 4286501.93}; max={716361.06, 4288406.23};
+  } else if( filename.find("BABCOCK_2017_Arzua_3B.xyz") != std::string::npos ){ //Arzua
+    Npoints = 40706503; min={568000.00, 4752320.00}; max={568999.99, 4753319.99};
+  } else if( filename.find("V21_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion forestal
+    Npoints = 42384876; min={526964.093, 4742610.292}; max={527664.647, 4743115.738};
+  } else if( filename.find("V19_group1_densified_point_cloud.xyz") != std::string::npos ){ //Brion urban
+    Npoints = 48024480; min={526955.908, 4742586.025}; max={527686.445, 4743124.373};
+  } else if( filename.find("sample24.xyz") != std::string::npos ){
+    Npoints = 7492; min={513748.12, 5403124.76}; max={513869.97, 5403197.20};
+    //These files with short name *H.xyz DO HAVE header info inside the file:
+  } else if ( filename.find("ArzuaH.xyz") == std::string::npos &&
+              filename.find("AlcoyH.xyz") == std::string::npos && 
+              filename.find("BrionFH.xyz") == std::string::npos && 
+              filename.find("BrionUH.xyz") == std::string::npos ){
+    printf("No header data!\n");
+    exit(-1);
+  }
   FILE* fileXYZ;
   if((fileXYZ = fopen(filename.c_str(),"r")) == NULL){
     printf("Unable to open file!\n");
