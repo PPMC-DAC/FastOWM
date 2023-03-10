@@ -1,0 +1,165 @@
+Start : Fri Mar 10 13:04:19 2023
+
+Running: ../bin/stats -i ../bin/data/AlcoyH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 65536 -L 9
+
+Input.txt: ../bin/data/AlcoyH.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=20380212; xmin = 714947.98; xmax = 716361.06; ymin = 4286501.93; ymax = 4288406.23
+QTREE PARAMETERS:
+MaxRadius:  952.150
+Center:     715654.52 , 4287454.08
+Radius:     706.54 , 952.15
+minRadius:   0.10
+maxNumber:   65536
+
+INSERTING POINTS...
+INSERT CPU time elapsed: 601.117ms
+  CPU Reserved nodes: 36709961
+CLOUD PARAMETERS:
+Número de puntos      20380212
+Ancho:  1413.08
+Alto:  1904.30
+Densidad:  7.574
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   378
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 959
+Celdas por fila:   714
+
+MALLA:
+Dimensiones de la malla 96x71
+
+Compute the level of each leaf
+Levels computed
+Se han analizado 27532471 nodos hoja
+
+
+Running: ../bin/stats -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 65536 -L 9
+
+Input.txt: ../bin/data/ArzuaH.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=40706503; xmin = 568000.00; xmax = 568999.99; ymin = 4752320.00; ymax = 4753319.99
+QTREE PARAMETERS:
+MaxRadius:  499.995
+Center:     568499.99 , 4752820.00
+Radius:     499.99 , 500.00
+minRadius:   0.10
+maxNumber:   65536
+
+INSERTING POINTS...
+INSERT CPU time elapsed: 643.545ms
+  CPU Reserved nodes: 22311889
+CLOUD PARAMETERS:
+Número de puntos      40706503
+Ancho:  999.99
+Alto:  999.99
+Densidad:  40.707
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   2035
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 507
+Celdas por fila:   507
+
+MALLA:
+Dimensiones de la malla 50x50
+
+Compute the level of each leaf
+Levels computed
+Se han analizado 16733917 nodos hoja
+
+
+Running: ../bin/stats -i ../bin/data/BrionFH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 65536 -L 9
+
+Input.txt: ../bin/data/BrionFH.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=42384876; xmin = 526964.09; xmax = 527664.65; ymin = 4742610.29; ymax = 4743115.74
+QTREE PARAMETERS:
+MaxRadius:  350.277
+Center:     527314.37 , 4742863.02
+Radius:     350.28 , 252.72
+minRadius:   0.10
+maxNumber:   65536
+
+INSERTING POINTS...
+INSERT CPU time elapsed: 697.458ms
+  CPU Reserved nodes: 3754133
+CLOUD PARAMETERS:
+Número de puntos      42384876
+Ancho:  700.55
+Alto:  505.45
+Densidad:  119.700
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   5984
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 260
+Celdas por fila:   357
+
+MALLA:
+Dimensiones de la malla 26x36
+
+Compute the level of each leaf
+Levels computed
+Se han analizado 2815600 nodos hoja
+
+
+Running: ../bin/stats -i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 65536 -L 9
+
+Input.txt: ../bin/data/BrionUH.xyz ---> EX. CON 8 CORES
+Reading LiDAR points...
+Read header...
+Reading points...
+Npoints=48024480; xmin = 526955.91; xmax = 527686.44; ymin = 4742586.03; ymax = 4743124.37
+QTREE PARAMETERS:
+MaxRadius:  365.268
+Center:     527321.18 , 4742855.20
+Radius:     365.27 , 269.17
+minRadius:   0.10
+maxNumber:   65536
+
+INSERTING POINTS...
+INSERT CPU time elapsed: 768.107ms
+  CPU Reserved nodes: 3690657
+CLOUD PARAMETERS:
+Número de puntos      48024480
+Ancho:  730.54
+Alto:  538.35
+Densidad:  122.111
+
+Tamaño de ventana     10
+Tamaño de rejilla     20
+Solape                0.80
+Minimo numero de puntos por celda:   6105
+Displacement   2.00
+
+VENTANA:
+Celdas por columa: 276
+Celdas por fila:   372
+
+MALLA:
+Dimensiones de la malla 27x37
+
+Compute the level of each leaf
+Levels computed
+Se han analizado 2767993 nodos hoja
+End : Fri Mar 10 13:05:28 2023Total Execution time: 0.019153891404469808 hours
