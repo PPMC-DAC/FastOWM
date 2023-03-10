@@ -251,33 +251,42 @@ Qtree parallel_qtree( int level, Vector2D center, float radius, Lpoint* cloud, i
   return root;
 }
 
-/* Saves the minimium and number of points hanging from each node */
-void storeMinAndNumPoints(Lpoint* cloud, Qtree qtree) {
-
-  if( isLeaf(qtree) ) { // isLeaf?
-    //min and numPoints members are computed at point insertion
-
-    //qtree->numPoints=qtree->points.size();
-    // LpointID min = 0;
-    // for(LpointID p : qtree->points){
-    //     if(cloud[p].z < cloud[min].z) min=p;
-    // }
-    // qtree->min=min;
-    //oneapi::dpl::execution::par_unseq takes more time
-    // auto minimum=std::min_element(qtree->points.begin(),qtree->points.end(),
-    //         [&](const LpointID a, const LpointID b){
-    //             return cloud[a].z < cloud[b].z;
-    //         });
-    // if(minimum != qtree->points.end()) qtree->min = *minimum;
-  } else {
+void storeMinAndNumPointsSeq(Lpoint* cloud, Qtree qtree) {
+  //printf("At sequential \n"); 
+  if( !isLeaf(qtree) ) { // not a leaf
+    //Visit children until reaching the leaves that already have the data
     for(int i=0; i<4; ++i) {
       Qtree t=qtree->quadrants[i];
-      storeMinAndNumPoints(cloud, t);
+      storeMinAndNumPointsSeq(cloud, t);
+      //At backtrack we reduce the data from the children
       qtree->numPoints += t->numPoints;
       if (cloud[t->min].z < cloud[qtree->min].z) 
          qtree->min = t->min; 
     }
-    //printf("Min: %u with value %lf\n",qtree->min,cloud[qtree->min].z);
+  }
+}
+
+/* Saves the minimium and number of points hanging from each node */
+void storeMinAndNumPoints(Lpoint* cloud, Qtree qtree, ushort lev) {
+  ushort l=lev+1;
+  //printf("l=%d; \n",l); 
+  if(l > 3) storeMinAndNumPointsSeq(cloud,qtree);
+  else if( !isLeaf(qtree) ) { // not a leaf
+    tbb::task_group tg;
+    //Visit children until reaching the leaves that already have the data
+    for(int i=0; i<4; ++i) {
+      tg.run([=](){storeMinAndNumPoints(cloud, qtree->quadrants[i], l);});
+    }
+    tg.wait();
+    //printf("l=%d after; \n",l); 
+    for(int i=0; i<4; ++i) {
+      Qtree t=qtree->quadrants[i];
+      //if(!t) continue;
+      //At backtrack we reduce the data from the children
+      qtree->numPoints += t->numPoints;
+      if (cloud[t->min].z < cloud[qtree->min].z) 
+         qtree->min = t->min;
+    } 
   }
 }
 

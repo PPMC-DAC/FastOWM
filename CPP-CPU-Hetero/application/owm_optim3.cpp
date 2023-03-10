@@ -80,7 +80,7 @@ int main( int argc, const char* argv[]){
   #else
   Qtree qtreeIn = parallel_qtree( level, center, maxRadius, cloud, Npoints, minRadius );
   #endif  
-  storeMinAndNumPoints(cloud, qtreeIn);
+  storeMinAndNumPoints(cloud, qtreeIn, 0);
   double time_tree = (tbb::tick_count::now()-t_qtree).seconds();
   
   double Width = round2d(max.x-min.x);
