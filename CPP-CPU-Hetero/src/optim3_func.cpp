@@ -1,33 +1,16 @@
-
-Qtree_t::Qtree_t(Vector2D c, float r) : center(c), radius(r) {
-  for(int i = 0; i < 4; i++)
-    quadrants[i] = NULL;
-}
-
-QtreeConc_t::QtreeConc_t(Vector2D c, float r) : center(c), radius(r) {
-  for(int i = 0; i < 4; i++)
-    quadrants[i] = NULL;
-}
-
 double round2d(double z){
   return round(z*100.0)/100.0;
 }
 
 /** Calculate the radius in each axis and save the max radius of the bounding box */
-Vector2D getRadius(Vector2D &min, Vector2D &max, float *maxRadius)
+Vector2D getRadius(Vector2D &min, Vector2D &max, float& maxRadius)
 {
     Vector2D radii;
 
     radii.x = (max.x - min.x) / 2.0;
     radii.y = (max.y - min.y) / 2.0;
-    if(radii.x >= radii.y)
-    {
-        *maxRadius = radii.x;
-    }
-    else
-    {
-        *maxRadius = radii.y;
-    }
+    if(radii.x >= radii.y) maxRadius = radii.x;
+    else maxRadius = radii.y;
 
     return radii;
 }
@@ -43,12 +26,12 @@ Vector2D getCenter(Vector2D &min, Vector2D &radius)
 }
 
 template<typename Tree>
-int isLeaf(Tree quad)
+bool isLeaf(Tree quad)
 {
-    return quad->quadrants[0] == NULL;
+    return quad->quadrants[0] == nullptr;
 }
 
- int isEmpty(Qtree quad)
+ bool isEmpty(Qtree quad)
  {
      return quad->points.size() == 0;
  }
@@ -128,6 +111,8 @@ void insertPoint(LpointID point, Lpoint * cloud, Qtree qtree, float minRadius)
           insertPoint(point, cloud, qtree->quadrants[idx], minRadius);
         } else {
           qtree->points.push_back(point);
+          if(cloud[point].z < cloud[qtree->min].z) qtree->min=point;
+          qtree->numPoints++;
         }
     }
     else                                // No leaf -> search the correct one
@@ -179,6 +164,8 @@ void insertPointMaxNum(LpointID point, Lpoint* cloud, Qtree qtree, int maxNumber
       if(qtree->points.size() < maxNumber)
       {
         qtree->points.push_back(point);
+        if(cloud[point].z < cloud[qtree->min].z) qtree->min=point;
+        qtree->numPoints++;
       }
       else
       {
@@ -264,13 +251,51 @@ Qtree parallel_qtree( int level, Vector2D center, float radius, Lpoint* cloud, i
   return root;
 }
 
-// Make a box with center the point and the specified radius
-void makeBox(Vector2D &point, float radius, Vector2D &min, Vector2D &max)
+/* Saves the minimium and number of points hanging from each node */
+void storeMinAndNumPoints(Lpoint* cloud, Qtree qtree) {
+
+  if( isLeaf(qtree) ) { // isLeaf?
+    //min and numPoints members are computed at point insertion
+
+    //qtree->numPoints=qtree->points.size();
+    // LpointID min = 0;
+    // for(LpointID p : qtree->points){
+    //     if(cloud[p].z < cloud[min].z) min=p;
+    // }
+    // qtree->min=min;
+    //oneapi::dpl::execution::par_unseq takes more time
+    // auto minimum=std::min_element(qtree->points.begin(),qtree->points.end(),
+    //         [&](const LpointID a, const LpointID b){
+    //             return cloud[a].z < cloud[b].z;
+    //         });
+    // if(minimum != qtree->points.end()) qtree->min = *minimum;
+  } else {
+    for(int i=0; i<4; ++i) {
+      Qtree t=qtree->quadrants[i];
+      storeMinAndNumPoints(cloud, t);
+      qtree->numPoints += t->numPoints;
+      if (cloud[t->min].z < cloud[qtree->min].z) 
+         qtree->min = t->min; 
+    }
+    //printf("Min: %u with value %lf\n",qtree->min,cloud[qtree->min].z);
+  }
+}
+
+// Make a square box centered at center and the specified radius
+void makeBox(Vector2D &center, float radius, Vector2D &min, Vector2D &max)
 {
-    min.x = point.x - radius;
-    min.y = point.y - radius;
-    max.x = point.x + radius;
-    max.y = point.y + radius;
+    min.x = center.x - radius;
+    min.y = center.y - radius;
+    max.x = center.x + radius;
+    max.y = center.y + radius;
+}
+/* Makes a box centered at point center (can be rectangular if radiusX != radiusY) */
+void makeBox(Vector2D& center, double radiusX, double radiusY, Vector2D& min, Vector2D& max)
+{
+    min.x = center.x - radiusX;
+    min.y = center.y - radiusY;
+    max.x = center.x + radiusX;
+    max.y = center.y + radiusY;
 }
 
 int insideBox2D(Lpoint* cloud, LpointID point, Vector2D &min, Vector2D &max)
@@ -373,6 +398,61 @@ void findValidMin(Lpoint* cloud, Qtree qtree, Vector2D &boxMin, Vector2D &boxMax
     }
 }
 
+void findValidMinMemo(Lpoint* cloud, Qtree qtree, Vector2D &boxMin, Vector2D &boxMax, int &numInside, LpointID &minidx)
+{
+    if(isLeaf(qtree) && !isEmpty(qtree)) //Not empty leaf
+    {
+      //if node totally overlapped by the SW just read min and numPoints from node
+      if(boxInside2D(boxMin, boxMax, qtree)){
+        if (cloud[qtree->min].z < cloud[minidx].z) minidx = qtree->min;
+        numInside+=qtree->numPoints; //passed by reference
+        // only overlaping children are navigated, so:  
+      } else { //If partially overlapped, there are two options 
+            // If qtree->min is inside the SW, just use it and count points overlapped
+            if( insideBox2D(cloud, qtree->min, boxMin, boxMax) ) {
+                if (cloud[qtree->min].z < cloud[minidx].z) minidx = qtree->min;
+                for(LpointID p : qtree->points) { 
+                    double x=cloud[p].x;
+                    double y=cloud[p].y;
+                    if(x > boxMin.x && y > boxMin.y && x < boxMax.x && y < boxMax.y)
+                        numInside++;
+                }
+            }
+            //Otherwise, we have to check all points inside the leaf-node
+            else{
+                for(LpointID p : qtree->points) { 
+                    double x=cloud[p].x;
+                    double y=cloud[p].y;
+                    if(x > boxMin.x && y > boxMin.y && x < boxMax.x && y < boxMax.y)
+                    { 
+                        if (cloud[p].z < cloud[minidx].z) minidx = p;
+                        numInside++;
+                    }
+                }
+            }
+      } //If there is no overlap we do not care about this leaf-node
+
+    } else { //This is an internal node
+        if(boxInside2D(boxMin, boxMax, qtree)){ // Totally overlaped internal node -> use stored data
+            if (cloud[qtree->min].z < cloud[minidx].z) minidx = qtree->min;
+            numInside+=qtree->numPoints; //passed by reference
+          // only overlaping children are navigated, so:  
+        } else { //Partially overlapped -> navigate the children
+            for(int i = 0; i < 4; i++) {
+                if(!qtree->quadrants[i]) continue;
+                // Check if we do care about the children
+                if(!boxOverlap2D(boxMin, boxMax, qtree->quadrants[i]))
+                    continue;
+                else {
+                    findValidMinMemo(cloud, qtree->quadrants[i], boxMin, boxMax, numInside, minidx);
+                }
+            }
+        }
+        // If there is no overlap at all we do not care about this internal-node
+    }
+}
+
+
 LpointID searchNeighborsMin(Vector2D &SW_center, Lpoint* cloud, Qtree qtree, float radius, int &numInside)
 {
     Vector2D boxMin, boxMax;
@@ -384,6 +464,16 @@ LpointID searchNeighborsMin(Vector2D &SW_center, Lpoint* cloud, Qtree qtree, flo
     return minidx; 
 }
 
+LpointID searchNeighborsMin(Vector2D &SW_center, Lpoint* cloud, Qtree qtree, float radiusX, float radiusY, int &numInside)
+{
+    Vector2D boxMin, boxMax;
+    LpointID minidx = 0; // In position 0 we have this point: Lpoint{0.0, 0.0, std::numeric_limits<double>::max()};
+    numInside = 0;
+    makeBox(SW_center, radiusX, radiusY, boxMin, boxMax); //updates boxMin,boxMax to be de BBox of SW with center and radius
+
+    findValidMinMemo(cloud, qtree, boxMin, boxMax, numInside, minidx);
+    return minidx; 
+}
 
 void countNeighbors(Lpoint* cloud, Qtree qtree, Vector2D &boxMin, Vector2D &boxMax, int &numInside)
 {
@@ -423,34 +513,80 @@ void countNeighbors2D(Vector2D &point, Lpoint* cloud, Qtree qtree, float radius,
     countNeighbors(cloud, qtree, boxMin, boxMax, numInside);
 }
 
-void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
-  unsigned short minNumPoints, int* minIDs, Lpoint* cloud, Qtree qtreeIn, Vector2D min){
+void stage1(ushort Wsize, double Overlap, ushort nCols, ushort nRows,
+  ushort minNumPoints, int* minIDs, Lpoint* cloud, Qtree qtreeIn, Vector2D min){
 
   double Displace = round2d(Wsize*(1-Overlap));
 
   double initX = min.x - Wsize/2 + Displace;
   double initY = min.y - Wsize/2 + Displace;
 
-  tbb::parallel_for(tbb::blocked_range<int>{0,Crow*Ccol},
+  tbb::parallel_for(tbb::blocked_range<int>{0,nCols*nRows},
                       [&](tbb::blocked_range<int> r ) {
-        for( int step = r.begin() ; step < r.end() ; step++ ){
-                int ii=step/Ccol, jj=step%Ccol;
-                Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
-                int cellPoints = 0;
-                LpointID newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Wsize/2, cellPoints);
-                //printf("Step: %d.%d; Min id: %.2f; cellPoints: %d\n",ii,jj,newmin, cellPoints);
-                if(cellPoints >= minNumPoints ) minIDs[step] = newmin;
-                else minIDs[step] = -1;
+      for( int step = r.begin() ; step < r.end() ; step++ ){
+          int ii=step/nRows, jj=step%nRows;
+          Vector2D cellCenter={initX + ii*Displace, initY + jj*Displace};
+          int cellPoints = 0;
+          LpointID newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Wsize/2, Wsize/2, cellPoints);
+          //printf("Step: %d; Min id: %d; cellPoints: %d\n",step, newmin, cellPoints);
+          if(cellPoints >= minNumPoints ) minIDs[step] = newmin;
+          else minIDs[step] = -1;
+      }
+  });
+}
+
+void stage1memoA(ushort Wsize, double Overlap, ushort nCols, ushort nRows,
+  ushort minNumPoints, int* minIDs, Lpoint* cloud, Qtree qtreeIn, Vector2D min){
+
+  double Displace = round2d(Wsize*(1-Overlap));
+
+  double initX = min.x - Wsize/2 + Displace;
+  double initY = min.y - Wsize/2 + Displace;
+
+  tbb::parallel_for(tbb::blocked_range2d<int,int>{0,nRows,0,nCols},
+                      [&](tbb::blocked_range2d<int,int> r ) {
+      LpointID newmin = 0;
+      Vector2D cellCenter;
+      Vector2D boxMax, boxMin;
+      int je = r.rows().end();
+      int ie = r.cols().end();
+      for( int jj = r.rows().begin(); jj < je; ++jj){
+        int cellPoints = 0;
+        cellCenter.y = initY + jj*Displace;
+        int jstart = jj*nCols;
+        for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
+          cellCenter.x=initX + ii*Displace;
+          makeBox(cellCenter, Wsize*0.5, boxMin, boxMax);
+          //Memoization: if the previous minimum is inside the box, we don't need to search in the whole SW
+          if(insideBox2D(cloud, newmin, boxMin, boxMax)){
+            //Smaller area in which we have to search now (only the one not visited in previous step)
+            Vector2D smallerCellCenter = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+            int old_cellPoints = cellPoints; //remember the points counted in the previous step
+            // Search in the smaller area Displace x Wsize centered at new cellCenter
+            LpointID tmpmin = searchNeighborsMin(smallerCellCenter, cloud, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+            // We're assuming homogeneous densities around the SW to compute the number of points inside the SW.
+            /*If we need more precission, we could count with countMin() the number of points inside SW*/
+            cellPoints += static_cast<int>(old_cellPoints * Overlap);
+            // If the min of the reduced area is smaller, use that one
+            if(cloud[tmpmin].z < cloud[newmin].z) newmin = tmpmin;
+          } else {
+            //Otherwise we have to search in the whole SW of Wsize x Wsize
+            newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Wsize/2, Wsize/2, cellPoints);
+          }
+          //printf("Step: %d; Min id: %d; cellPoints: %d\n",step, newmin, cellPoints);
+          if(cellPoints >= minNumPoints) minIDs[jstart + ii] = newmin;
+          else minIDs[jstart + ii] = -1;
         }
+      }
   });
 }
 
 //Receives a sorted list of minIDs with -1s at the beginning due to the SWs that do not have an LLP
-unsigned int stage2(unsigned int Ncells, int* minIDs){
+uint32_t stage2(uint32_t Ncells, int* minIDs){
 
   int i=0;
   while(minIDs[i]<0 && i<Ncells) i++; //Skip -1s
-  unsigned int counter = 0;
+  uint32_t counter = 0;
   int jj=0;
   for( int ii=i ; ii<Ncells ; ii=jj ){
       int id = minIDs[ii];
@@ -463,7 +599,7 @@ unsigned int stage2(unsigned int Ncells, int* minIDs){
   return counter;
 }
 
-std::vector<int> stage3(unsigned short Bsize, unsigned short nCols, unsigned short nRows,
+std::vector<int> stage3(ushort Bsize, ushort nCols, ushort nRows,
            Lpoint* cloud, Qtree qtreeIn, Qtree grid, Vector2D min){
 
     double initX =  min.x + Bsize/2;

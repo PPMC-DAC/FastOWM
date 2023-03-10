@@ -57,6 +57,15 @@ $(BIN)/o3memo: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_fun
 		@mkdir -p "$(@D)"
 		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt
 
+$(BIN)/o3memoB: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_func.hpp
+		@mkdir -p "$(@D)"
+		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt -DNOMEMOA
+
+$(BIN)/o4maxnum: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_func.hpp
+		@mkdir -p "$(@D)"
+		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt -DMAXNUMBER -g
+#-pg -g
+
 $(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ $(CPPFLAGS_TBB) -o $@

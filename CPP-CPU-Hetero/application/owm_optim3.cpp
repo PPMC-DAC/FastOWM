@@ -60,7 +60,7 @@ int main( int argc, const char* argv[]){
     exit(-1);
   }
   float maxRadius = 0.0; // highest distance (x or y direction) of the cloud area
-  Vector2D radius = getRadius(min, max, &maxRadius); //maxRadius initialized here
+  Vector2D radius = getRadius(min, max, maxRadius); //maxRadius by ref initialized here
   Vector2D center = getCenter(min, radius);
   printf("QTREE PARAMETERS:\n");
   printf("MaxRadius:  %.3f\n", maxRadius);
@@ -75,8 +75,12 @@ int main( int argc, const char* argv[]){
   // Qtree qtreeIn = new Qtree_t( center, maxRadius );
   // for(int i = 1; i <= Npoints; i++)
   //    insertPoint(i, cloud, qtreeIn, minRadius);
-    
+  #ifdef MAXNUMBER
+  Qtree qtreeIn = parallel_qtree( level, center, maxRadius, cloud, Npoints, maxNumber );
+  #else
   Qtree qtreeIn = parallel_qtree( level, center, maxRadius, cloud, Npoints, minRadius );
+  #endif  
+  storeMinAndNumPoints(cloud, qtreeIn);
   double time_tree = (tbb::tick_count::now()-t_qtree).seconds();
   
   double Width = round2d(max.x-min.x);
@@ -138,7 +142,11 @@ int main( int argc, const char* argv[]){
         // The array minIDs stores the valid minima found 
         // The cells/SWs without a valid minimum will have a -1
         //std::fill(minIDs, minIDs+Ncells, -1);
+#ifdef NOMEMOA
         stage1(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cloud, qtreeIn, min);
+#else
+        stage1memoA(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cloud, qtreeIn, min);
+#endif
         t_s1=(tbb::tick_count::now()-t_stage).seconds();
         
         if(Overlap != 0){
