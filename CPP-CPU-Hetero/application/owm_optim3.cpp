@@ -228,7 +228,7 @@ int main( int argc, const char* argv[]){
       printf("Unable to check results\n");
   }
 
-  if(save_time("o3_memoization.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
+  if(save_time(argv[0], "o3_memoization.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
             time_tree, OWMaverage, correctness) < 0){
     printf("Unable to create time report file!\n");
   }

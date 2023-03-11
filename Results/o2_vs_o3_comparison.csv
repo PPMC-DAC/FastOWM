@@ -1,0 +1,31 @@
+InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness
+
+First with minRadius=0.1
+
+Whithout memo (nor A nor B), i.e. o2_partree (only optim 2)
+
+data/AlcoyH.xyz 8 0.1 32 5 0.541721 1.880982 100
+data/ArzuaH.xyz 8 0.1 32 5 0.709154 1.375985 99.9819
+data/BrionFH.xyz 8 0.1 32 5 0.822567 1.844435 100
+data/BrionUH.xyz 8 0.1 32 5 0.917550 2.183515 100
+
+With Memo B (take advantage of info saved in the tree)
+
+data/AlcoyH.xyz 8 0.1 32 5 0.732237 0.880701 100
+data/ArzuaH.xyz 8 0.1 32 5 0.825575 0.590051 99.9819
+data/BrionFH.xyz 8 0.1 32 5 0.801215 0.408936 100
+data/BrionUH.xyz 8 0.1 32 5 0.902969 0.484705 100
+
+With Memo A+B (also use the minimum from the previous step)
+
+data/AlcoyH.xyz 8 0.1 32 5 0.738591 0.564905 99.6728
+data/ArzuaH.xyz 8 0.1 32 5 0.831549 0.374706 98.7995
+data/BrionFH.xyz 8 0.1 32 5 0.778828 0.277743 99.4223
+data/BrionUH.xyz 8 0.1 32 5 0.921027 0.334822 99.1827
+
+Now with MaxNumber=32 Memo A+B 
+
+data/AlcoyH.xyz 8 0.1 32 5 0.314033 0.289434 99.8534
+data/ArzuaH.xyz 8 0.1 32 5 0.613238 0.255563 99.0093
+data/BrionFH.xyz 8 0.1 32 5 0.956332 0.268565 99.7479
+data/BrionUH.xyz 8 0.1 32 5 1.112489 0.308163 99.7548

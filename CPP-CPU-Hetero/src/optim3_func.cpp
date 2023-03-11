@@ -778,7 +778,7 @@ double check_results(std::string filename, std::vector<int>& ids, Lpoint* cloud,
 }
 
 /* Saves the execution time and other metrics of the algorithm  */
-int save_time(std::string file_name, std::string map_name, int numthreads, 
+int save_time(const char* exec_name, std::string file_name, std::string map_name, int numthreads, 
   float minRadius, int maxNumber, int level, double tree_time,  
   double owm_time, double correctness)
 {
@@ -795,9 +795,9 @@ int save_time(std::string file_name, std::string map_name, int numthreads,
     return -1;
 
   if(newFile){
-    out << "InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness\n";
+    out << "ExecName InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness\n";
   }
-  out << map_name << " " << numthreads << " ";
+  out << exec_name << " " << map_name << " " << numthreads << " ";
   // out.precision(3);
   out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";
   // out.precision(6);
