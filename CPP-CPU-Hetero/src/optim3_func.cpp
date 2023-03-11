@@ -290,7 +290,7 @@ void storeMinAndNumPoints(Lpoint* cloud, Qtree qtree, ushort lev) {
   }
 }
 
-// Make a square box centered at center and the specified radius
+// Makes a square box centered at center with the specified radius
 void makeBox(Vector2D &center, float radius, Vector2D &min, Vector2D &max)
 {
     min.x = center.x - radius;

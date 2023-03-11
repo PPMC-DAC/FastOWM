@@ -17,7 +17,7 @@ f = open(output, "a")
 f.write("Start : {}".format(time.ctime()))
 f.close()
 
-executable_par="../bin/o3memoB"
+executable_par="../bin/o3memoA"
 inputs=["../bin/data/AlcoyH",
         "../bin/data/ArzuaH",
         "../bin/data/BrionFH",

@@ -264,13 +264,22 @@ Qtree parallel_qtree( int level, Vector2D center, float radius, Lpoint* cloud, i
   return root;
 }
 
-// Make a box with center the point and the specified radius
+// Makes a square box centered at center with the specified radius
 void makeBox(Vector2D &point, float radius, Vector2D &min, Vector2D &max)
 {
     min.x = point.x - radius;
     min.y = point.y - radius;
     max.x = point.x + radius;
     max.y = point.y + radius;
+}
+
+/* Makes a box centered at point center (can be rectangular if radiusX != radiusY) */
+void makeBox(Vector2D& center, double radiusX, double radiusY, Vector2D& min, Vector2D& max)
+{
+    min.x = center.x - radiusX;
+    min.y = center.y - radiusY;
+    max.x = center.x + radiusX;
+    max.y = center.y + radiusY;
 }
 
 int insideBox2D(Lpoint* cloud, LpointID point, Vector2D &min, Vector2D &max)
@@ -384,6 +393,16 @@ LpointID searchNeighborsMin(Vector2D &SW_center, Lpoint* cloud, Qtree qtree, flo
     return minidx; 
 }
 
+LpointID searchNeighborsMin(Vector2D &SW_center, Lpoint* cloud, Qtree qtree, float radiusX, float radiusY, int &numInside)
+{
+    Vector2D boxMin, boxMax;
+    LpointID minidx = 0; // In position 0 we have this point: Lpoint{0.0, 0.0, std::numeric_limits<double>::max()};
+    numInside = 0;
+    makeBox(SW_center, radiusX, radiusY, boxMin, boxMax); //updates boxMin,boxMax to be de BBox of SW with center and radius
+
+    findValidMin(cloud, qtree, boxMin, boxMax, numInside, minidx);
+    return minidx; 
+}
 
 void countNeighbors(Lpoint* cloud, Qtree qtree, Vector2D &boxMin, Vector2D &boxMax, int &numInside)
 {
@@ -444,6 +463,53 @@ void stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned 
         }
   });
 }
+
+void stage1memoA(ushort Wsize, double Overlap, ushort nCols, ushort nRows,
+  ushort minNumPoints, int* minIDs, Lpoint* cloud, Qtree qtreeIn, Vector2D min){
+
+  double Displace = round2d(Wsize*(1-Overlap));
+
+  double initX = min.x - Wsize/2 + Displace;
+  double initY = min.y - Wsize/2 + Displace;
+
+  tbb::parallel_for(tbb::blocked_range2d<int,int>{0,nRows,0,nCols},
+                      [&](tbb::blocked_range2d<int,int> r ) {
+      LpointID newmin = 0;
+      Vector2D cellCenter;
+      Vector2D boxMax, boxMin;
+      int je = r.rows().end();
+      int ie = r.cols().end();
+      for( int jj = r.rows().begin(); jj < je; ++jj){
+        int cellPoints = 0;
+        cellCenter.y = initY + jj*Displace;
+        int jstart = jj*nCols;
+        for(int ii = r.cols().begin() ; ii < ie ; ii++ ){
+          cellCenter.x=initX + ii*Displace;
+          makeBox(cellCenter, Wsize*0.5, boxMin, boxMax);
+          //Memoization: if the previous minimum is inside the box, we don't need to search in the whole SW
+          if(insideBox2D(cloud, newmin, boxMin, boxMax)){
+            //Smaller area in which we have to search now (only the one not visited in previous step)
+            Vector2D smallerCellCenter = {cellCenter.x + Wsize*0.5 - Displace*0.5 , cellCenter.y};
+            int old_cellPoints = cellPoints; //remember the points counted in the previous step
+            // Search in the smaller area Displace x Wsize centered at new cellCenter
+            LpointID tmpmin = searchNeighborsMin(smallerCellCenter, cloud, qtreeIn, Displace*0.5, Wsize*0.5, cellPoints);
+            // We're assuming homogeneous densities around the SW to compute the number of points inside the SW.
+            /*If we need more precission, we could count with countMin() the number of points inside SW*/
+            cellPoints += static_cast<int>(old_cellPoints * Overlap);
+            // If the min of the reduced area is smaller, use that one
+            if(cloud[tmpmin].z < cloud[newmin].z) newmin = tmpmin;
+          } else {
+            //Otherwise we have to search in the whole SW of Wsize x Wsize
+            newmin = searchNeighborsMin(cellCenter, cloud, qtreeIn, Wsize/2, Wsize/2, cellPoints);
+          }
+          //printf("Step: %d; Min id: %d; cellPoints: %d\n",step, newmin, cellPoints);
+          if(cellPoints >= minNumPoints) minIDs[jstart + ii] = newmin;
+          else minIDs[jstart + ii] = -1;
+        }
+      }
+  });
+}
+
 
 //Receives a sorted list of minIDs with -1s at the beginning due to the SWs that do not have an LLP
 unsigned int stage2(unsigned int Ncells, int* minIDs){
@@ -633,7 +699,7 @@ double check_results(std::string filename, std::vector<int>& ids, Lpoint* cloud,
 }
 
 /* Saves the execution time and other metrics of the algorithm  */
-int save_time(std::string file_name, std::string map_name, int numthreads, 
+int save_time(const char* exec_name, std::string file_name, std::string map_name, int numthreads, 
   float minRadius, int maxNumber, int level, double tree_time,  
   double owm_time, double correctness)
 {
@@ -650,9 +716,9 @@ int save_time(std::string file_name, std::string map_name, int numthreads,
     return -1;
 
   if(newFile){
-    out << "InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness\n";
+    out << "ExecName InputFile NumThreads MinRadius MaxNumber Level TreeTime OwmTime Correctness\n";
   }
-  out << map_name << " " << numthreads << " ";
+  out << exec_name << " " << map_name << " " << numthreads << " ";
   // out.precision(3);
   out << std::defaultfloat << minRadius << " " << maxNumber << " " << level << " ";
   // out.precision(6);

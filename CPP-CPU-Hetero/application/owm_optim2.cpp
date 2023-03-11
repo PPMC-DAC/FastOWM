@@ -144,7 +144,11 @@ int main( int argc, const char* argv[]){
         // The array minIDs stores the valid minima found 
         // The cells/SWs without a valid minimum will have a -1
         //std::fill(minIDs, minIDs+Ncells, -1);
+#ifdef MEMOA
+        stage1memoA(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cloud, qtreeIn, min);
+#else
         stage1(Wsize, Overlap, nCols, nRows, minNumPoints, minIDs, cloud, qtreeIn, min);
+#endif
         t_s1=(tbb::tick_count::now()-t_stage).seconds();
         
         if(Overlap != 0){
@@ -226,7 +230,7 @@ int main( int argc, const char* argv[]){
       printf("Unable to check results\n");
   }
 
-  if(save_time("o2_partree.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
+  if(save_time(argv[0], "o2_partree.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
             time_tree, OWMaverage, correctness) < 0){
     printf("Unable to create time report file!\n");
   }
