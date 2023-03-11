@@ -16,64 +16,52 @@ BIN=bin
 SRC=src
 APP=application
 
-#CFLAGS =-I/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/include -L/home/remoto/oscar.garcia/datosLidar/LiDAR/gsl/lib -fopenmp -g -lm -O3 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt
-#In Ubuntu -lbsd is needed for strlcpy (#include <bsd/string.h>) sudo apt-get install libbsd-dev
-#gsl sudo apt-get install libgsl0-dev
 CFLAGS = -fopenmp -g3 -lm -O2 -lgsl -lgslcblas -Wno-unused-result -Wimplicit -lrt -lbsd -llas_c
 
-CPPFLAGS_CESGA = -O3 -fopenmp -lm -ltbb -std=c++11
+CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-PROG=baseline
-LIST=$(addprefix $(BIN)/, $(PROG))
 
-all: $(LIST)
-
-
-bin/parent:
+$(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) application/owm_parent.cpp src/envi_parent.cpp -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^ $(CPPFLAGS_TBB) -o $@
 
-bin/unique: application/owm_up.cpp src/envi_up.cpp
+$(BIN)/o2and3maxnum: application/owm_optim2and3.cpp src/optim2and3_func.cpp
 		@mkdir -p "$(@D)"
-		$(CXX) $^  -o $@ -O3 -fopenmp -lm -std=c++11
+		$(CXX) $^ $(CPPFLAGS_TBB) -o $@ -DMAXNUMBER
 
-bin/parallelc: $(APP)/cesgaOWM.c $(SRC)/OWM_functions.c
+$(BIN)/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
 		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
+		icpx  $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
 
-bin/parallelcpp:
+$(BIN)/parallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		$(CXX) application/owm_tfm.cpp src/envi.cpp $(CPPFLAGS_CESGA) -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations
 
-bin/paralleldpcpp:
+$(BIN)/parallel-nomemo: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp src/envi_gpu.cpp -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations -DNOMEMO
 
-bin/parallelgpu:
+$(BIN)/parallelmaxnum: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -DMAXNUMBER
 
-bin/paralleldyn:
+$(BIN)/paralleldyn: application/owm_gpu.cpp src/envi_gpu.hpp 
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
 
-bin/paralleldynidx:
+$(BIN)/paralleldynidx: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DDYNAMIC -DINDEX -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -DINDEX -o $@
 
-bin/parallelindex:
+$(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_gpu.cpp -lsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++11 -DINDEX -o $@
+		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
 
-bin/stats:
+$(BIN)/cudaParallel: application/owm_gpu.cpp src/envi_gpu.hpp
 		@mkdir -p "$(@D)"
-		dpcpp application/owm_stats.cpp -lOpenCL -lsycl -O3 -lm -ltbb -std=c++11 -o $@
-
-bin/cudaParallel:
-		@mkdir -p "$(@D)"
-		clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda-sycldevice -O3 -lm -ltbb -o $@
+		clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda -ltbbmalloc_proxy -O3 -lm -ltbb -o $@
 
 clean:
 	rm -rf bin/

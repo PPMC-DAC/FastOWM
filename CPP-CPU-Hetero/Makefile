@@ -70,53 +70,13 @@ $(BIN)/o4maxnum: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_f
 		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt -DMAXNUMBER
 #-pg -g
 
-$(BIN)/o2and3: application/owm_optim2and3.cpp src/optim2and3_func.cpp
-		@mkdir -p "$(@D)"
-		$(CXX) $^ $(CPPFLAGS_TBB) -o $@
-
-$(BIN)/o2and3maxnum: application/owm_optim2and3.cpp src/optim2and3_func.cpp
-		@mkdir -p "$(@D)"
-		$(CXX) $^ $(CPPFLAGS_TBB) -o $@ -DMAXNUMBER
-
-$(BIN)/paralleldpcpp: application/owm_gpu.cpp src/envi_gpu.cpp
-		@mkdir -p "$(@D)"
-		icpx  $^ -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -o $@
-
-$(BIN)/parallel: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations
-
-$(BIN)/parallel-nomemo: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -Wno-deprecated-declarations -DNOMEMO
-
-$(BIN)/parallelmaxnum: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -o $@ -DMAXNUMBER
-
-$(BIN)/paralleldyn: application/owm_gpu.cpp src/envi_gpu.hpp 
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -o $@
-
-$(BIN)/paralleldynidx: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DDYNAMIC -DINDEX -o $@
-
-$(BIN)/parallelindex: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		icpx application/owm_gpu.cpp -fsycl -O3 -lm -ltbb -ltbbmalloc_proxy -std=c++17 -DINDEX -o $@
-
-$(BIN)/stats: application/owm_stats.cpp src/envi_gpu.hpp
+$(BIN)/stats: application/owm_stats.cpp src/stats_func.hpp
 		@mkdir -p "$(@D)"
 		icpx application/owm_stats.cpp -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
 
-$(BIN)/statsmaxnum: application/owm_stats.cpp src/envi_gpu.hpp
+$(BIN)/statsmaxnum: application/owm_stats.cpp src/stats_func.hpp
 		@mkdir -p "$(@D)"
 		icpx application/owm_stats.cpp -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@ -DMAXNUMBER
-
-$(BIN)/cudaParallel: application/owm_gpu.cpp src/envi_gpu.hpp
-		@mkdir -p "$(@D)"
-		clang++ application/owm_gpu.cpp -fsycl -fsycl-targets=nvptx64-nvidia-cuda -ltbbmalloc_proxy -O3 -lm -ltbb -o $@
 
 clean:
 	rm -rf bin/
