@@ -90,8 +90,8 @@ void makeHistogram(std::vector<std::pair<int,int>>& histogram, std::vector<int>&
 
 
 /* Saves the leaf nodes count, with header */
-int save_histogram(std::string file_name, std::vector<std::pair<int,int>>& ids, float minRadius, uint64_t num_nodes, 
-  double density)
+template<typename policy_t> // float for MinRadius, int for MaxNumber
+int save_histogram(std::string file_name, std::vector<std::pair<int,int>>& ids, policy_t policy, double density)
 {
   // uint32_t size = pointList.size();
   std::fstream out(file_name, out.out | out.app);
@@ -107,15 +107,19 @@ int save_histogram(std::string file_name, std::vector<std::pair<int,int>>& ids, 
     nleaf_nodes += item.second;
   }
 
-  double leaf_area = pow(2*minRadius, 2.);
-  
+  double leaf_area;
   out << "HISTOGRAM: " << file_name << std::endl;
-  out << "N_puntos: " << Npoints << std::endl;
-  out << "N_nodos: " << num_nodes << std::endl;
-  out << "N_nodos_hoja: " << nleaf_nodes << std::endl;
-  out << "MinRadius: " << minRadius << " m" << std::endl;
-  out << "Area_minima: " << leaf_area << " m^2" << std::endl << std::endl;
-  out << "OBSERVADO: " << std::endl;
+  out << "Number of leaf nodes: " << nleaf_nodes << std::endl;
+  if constexpr(std::is_same_v<policy_t,float>){ //called with MinRadius
+    out << "MinRadius: " << policy << " m" << std::endl;
+    leaf_area = pow(2*policy, 2.);
+    out << "Area covered by MinRadius: " << leaf_area << " m^2" << std::endl << std::endl;
+  }
+  else{
+    out << "MaxNumber: " << policy << " m" << std::endl;
+  }
+
+  out << "Observed: " << std::endl;
 
   uint32_t accumulate_n = 0;
   double accumulate_rho = 0;
@@ -124,42 +128,50 @@ int save_histogram(std::string file_name, std::vector<std::pair<int,int>>& ids, 
   double min_rho = 999.;
   double max_rho = 0.;
   for( auto& item : ids ){
-    int x_i = item.first; // numero de puntos en el nodo
+    int x_i = item.first; // number of points inside this leaf-node
     /*limites*/
     if(x_i < min_x) min_x = x_i;
     if(max_x < x_i) max_x = x_i;
 
-    int n_i = item.second; // numero de veces que se repite ese número de puntos
-
-    double rho_i = x_i/leaf_area;
-    /*limites*/
-    if(rho_i < min_rho) min_rho = rho_i;
-    if(max_rho < rho_i) max_rho = rho_i;
-
+    int n_i = item.second; // number of leaf-nodes with this number of poinsts
+    if constexpr(std::is_same_v<policy_t,float>){ //called with MinRadius 
+      double rho_i = x_i/leaf_area;
+      /*limites*/
+      if(rho_i < min_rho) min_rho = rho_i;
+      if(max_rho < rho_i) max_rho = rho_i;
+      accumulate_rho += rho_i*n_i;
+    }
     accumulate_n += x_i*n_i;
-    accumulate_rho += rho_i*n_i;
   }
 
-  // printf("densidad media :::: %g", accumulate_rho/nleaf_nodes);
-
-  out << "N_medio_pts/nodo: " << accumulate_n/nleaf_nodes << std::endl;
+  out << "Average number of points/leaf-node: " << accumulate_n/nleaf_nodes << std::endl;
   out << "__min: " << min_x << std::endl;
   out << "__max: " << max_x << std::endl;
-  out << "Densidad_media: " << accumulate_rho/nleaf_nodes << std::endl;
-  out << "__min: " << min_rho << std::endl;
-  out << "__max: " << max_rho << std::endl << std::endl;
-  out << "ESTIMADO: " << std::endl;
-  out << "N_medio_pts/nodo: " << density*leaf_area << std::endl;
-  out << "Densidad_media: " << density << std::endl << std::endl;
+  if constexpr(std::is_same_v<policy_t,float>){ //called with MinRadius
+    out << "Average density: " << accumulate_rho/nleaf_nodes << std::endl;
+    out << "__min: " << min_rho << std::endl;
+    out << "__max: " << max_rho << std::endl << std::endl;
+  }
+  out << "Estimation (assuming equal distribution of points): " << std::endl;
+  out << "Average number of points/leaf-node: " << density*leaf_area << std::endl;
+  out << "Average density: " << density << std::endl << std::endl;
 
-  out << "x_i n_i x_i*n_i rho_i rho_i*n_i" << std::endl << std::endl;
-  for( auto& item : ids ){
-    int x_i = item.first; // numero de puntos en el nodo
-    int n_i = item.second; // numero de veces que se repite ese número de puntos
-    double rho_i = x_i/leaf_area;
-    out << x_i << " " << n_i << " " << x_i*n_i << " " << rho_i << " " << rho_i*n_i << std::endl;
-    // out << item.first << " " << item.second << std::endl;
-    // fprintf(out, "%.2f %.2f %.2f\n", (*pointer)[i].x, (*pointer)[i].y, (*pointer)[i].z);
+  if constexpr(std::is_same_v<policy_t,float>){ //called with MinRadius
+    out << "x_i n_i x_i*n_i rho_i rho_i*n_i" << std::endl << std::endl;
+    for( auto& item : ids ){
+      int x_i = item.first; // number of points inside this leaf-node
+      int n_i = item.second; // number of leaf-nodes with this number of poinsts
+      double rho_i = x_i/leaf_area;
+      out << x_i << " " << n_i << " " << x_i*n_i << " " << rho_i << " " << rho_i*n_i << std::endl;
+    }
+  }
+  else{
+    out << "x_i n_i x_i*n_i" << std::endl << std::endl;
+    for( auto& item : ids ){
+      int x_i = item.first; // number of points inside this leaf-node
+      int n_i = item.second; // number of leaf-nodes with this number of poinsts
+      out << x_i << " " << n_i << " " << x_i*n_i  << std::endl;
+    }
   }
   out << std::endl << std::endl;
   out.close();
@@ -187,7 +199,7 @@ int save_leafs(std::string file_name, std::vector<std::pair<int,int>>& ids)
     nleaf_nodes += item.second;
   }
   
-  out << "HISTOGRAM_DE_BUSQUEDA:"<< std::endl;
+  out << "Number of points per leaf Histogram:"<< std::endl;
 
   uint64_t accumulate_n = 0;
   std::pair<int,int> max_x = {0,0};
@@ -201,15 +213,15 @@ int save_leafs(std::string file_name, std::vector<std::pair<int,int>>& ids)
     accumulate_n += x_i*n_i;
   }
 
-  out << "Nodos_hoja_analizados: " << nleaf_nodes << std::endl;
-  out << "N_medio_pts/nodo: " << accumulate_n/nleaf_nodes << std::endl;
+  out << "Number of leaf_nodes: " << nleaf_nodes << std::endl;
+  out << "Average number of points/leaf-node: " << accumulate_n/nleaf_nodes << std::endl;
   out << "__max: " << max_x.first << " " << max_x.second << std::endl << std::endl;
 
   out << "x_i n_i x_i*n_i" << std::endl << std::endl;
   for( auto& item : ids ){
 
-    int x_i = item.first; // numero de puntos en el nodo
-    int n_i = item.second; // numero de veces que se repite ese número de puntos
+    int x_i = item.first; //  number of points inside this leaf-node
+    int n_i = item.second; // number of leaf-nodes with this number of poinsts
 
     out << x_i << " " << n_i << " " << x_i*n_i << std::endl;
   }
@@ -231,20 +243,20 @@ int save_levels(std::string file_name, std::vector<std::pair<int,int>>& ids)
     return -1;
 
   
-  out << "HISTOGRAM_DE_NIVELES:"<< std::endl;
+  out << "Levels HISTOGRAM:"<< std::endl;
   
   size_t nleaf_nodes = 0;
   for(auto& item : ids){
     nleaf_nodes += item.second;
   }
 
-  out << "Nodos_hoja_analizados: " << nleaf_nodes << std::endl << std::endl;
+  out << "Number of leaf-nodes: " << nleaf_nodes << std::endl << std::endl;
 
   out << "x_i n_i" << std::endl << std::endl;
   for( auto& item : ids ){
 
-    int x_i = item.first; // numero de puntos en el nodo
-    int n_i = item.second; // numero de veces que se repite ese número de puntos
+    int x_i = item.first; // level
+    int n_i = item.second; // number of leaf-nodes in this level
 
     out << x_i << " " << n_i << std::endl;
   }

@@ -93,8 +93,12 @@ int main( int argc, const char* argv[]){
 
   std::vector<std::pair<int,int>> vhistogram;
   makeHistogram(vhistogram, qtreeIn);
-  std::string out_histogram = outputTXT + ".csv";
-  save_histogram(out_histogram, vhistogram, minRadius, qtreeIn, Density);
+  std::string out_histogram = outputXYZ + ".csv";
+  #ifdef MAXNUMBER
+    save_histogram(out_histogram, vhistogram, maxNumber, Density);
+  #else
+    save_histogram(out_histogram, vhistogram, minRadius, Density);
+  #endif
   vhistogram.clear();
 
   printf("Compute the level of each leaf\n");
@@ -106,7 +110,7 @@ int main( int argc, const char* argv[]){
   vhistogram.clear();
   nlevels.clear();
   
-  freeWrap(point_cloud);
+  freeWrap(cloud);
 
   deleteQtree(qtreeIn);
 

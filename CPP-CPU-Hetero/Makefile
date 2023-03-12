@@ -70,13 +70,13 @@ $(BIN)/o4maxnum: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_f
 		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt -DMAXNUMBER
 #-pg -g
 
-$(BIN)/stats: application/owm_stats.cpp src/stats_func.hpp
+$(BIN)/stats: application/owm_stats.cpp include/stats_func.hpp
 		@mkdir -p "$(@D)"
-		icpx application/owm_stats.cpp -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
+		$(CXX) application/owm_stats.cpp -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@
 
-$(BIN)/statsmaxnum: application/owm_stats.cpp src/stats_func.hpp
+$(BIN)/statsmaxnum: application/owm_stats.cpp include/stats_func.hpp
 		@mkdir -p "$(@D)"
-		icpx application/owm_stats.cpp -lOpenCL -fsycl -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@ -DMAXNUMBER
+		$(CXX) application/owm_stats.cpp -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@ -DMAXNUMBER
 
 clean:
 	rm -rf bin/
