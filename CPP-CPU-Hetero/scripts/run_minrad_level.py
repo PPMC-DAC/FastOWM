@@ -1,5 +1,6 @@
 import os
 import time
+import numpy as np
 
 #Sliding window size
 Wsize = 10
@@ -7,10 +8,14 @@ Wsize = 10
 Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
-#number of times the OWM traversal code is executed
+#num_threads for the openmp implementations of stage1 and stage3
+num_threads = [1, 2, 4, 6, 8]
+#number of times the OWM is executed
 nreps = 5
+maxNumber=65536
 
-output="o3_memoization.out"
+output="minrad_level.out"
+
 start = time.time()
 print("Start : %s" % time.ctime())
 f = open(output, "a")
@@ -23,14 +28,13 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionFH",
         "../bin/data/BrionUH"]
 
-num_threads = [1, 2, 4, 6, 8]
-levels = list(range(2,10))
-mR=0.1
-maxNumber=32
+minRadius=[x/10 for x in list(range(1,20,1))]
+levels = list(range(3,10))
+nth=8
 
 for file in inputs:
-    for lev in levels:
-        for nth in num_threads:
+    for mR in minRadius:
+        for lev in levels:
             print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
             f = open(output, "a")
             f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
