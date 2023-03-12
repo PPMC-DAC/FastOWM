@@ -1,4 +1,4 @@
-#include "../src/envi_gpu.hpp"
+#include "../src/stats_func.hpp"
 
 #include "../include/cxxopts.hpp"
 #include <chrono>
