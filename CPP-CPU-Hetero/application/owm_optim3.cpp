@@ -82,7 +82,8 @@ int main( int argc, const char* argv[]){
   #endif  
   storeMinAndNumPoints(cloud, qtreeIn, 0);
   double time_tree = (tbb::tick_count::now()-t_qtree).seconds();
-  
+  checkNumPoints(cloud,qtreeIn);
+
   double Width = round2d(max.x-min.x);
   double Height = round2d(max.y-min.y);
   double Density = (Npoints-1)/(Width*Height);

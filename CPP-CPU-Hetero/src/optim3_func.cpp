@@ -159,7 +159,7 @@ void fillQuadrants(Lpoint* cloud, Qtree qtree, int maxNumber);
  by setting a maximum number of points*/
 void insertPointMaxNum(LpointID point, Lpoint* cloud, Qtree qtree, int maxNumber)
 {
-    if(isLeaf(qtree))
+    if(isLeaf(qtree)) //Leaf-node
     {
       if(qtree->points.size() < maxNumber)
       {
@@ -168,7 +168,8 @@ void insertPointMaxNum(LpointID point, Lpoint* cloud, Qtree qtree, int maxNumber
         qtree->numPoints++;
       }
       else
-      {
+      { //Is an old leaf-node overloaded that turns into an internal-node 
+        qtree->numPoints=0; //Reset the number of points of the internal node
         createQuadrants(qtree);
         fillQuadrants(cloud, qtree, maxNumber);
         int idx = quadrantIdx(point, cloud, qtree);
@@ -263,6 +264,21 @@ void storeMinAndNumPointsSeq(Lpoint* cloud, Qtree qtree) {
       if (cloud[t->min].z < cloud[qtree->min].z) 
          qtree->min = t->min; 
     }
+  }
+}
+
+void checkNumPoints(Lpoint* cloud, Qtree qtree) {
+  //printf("At sequential \n"); 
+  if( !isLeaf(qtree) ) { // not a leaf
+    //Visit children until reaching the leaves that already have the data
+    uint32_t numPts=0;
+    for(int i=0; i<4; ++i) {
+      Qtree t=qtree->quadrants[i];
+      checkNumPoints(cloud, t);
+      //At backtrack we reduce the data from the children
+      numPts += t->numPoints;
+    }
+    if(numPts!=qtree->numPoints) printf("Error at internal node numPoints info\n");
   }
 }
 
