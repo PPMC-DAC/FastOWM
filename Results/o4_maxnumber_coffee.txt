@@ -7056,34 +7056,6 @@ Total Tree Construction + OWM: 0.621086
 58391 points correct; 99.52%
 
 
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 3
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 4
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 5
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 6
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 7
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 8
-
-
-
-Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 8 -L 9
-
-
-
 Running: ../bin/o4maxnum -i ../bin/data/ArzuaH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 16 -L 3
 
 Input.txt: ../bin/data/ArzuaH.xyz ---> EX. CON 8 CORES
