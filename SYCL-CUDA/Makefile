@@ -7,13 +7,6 @@ INCLUDES = -I.
 
 all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda
 
-owm-cuda: mainBuilder.cu
-	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
-	mv $@ bin
-
-owm-cuda-Debug: mainBuilder.cu
-	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb -DDEBUG mainBuilder.cu -o $@.out
-	mv $@ bin
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
 	icpx -fsycl -DCPU ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
@@ -42,6 +35,18 @@ owm-sycl-dgpu-nomemo: mainBuilder.cpp
 
 owm-sycl-dgpu-interop: mainBuilder.cu
 	clang++ -DGPU -DDEVICE ${CPPFLAGS} --cuda-gpu-arch=sm_75 ${INCLUDES} mainBuilder.cu -fsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o $@
+	mv $@ bin
+
+owm-cuda: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
+	mv $@ bin
+
+owm-cuda-nomemo: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@ -DNOMEMO
+	mv $@ bin
+
+owm-cuda-Debug: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb -DDEBUG mainBuilder.cu -o $@.out
 	mv $@ bin
 
 #-I/users/fmlopez/thrust -I/users/fmlopez/thrust/dependencies/cub -I/opt/intel/llvm/build/include/sycl -L/opt/intel/llvm/build/lib

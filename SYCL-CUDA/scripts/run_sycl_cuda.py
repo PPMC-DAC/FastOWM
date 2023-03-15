@@ -10,13 +10,13 @@ f.write("Start : {}".format(time.ctime()))
 f.close()
 
 executable=["../bin/owm-sycl-cpu","../bin/owm-sycl-cpu-nomemo","../bin/owm-sycl-igpu","../bin/owm-sycl-igpu-nomemo",
-            "../bin/owm-sycl-dgpu","../bin/owm-sycl-dgpu-nomemo","../bin/owm-cuda"]
+            "../bin/owm-sycl-dgpu","../bin/owm-sycl-dgpu-nomemo","../bin/owm-cuda","../bin/owm-cuda-nomemo"]
 inputs=["../bin/data/INAER_2011_Alcoy_Core.xyz",
         "../bin/data/BABCOCK_2017_Arzua_3B.xyz",
         "../bin/data/V21_group1_densified_point_cloud.xyz",
         "../bin/data/V19_group1_densified_point_cloud.xyz"]
 
-maxNumber=[16,32,64,128,256,512,1024]
+maxNumber=[8,16,32,64,128,256,512,1024]
 
 for exe in executable:
     for i in inputs:

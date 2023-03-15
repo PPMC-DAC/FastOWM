@@ -348,7 +348,7 @@ void countIterative(lbvh_t& lbvh, aabb_t& queryAABB, uint32_t& numPts)
     return;
 }
 
-
+//Now using this with Octree_builder and LBVHoct data types
 __device__ 
 void traverseIterative(LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts, uint32_t& idmin)
 {
@@ -389,7 +389,7 @@ void traverseIterative(LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts, uint3
           uint32_t child = children[i];
 
           if(child != uint32_t(-1)){
-            
+#ifndef NOMEMO
             if(isAllOverlaped(queryAABB, lbvh.getAABB(child))){
               // overlap = false;
 
@@ -407,14 +407,14 @@ void traverseIterative(LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts, uint3
             }
             else
             {
+#endif
               overlap |= boxOverlap2D(queryAABB, lbvh.getAABB(child)) << i;
+#ifndef NOMEMO
             }
+#endif
           }
-
         }
-
         // __syncthreads();
-
         // Query overlaps a leaf node => report collision.
         #pragma unroll 8
         for(int i=0; i<8; i++){
@@ -442,13 +442,9 @@ void traverseIterative(LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts, uint3
                 }
               }
             }
-
           }
-
         }
-
         __syncthreads();
-
 
         // Query overlaps an internal node => traverse.
 
@@ -847,7 +843,7 @@ void stage3query2D(Ordered_builder& builder, Ordered_builder& builder_grid, uint
   return;
 }
 
-
+//Now using this with Octree_builder data type
 void stage1query2D(Octree_builder& builder, uint32_t* count, uint32_t Wsize, 
   double Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints){
 
