@@ -16,7 +16,7 @@ inputs=["../bin/data/INAER_2011_Alcoy_Core.xyz",
         "../bin/data/V21_group1_densified_point_cloud.xyz",
         "../bin/data/V19_group1_densified_point_cloud.xyz"]
 
-maxNumber=[8,16,32,64,128,256,512,1024]
+maxNumber=[4,8,16,32,64,128,256,512,1024]
 
 for exe in executable:
     for i in inputs:
@@ -26,6 +26,7 @@ for exe in executable:
             f.write("\n\nRunning: {} {} {}\n\n".format(exe, i, mN))
             f.close()
             os.system("%s %s %d | tee -a %s" % (exe, i, mN, output))
+            time.sleep(30)
 
 end = time.time()
 print("End : %s" % time.ctime())
