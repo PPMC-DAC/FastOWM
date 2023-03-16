@@ -2081,7 +2081,12 @@ Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 4
 
  CUDA device found 
 Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
-
+ Tree Construction SYCL time elapased: 955.828 ms
+ Stage1 KERNEL SYCL time elapsed: 191.581 ms
+ Stage2 KERNEL SYCL time elapsed: 1.11383 ms
+ Total KERNEL SYCL time elapsed: 192.694 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1148.52 ms
+Numer of seed points: 9826
 
 Running: ../bin/owm-sycl-dgpu ../bin/data/V19_group1_densified_point_cloud.xyz 8
 
@@ -2542,7 +2547,13 @@ Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_clou
 
  CUDA device found 
 Device : NVIDIA GeForce RTX 2060 @ 1755Mhz (30 cores)
-
+Performing 5 tests
+ Tree Construction SYCL time elapased: 956.005 ms
+ Stage1 KERNEL SYCL time elapsed: 1002.22 ms
+ Stage2 KERNEL SYCL time elapsed: 1.21333 ms
+ Total KERNEL SYCL time elapsed: 1003.43 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1959.43 ms
+Numer of seed points: 9595
 
 Running: ../bin/owm-sycl-dgpu-nomemo ../bin/data/V19_group1_densified_point_cloud.xyz 8
 
