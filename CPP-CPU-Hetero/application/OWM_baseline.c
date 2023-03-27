@@ -287,15 +287,14 @@ int main( int argc, char* argv[]){
 
     printf("Time of each run:  ");
     printf("  %.4lf  ", resultados[0]);
-    numRuns = atoi(argv[6]);
-    if(numRuns > 1){
-      for( int i=1 ; i<numRuns ; i++ ){
+    numRuns = 1;
+    if(argc>6) numRuns = atoi(argv[6]);
+    for( int i=1 ; i<numRuns ; i++ ){
         printf("  %.4lf  ", resultados[i]);
         resultados[0] += resultados[i];
       }
-      printf("\nAverage: %.4lf\n\n", resultados[0]/numRuns);
-    } else 
-      printf("\nAverage: %.4lf\n\n", resultados[0]);
+    printf("\nAverage: %.4lf\n\n", resultados[0]/numRuns);
+    
 
 #ifdef DEBUG
     // Output file
