@@ -60,10 +60,10 @@ auto CUDASelector = [](sycl::device const &dev) {
 
     Width = builder.bintree.diffBox.x;
     High = builder.bintree.diffBox.y;
-    // Densidad en puntos/m^2
+    // Average density of points
     Density = builder.bintree.numObjects/(Width*High);
 
-    // El numero minimo sera la mitad del numero de puntos medio por celda
+    // Minimum number of points that should contain a Sliding Window so that its minimum is considered
     uint32_t minNumPoints = (uint32_t)(0.5*Density*Wsize*Wsize);
 
     std::double_t Displace = round2d(Wsize*(1-Overlap));
@@ -125,12 +125,7 @@ auto CUDASelector = [](sycl::device const &dev) {
         e.wait();
 #endif
         // dtime = e.get_profiling_info<sycl::info::event_profiling::command_end>();
-        dtime = cast_t(tempo_t::now() - end).count();
-        total_s1 += dtime;
-
-        // device_queue.wait_and_throw();
-        // if(i%10 == 0)
-        //     std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
+        total_s1 += cast_t(tempo_t::now() - end).count();
 
         builder.reset();
     }

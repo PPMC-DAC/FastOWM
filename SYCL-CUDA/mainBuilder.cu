@@ -6,8 +6,8 @@
 int main(int argc, char* argv[])
 {
 	std::string inputTXT = (argc > 1)? argv[1] : "data/INAER_2011_Alcoy.xyz";
-	uint32_t maxNumber = (argc > 2)? uint32_t(atoi(argv[2])) : 16;
-	float factor = (argc > 3)? atof(argv[3]) : 0.75;
+	uint32_t maxNumber = (argc > 2)? uint32_t(atoi(argv[2])) : 16; //Number of LiDAR points per leaf-node
+	float factor = (argc > 3)? atof(argv[3]) : 0.75;//Only used for octree_traverse_heter that traverses the tree in CPU+GPU
 
 	// bintree_test(inputTXT, maxNumber);
 	// bintree_traverse(inputTXT, maxNumber);

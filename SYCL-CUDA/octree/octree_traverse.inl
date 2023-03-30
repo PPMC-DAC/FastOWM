@@ -13,7 +13,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     
     builder.build();
 
-    double time_tree = cast_t(tempo_t::now() - start).count();    
+    double dtime = cast_t(tempo_t::now() - start).count();    
    
     uint32_t Wsize = 10;
     // uint32_t Bsize = 20;
@@ -27,10 +27,10 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 
     Width = builder.bintree.diffBox.x;
     High = builder.bintree.diffBox.y;
-    // Densidad en puntos/m^2
+    // Average density of points
     Density = builder.bintree.numObjects/(Width*High);
 
-    // El numero minimo sera la mitad del numero de puntos medio por celda
+    // Minimum number of points that should contain a Sliding Window so that its minimum is considered
     uint32_t minNumPoints = (uint32_t)(0.5*Density*Wsize*Wsize);
 
     double Displace = round2d(Wsize*(1-Overlap));
@@ -48,7 +48,6 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     printf("%d,%d\n", nCols, nRows);
 #endif
 
-    /*Este es donde ya lanzo un kernel CUDA de búsqueda*/
     uint32_t* count = NULL;
 
     cudaMallocManaged((void**)&count, Ncells*sizeof(uint32_t));
@@ -58,7 +57,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 #else
     int n_tests = 1;
 #endif
-    double total_s1{0.0}, total_s2{0.0}, dtime;
+    double total_s1{0.0}, total_s2{0.0}, total_tree{0.0};
 
     builder.reset();
 
@@ -68,6 +67,8 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
         start = tempo_t::now();
 
         builder.build();
+        end = tempo_t::now();
+        total_tree += cast_t(end - start).count();
 
         // stage1query(builder.node_list, builder.aabb_list, builder.ord_point_cloud, count,
         //         Wsize, Overlap, nCols, nRows, minNumPoints, builder.BBox, builder.diffBox, builder.numInternalNodes);
@@ -76,11 +77,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 
         cudaDeviceSynchronize();
 
-        dtime = cast_t(tempo_t::now() - start).count();
-        // if(i%10 == 0)
-        //     std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
-        total_s1 += dtime;
-
+        total_s1 += cast_t(tempo_t::now() - end).count();
 
         start = tempo_t::now();
         cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), cudaCpuDeviceId);
@@ -99,19 +96,18 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
             countMin = stage2CPU(Ncells, count);
             //printf("Numero de minimos STAGE2: %u\n", countMin);
         }
-        dtime = cast_t(tempo_t::now() - start).count();
-        total_s2 += dtime;
+        total_s2 += cast_t(tempo_t::now() - start).count();
 
         // Fichero de salida
         // if(save_file("prueba_INAER_octree.xyz", count, countMin, builder.bintree.ord_point_cloud) < 0){
         //     printf("Unable to create results file!\n");
         // }
     }
-    std::cout << " Tree Construction CUDA time elapased: " << time_tree << " ms\n";
+    std::cout << " Tree Construction CUDA time elapased: " << total_tree/n_tests << " ms\n";
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total_s1/n_tests << " ms\n";
     std::cout << " Stage2 KERNEL CUDA time elapsed: " << total_s2/n_tests << " ms\n";
     std::cout << " Total KERNEL CUDA time elapsed: " << (total_s1+total_s2)/n_tests << " ms\n";
-    std::cout << " Total TIME (Tree+OWM) CUDA time elapsed: " << time_tree + (total_s1+total_s2)/n_tests << " ms\n";
+    std::cout << " Total TIME (Tree+OWM) CUDA time elapsed: " << total_tree + (total_s1+total_s2)/n_tests << " ms\n";
     printf("Numer of seed points: %u\n", countMin);
 
     cudaFree(count);
@@ -167,7 +163,6 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 
     uint32_t wCols = uint32_t(nCols*factor);
 
-    /*Este es donde ya lanzo un kernel CUDA de búsqueda*/
     uint32_t* count = NULL;
     uint32_t* cpu_count = NULL;
 
@@ -188,6 +183,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     int n_tests = 1;
 #endif
     double total = 0.0;
+    double total_s1{0.0}, total_s2{0.0}, total_tree{0.0};
 
     builder.reset();
 
@@ -196,8 +192,9 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
         cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), 0);
 
         start = tempo_t::now();
-
         builder.build();
+        end = tempo_t::now();
+        total_tree += cast_t(end - start).count();
 
         // stage1query(builder.node_list, builder.aabb_list, builder.ord_point_cloud, count,
         //         Wsize, Overlap, nCols, nRows, minNumPoints, builder.BBox, builder.diffBox, builder.numInternalNodes);
@@ -208,12 +205,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 
         cudaDeviceSynchronize();
 
-        dtime = cast_t(tempo_t::now() - start).count();
-        if(i%10 == 0)
-            std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
-
-        if(i)
-            total += dtime;
+        total_s1 += cast_t(tempo_t::now() - end).count();
 
         builder.reset();
 
@@ -231,8 +223,9 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
             cpu_count[i] = 0u;
         }
     }
+    std::cout << " Tree Construction CUDA time elapased: " << total_tree/n_tests << " ms\n";
+    std::cout << " Stage1 KERNEL CUDA time elapsed: " << total_s1/n_tests << " ms\n";
 
-    std::cout << " Stage1 KERNEL CUDA time elapsed: " << total/(n_tests) << " ms\n";
     printf("Number of minima: %u\n", countMin);
 
     cudaFree(count);

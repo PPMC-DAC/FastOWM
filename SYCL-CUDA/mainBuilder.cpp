@@ -1,11 +1,3 @@
-// #define CL_TARGET_OPENCL_VERSION 300
-// #define CUDA_NO_HALF 1
-
-// #include <CL/sycl/backend/cuda.hpp>
-
-// #include <cublas_v1.h>
-// #include <cublas_v2.h>
-// #include <cuda.h>
 
 #include <oneapi/dpl/execution>
 #include <oneapi/dpl/algorithm>
@@ -15,22 +7,20 @@
 
 int main(int argc, char* argv[])
 {
-
 	std::string inputTXT = (argc > 1)? argv[1] : "data/INAER_2011_Alcoy.xyz";
-    uint32_t leafSize = (argc > 2)? uint32_t(atoi(argv[2])) : 16;
-	float factor = (argc > 3)? atof(argv[3]) : 0.75;
+    uint32_t maxNumber = (argc > 2)? uint32_t(atoi(argv[2])) : 16; //Number of LiDAR points per leaf-node
+	float factor = (argc > 3)? atof(argv[3]) : 0.75; //Only used for octree_traverse_heter that traverses the tree in CPU+GPU
 
-	// bintree_test(inputTXT, leafSize);
-	// bintree_traverse(inputTXT, leafSize);
-	// bintree64_test(inputTXT, leafSize);
-	// bintree64_traverse(inputTXT, leafSize);
-	// ordered_test(inputTXT, leafSize);
-	// ordered_traverse(inputTXT, leafSize);
-	// octree_test(inputTXT, leafSize);
-	octree_traverse(inputTXT, leafSize);
-	// octree_traverse_heter(inputTXT, leafSize, factor);
-	// sycl_test(inputTXT, leafSize);
-	// sycl_traverse(inputTXT, leafSize);
-	
+	// bintree_test(inputTXT, maxNumber);
+	// bintree_traverse(inputTXT, maxNumber);
+	// bintree64_test(inputTXT, maxNumber);
+	// bintree64_traverse(inputTXT, maxNumber);
+	// ordered_test(inputTXT, maxNumber);
+	// ordered_traverse(inputTXT, maxNumber);
+	// octree_test(inputTXT, maxNumber);
+	octree_traverse(inputTXT, maxNumber);
+	// octree_traverse_heter(inputTXT, maxNumber, factor);
+	// sycl_test(inputTXT, maxNumber);
+	// sycl_traverse(inputTXT, maxNumber);	
 	return 0;
 }
