@@ -10,10 +10,10 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 	Octree_builder builder(inputTXT, chunkDim);
 
     std::chrono::time_point<tempo_t> start = tempo_t::now();
-    
     builder.build();
+    std::chrono::time_point<tempo_t> end = tempo_t::now();
 
-    double dtime = cast_t(tempo_t::now() - start).count();    
+    double dtime = cast_t(end - start).count();    
    
     uint32_t Wsize = 10;
     // uint32_t Bsize = 20;
@@ -122,10 +122,9 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 	Octree_builder builder(inputTXT, chunkDim);
 
     std::chrono::time_point<tempo_t> start = tempo_t::now();
-    
     builder.build();
-
-    double dtime = cast_t(tempo_t::now() - start).count();    
+    std::chrono::time_point<tempo_t> end = tempo_t::now();
+    double dtime = cast_t(end - start).count();    
     std::cout << "  CREATION takes: " << dtime << " ms\n";
 
     uint32_t Wsize = 10;
@@ -182,8 +181,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 #else
     int n_tests = 1;
 #endif
-    double total = 0.0;
-    double total_s1{0.0}, total_s2{0.0}, total_tree{0.0};
+    double total_s1{0.0}, total_tree{0.0};
 
     builder.reset();
 
