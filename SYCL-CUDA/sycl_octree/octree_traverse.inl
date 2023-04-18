@@ -7,17 +7,9 @@
 void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 {
 
-auto CUDASelector = [](sycl::device const &dev) {
-    if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
-      std::cout << " CUDA device found " << std::endl;
-      return 1;
-    } else {
-      return -1;
-    }
-};
-
 #ifdef NVIDIA
-    sycl::queue device_queue(CUDASelector);
+    sycl::queue device_queue([](auto& d) 
+        { return (d.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda); });
 #elif GPU
     sycl::queue device_queue(sycl::gpu_selector_v);
 #elif CPU

@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include<string>
+
 void octree_test(std::string inputTXT, const uint32_t chunkDim);
 
 #include <octree/octree_test.inl>

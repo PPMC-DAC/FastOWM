@@ -1,11 +1,12 @@
 CUDA = --expt-extended-lambda -gencode arch=compute_75,code=[sm_75,compute_75] 
 #-gencode arch=compute_60,code=[sm_60,compute_60]
 
-CPPFLAGS = -std=c++17 -O2
+CPPFLAGS = -std=c++17 -O3 
+CXXFLAGS = -resource-dir=/opt/intel/oneapi/dpcpp-ct/2023.1.0/lib/clang/16 -Xclang -fcuda-allow-variadic-functions -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -lOpenCL -fno-sycl-libspirv
 
 INCLUDES = -I.
 
-all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda
+all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-nomemo
 
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
@@ -34,8 +35,9 @@ owm-sycl-dgpu-nomemo: mainBuilder.cpp
 	mv $@ bin
 
 owm-sycl-dgpu-interop: mainBuilder.cu
-	clang++ -DGPU -DDEVICE ${CPPFLAGS} --cuda-gpu-arch=sm_75 ${INCLUDES} mainBuilder.cu -fsycl -ltbb -L/usr/local/cuda-11.0/lib64 -lcudart -o $@
+	clang++ -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
 	mv $@ bin
+#-L/usr/local/cuda-11.0/lib64 -fsycl-targets=nvptx64-nvidia-cuda -lcudart
 
 owm-cuda: mainBuilder.cu
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
