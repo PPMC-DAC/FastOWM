@@ -14,7 +14,7 @@ With more details, the **CPP-TBB-CPU directory**, includes several implementatio
 * Optimization 2: CPU parallel optimizations: see [process_o2partree_results.ipynb](Results/process_o2partree_results.ipynb).
 * Optimization 3: reduce the number of accesses by memoization: see [process_o3memo_results.ipynb](Results/process_o3memo_results.ipynb).
 * Optimization 4: tune de granularity: see [process_o4minrad_maxnum.ipynb](Results/process_o4minrad_maxnum.ipynb)
-* Comparison of all optimizations: see [process_all_optimizations.ipynb](Results/process_all_optimizations.ipynb)
+* Comparison of all optimizations: see [process_all_optim.ipynb](Results/process_all_optim.ipynb)
 
 On the other hand, the **SYCL-CUDA-GPU directory** includes the SYCL and CUDA implementations. Have a look at the ``Makefile`` and ``scripts``directory to see how to compile the different implementations (with different optimizations) and how to collect the execution data. The results have been analyzed in these Jupyter Notebooks:
 
