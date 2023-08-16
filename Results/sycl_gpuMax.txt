@@ -1,0 +1,1729 @@
+Start : Tue Aug 15 10:08:27 2023
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 408.162 ms
+ Stage1 KERNEL SYCL time elapsed: 19.6132 ms
+ Stage2 KERNEL SYCL time elapsed: 6.28931 ms
+ Total KERNEL SYCL time elapsed: 25.9025 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 434.065 ms
+Numer of seed points: 61883
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 268.667 ms
+ Stage1 KERNEL SYCL time elapsed: 18.1824 ms
+ Stage2 KERNEL SYCL time elapsed: 5.41352 ms
+ Total KERNEL SYCL time elapsed: 23.5959 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 292.263 ms
+Numer of seed points: 62809
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 193.003 ms
+ Stage1 KERNEL SYCL time elapsed: 18.0922 ms
+ Stage2 KERNEL SYCL time elapsed: 7.08054 ms
+ Total KERNEL SYCL time elapsed: 25.1727 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 218.176 ms
+Numer of seed points: 59820
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 165.137 ms
+ Stage1 KERNEL SYCL time elapsed: 15.0604 ms
+ Stage2 KERNEL SYCL time elapsed: 6.94178 ms
+ Total KERNEL SYCL time elapsed: 22.0022 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 187.139 ms
+Numer of seed points: 65504
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 143.847 ms
+ Stage1 KERNEL SYCL time elapsed: 13.9814 ms
+ Stage2 KERNEL SYCL time elapsed: 7.51974 ms
+ Total KERNEL SYCL time elapsed: 21.5011 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 165.348 ms
+Numer of seed points: 66841
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 136.154 ms
+ Stage1 KERNEL SYCL time elapsed: 18.7844 ms
+ Stage2 KERNEL SYCL time elapsed: 8.17341 ms
+ Total KERNEL SYCL time elapsed: 26.9578 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 163.112 ms
+Numer of seed points: 60341
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 127.601 ms
+ Stage1 KERNEL SYCL time elapsed: 17.9486 ms
+ Stage2 KERNEL SYCL time elapsed: 7.18362 ms
+ Total KERNEL SYCL time elapsed: 25.1322 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 152.733 ms
+Numer of seed points: 65785
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 122.438 ms
+ Stage1 KERNEL SYCL time elapsed: 19.5946 ms
+ Stage2 KERNEL SYCL time elapsed: 7.28873 ms
+ Total KERNEL SYCL time elapsed: 26.8833 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 149.321 ms
+Numer of seed points: 59883
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 120.357 ms
+ Stage1 KERNEL SYCL time elapsed: 37.2571 ms
+ Stage2 KERNEL SYCL time elapsed: 6.85181 ms
+ Total KERNEL SYCL time elapsed: 44.1089 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 164.466 ms
+Numer of seed points: 58497
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 801.442 ms
+ Stage1 KERNEL SYCL time elapsed: 25.3842 ms
+ Stage2 KERNEL SYCL time elapsed: 2.86074 ms
+ Total KERNEL SYCL time elapsed: 28.245 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 829.687 ms
+Numer of seed points: 28631
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 539.42 ms
+ Stage1 KERNEL SYCL time elapsed: 21.5974 ms
+ Stage2 KERNEL SYCL time elapsed: 3.09148 ms
+ Total KERNEL SYCL time elapsed: 24.6889 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 564.109 ms
+Numer of seed points: 29127
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 420.578 ms
+ Stage1 KERNEL SYCL time elapsed: 19.2686 ms
+ Stage2 KERNEL SYCL time elapsed: 3.07226 ms
+ Total KERNEL SYCL time elapsed: 22.3408 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 442.919 ms
+Numer of seed points: 29020
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 308.052 ms
+ Stage1 KERNEL SYCL time elapsed: 19.6967 ms
+ Stage2 KERNEL SYCL time elapsed: 4.12257 ms
+ Total KERNEL SYCL time elapsed: 23.8193 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 331.871 ms
+Numer of seed points: 28512
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 270.982 ms
+ Stage1 KERNEL SYCL time elapsed: 18.2692 ms
+ Stage2 KERNEL SYCL time elapsed: 4.56425 ms
+ Total KERNEL SYCL time elapsed: 22.8335 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 293.816 ms
+Numer of seed points: 29485
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 263.577 ms
+ Stage1 KERNEL SYCL time elapsed: 17.2039 ms
+ Stage2 KERNEL SYCL time elapsed: 3.82247 ms
+ Total KERNEL SYCL time elapsed: 21.0263 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 284.604 ms
+Numer of seed points: 28714
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 236.468 ms
+ Stage1 KERNEL SYCL time elapsed: 25.2477 ms
+ Stage2 KERNEL SYCL time elapsed: 3.40598 ms
+ Total KERNEL SYCL time elapsed: 28.6537 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 265.122 ms
+Numer of seed points: 28413
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 233.595 ms
+ Stage1 KERNEL SYCL time elapsed: 32.433 ms
+ Stage2 KERNEL SYCL time elapsed: 5.96675 ms
+ Total KERNEL SYCL time elapsed: 38.3997 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 271.994 ms
+Numer of seed points: 30653
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 234.854 ms
+ Stage1 KERNEL SYCL time elapsed: 26.4137 ms
+ Stage2 KERNEL SYCL time elapsed: 3.58505 ms
+ Total KERNEL SYCL time elapsed: 29.9988 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 264.852 ms
+Numer of seed points: 26561
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 840.074 ms
+ Stage1 KERNEL SYCL time elapsed: 23.1377 ms
+ Stage2 KERNEL SYCL time elapsed: 1.88835 ms
+ Total KERNEL SYCL time elapsed: 25.0261 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 865.1 ms
+Numer of seed points: 9522
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 542.817 ms
+ Stage1 KERNEL SYCL time elapsed: 18.2644 ms
+ Stage2 KERNEL SYCL time elapsed: 1.75789 ms
+ Total KERNEL SYCL time elapsed: 20.0223 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 562.839 ms
+Numer of seed points: 9712
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 407.046 ms
+ Stage1 KERNEL SYCL time elapsed: 17.8522 ms
+ Stage2 KERNEL SYCL time elapsed: 1.87328 ms
+ Total KERNEL SYCL time elapsed: 19.7255 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 426.772 ms
+Numer of seed points: 9615
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 309.205 ms
+ Stage1 KERNEL SYCL time elapsed: 18.0253 ms
+ Stage2 KERNEL SYCL time elapsed: 1.11437 ms
+ Total KERNEL SYCL time elapsed: 19.1396 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 328.344 ms
+Numer of seed points: 9558
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 275.166 ms
+ Stage1 KERNEL SYCL time elapsed: 17.0221 ms
+ Stage2 KERNEL SYCL time elapsed: 1.0584 ms
+ Total KERNEL SYCL time elapsed: 18.0805 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 293.247 ms
+Numer of seed points: 10057
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 257.122 ms
+ Stage1 KERNEL SYCL time elapsed: 17.3504 ms
+ Stage2 KERNEL SYCL time elapsed: 1.32468 ms
+ Total KERNEL SYCL time elapsed: 18.6751 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 275.797 ms
+Numer of seed points: 9940
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 244.782 ms
+ Stage1 KERNEL SYCL time elapsed: 24.6511 ms
+ Stage2 KERNEL SYCL time elapsed: 1.60333 ms
+ Total KERNEL SYCL time elapsed: 26.2545 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 271.037 ms
+Numer of seed points: 9605
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 253.993 ms
+ Stage1 KERNEL SYCL time elapsed: 17.2049 ms
+ Stage2 KERNEL SYCL time elapsed: 1.99741 ms
+ Total KERNEL SYCL time elapsed: 19.2024 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 273.195 ms
+Numer of seed points: 10259
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 249.941 ms
+ Stage1 KERNEL SYCL time elapsed: 23.4051 ms
+ Stage2 KERNEL SYCL time elapsed: 3.32085 ms
+ Total KERNEL SYCL time elapsed: 26.7259 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 276.667 ms
+Numer of seed points: 9861
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 984.699 ms
+ Stage1 KERNEL SYCL time elapsed: 25.673 ms
+ Stage2 KERNEL SYCL time elapsed: 1.46986 ms
+ Total KERNEL SYCL time elapsed: 27.1429 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1011.84 ms
+Numer of seed points: 9705
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 616.251 ms
+ Stage1 KERNEL SYCL time elapsed: 22.5601 ms
+ Stage2 KERNEL SYCL time elapsed: 0.985778 ms
+ Total KERNEL SYCL time elapsed: 23.5459 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 639.797 ms
+Numer of seed points: 9844
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 455.502 ms
+ Stage1 KERNEL SYCL time elapsed: 18.1678 ms
+ Stage2 KERNEL SYCL time elapsed: 1.86394 ms
+ Total KERNEL SYCL time elapsed: 20.0317 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 475.533 ms
+Numer of seed points: 9892
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 367.703 ms
+ Stage1 KERNEL SYCL time elapsed: 20.3351 ms
+ Stage2 KERNEL SYCL time elapsed: 1.68745 ms
+ Total KERNEL SYCL time elapsed: 22.0226 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 389.726 ms
+Numer of seed points: 9789
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 352.666 ms
+ Stage1 KERNEL SYCL time elapsed: 28.7692 ms
+ Stage2 KERNEL SYCL time elapsed: 1.58233 ms
+ Total KERNEL SYCL time elapsed: 30.3516 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 383.017 ms
+Numer of seed points: 10125
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 295.358 ms
+ Stage1 KERNEL SYCL time elapsed: 19.3835 ms
+ Stage2 KERNEL SYCL time elapsed: 1.87156 ms
+ Total KERNEL SYCL time elapsed: 21.2551 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 316.613 ms
+Numer of seed points: 9972
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 289.165 ms
+ Stage1 KERNEL SYCL time elapsed: 26.0969 ms
+ Stage2 KERNEL SYCL time elapsed: 2.90664 ms
+ Total KERNEL SYCL time elapsed: 29.0035 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 318.169 ms
+Numer of seed points: 9873
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 277.834 ms
+ Stage1 KERNEL SYCL time elapsed: 19.3533 ms
+ Stage2 KERNEL SYCL time elapsed: 2.30106 ms
+ Total KERNEL SYCL time elapsed: 21.6543 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 299.489 ms
+Numer of seed points: 10279
+
+
+Running: ../bin/owm-sycl-cpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 299.848 ms
+ Stage1 KERNEL SYCL time elapsed: 26.9767 ms
+ Stage2 KERNEL SYCL time elapsed: 2.77967 ms
+ Total KERNEL SYCL time elapsed: 29.7564 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 329.605 ms
+Numer of seed points: 10233
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 411.669 ms
+ Stage1 KERNEL SYCL time elapsed: 24.9584 ms
+ Stage2 KERNEL SYCL time elapsed: 5.7524 ms
+ Total KERNEL SYCL time elapsed: 30.7108 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 442.38 ms
+Numer of seed points: 61702
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 276.86 ms
+ Stage1 KERNEL SYCL time elapsed: 22.4802 ms
+ Stage2 KERNEL SYCL time elapsed: 5.56671 ms
+ Total KERNEL SYCL time elapsed: 28.0469 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 304.907 ms
+Numer of seed points: 62007
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 193.646 ms
+ Stage1 KERNEL SYCL time elapsed: 19.6564 ms
+ Stage2 KERNEL SYCL time elapsed: 7.27336 ms
+ Total KERNEL SYCL time elapsed: 26.9297 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 220.576 ms
+Numer of seed points: 59727
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 153.801 ms
+ Stage1 KERNEL SYCL time elapsed: 17.3384 ms
+ Stage2 KERNEL SYCL time elapsed: 8.49607 ms
+ Total KERNEL SYCL time elapsed: 25.8344 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 179.635 ms
+Numer of seed points: 64660
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 137.957 ms
+ Stage1 KERNEL SYCL time elapsed: 15.6365 ms
+ Stage2 KERNEL SYCL time elapsed: 13.9914 ms
+ Total KERNEL SYCL time elapsed: 29.6279 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 167.585 ms
+Numer of seed points: 65722
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 138.288 ms
+ Stage1 KERNEL SYCL time elapsed: 19.5367 ms
+ Stage2 KERNEL SYCL time elapsed: 6.8789 ms
+ Total KERNEL SYCL time elapsed: 26.4156 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 164.704 ms
+Numer of seed points: 60280
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 126.954 ms
+ Stage1 KERNEL SYCL time elapsed: 18.2897 ms
+ Stage2 KERNEL SYCL time elapsed: 7.72785 ms
+ Total KERNEL SYCL time elapsed: 26.0176 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 152.972 ms
+Numer of seed points: 65734
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 124.71 ms
+ Stage1 KERNEL SYCL time elapsed: 19.2995 ms
+ Stage2 KERNEL SYCL time elapsed: 7.67332 ms
+ Total KERNEL SYCL time elapsed: 26.9728 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 151.683 ms
+Numer of seed points: 59730
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 122.524 ms
+ Stage1 KERNEL SYCL time elapsed: 44.1317 ms
+ Stage2 KERNEL SYCL time elapsed: 6.10583 ms
+ Total KERNEL SYCL time elapsed: 50.2375 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 172.761 ms
+Numer of seed points: 58514
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 818.106 ms
+ Stage1 KERNEL SYCL time elapsed: 43.8397 ms
+ Stage2 KERNEL SYCL time elapsed: 3.42372 ms
+ Total KERNEL SYCL time elapsed: 47.2634 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 865.369 ms
+Numer of seed points: 28549
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 521.164 ms
+ Stage1 KERNEL SYCL time elapsed: 35.113 ms
+ Stage2 KERNEL SYCL time elapsed: 2.74586 ms
+ Total KERNEL SYCL time elapsed: 37.8589 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 559.023 ms
+Numer of seed points: 28309
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 399.087 ms
+ Stage1 KERNEL SYCL time elapsed: 32.4065 ms
+ Stage2 KERNEL SYCL time elapsed: 3.50466 ms
+ Total KERNEL SYCL time elapsed: 35.9112 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 434.998 ms
+Numer of seed points: 27326
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 299.183 ms
+ Stage1 KERNEL SYCL time elapsed: 28.6847 ms
+ Stage2 KERNEL SYCL time elapsed: 4.76851 ms
+ Total KERNEL SYCL time elapsed: 33.4532 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 332.636 ms
+Numer of seed points: 28259
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 260.926 ms
+ Stage1 KERNEL SYCL time elapsed: 26.2893 ms
+ Stage2 KERNEL SYCL time elapsed: 3.00789 ms
+ Total KERNEL SYCL time elapsed: 29.2972 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 290.223 ms
+Numer of seed points: 28405
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 253.847 ms
+ Stage1 KERNEL SYCL time elapsed: 25.8581 ms
+ Stage2 KERNEL SYCL time elapsed: 5.66568 ms
+ Total KERNEL SYCL time elapsed: 31.5238 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 285.371 ms
+Numer of seed points: 26808
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 249.547 ms
+ Stage1 KERNEL SYCL time elapsed: 30.1422 ms
+ Stage2 KERNEL SYCL time elapsed: 4.08484 ms
+ Total KERNEL SYCL time elapsed: 34.227 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 283.774 ms
+Numer of seed points: 28218
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 237.582 ms
+ Stage1 KERNEL SYCL time elapsed: 29.487 ms
+ Stage2 KERNEL SYCL time elapsed: 3.39518 ms
+ Total KERNEL SYCL time elapsed: 32.8822 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 270.464 ms
+Numer of seed points: 30510
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 261.064 ms
+ Stage1 KERNEL SYCL time elapsed: 28.6761 ms
+ Stage2 KERNEL SYCL time elapsed: 2.85043 ms
+ Total KERNEL SYCL time elapsed: 31.5266 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 292.59 ms
+Numer of seed points: 26448
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 944.948 ms
+ Stage1 KERNEL SYCL time elapsed: 62.7901 ms
+ Stage2 KERNEL SYCL time elapsed: 1.92426 ms
+ Total KERNEL SYCL time elapsed: 64.7144 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1009.66 ms
+Numer of seed points: 9474
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 549.621 ms
+ Stage1 KERNEL SYCL time elapsed: 48.8767 ms
+ Stage2 KERNEL SYCL time elapsed: 1.38786 ms
+ Total KERNEL SYCL time elapsed: 50.2645 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 599.886 ms
+Numer of seed points: 9425
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 400.894 ms
+ Stage1 KERNEL SYCL time elapsed: 40.7474 ms
+ Stage2 KERNEL SYCL time elapsed: 2.05269 ms
+ Total KERNEL SYCL time elapsed: 42.8001 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 443.694 ms
+Numer of seed points: 9381
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 312.656 ms
+ Stage1 KERNEL SYCL time elapsed: 33.2757 ms
+ Stage2 KERNEL SYCL time elapsed: 1.24638 ms
+ Total KERNEL SYCL time elapsed: 34.522 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 347.178 ms
+Numer of seed points: 9483
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 276.181 ms
+ Stage1 KERNEL SYCL time elapsed: 31.2836 ms
+ Stage2 KERNEL SYCL time elapsed: 1.90171 ms
+ Total KERNEL SYCL time elapsed: 33.1853 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 309.366 ms
+Numer of seed points: 9436
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 267.419 ms
+ Stage1 KERNEL SYCL time elapsed: 26.5656 ms
+ Stage2 KERNEL SYCL time elapsed: 2.74743 ms
+ Total KERNEL SYCL time elapsed: 29.313 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 296.732 ms
+Numer of seed points: 9317
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 256.972 ms
+ Stage1 KERNEL SYCL time elapsed: 32.8885 ms
+ Stage2 KERNEL SYCL time elapsed: 1.66311 ms
+ Total KERNEL SYCL time elapsed: 34.5516 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 291.524 ms
+Numer of seed points: 9482
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 240.177 ms
+ Stage1 KERNEL SYCL time elapsed: 22.8997 ms
+ Stage2 KERNEL SYCL time elapsed: 2.42636 ms
+ Total KERNEL SYCL time elapsed: 25.326 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 265.503 ms
+Numer of seed points: 9681
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 258.734 ms
+ Stage1 KERNEL SYCL time elapsed: 27.5438 ms
+ Stage2 KERNEL SYCL time elapsed: 1.77704 ms
+ Total KERNEL SYCL time elapsed: 29.3209 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 288.055 ms
+Numer of seed points: 9405
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1013.07 ms
+ Stage1 KERNEL SYCL time elapsed: 78.5377 ms
+ Stage2 KERNEL SYCL time elapsed: 1.99106 ms
+ Total KERNEL SYCL time elapsed: 80.5288 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1093.6 ms
+Numer of seed points: 9632
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 698.824 ms
+ Stage1 KERNEL SYCL time elapsed: 69.6203 ms
+ Stage2 KERNEL SYCL time elapsed: 2.06306 ms
+ Total KERNEL SYCL time elapsed: 71.6834 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 770.507 ms
+Numer of seed points: 9661
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 482.886 ms
+ Stage1 KERNEL SYCL time elapsed: 57.7833 ms
+ Stage2 KERNEL SYCL time elapsed: 1.60818 ms
+ Total KERNEL SYCL time elapsed: 59.3915 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 542.278 ms
+Numer of seed points: 9634
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 344.729 ms
+ Stage1 KERNEL SYCL time elapsed: 39.8113 ms
+ Stage2 KERNEL SYCL time elapsed: 1.91232 ms
+ Total KERNEL SYCL time elapsed: 41.7236 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 386.452 ms
+Numer of seed points: 9642
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 314.871 ms
+ Stage1 KERNEL SYCL time elapsed: 38.3642 ms
+ Stage2 KERNEL SYCL time elapsed: 2.00432 ms
+ Total KERNEL SYCL time elapsed: 40.3685 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 355.239 ms
+Numer of seed points: 9543
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 296.878 ms
+ Stage1 KERNEL SYCL time elapsed: 31.6262 ms
+ Stage2 KERNEL SYCL time elapsed: 3.02366 ms
+ Total KERNEL SYCL time elapsed: 34.6499 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 331.528 ms
+Numer of seed points: 9510
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 324.102 ms
+ Stage1 KERNEL SYCL time elapsed: 38.2103 ms
+ Stage2 KERNEL SYCL time elapsed: 1.27954 ms
+ Total KERNEL SYCL time elapsed: 39.4899 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 363.592 ms
+Numer of seed points: 9633
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 274.053 ms
+ Stage1 KERNEL SYCL time elapsed: 26.6681 ms
+ Stage2 KERNEL SYCL time elapsed: 1.65887 ms
+ Total KERNEL SYCL time elapsed: 28.327 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 302.38 ms
+Numer of seed points: 9657
+
+
+Running: ../bin/owm-sycl-cpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Xeon(R) Platinum 8480+ @ 0Mhz (224 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 272.4 ms
+ Stage1 KERNEL SYCL time elapsed: 33.2318 ms
+ Stage2 KERNEL SYCL time elapsed: 1.92701 ms
+ Total KERNEL SYCL time elapsed: 35.1588 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 307.559 ms
+Numer of seed points: 9786
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 461.005 ms
+ Stage1 KERNEL SYCL time elapsed: 20.7442 ms
+ Stage2 KERNEL SYCL time elapsed: 46.0184 ms
+ Total KERNEL SYCL time elapsed: 66.7626 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 527.768 ms
+Numer of seed points: 61445
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 300.555 ms
+ Stage1 KERNEL SYCL time elapsed: 18.555 ms
+ Stage2 KERNEL SYCL time elapsed: 46.6278 ms
+ Total KERNEL SYCL time elapsed: 65.1828 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 365.738 ms
+Numer of seed points: 62385
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 181.945 ms
+ Stage1 KERNEL SYCL time elapsed: 20.9681 ms
+ Stage2 KERNEL SYCL time elapsed: 62.8314 ms
+ Total KERNEL SYCL time elapsed: 83.7995 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 265.744 ms
+Numer of seed points: 59708
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 141.401 ms
+ Stage1 KERNEL SYCL time elapsed: 20.247 ms
+ Stage2 KERNEL SYCL time elapsed: 55.3728 ms
+ Total KERNEL SYCL time elapsed: 75.6199 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 217.021 ms
+Numer of seed points: 65386
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 121.644 ms
+ Stage1 KERNEL SYCL time elapsed: 19.6532 ms
+ Stage2 KERNEL SYCL time elapsed: 57.6458 ms
+ Total KERNEL SYCL time elapsed: 77.299 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 198.943 ms
+Numer of seed points: 66601
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 108.559 ms
+ Stage1 KERNEL SYCL time elapsed: 38.0874 ms
+ Stage2 KERNEL SYCL time elapsed: 41.4164 ms
+ Total KERNEL SYCL time elapsed: 79.5037 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 188.063 ms
+Numer of seed points: 60218
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 104.238 ms
+ Stage1 KERNEL SYCL time elapsed: 40.8812 ms
+ Stage2 KERNEL SYCL time elapsed: 38.6948 ms
+ Total KERNEL SYCL time elapsed: 79.5759 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 183.814 ms
+Numer of seed points: 65475
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 102.306 ms
+ Stage1 KERNEL SYCL time elapsed: 40.8074 ms
+ Stage2 KERNEL SYCL time elapsed: 44.1581 ms
+ Total KERNEL SYCL time elapsed: 84.9655 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 187.271 ms
+Numer of seed points: 60120
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 100.962 ms
+ Stage1 KERNEL SYCL time elapsed: 77.6901 ms
+ Stage2 KERNEL SYCL time elapsed: 50.1612 ms
+ Total KERNEL SYCL time elapsed: 127.851 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 228.813 ms
+Numer of seed points: 58528
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 793.467 ms
+ Stage1 KERNEL SYCL time elapsed: 40.0779 ms
+ Stage2 KERNEL SYCL time elapsed: 57.4102 ms
+ Total KERNEL SYCL time elapsed: 97.4881 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 890.955 ms
+Numer of seed points: 27474
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 450.232 ms
+ Stage1 KERNEL SYCL time elapsed: 32.1533 ms
+ Stage2 KERNEL SYCL time elapsed: 42.5679 ms
+ Total KERNEL SYCL time elapsed: 74.7212 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 524.953 ms
+Numer of seed points: 27788
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 283.839 ms
+ Stage1 KERNEL SYCL time elapsed: 28.5615 ms
+ Stage2 KERNEL SYCL time elapsed: 57.2682 ms
+ Total KERNEL SYCL time elapsed: 85.8297 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 369.669 ms
+Numer of seed points: 27749
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 167.716 ms
+ Stage1 KERNEL SYCL time elapsed: 37.6353 ms
+ Stage2 KERNEL SYCL time elapsed: 55.686 ms
+ Total KERNEL SYCL time elapsed: 93.3213 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 261.038 ms
+Numer of seed points: 27587
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 120.402 ms
+ Stage1 KERNEL SYCL time elapsed: 41.7244 ms
+ Stage2 KERNEL SYCL time elapsed: 55.7958 ms
+ Total KERNEL SYCL time elapsed: 97.5202 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 217.922 ms
+Numer of seed points: 28643
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 103.106 ms
+ Stage1 KERNEL SYCL time elapsed: 42.9789 ms
+ Stage2 KERNEL SYCL time elapsed: 50.8991 ms
+ Total KERNEL SYCL time elapsed: 93.8781 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 196.984 ms
+Numer of seed points: 28199
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 88.9936 ms
+ Stage1 KERNEL SYCL time elapsed: 72.4704 ms
+ Stage2 KERNEL SYCL time elapsed: 57.1974 ms
+ Total KERNEL SYCL time elapsed: 129.668 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 218.661 ms
+Numer of seed points: 27938
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 84.3534 ms
+ Stage1 KERNEL SYCL time elapsed: 88.1218 ms
+ Stage2 KERNEL SYCL time elapsed: 66.4814 ms
+ Total KERNEL SYCL time elapsed: 154.603 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 238.957 ms
+Numer of seed points: 30517
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 83.6373 ms
+ Stage1 KERNEL SYCL time elapsed: 89.1443 ms
+ Stage2 KERNEL SYCL time elapsed: 57.2187 ms
+ Total KERNEL SYCL time elapsed: 146.363 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 230 ms
+Numer of seed points: 27004
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 1007.18 ms
+ Stage1 KERNEL SYCL time elapsed: 28.7708 ms
+ Stage2 KERNEL SYCL time elapsed: 26.8712 ms
+ Total KERNEL SYCL time elapsed: 55.642 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1062.82 ms
+Numer of seed points: 9506
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 662.182 ms
+ Stage1 KERNEL SYCL time elapsed: 26.717 ms
+ Stage2 KERNEL SYCL time elapsed: 54.5885 ms
+ Total KERNEL SYCL time elapsed: 81.3055 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 743.487 ms
+Numer of seed points: 9667
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 469.878 ms
+ Stage1 KERNEL SYCL time elapsed: 26.9684 ms
+ Stage2 KERNEL SYCL time elapsed: 41.4298 ms
+ Total KERNEL SYCL time elapsed: 68.3982 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 538.277 ms
+Numer of seed points: 9583
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 354.503 ms
+ Stage1 KERNEL SYCL time elapsed: 34.4904 ms
+ Stage2 KERNEL SYCL time elapsed: 69.0949 ms
+ Total KERNEL SYCL time elapsed: 103.585 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 458.088 ms
+Numer of seed points: 9538
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 312.532 ms
+ Stage1 KERNEL SYCL time elapsed: 33.8774 ms
+ Stage2 KERNEL SYCL time elapsed: 30.3908 ms
+ Total KERNEL SYCL time elapsed: 64.2682 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 376.8 ms
+Numer of seed points: 10016
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 289.479 ms
+ Stage1 KERNEL SYCL time elapsed: 43.6629 ms
+ Stage2 KERNEL SYCL time elapsed: 43.714 ms
+ Total KERNEL SYCL time elapsed: 87.3769 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 376.856 ms
+Numer of seed points: 9921
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 275.665 ms
+ Stage1 KERNEL SYCL time elapsed: 62.3744 ms
+ Stage2 KERNEL SYCL time elapsed: 22.3395 ms
+ Total KERNEL SYCL time elapsed: 84.7139 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 360.379 ms
+Numer of seed points: 9628
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 271.115 ms
+ Stage1 KERNEL SYCL time elapsed: 63.2312 ms
+ Stage2 KERNEL SYCL time elapsed: 36.8473 ms
+ Total KERNEL SYCL time elapsed: 100.078 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 371.194 ms
+Numer of seed points: 10268
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 269.947 ms
+ Stage1 KERNEL SYCL time elapsed: 107.614 ms
+ Stage2 KERNEL SYCL time elapsed: 47.8454 ms
+ Total KERNEL SYCL time elapsed: 155.46 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 425.407 ms
+Numer of seed points: 9905
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 957.697 ms
+ Stage1 KERNEL SYCL time elapsed: 32.9317 ms
+ Stage2 KERNEL SYCL time elapsed: 55.9682 ms
+ Total KERNEL SYCL time elapsed: 88.8999 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1046.6 ms
+Numer of seed points: 9683
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 570.407 ms
+ Stage1 KERNEL SYCL time elapsed: 28.9952 ms
+ Stage2 KERNEL SYCL time elapsed: 22.6007 ms
+ Total KERNEL SYCL time elapsed: 51.5959 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 622.003 ms
+Numer of seed points: 9809
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 348.384 ms
+ Stage1 KERNEL SYCL time elapsed: 30.785 ms
+ Stage2 KERNEL SYCL time elapsed: 42.3569 ms
+ Total KERNEL SYCL time elapsed: 73.1419 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 421.526 ms
+Numer of seed points: 9842
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 209.074 ms
+ Stage1 KERNEL SYCL time elapsed: 39.1445 ms
+ Stage2 KERNEL SYCL time elapsed: 44.8734 ms
+ Total KERNEL SYCL time elapsed: 84.0179 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 293.092 ms
+Numer of seed points: 9777
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 163.031 ms
+ Stage1 KERNEL SYCL time elapsed: 38.1558 ms
+ Stage2 KERNEL SYCL time elapsed: 65.584 ms
+ Total KERNEL SYCL time elapsed: 103.74 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 266.771 ms
+Numer of seed points: 10129
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 134.326 ms
+ Stage1 KERNEL SYCL time elapsed: 54.6048 ms
+ Stage2 KERNEL SYCL time elapsed: 47.9651 ms
+ Total KERNEL SYCL time elapsed: 102.57 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 236.896 ms
+Numer of seed points: 9982
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 119.62 ms
+ Stage1 KERNEL SYCL time elapsed: 65.9143 ms
+ Stage2 KERNEL SYCL time elapsed: 10.9176 ms
+ Total KERNEL SYCL time elapsed: 76.8319 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 196.452 ms
+Numer of seed points: 9870
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 114.421 ms
+ Stage1 KERNEL SYCL time elapsed: 83.7273 ms
+ Stage2 KERNEL SYCL time elapsed: 89.9575 ms
+ Total KERNEL SYCL time elapsed: 173.685 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 288.106 ms
+Numer of seed points: 10333
+
+
+Running: ../bin/owm-sycl-igpu ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 112.691 ms
+ Stage1 KERNEL SYCL time elapsed: 124.182 ms
+ Stage2 KERNEL SYCL time elapsed: 37.4667 ms
+ Total KERNEL SYCL time elapsed: 161.649 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 274.339 ms
+Numer of seed points: 10289
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 462.447 ms
+ Stage1 KERNEL SYCL time elapsed: 39.0313 ms
+ Stage2 KERNEL SYCL time elapsed: 72.6097 ms
+ Total KERNEL SYCL time elapsed: 111.641 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 574.088 ms
+Numer of seed points: 61673
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 299.286 ms
+ Stage1 KERNEL SYCL time elapsed: 32.0307 ms
+ Stage2 KERNEL SYCL time elapsed: 67.7344 ms
+ Total KERNEL SYCL time elapsed: 99.7651 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 399.051 ms
+Numer of seed points: 62015
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 183.483 ms
+ Stage1 KERNEL SYCL time elapsed: 27.4554 ms
+ Stage2 KERNEL SYCL time elapsed: 46.1597 ms
+ Total KERNEL SYCL time elapsed: 73.6151 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 257.098 ms
+Numer of seed points: 59644
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 140.952 ms
+ Stage1 KERNEL SYCL time elapsed: 24.3512 ms
+ Stage2 KERNEL SYCL time elapsed: 62.6934 ms
+ Total KERNEL SYCL time elapsed: 87.0447 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 227.997 ms
+Numer of seed points: 64631
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 121.403 ms
+ Stage1 KERNEL SYCL time elapsed: 23.3184 ms
+ Stage2 KERNEL SYCL time elapsed: 62.8322 ms
+ Total KERNEL SYCL time elapsed: 86.1506 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 207.553 ms
+Numer of seed points: 65533
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 108.648 ms
+ Stage1 KERNEL SYCL time elapsed: 39.3321 ms
+ Stage2 KERNEL SYCL time elapsed: 70.9783 ms
+ Total KERNEL SYCL time elapsed: 110.31 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 218.958 ms
+Numer of seed points: 60183
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 104.387 ms
+ Stage1 KERNEL SYCL time elapsed: 41.2468 ms
+ Stage2 KERNEL SYCL time elapsed: 41.1958 ms
+ Total KERNEL SYCL time elapsed: 82.4426 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 186.829 ms
+Numer of seed points: 65437
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 102.424 ms
+ Stage1 KERNEL SYCL time elapsed: 40.4883 ms
+ Stage2 KERNEL SYCL time elapsed: 57.6208 ms
+ Total KERNEL SYCL time elapsed: 98.1092 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 200.533 ms
+Numer of seed points: 60074
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/INAER_2011_Alcoy_Core.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 100.933 ms
+ Stage1 KERNEL SYCL time elapsed: 76.2759 ms
+ Stage2 KERNEL SYCL time elapsed: 48.3354 ms
+ Total KERNEL SYCL time elapsed: 124.611 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 225.544 ms
+Numer of seed points: 58546
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 800.732 ms
+ Stage1 KERNEL SYCL time elapsed: 184.057 ms
+ Stage2 KERNEL SYCL time elapsed: 46.1537 ms
+ Total KERNEL SYCL time elapsed: 230.21 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1030.94 ms
+Numer of seed points: 27352
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 436.504 ms
+ Stage1 KERNEL SYCL time elapsed: 113.191 ms
+ Stage2 KERNEL SYCL time elapsed: 80.8401 ms
+ Total KERNEL SYCL time elapsed: 194.031 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 630.536 ms
+Numer of seed points: 27091
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 285.537 ms
+ Stage1 KERNEL SYCL time elapsed: 94.0749 ms
+ Stage2 KERNEL SYCL time elapsed: 42.8952 ms
+ Total KERNEL SYCL time elapsed: 136.97 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 422.507 ms
+Numer of seed points: 26163
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 166.329 ms
+ Stage1 KERNEL SYCL time elapsed: 118.027 ms
+ Stage2 KERNEL SYCL time elapsed: 27.9876 ms
+ Total KERNEL SYCL time elapsed: 146.014 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 312.343 ms
+Numer of seed points: 27299
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 122.232 ms
+ Stage1 KERNEL SYCL time elapsed: 84.7105 ms
+ Stage2 KERNEL SYCL time elapsed: 42.0027 ms
+ Total KERNEL SYCL time elapsed: 126.713 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 248.946 ms
+Numer of seed points: 27505
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 103.105 ms
+ Stage1 KERNEL SYCL time elapsed: 77.8866 ms
+ Stage2 KERNEL SYCL time elapsed: 69.2202 ms
+ Total KERNEL SYCL time elapsed: 147.107 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 250.212 ms
+Numer of seed points: 26099
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 88.9622 ms
+ Stage1 KERNEL SYCL time elapsed: 109.633 ms
+ Stage2 KERNEL SYCL time elapsed: 42.0088 ms
+ Total KERNEL SYCL time elapsed: 151.642 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 240.604 ms
+Numer of seed points: 27666
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 84.4068 ms
+ Stage1 KERNEL SYCL time elapsed: 100.157 ms
+ Stage2 KERNEL SYCL time elapsed: 33.7497 ms
+ Total KERNEL SYCL time elapsed: 133.907 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 218.314 ms
+Numer of seed points: 30304
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/BABCOCK_2017_Arzua_3B.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 83.643 ms
+ Stage1 KERNEL SYCL time elapsed: 99.0302 ms
+ Stage2 KERNEL SYCL time elapsed: 50.1557 ms
+ Total KERNEL SYCL time elapsed: 149.186 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 232.829 ms
+Numer of seed points: 26901
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 996.461 ms
+ Stage1 KERNEL SYCL time elapsed: 155.741 ms
+ Stage2 KERNEL SYCL time elapsed: 25.7012 ms
+ Total KERNEL SYCL time elapsed: 181.442 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1177.9 ms
+Numer of seed points: 9482
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 663.647 ms
+ Stage1 KERNEL SYCL time elapsed: 129.179 ms
+ Stage2 KERNEL SYCL time elapsed: 43.9442 ms
+ Total KERNEL SYCL time elapsed: 173.124 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 836.77 ms
+Numer of seed points: 9418
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 475.064 ms
+ Stage1 KERNEL SYCL time elapsed: 102.361 ms
+ Stage2 KERNEL SYCL time elapsed: 37.0355 ms
+ Total KERNEL SYCL time elapsed: 139.397 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 614.461 ms
+Numer of seed points: 9359
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 354.376 ms
+ Stage1 KERNEL SYCL time elapsed: 94.5474 ms
+ Stage2 KERNEL SYCL time elapsed: 58.1196 ms
+ Total KERNEL SYCL time elapsed: 152.667 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 507.043 ms
+Numer of seed points: 9491
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 312.241 ms
+ Stage1 KERNEL SYCL time elapsed: 87.4513 ms
+ Stage2 KERNEL SYCL time elapsed: 15.526 ms
+ Total KERNEL SYCL time elapsed: 102.977 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 415.218 ms
+Numer of seed points: 9422
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 289.413 ms
+ Stage1 KERNEL SYCL time elapsed: 93.034 ms
+ Stage2 KERNEL SYCL time elapsed: 21.2981 ms
+ Total KERNEL SYCL time elapsed: 114.332 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 403.745 ms
+Numer of seed points: 9303
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 275.376 ms
+ Stage1 KERNEL SYCL time elapsed: 97.8852 ms
+ Stage2 KERNEL SYCL time elapsed: 33.2677 ms
+ Total KERNEL SYCL time elapsed: 131.153 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 406.529 ms
+Numer of seed points: 9497
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 271.341 ms
+ Stage1 KERNEL SYCL time elapsed: 95.3556 ms
+ Stage2 KERNEL SYCL time elapsed: 52.2516 ms
+ Total KERNEL SYCL time elapsed: 147.607 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 418.948 ms
+Numer of seed points: 9653
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V21_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 269.922 ms
+ Stage1 KERNEL SYCL time elapsed: 123.807 ms
+ Stage2 KERNEL SYCL time elapsed: 4.51568 ms
+ Total KERNEL SYCL time elapsed: 128.323 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 398.245 ms
+Numer of seed points: 9406
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 4
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 954.537 ms
+ Stage1 KERNEL SYCL time elapsed: 173.427 ms
+ Stage2 KERNEL SYCL time elapsed: 56.5026 ms
+ Total KERNEL SYCL time elapsed: 229.93 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 1184.47 ms
+Numer of seed points: 9608
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 8
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 569.033 ms
+ Stage1 KERNEL SYCL time elapsed: 138.953 ms
+ Stage2 KERNEL SYCL time elapsed: 49.5735 ms
+ Total KERNEL SYCL time elapsed: 188.527 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 757.56 ms
+Numer of seed points: 9645
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 16
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 347.234 ms
+ Stage1 KERNEL SYCL time elapsed: 120.249 ms
+ Stage2 KERNEL SYCL time elapsed: 65.6905 ms
+ Total KERNEL SYCL time elapsed: 185.939 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 533.173 ms
+Numer of seed points: 9612
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 32
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 209.464 ms
+ Stage1 KERNEL SYCL time elapsed: 109.817 ms
+ Stage2 KERNEL SYCL time elapsed: 66.0765 ms
+ Total KERNEL SYCL time elapsed: 175.894 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 385.358 ms
+Numer of seed points: 9635
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 64
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 163.465 ms
+ Stage1 KERNEL SYCL time elapsed: 102.089 ms
+ Stage2 KERNEL SYCL time elapsed: 70.2671 ms
+ Total KERNEL SYCL time elapsed: 172.356 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 335.821 ms
+Numer of seed points: 9541
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 128
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 134.43 ms
+ Stage1 KERNEL SYCL time elapsed: 104.575 ms
+ Stage2 KERNEL SYCL time elapsed: 24.5504 ms
+ Total KERNEL SYCL time elapsed: 129.125 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 263.556 ms
+Numer of seed points: 9504
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 256
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 119.656 ms
+ Stage1 KERNEL SYCL time elapsed: 107.936 ms
+ Stage2 KERNEL SYCL time elapsed: 49.7432 ms
+ Total KERNEL SYCL time elapsed: 157.68 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 277.336 ms
+Numer of seed points: 9587
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 512
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 114.169 ms
+ Stage1 KERNEL SYCL time elapsed: 114.798 ms
+ Stage2 KERNEL SYCL time elapsed: 55.002 ms
+ Total KERNEL SYCL time elapsed: 169.8 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 283.969 ms
+Numer of seed points: 9656
+
+
+Running: ../bin/owm-sycl-igpu-nomemo ../../LiDARClouds/V19_group1_densified_point_cloud.xyz 1024
+
+Device : Intel(R) Data Center GPU Max 1100 @ 1550Mhz (448 cores)
+Performing 5 tests
+ Tree Construction SYCL time elapased: 112.565 ms
+ Stage1 KERNEL SYCL time elapsed: 138.078 ms
+ Stage2 KERNEL SYCL time elapsed: 43.7713 ms
+ Total KERNEL SYCL time elapsed: 181.849 ms
+ Total TIME (Tree+OWM) SYCL time elapsed: 294.414 ms
+Numer of seed points: 9812
+End : Tue Aug 15 11:31:48 2023Total Execution time: 1.389100907643636 hours
