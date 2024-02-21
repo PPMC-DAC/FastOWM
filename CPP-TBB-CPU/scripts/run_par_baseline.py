@@ -1,5 +1,9 @@
 import os
 import time
+import numpy as np
+
+# Alder
+nprocs = 16 # 8 p-cores and 8 e-cores
 
 #Sliding window size
 Wsize = 10
@@ -8,7 +12,9 @@ Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
 #num_threads for the openmp implementations of stage1 and stage3
-num_threads = [1, 2, 4, 6, 8]
+# num_threads = [1, 2, 4, 6, 8]
+num_threads = np.insert(np.linspace(2, nprocs, nprocs//2, dtype=int, endpoint=True), 0, 1)
+print(num_threads)
 #number of times the OWM is executed
 nreps = 5
 
@@ -17,10 +23,10 @@ print("Start : %s" % time.ctime())
 
 executable_seq="../bin/baseline"
 executable_par="../bin/par_baseline"
-inputs=["../bin/data/Alcoy",
-        "../bin/data/Arzua",
-        "../bin/data/BrionF",
-        "../bin/data/BrionU"]
+inputs=["../bin/data/AlcoyH",
+        "../bin/data/ArzuaH",
+        "../bin/data/BrionFH",
+        "../bin/data/BrionUH"]
 
 for file in inputs:
     output="baseline.out"
