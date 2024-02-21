@@ -79,4 +79,4 @@ $(BIN)/statsmaxnum: application/owm_stats.cpp include/stats_func.hpp
 		$(CXX) application/owm_stats.cpp -O3 -lm -ltbb -std=c++17 -ltbbmalloc_proxy -o $@ -DMAXNUMBER
 
 clean:
-	rm -rf bin/
+	rm -f bin/*
