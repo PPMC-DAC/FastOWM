@@ -45,4 +45,4 @@ end = time.time()
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
 # copy the output file to the results folder
-os.system(f'cp {output} ../../Results/')
+os.system(f'cp {output} ../../Results/o1_qtree_{hostname}.txt')
