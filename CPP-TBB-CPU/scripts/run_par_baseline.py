@@ -14,7 +14,6 @@ Overlap = 0.8
 #num_threads for the openmp implementations of stage1 and stage3
 # num_threads = [1, 2, 4, 6, 8]
 num_threads = np.insert(np.linspace(2, nprocs, nprocs//2, dtype=int, endpoint=True), 0, 1)
-print(num_threads)
 #number of times the OWM is executed
 nreps = 5
 
