@@ -2,8 +2,8 @@ import os
 import time
 import numpy as np
 
-# Alder
-nprocs = 16 # 8 p-cores and 8 e-cores
+# get the number of physical cores
+nprocs = int(os.popen("lscpu | grep 'Core(s) per socket' | awk '{print $4}'").read().strip())
 
 #Sliding window size
 Wsize = 10
@@ -27,20 +27,31 @@ inputs=["../bin/data/AlcoyH",
         "../bin/data/BrionFH",
         "../bin/data/BrionUH"]
 
-for file in inputs:
-    output="baseline.out"
-    print("Running: {} {} {} {} {} {} {}".format(executable_seq,file,Wsize,Bsize,Overlap,1,nreps))
-    f = open(output, "a")
-    f.write("\n\nRunning: {} {} {} {} {} {} {}\n\n".format(executable_seq,file,Wsize,Bsize,Overlap,1,nreps))
-    f.close()
-    os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_seq, file, Wsize, Bsize, Overlap, 1, nreps, output))
-    for nth in num_threads:
-        print("Running: {} {} {} {} {} {} {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps))
-        f = open(output, "a")
-        f.write("\n\nRunning: {} {} {} {} {} {} {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps))
-        f.close()
-        os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps, output))
+# get the hostname
+hostname = os.popen("hostname").read().strip()
+# set the output file
+output = f'baseline_{hostname}.out'
+
+with open(output, "a") as f:
+        for cloud in inputs:
+                print("Running: {} {} {} {} {} {} {}".format(executable_seq,cloud,Wsize,Bsize,Overlap,1,nreps))
+                # save the configuration in the file
+                f.write("\n\nRunning: {} {} {} {} {} {} {}\n\n".format(executable_seq,cloud,Wsize,Bsize,Overlap,1,nreps))
+                # flush the buffer
+                f.flush()
+                # execute the command and save the output to the file
+                os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_seq, cloud, Wsize, Bsize, Overlap, 1, nreps, output))
+                for nth in num_threads:
+                        print("Running: {} {} {} {} {} {} {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps))
+                        # save the configuration in the file
+                        f.write("\n\nRunning: {} {} {} {} {} {} {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps))
+                        # flush the buffer
+                        f.flush()
+                        # execute the command and save the output to the file
+                        os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, output))
 
 end = time.time()
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
+# copy the output file to the results folder
+os.system(f'cp {output} ../../Results/')
