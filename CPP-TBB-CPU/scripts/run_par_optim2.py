@@ -21,10 +21,11 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 executable_par="../bin/o2par"
-inputs=["../bin/data/AlcoyH",
-        "../bin/data/ArzuaH",
-        "../bin/data/BrionFH",
-        "../bin/data/BrionUH"]
+# inputs=["../bin/data/AlcoyH",
+#         "../bin/data/ArzuaH",
+#         "../bin/data/BrionFH",
+#         "../bin/data/BrionUH"]
+inputs=['../bin/data/small_AlcoyH']
 
 # get the hostname
 hostname = os.popen("hostname").read().strip()
@@ -55,4 +56,4 @@ with open(output, "a") as f:
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
 # copy the output file to the results folder
-os.system(f'cp {output} ../../Results/o1_qtree_{hostname}.txt')
+os.system(f"cp {output} ../../Results/{output.replace('.out', '.txt')}")

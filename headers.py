@@ -3,7 +3,7 @@ clouds_path = '/home/fmlopez/'
 clouds_info = [
     {
         'src': f'{clouds_path}/INAER_2011_Alcoy.xyz',
-        'dst': f'{clouds_path}/small_Alcoy.xyz',
+        'dst': f'{clouds_path}/small_AlcoyH.xyz',
         'Npoints': 2772832,
         'minx': 715244.96,
         'maxx': 716057.75,

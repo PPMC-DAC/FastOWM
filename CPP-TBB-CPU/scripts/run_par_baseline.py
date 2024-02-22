@@ -1,6 +1,7 @@
 import os
 import time
 import numpy as np
+from datetime import datetime
 
 # get the number of physical cores
 nprocs = int(os.popen("lscpu | grep 'Core(s) per socket' | awk '{print $4}'").read().strip())
@@ -32,6 +33,7 @@ hostname = os.popen("hostname").read().strip()
 output = f'baseline_{hostname}.out'
 
 with open(output, "a") as f:
+    f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
     for cloud in inputs:
         print("Running: {} {} {} {} {} {} {}".format(executable_seq,cloud,Wsize,Bsize,Overlap,1,nreps))
         # save the configuration in the file
@@ -49,8 +51,11 @@ with open(output, "a") as f:
             # execute the command and save the output to the file
             os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, output))
 
-end = time.time()
+    end = time.time()
+    f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    f.write("Total Execution time: {} hours".format((end - start)/3600))
+
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
 # copy the output file to the results folder
-os.system(f'cp {output} ../../Results/baseline_{hostname}.txt')
+os.system(f"cp {output} ../../Results/{output.replace('.out', '.txt')}")
