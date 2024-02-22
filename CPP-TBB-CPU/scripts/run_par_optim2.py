@@ -21,11 +21,10 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 executable_par="../bin/o2par"
-# inputs=["../bin/data/AlcoyH",
-#         "../bin/data/ArzuaH",
-#         "../bin/data/BrionFH",
-#         "../bin/data/BrionUH"]
-inputs=['../bin/data/small_AlcoyH']
+inputs=["../bin/data/AlcoyH",
+        "../bin/data/ArzuaH",
+        "../bin/data/BrionFH",
+        "../bin/data/BrionUH"]
 
 # get the hostname
 hostname = os.popen("hostname").read().strip()
