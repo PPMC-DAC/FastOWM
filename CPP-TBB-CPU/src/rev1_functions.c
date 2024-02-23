@@ -25,8 +25,13 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
   unsigned int countMin = 0;
 
 #ifdef PARALLEL
+#ifdef COLLAPSE
     #pragma omp parallel for collapse(2) schedule(dynamic,chunk)
+#else
+    #pragma omp parallel for schedule(dynamic,chunk)
 #endif
+#endif
+
       for(int jj = 0 ; jj < Ccol ; jj++ ){
         for( int ii=0 ; ii < Crow ; ii++ ){
 
