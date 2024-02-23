@@ -3,8 +3,11 @@ import time
 import numpy as np
 from datetime import datetime
 
-# get the number of physical cores
+# get the number of physical cores per socket
 nprocs = int(os.popen("lscpu | grep 'Core(s) per socket' | awk '{print $4}'").read().strip())
+# get the number of sockets
+nsockets = int(os.popen("lscpu | grep 'Socket(s)' | awk '{print $2}'").read().strip())
+nprocs *= nsockets
 
 #Sliding window size
 Wsize = 10
