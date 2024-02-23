@@ -22,7 +22,7 @@ CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum
+PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum rev1
 LIST=$(addprefix $(BIN)/, $(PROG))
 
 all: $(LIST)
@@ -32,6 +32,10 @@ $(BIN)/%: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE)
 
 $(BIN)/par_baseline: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
+
+$(BIN)/rev1: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
 
