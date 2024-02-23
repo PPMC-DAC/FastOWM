@@ -1,6 +1,6 @@
 import os
 
-clouds_path = '/home/fmlopez/FastOWM/CPP-TBB-CPU/bin/data'
+clouds_path = '/home/fmlopez'
 
 clouds_info = [
     {
@@ -72,6 +72,8 @@ for cloud in clouds_info:
     miny = cloud['miny']
     maxy = cloud['maxy']
 
+    # clean previous files
+    os.system(f'rm -f {dst} {dstgold}')
     # insert a line at the beginning of the file
     with open(dst, 'w') as file_dst:
         file_dst.write(f'{Npoints} {minx} {maxx} {miny} {maxy}\n')
