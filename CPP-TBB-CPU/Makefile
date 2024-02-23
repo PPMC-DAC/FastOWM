@@ -22,7 +22,7 @@ CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-PROG=baseline
+PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum
 LIST=$(addprefix $(BIN)/, $(PROG))
 
 all: $(LIST)
