@@ -34,7 +34,7 @@ hostname = os.popen("hostname").read().strip()
 output_list = [f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out']
 
 # list of chunk sizes used in the dynamic scheduling of stage 1
-chunk_list = list(range(9))
+chunk_list = list(range(1,9))
 
 # zip the output and executable lists
 for output, executable_par in zip(output_list, executable_list):
