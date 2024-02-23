@@ -21,10 +21,12 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 executable_par="../bin/o1qtree"
-inputs=["../bin/data/AlcoyH",
-        "../bin/data/ArzuaH",
-        "../bin/data/BrionFH",
-        "../bin/data/BrionUH"]
+inputs=[
+    "../bin/data/AlcoyH",
+    "../bin/data/ArzuaH",
+    "../bin/data/BrionFH",
+    "../bin/data/BrionUH"
+    ]
 
 # get the hostname
 hostname = os.popen("hostname").read().strip()
@@ -44,8 +46,8 @@ with open(output, "a") as f:
             os.system("%s %s %d %d %f %d %d | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, output))
 
     end = time.time()
-    f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
-    f.write("Total Execution time: {} hours".format((end - start)/3600))
+    f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
+    f.write("Total Execution time: {} hours\n".format((end - start)/3600))
 
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
