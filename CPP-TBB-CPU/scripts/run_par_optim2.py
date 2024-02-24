@@ -38,7 +38,9 @@ start = time.time()
 print("Start : %s" % time.ctime())
 
 with open(output, "a") as f:
+    # stamp the start time
     f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    # iterate over the clouds, levels and number of threads
     for cloud in inputs:
         for lev in levels:
             for nth in num_threads:
