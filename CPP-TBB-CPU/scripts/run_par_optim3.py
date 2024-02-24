@@ -2,12 +2,7 @@ import os
 import time
 import numpy as np
 from datetime import datetime
-
-# get the number of physical cores per socket
-nprocs = int(os.popen("lscpu | grep 'Core(s) per socket' | awk '{print $4}'").read().strip())
-# get the number of sockets
-nsockets = int(os.popen("lscpu | grep 'Socket(s)' | awk '{print $2}'").read().strip())
-nprocs *= nsockets
+from common.utils import get_nprocs
 
 #Sliding window size
 Wsize = 10
@@ -16,11 +11,11 @@ Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
 #num_threads for the openmp implementations of stage1 and stage3
-num_threads = np.insert(np.linspace(2, nprocs, nprocs//2, dtype=int, endpoint=True), 0, 1)
+num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
 
-executable_list=['../bin/o3memoA', '../bin/o3memo', '../bin/o3memoB']
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
@@ -32,6 +27,8 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output_list = [f'o3_memoizationA_{hostname}.out', f'o3_memoization_{hostname}.out', f'o3_memoizationB_{hostname}.out']
+# executables
+executable_list=['../bin/o3memoA', '../bin/o3memo', '../bin/o3memoB']
 
 levels = list(range(2,10))
 mR=0.1

@@ -14,9 +14,8 @@ Overlap = 0.8
 num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
-maxNumber=65536
 
-executable_par="../bin/o3memo"
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
@@ -28,10 +27,13 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output = f'o4_minradius_{hostname}.out'
+# executables
+executable_par="../bin/o3memo"
 
 minRadius=[x/10 for x in list(range(1,20,1))]
 levels = list(range(3,10))
 nth=8
+mN=65536
 
 start = time.time()
 print("Start : %s" % time.ctime())
@@ -43,13 +45,13 @@ with open(output, "a") as f:
     for cloud in inputs:
         for mR in minRadius:
             for lev in levels:
-                print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
+                print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
                 # save the configuration in the file
-                f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
+                f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
                 # flush the buffer
                 f.flush()
                 # excecute the command and save the output to the file
-                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
+                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, mN, lev, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')

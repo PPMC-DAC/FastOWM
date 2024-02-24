@@ -15,7 +15,7 @@ num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
 
-executable_list=["../bin/rev1", "../bin/rev1collap"]
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
@@ -27,6 +27,8 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output_list = [f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out']
+# executables
+executable_list=["../bin/rev1", "../bin/rev1collap"]
 
 # list of chunk sizes used in the dynamic scheduling of stage 1
 chunk_list = list(range(1,9))

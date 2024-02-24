@@ -15,11 +15,7 @@ num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
 
-start = time.time()
-print("Start : %s" % time.ctime())
-
-executable_seq="../bin/baseline"
-executable_par="../bin/par_baseline"
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
@@ -31,9 +27,17 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output = f'baseline_{hostname}.out'
+# executables
+executable_seq="../bin/baseline"
+executable_par="../bin/par_baseline"
+
+start = time.time()
+print("Start : %s" % time.ctime())
 
 with open(output, "a") as f:
+    # stamp the start time
     f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    # iterate over the clouds, levels and number of threads
     for cloud in inputs:
         print("Running: {} {} {} {} {} {} {}".format(executable_seq,cloud,Wsize,Bsize,Overlap,1,nreps))
         # save the configuration in the file

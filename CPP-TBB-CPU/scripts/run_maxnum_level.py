@@ -14,9 +14,8 @@ Overlap = 0.8
 num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
-maxNumber=65536
 
-executable_par="../bin/o4maxnum"
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
@@ -28,6 +27,8 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output = f'o4_maxnumber_{hostname}.out'
+# executables
+executable_par="../bin/o4maxnum"
 
 maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 levels = list(range(3,10))

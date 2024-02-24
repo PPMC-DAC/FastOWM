@@ -2,12 +2,7 @@ import os
 import time
 import numpy as np
 from datetime import datetime
-
-# get the number of physical cores per socket
-nprocs = int(os.popen("lscpu | grep 'Core(s) per socket' | awk '{print $4}'").read().strip())
-# get the number of sockets
-nsockets = int(os.popen("lscpu | grep 'Socket(s)' | awk '{print $2}'").read().strip())
-nprocs *= nsockets
+from common.utils import get_nprocs
 
 #Sliding window size
 Wsize = 10
@@ -16,28 +11,32 @@ Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
 #num_threads for the openmp implementations of stage1 and stage3
-num_threads = np.insert(np.linspace(2, nprocs, nprocs//2, dtype=int, endpoint=True), 0, 1)
+num_threads = get_nprocs()
 #number of times the OWM is executed
 nreps = 5
 
-start = time.time()
-print("Start : %s" % time.ctime())
-
-executable_par="../bin/o1qtree"
+# name of the input files without the extension .xyz
 inputs=[
     "../bin/data/AlcoyH",
     "../bin/data/ArzuaH",
     "../bin/data/BrionFH",
-    "../bin/data/BrionUH"
+    "../bin/data/BrionUH",
     ]
 
 # get the hostname
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output = f'o1_qtree_{hostname}.out'
+# executables
+executable_par="../bin/o1qtree"
+
+start = time.time()
+print("Start : %s" % time.ctime())
 
 with open(output, "a") as f:
+    # stamp the start time
     f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    # iterate over the clouds, levels and number of threads
     for cloud in inputs:
         for nth in num_threads:
             print("Running: {} {} {} {} {} {} {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps))
