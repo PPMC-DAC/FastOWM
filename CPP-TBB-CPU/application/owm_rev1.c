@@ -347,6 +347,8 @@ int main( int argc, char* argv[]){
     minGridIDs=NULL;
     free(pointer);
     pointer=NULL;
+    free(resultados);
+    resultados=NULL;
 
     return 0;
 }

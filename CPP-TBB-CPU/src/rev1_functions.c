@@ -26,15 +26,23 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
 
 #ifdef PARALLEL
 #ifdef COLLAPSE
+#ifdef STATIC
+    #pragma omp parallel for collapse(2) schedule(static,chunk)
+#elif defined(GUIDED)
+    #pragma omp parallel for collapse(2) schedule(guided,chunk)
+#else
     #pragma omp parallel for collapse(2) schedule(dynamic,chunk)
-#elif defined(STATIC)
+#endif
+#else //COLLAPSE
+#ifdef STATIC
     #pragma omp parallel for schedule(static,chunk)
 #elif defined(GUIDED)
     #pragma omp parallel for schedule(guided,chunk)
 #else
     #pragma omp parallel for schedule(dynamic,chunk)
 #endif
-#endif
+#endif //COLLAPSE
+#endif //PARALLEL
 
       for(int jj = 0 ; jj < Ccol ; jj++ ){
         for( int ii=0 ; ii < Crow ; ii++ ){

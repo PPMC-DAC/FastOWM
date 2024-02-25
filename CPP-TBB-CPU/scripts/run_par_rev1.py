@@ -26,12 +26,20 @@ inputs=[
 # get the hostname
 hostname = os.popen("hostname").read().strip()
 # set the output file
-output_list = [f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out']
+output_list = [ f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out', # dynamic
+                f'rev1_static_{hostname}.out', f'rev1_collapse_static_{hostname}.out', # static
+                f'rev1_guided_{hostname}.out', f'rev1_collapse_guided_{hostname}.out', # guided
+                f'rev1_tasks_{hostname}.out', # tasks
+                ]
 # executables
-executable_list=["../bin/rev1", "../bin/rev1collap"]
+executable_list = [ "../bin/rev1", "../bin/rev1collap",
+                    "../bin/rev1static", "../bin/rev1collapstatic",
+                    "../bin/rev1guided", "../bin/rev1collapguided",
+                    "../bin/rev1tasks"
+                    ]
 
 # list of chunk sizes used in the dynamic scheduling of stage 1
-chunk_list = list(range(1,9))
+chunk_list = [1,2,4,8]
 
 # zip the output and executable lists
 for output, executable_par in zip(output_list, executable_list):
