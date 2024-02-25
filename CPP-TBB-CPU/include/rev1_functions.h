@@ -38,6 +38,9 @@ typedef struct{
 unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min, const unsigned chunk);
 
+unsigned int stage1t(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min, const unsigned chunk);
+
 unsigned int stage1s(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
   unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min);
 

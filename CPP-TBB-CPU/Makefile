@@ -22,7 +22,7 @@ CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum rev1 rev1collap
+PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum rev1 rev1collap rev1guide rev1static rev1tasks
 LIST=$(addprefix $(BIN)/, $(PROG))
 
 all: $(LIST)
@@ -42,6 +42,18 @@ $(BIN)/rev1: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
 $(BIN)/rev1collap: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DCOLLAPSE
+
+$(BIN)/rev1guide: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DGUIDED
+
+$(BIN)/rev1static: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DSTATIC
+
+$(BIN)/rev1tasks: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DTASKS
 
 $(BIN)/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
@@ -88,3 +100,16 @@ $(BIN)/statsmaxnum: application/owm_stats.cpp include/stats_func.hpp
 
 clean:
 	rm -f bin/*
+
+# run all the rev1 tests
+runrev1:
+	@echo "Running rev1 guide"
+	@bin/rev1guide bin/data/AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 static"
+	@bin/rev1static bin/data/AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 tasks"
+	@bin/rev1tasks bin/data/AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 collapse"
+	@bin/rev1collap bin/data/AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1"
+	@bin/rev1 bin/data/AlcoyH 10 20 0.8 8 2 2

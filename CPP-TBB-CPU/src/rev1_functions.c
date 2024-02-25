@@ -27,6 +27,10 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
 #ifdef PARALLEL
 #ifdef COLLAPSE
     #pragma omp parallel for collapse(2) schedule(dynamic,chunk)
+#elif defined(STATIC)
+    #pragma omp parallel for schedule(static,chunk)
+#elif defined(GUIDED)
+    #pragma omp parallel for schedule(guided,chunk)
 #else
     #pragma omp parallel for schedule(dynamic,chunk)
 #endif
@@ -36,13 +40,9 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
         for( int ii=0 ; ii < Crow ; ii++ ){
 
             Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
-
-            // printf("Center of SW processed by thread %d: %.2f %.2f\n",omp_get_thread_num(), cellCenter.x, cellCenter.y);
-            // printf("Search points inside the SW: neighbors\n");
             int cellPoints = 0; //Number of points inside the cell/SW
             Lpoint** neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
             if(cellPoints >= minNumPoints ){ //If there are enough points inside the cell/SW the minimum is considered
-                //printf("Number of points found in the SW: %d\n", cellPoints );
                 int idmin = findMin(neighbors, cellPoints);
 #ifdef PARALLEL
                 #pragma omp critical
@@ -51,13 +51,55 @@ unsigned int stage1(unsigned short Wsize, double Overlap, unsigned short Crow, u
                     minIDs[countMin] = neighbors[idmin]->id;
                     countMin++;
                 }
-            //printf("Th:%d; Minimum at SW %04d,%04d has count:%d  and z-value:%.2f\n",omp_get_thread_num(),jj,ii,countMin ,neighbors[idmin]->z);  
             }
 
             free(neighbors);
             neighbors = NULL;
         }
      }
+
+  return countMin; //Number of valid minimums found
+}
+// This version try to use tasks to parallelize the for loops
+unsigned int stage1t(unsigned short Wsize, double Overlap, unsigned short Crow, unsigned short Ccol,
+  unsigned short minNumPoints, int* minIDs, Octree octreeIn, Vector3D min, const unsigned chunk){
+
+    double Displace = round2d(Wsize*(1-Overlap)); //Displacement between SW (sliding window)
+
+    double initX = min.x - Wsize/2 + Displace;
+    double initY = min.y - Wsize/2 + Displace;
+
+    unsigned int countMin = 0;
+
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            for(int jj = 0 ; jj < Ccol ; jj++ ){
+                for( int ii=0 ; ii < Crow ; ii++ ){
+                    #pragma omp task firstprivate(ii,jj)
+                    {
+                        Lpoint cellCenter = {0, initX + ii*Displace, initY + jj*Displace, 0.0};
+                        int cellPoints = 0; //Number of points inside the cell/SW
+                        Lpoint** neighbors = searchNeighbors2D(&cellCenter, octreeIn, Wsize/2, &cellPoints);
+                        if(cellPoints >= minNumPoints ){ //If there are enough points inside the cell/SW the minimum is considered
+                            int idmin = findMin(neighbors, cellPoints);
+                            #ifdef PARALLEL
+                            #pragma omp critical
+                            #endif
+                            {
+                                minIDs[countMin] = neighbors[idmin]->id;
+                                countMin++;
+                            }
+                        }
+
+                        free(neighbors);
+                        neighbors = NULL;
+                    }
+                } // for ii
+            } // for jj
+        } // omp single
+    } // omp parallel
 
   return countMin; //Number of valid minimums found
 }

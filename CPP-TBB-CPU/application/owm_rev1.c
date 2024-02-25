@@ -225,10 +225,19 @@ int main( int argc, char* argv[]){
         t_stage=omp_get_wtime();
 
         // Return valid minimums in array minIDs. The used size of the array is returned in countMin
+        #ifdef TASKS
+        countMin = stage1t(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min, chunk);
+        #else
         countMin = stage1(Wsize, Overlap, Crow, Ccol, minNumPoints, minIDs, octreeIn, min, chunk);
+        #endif
 
         printf("Time elapsed at STAGE 1:     %.6f s\n", omp_get_wtime()-t_stage);
-        printf("Number of found minima:   %d\n\n", countMin);
+        printf("Number of found minima:   %d", countMin);
+        if(countMin == 383072){
+          printf(" (OK)\n");
+        } else {
+          printf(" (ERROR)\n");
+        }
 
         // Only if there is Overlap a minimum can be selected in different SWs
         // Only those minimums found more than once become LLPs
@@ -259,7 +268,12 @@ int main( int argc, char* argv[]){
 #endif
 
             printf("Time elapsed at STAGE 2:     %.6f s\n",omp_get_wtime() - t_stage );
-            printf("Number of found LLPs: %d \n\n", numLLPs);
+            printf("Number of found LLPs: %d", numLLPs);
+            if(numLLPs == 58618){
+              printf(" (OK)\n");
+            } else {
+              printf(" (ERROR)\n");
+            }
         }
         else
             numLLPs = countMin;// If there is no overlap, all the minimums found become LLPs
@@ -277,7 +291,12 @@ int main( int argc, char* argv[]){
             addMin = stage3(Bsize, Crowg, Ccolg, minGridIDs, octreeIn, grid, min);
 
             printf("Time elapsed at STAGE 3:     %.6f s\n",omp_get_wtime() - t_stage );
-            printf("Number of points added at stage 3: %d \n\n", addMin);
+            printf("Number of points added at stage 3: %d", addMin);
+            if(addMin == 55){
+              printf(" (OK)\n");
+            } else {
+              printf(" (ERROR)\n");
+            }
 
             free(grid);
             grid = NULL;
