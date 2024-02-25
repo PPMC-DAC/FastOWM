@@ -35,31 +35,6 @@ $(BIN)/par_baseline: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
 
-# dynamic scheduling like baseline
-$(BIN)/rev1: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
-$(BIN)/rev1static: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DSTATIC
-$(BIN)/rev1guided: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DGUIDED
-# dynamic scheduling with collapse
-$(BIN)/rev1collap: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DCOLLAPSE
-$(BIN)/rev1cstatic: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DCOLLAPSE -DSTATIC
-$(BIN)/rev1cguided: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DCOLLAPSE -DGUIDED
-# tasks instead of scheduling
-$(BIN)/rev1tasks: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
-		@mkdir -p "$(@D)"
-		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DTASKS
-
 $(BIN)/sequential: application/cesgaOWM_seq.c src/OWM_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) application/cesgaOWM_seq.c src/OWM_functions.c -o $@ $(CFLAGS_BASELINE)
@@ -71,6 +46,30 @@ $(BIN)/o0parallel: application/owm_optim0.cpp src/optim0_func.cpp
 $(BIN)/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+# scheduling like O1
+$(BIN)/rev1: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+$(BIN)/rev1static: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DSTATIC
+$(BIN)/rev1guided: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DGUIDED
+# scheduling with collapse
+$(BIN)/rev1collap: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DCOLLAPSE
+$(BIN)/rev1cstatic: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DSTATIC -DCOLLAPSE
+$(BIN)/rev1cguided: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DGUIDED -DCOLLAPSE
+# tasks instead of scheduling
+$(BIN)/rev1tasks: application/owm_rev1.cpp src/rev1_func.cpp
+		@mkdir -p "$(@D)"
+		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DTASKS
 #-DDEBUG
 
 $(BIN)/o2par: application/owm_optim2.cpp src/optim2_func.cpp include/optim2_func.hpp
@@ -108,13 +107,17 @@ clean:
 
 # run all the rev1 tests
 runrev1:
-	@echo "Running rev1 guide"
-	@bin/rev1guide bin/data/AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 static"
-	@bin/rev1static bin/data/AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 tasks"
-	@bin/rev1tasks bin/data/AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 collapse"
-	@bin/rev1collap bin/data/AlcoyH 10 20 0.8 8 2 2
 	@echo "Running rev1"
-	@bin/rev1 bin/data/AlcoyH 10 20 0.8 8 2 2
+	@bin/rev1 bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 static"
+	@bin/rev1static bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 guide"
+	@bin/rev1guided bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 dyn collapse"
+	@bin/rev1collap bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 static collapse"
+	@bin/rev1cstatic bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 guide collapse"
+	@bin/rev1cguided bin/data/small_AlcoyH 10 20 0.8 8 2 2
+	@echo "Running rev1 tasks"
+	@bin/rev1tasks bin/data/small_AlcoyH 10 20 0.8 8 2 2
