@@ -11,7 +11,7 @@ def get_nprocs():
     # we need to limit the number of values if nprocs is too large
     if nprocs > 32:
         # at least the power of 2 values
-        llist = [2**i for i in range(1, np.log2(nprocs).astype(int) + 1)] + [nprocs]
+        llist = [2**i for i in range(0, np.log2(nprocs).astype(int) + 1)] + [nprocs]
         # add the multiples of 8 up to nprocs, that are not in the list
         llist.extend([i for i in range(8, nprocs, 8) if i not in llist])
         # the values must be unique and sorted
