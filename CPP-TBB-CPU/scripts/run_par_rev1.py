@@ -39,7 +39,7 @@ executable_list = [ "../bin/rev1", "../bin/rev1collap",
                     ]
 
 # list of chunk sizes used in the dynamic scheduling of stage 1
-chunk_list = [1,2,4,8]
+chunk_list = list(range(1,9))
 
 # zip the output and executable lists
 for output, executable_par in zip(output_list, executable_list):
