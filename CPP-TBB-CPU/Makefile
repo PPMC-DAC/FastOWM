@@ -39,7 +39,7 @@ $(BIN)/par_baseline: $(APP)/OWM_baseline.c $(SRC)/OWM_functions.c
 $(BIN)/rev1: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
-$(BIN)/rev1statis: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
+$(BIN)/rev1static: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
 		@mkdir -p "$(@D)"
 		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DSTATIC
 $(BIN)/rev1guided: $(APP)/owm_rev1.c $(SRC)/rev1_functions.c
