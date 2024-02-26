@@ -19,3 +19,7 @@ def get_nprocs():
     else:
         # list of number of threads to use: 1, 2, ... nprocs, with step 2
         return np.insert(np.arange(2, nprocs+1, 2), 0, 1)
+    
+def get_best(results, cloud, nth, key='total'):
+    # get the best level or chunk for the given parameters
+    return min(results[cloud], key=lambda x: results[cloud][x][nth][key])
