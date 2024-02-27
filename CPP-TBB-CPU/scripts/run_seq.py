@@ -1,5 +1,7 @@
 import os
 import time
+import numpy as np
+from datetime import datetime
 
 #Sliding window size
 Wsize = 10
@@ -12,21 +14,27 @@ num_threads = 1
 #number of times the OWM is executed
 nreps = 1
 
+# name of the input files without the extension .xyz
+inputs=[
+    "../bin/data/AlcoyH",
+    "../bin/data/ArzuaH",
+    "../bin/data/BrionFH",
+    "../bin/data/BrionUH",
+    ]
+
+# get the hostname
+hostname = os.popen("hostname").read().strip()
+# executables
+executable="../bin/sequential"
+
 start = time.time()
 print("Start : %s" % time.ctime())
 
-executable="../bin/sequential"
-inputs=["../bin/data/Alcoy",
-        "../bin/data/Arzua",
-        "../bin/data/BrionF",
-        "../bin/data/BrionU"]
-
-
-for file in inputs:
-    output=file+"-seq.out"
-    print("Running: {} {} {} {} {} {} {}".format(executable,file,Wsize,Bsize,Overlap,num_threads,nreps))
-    os.system("%s %s %d %d %f %d %d | tee %s" % (executable, file, Wsize, Bsize, Overlap, num_threads, nreps, output))
-
+for cloud in inputs:
+    # set the output file
+    output = f'{cloud}-seq_{hostname}.out'
+    print("Running: {} {} {} {} {} {} {}".format(executable,cloud,Wsize,Bsize,Overlap,1,nreps))
+    os.system("%s %s %d %d %f %d %d | tee %s" % (executable, cloud, Wsize, Bsize, Overlap, 1, nreps, output))
 
 
 end = time.time()
