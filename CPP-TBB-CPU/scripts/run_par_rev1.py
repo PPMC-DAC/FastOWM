@@ -27,21 +27,17 @@ inputs=[
 hostname = os.popen("hostname").read().strip()
 # set the output file
 output_list = [ 
-                f'rev1_collapse_static_{hostname}.out',
-                f'rev1_collapse_guided_{hostname}.out',
-                # f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out', # dynamic
-                # f'rev1_static_{hostname}.out', f'rev1_collapse_static_{hostname}.out', # static
-                # f'rev1_guided_{hostname}.out', f'rev1_collapse_guided_{hostname}.out', # guided
-                # f'rev1_tasks_{hostname}.out', # tasks
+                f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out', # dynamic
+                f'rev1_static_{hostname}.out', f'rev1_collapse_static_{hostname}.out', # static
+                f'rev1_guided_{hostname}.out', f'rev1_collapse_guided_{hostname}.out', # guided
+                f'rev1_tasks_{hostname}.out', # tasks
             ]
 # executables
 executable_list = [ 
-                    "../bin/rev1cstatic",
-                    "../bin/rev1cguided",
-                    # "../bin/rev1", "../bin/rev1collap",
-                    # "../bin/rev1static", "../bin/rev1cstatic",
-                    # "../bin/rev1guided", "../bin/rev1cguided",
-                    # "../bin/rev1tasks",
+                    "../bin/rev1", "../bin/rev1collap",
+                    "../bin/rev1static", "../bin/rev1cstatic",
+                    "../bin/rev1guided", "../bin/rev1cguided",
+                    "../bin/rev1tasks",
                 ]
 
 # list of chunk sizes used in the dynamic scheduling of stage 1
