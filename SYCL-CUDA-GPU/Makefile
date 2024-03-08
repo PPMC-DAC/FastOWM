@@ -1,4 +1,7 @@
-CUDA = --expt-extended-lambda -gencode arch=compute_75,code=[sm_75,compute_75] 
+# get CUDA COMPUTE_CAPABILITY for the current GPU
+COMPUTE_CAPABILITY:=$(shell /usr/local/cuda/extras/demo_suite/deviceQuery | grep 'CUDA Capability' | awk '{print $$6}' | sed 's/\.//g' | head -n 1)
+
+CUDA = --expt-extended-lambda -gencode arch=compute_${COMPUTE_CAPABILITY},code=[sm_${COMPUTE_CAPABILITY},compute_${COMPUTE_CAPABILITY}] 
 #-gencode arch=compute_60,code=[sm_60,compute_60]
 
 CPPFLAGS = -std=c++17 -O3 
@@ -52,6 +55,10 @@ owm-sycl-dgpu-interop: mainBuilder.cu
 
 owm-cuda: mainBuilder.cu
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
+	mv $@ bin
+
+owm-cuda-grid: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@ -DAUTOGRID
 	mv $@ bin
 
 owm-cuda-nomemo: mainBuilder.cu

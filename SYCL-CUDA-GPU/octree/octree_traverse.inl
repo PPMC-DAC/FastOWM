@@ -107,7 +107,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total_s1/n_tests << " ms\n";
     std::cout << " Stage2 KERNEL CUDA time elapsed: " << total_s2/n_tests << " ms\n";
     std::cout << " Total KERNEL CUDA time elapsed: " << (total_s1+total_s2)/n_tests << " ms\n";
-    std::cout << " Total TIME (Tree+OWM) CUDA time elapsed: " << total_tree + (total_s1+total_s2)/n_tests << " ms\n";
+    std::cout << " Total TIME (Tree+OWM) CUDA time elapsed: " << total_tree/n_tests + (total_s1+total_s2)/n_tests << " ms\n";
     printf("Numer of seed points: %u\n", countMin);
 
     cudaFree(count);
