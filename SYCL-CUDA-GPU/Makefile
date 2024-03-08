@@ -26,16 +26,27 @@ owm-sycl-igpu-nomemo: mainBuilder.cpp
 	icpx -DGPU -DDEVICE -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+# owm-sycl-dgpu: mainBuilder.cpp
+# 	clang++ -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+# 	mv $@ bin
+# #-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
 owm-sycl-dgpu: mainBuilder.cpp
-	clang++ -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
-	mv $@ bin
-#-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
-owm-sycl-dgpu-nomemo: mainBuilder.cpp
-	clang++ -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	icpx -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+# owm-sycl-dgpu-nomemo: mainBuilder.cpp
+# 	clang++ -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+# 	mv $@ bin
+owm-sycl-dgpu-nomemo: mainBuilder.cpp
+	icpx -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
+# owm-sycl-dgpu-interop: mainBuilder.cu
+# 	clang++ -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
+# 	mv $@ bin
+# #-L/usr/local/cuda-11.0/lib64 -fsycl-targets=nvptx64-nvidia-cuda -lcudart
 owm-sycl-dgpu-interop: mainBuilder.cu
-	clang++ -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
+	icpx -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
 	mv $@ bin
 #-L/usr/local/cuda-11.0/lib64 -fsycl-targets=nvptx64-nvidia-cuda -lcudart
 
