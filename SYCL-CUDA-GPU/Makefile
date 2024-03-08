@@ -9,7 +9,7 @@ CXXFLAGS = -resource-dir=/opt/intel/oneapi/dpcpp-ct/2023.1.0/lib/clang/16 -Xclan
 
 INCLUDES = -I.
 
-all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-nomemo
+all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-grid owm-cuda-nomemo
 
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h

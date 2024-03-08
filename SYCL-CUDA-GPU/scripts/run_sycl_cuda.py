@@ -24,7 +24,8 @@ executable_list = [
                     "../bin/owm-sycl-dgpu",
                     "../bin/owm-sycl-dgpu-nomemo",
                     "../bin/owm-cuda",
-                    "../bin/owm-cuda-nomemo"
+                    "../bin/owm-cuda-grid",
+                    "../bin/owm-cuda-nomemo",
                 ]
 
 maxNumber=[4,8,16,32,64,128,256,512,1024]
