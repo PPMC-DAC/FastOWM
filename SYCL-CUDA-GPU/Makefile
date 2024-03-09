@@ -25,6 +25,10 @@ owm-sycl-igpu: mainBuilder.cpp
 	icpx -DGPU -DDEVICE ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+owm-sycl-igpu-debug: mainBuilder.cpp
+	icpx -DGPU -DDEVICE -DDEBUG -std=c++17 -fdiagnostics-color=always -g ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
 owm-sycl-igpu-nomemo: mainBuilder.cpp
 	icpx -DGPU -DDEVICE -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin

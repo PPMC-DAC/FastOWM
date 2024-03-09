@@ -174,7 +174,7 @@ inline void traverseIterative(const LBVHo& lbvh, const aabb_t& queryAABB, uint32
 class _query{
   
   public:
-    _query(const LBVHo _lbvh, const aabb_t _initBox, const double _Displace, uint32_t* _count, 
+    _query(const LBVHo _lbvh, const aabb_t _initBox, const real_t _Displace, uint32_t* _count, 
           const uint32_t _nCols, const uint32_t _nRows, const uint32_t _minNumPoints) : 
           lbvh(_lbvh), initBox(_initBox), Displace(_Displace), count(_count),
           nCols(_nCols), nRows(_nRows), minNumPoints(_minNumPoints) {}
@@ -233,7 +233,7 @@ class _query{
   private:
     const LBVHo  lbvh;
     const aabb_t  initBox;
-    const double Displace;
+    const real_t Displace;
     uint32_t* count;
     const uint32_t nCols;
     const uint32_t nRows;
@@ -242,12 +242,12 @@ class _query{
 };
 
 void stage1query2D(SYCL_builder& builder, uint32_t* count, uint32_t Wsize, 
-  double Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
+  real_t Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
   sycl::queue device_queue){
 
   // size_t Ncells = nRows*nCols;
 
-  double Displace = round2d(Wsize*(1-Overlap));
+  real_t Displace = round2d(Wsize*(1-Overlap));
 
   LBVHo lbvh( builder.node_list,
               builder.aabb_list,
@@ -357,7 +357,7 @@ void traverseIterativeCPU(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numP
 class _queryCPU{
   
   public:
-    _queryCPU(const LBVHoct _lbvh, const aabb_t _initBox, const double _Displace, const double _Overlap,
+    _queryCPU(const LBVHoct _lbvh, const aabb_t _initBox, const real_t _Displace, const real_t _Overlap,
             uint32_t* _count, const uint32_t _nCols, const uint32_t _minNumPoints) : 
             lbvh(_lbvh), initBox(_initBox), Displace(_Displace), Overlap(_Overlap),
             count(_count), nCols(_nCols), minNumPoints(_minNumPoints) {}
@@ -441,8 +441,8 @@ class _queryCPU{
   private:
     const LBVHoct  lbvh;
     const aabb_t  initBox;
-    const double Overlap;
-    const double Displace;
+    const real_t Overlap;
+    const real_t Displace;
     uint32_t* count;
     const uint32_t nCols;
     // const uint32_t nRows;
@@ -451,9 +451,9 @@ class _queryCPU{
 };
 
 void stage1query2DCPU(const LBVHoct& lbvh, const whole_t& whole, uint32_t* count, const uint32_t Wsize, 
-  const double Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
+  const real_t Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
 
-  double Displace = round2d(Wsize*(1-Overlap));
+  real_t Displace = round2d(Wsize*(1-Overlap));
 
   aabb_t initBox;
   initBox.lower.x = whole.lower.x - Wsize + Displace;
@@ -471,9 +471,9 @@ void stage1query2DCPU(const LBVHoct& lbvh, const whole_t& whole, uint32_t* count
 }
 
 void stage1query2DCPU(Octree_builder& builder, uint32_t* count, const uint32_t Wsize, 
-  const double Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
+  const real_t Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
 
-  double Displace = round2d(Wsize*(1-Overlap));
+  real_t Displace = round2d(Wsize*(1-Overlap));
 
   aabb_t initBox;
   initBox.lower.x = builder.bintree.BBox.lower.x - Wsize + Displace;
@@ -625,7 +625,7 @@ void traverseIterative(const LBVHoct& lbvh, aabb_t& queryAABB, uint32_t& numPts,
 class _queryOct{
   
   public:
-    _queryOct(const LBVHoct _lbvh, const aabb_t _initBox, const double _Displace, uint32_t* _count, 
+    _queryOct(const LBVHoct _lbvh, const aabb_t _initBox, const real_t _Displace, uint32_t* _count, 
           const uint32_t _nCols, const uint32_t _nRows, const uint32_t _minNumPoints) : 
           lbvh(_lbvh), initBox(_initBox), Displace(_Displace), count(_count),
           nCols(_nCols), nRows(_nRows), minNumPoints(_minNumPoints) {}
@@ -657,8 +657,8 @@ class _queryOct{
   private:
     const LBVHoct  lbvh;
     const aabb_t  initBox;
-    // const double Overlap;
-    const double Displace;
+    // const real_t Overlap;
+    const real_t Displace;
     uint32_t* count;
     const uint32_t nCols;
     const uint32_t nRows;
@@ -668,12 +668,12 @@ class _queryOct{
 
 
 sycl::event stage1query2D(Octree_builder& builder, uint32_t* count, uint32_t Wsize, 
-  double Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
+  real_t Overlap, uint32_t nCols, uint32_t nRows, uint32_t minNumPoints,
   sycl::queue device_queue){
 
   // size_t Ncells = nRows*nCols;
 
-  double Displace = round2d(Wsize*(1-Overlap));
+  real_t Displace = round2d(Wsize*(1-Overlap));
 
   LBVHoct lbvh(
     builder.m_octree,

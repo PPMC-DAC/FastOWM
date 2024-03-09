@@ -8,23 +8,30 @@
 #include <limits>
 #include <chrono>
 
-struct double2
+template<typename T>
+struct vec2
 {
-    double x;
-    double y;
+    T x;
+    T y;
 };
 
-struct double4
+template<typename T>
+struct vec4
 {
-    double x;
-    double y;
-    double z;
-    double w;
+    T x;
+    T y;
+    T z;
+    T w;
 };
 
+#ifdef USE_DOUBLE
 using real_t = double;
-using real_v = double2;
-using point_t = double4;
+#else
+using real_t = float;
+#endif
+
+using real_v = vec2<real_t>;
+using point_t = vec4<real_t>;
 
 const auto inf = std::numeric_limits<real_t>::infinity();
 
@@ -76,7 +83,7 @@ using tempo_t = std::chrono::steady_clock;
 
 using cast_t = std::chrono::duration<double, std::milli>;
 
-#define TOL 1e-10
+#define TOL 1e-10f
 #define FW_S32_MIN  (~0x7FFFFFFF)
 #define NUM_PROCS 8
 
