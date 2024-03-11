@@ -29,6 +29,8 @@ hostname = os.popen("hostname").read().strip()
 output = f'o4_maxnumber_{hostname}.out'
 # executables
 executable_par="../bin/o4maxnum"
+# results file in .csv format
+resultsFile = output.replace('.out', '.csv')
 
 maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 levels = list(range(3,10))
@@ -51,7 +53,7 @@ with open(output, "a") as f:
                 # flush the buffer
                 f.flush()
                 # excecute the command and save the output to the file
-                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, mN, lev, output))
+                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, resultsFile, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
