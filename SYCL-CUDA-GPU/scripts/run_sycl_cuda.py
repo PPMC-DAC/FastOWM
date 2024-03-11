@@ -13,7 +13,7 @@ inputs=[
 # get the hostname
 hostname = os.popen("hostname").read().strip()
 # set the output file
-output = f"sycl_cuda_output_{hostname}.out"
+output = f"sycl_cuda_{hostname}.out"
 
 # executables
 executable_list = [ 
