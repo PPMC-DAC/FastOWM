@@ -63,3 +63,4 @@ print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
 # copy the output file to the results folder
 os.system(f"cp {output} ../../Results/{output.replace('.out', '.txt')}")
+os.system(f"cp {resultsFile} ../../Results/{resultsFile}")

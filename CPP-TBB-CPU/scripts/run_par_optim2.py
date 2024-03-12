@@ -29,6 +29,8 @@ hostname = os.popen("hostname").read().strip()
 output = f'o2_partree_{hostname}.out'
 # executables
 executable_par="../bin/o2par"
+# results file in .csv format
+resultsFile = output.replace('.out', '.csv')
 
 levels = list(range(2,10))
 mR=0.1
@@ -50,7 +52,7 @@ with open(output, "a") as f:
                 # flush the buffer
                 f.flush()
                 # excecute the command and save the output to the file
-                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
+                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, resultsFile, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
@@ -60,3 +62,4 @@ print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
 # copy the output file to the results folder
 os.system(f"cp {output} ../../Results/{output.replace('.out', '.txt')}")
+os.system(f"cp {resultsFile} ../../Results/{resultsFile}")
