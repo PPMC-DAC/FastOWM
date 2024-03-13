@@ -34,7 +34,8 @@ resultsFile = output.replace('.out', '.csv')
 
 minRadius=[x/10 for x in list(range(1,20,1))]
 levels = list(range(3,10))
-nth=8
+# get the maximum number of threads
+nth = num_threads[-1]
 mN=65536
 
 start = time.time()

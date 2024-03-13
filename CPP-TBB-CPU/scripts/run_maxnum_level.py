@@ -34,7 +34,8 @@ resultsFile = output.replace('.out', '.csv')
 
 maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 levels = list(range(3,10))
-nth=8
+# get the maximum number of threads
+nth = num_threads[-1]
 mR=0.1
 
 start = time.time()
