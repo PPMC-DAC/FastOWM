@@ -23,13 +23,13 @@ num_threads = get_nprocs()
 executable_list = [ 
                     "../bin/owm-sycl-cpu",
                     "../bin/owm-sycl-cpu-nomemo",
-                    "../bin/owm-sycl-igpu",
-                    "../bin/owm-sycl-igpu-nomemo",
-                    "../bin/owm-sycl-dgpu",
-                    "../bin/owm-sycl-dgpu-nomemo",
-                    "../bin/owm-cuda",
-                    "../bin/owm-cuda-grid",
-                    "../bin/owm-cuda-nomemo",
+                    # "../bin/owm-sycl-igpu",
+                    # "../bin/owm-sycl-igpu-nomemo",
+                    # "../bin/owm-sycl-dgpu",
+                    # "../bin/owm-sycl-dgpu-nomemo",
+                    # "../bin/owm-cuda",
+                    # "../bin/owm-cuda-grid",
+                    # "../bin/owm-cuda-nomemo",
                 ]
 
 maxNumber=[4,8,16,32,64,128,256,512,1024]
@@ -53,26 +53,15 @@ with open(output, "a") as f:
     for exe in executable_list:
         for i in inputs:
             for mN in maxNumber:
-                if 'cpu' in exe:
-                    # if cpu version, iterate over the number of threads
-                    for nth in vnth:
-                        print("\n***************\nRunning: {} {} {} {}".format(exe, i, mN, nth))
-                        # save the configuration in the file
-                        f.write("\n\nRunning: {} {} {} {}\n\n".format(exe, i, mN, nth))
-                        # flush the buffer
-                        f.flush()
-                        # execute the command and save the output to the file
-                        os.system("DPCPP_CPU_NUM_CUS=%d %s %s %d | tee -a %s" % (nth, exe, i, mN, output))
-                        # sleep until the next execution
-                        time.sleep(30)
-                else:
-                    print("\n***************\nRunning: {} {} {}".format(exe, i, mN))
+                # if cpu version, iterate over the number of threads
+                for nth in vnth:
+                    print("\n***************\nRunning: {} {} {} {}".format(exe, i, mN, nth))
                     # save the configuration in the file
-                    f.write("\n\nRunning: {} {} {}\n\n".format(exe, i, mN))
+                    f.write("\n\nRunning: {} {} {} {}\n\n".format(exe, i, mN, nth))
                     # flush the buffer
                     f.flush()
                     # execute the command and save the output to the file
-                    os.system("%s %s %d | tee -a %s" % (exe, i, mN, output))
+                    os.system("DPCPP_CPU_NUM_CUS=%d %s %s %d | tee -a %s" % (nth, exe, i, mN, output))
                     # sleep until the next execution
                     time.sleep(30)
 
