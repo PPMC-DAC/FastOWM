@@ -35,7 +35,10 @@ resultsFile = output.replace('.out', '.csv')
 maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 levels = list(range(3,10))
 # get the maximum number of threads
-nth = num_threads[-1]
+if hostname == 'bombay':
+    vnth = [32,48,64,80,96]
+else:
+    vnth = [num_threads[-1]]
 mR=0.1
 
 start = time.time()
@@ -48,13 +51,14 @@ with open(output, "a") as f:
     for cloud in inputs:
         for mN in maxNumber:
             for lev in levels:
-                print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-                # save the configuration in the file
-                f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-                # flush the buffer
-                f.flush()
-                # excecute the command and save the output to the file
-                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, resultsFile, output))
+                for nth in vnth:
+                    print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+                    # save the configuration in the file
+                    f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+                    # flush the buffer
+                    f.flush()
+                    # excecute the command and save the output to the file
+                    os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, resultsFile, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')

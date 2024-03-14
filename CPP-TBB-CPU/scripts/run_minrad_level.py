@@ -35,7 +35,10 @@ resultsFile = output.replace('.out', '.csv')
 minRadius=[x/10 for x in list(range(1,20,1))]
 levels = list(range(3,10))
 # get the maximum number of threads
-nth = num_threads[-1]
+if hostname == 'bombay':
+    vnth = [32,48,64,80,96]
+else:
+    vnth = [num_threads[-1]]
 mN=65536
 
 start = time.time()
@@ -48,13 +51,14 @@ with open(output, "a") as f:
     for cloud in inputs:
         for mR in minRadius:
             for lev in levels:
-                print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-                # save the configuration in the file
-                f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-                # flush the buffer
-                f.flush()
-                # excecute the command and save the output to the file
-                os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, resultsFile, output))
+                for nth in vnth:
+                    print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+                    # save the configuration in the file
+                    f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+                    # flush the buffer
+                    f.flush()
+                    # excecute the command and save the output to the file
+                    os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, resultsFile, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
