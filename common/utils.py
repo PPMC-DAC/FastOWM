@@ -42,3 +42,38 @@ def get_best_comb(ires, num_threads, pos=2):
     flattened = [(x, y, ires[x][y][pos]) for x in ires for y in num_threads]
     # find the minimum based on Total time; this return bestlevel, bestthreads, time
     return min(flattened, key=lambda item: item[2])
+
+def get_best_optimization(df):
+    """This function returns the best optimization for the given dataframe.
+
+    Parameters
+    ----------
+    df
+        dataframe with the results obatined from All_Optimizations-<hostname>.csv. See process_all_optim.ipynb for more details.
+
+    Returns
+    -------
+        best: df with the best optimization
+        best_label: label of the best optimization
+    """
+    # get all the different optimizations
+    optimizations = df['Optimization'].unique()
+    # select best initial case
+    best = df.loc[df['Optimization'] == optimizations[0], 'TimeTree':'Total'].copy()
+    # get the best time for the best case
+    best_time = best['Total'].mean()
+    # keep the label of the best case
+    best_label = optimizations[0]
+    # iterate over all the optimizations
+    for opt in optimizations[1:]:
+        # select the optimization
+        opt_df = df.loc[df['Optimization'] == opt, 'TimeTree':'Total'].copy()
+        # get the time for the optimization
+        opt_time = opt_df['Total'].mean()
+        # if the time is better than the best time, update
+        if opt_time < best_time:
+            best = opt_df
+            best_time = opt_time
+            best_label = opt
+    
+    return best, best_label
