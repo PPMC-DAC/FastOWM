@@ -36,11 +36,12 @@ maxNumber=[4,8,16,32,64,128,256,512,1024]
 
 # select the number of threads
 if hostname == 'alder':
-    # only p-cores, and p-cores + e-cores
-    vnth = [8,16,24]
+    # only p-cores, p-cores + e-cores, and hyperthreading
+    vnth = [8,12,16,24]
 elif hostname == 'bombay':
     vnth = [32,48,64,80,96]
 else:
+    # select the maximum number of threads
     vnth = [num_threads[-1]]
 
 start = time.time()

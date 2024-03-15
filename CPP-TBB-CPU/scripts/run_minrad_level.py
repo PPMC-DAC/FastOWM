@@ -34,11 +34,17 @@ resultsFile = output.replace('.out', '.csv')
 
 minRadius=[x/10 for x in list(range(1,20,1))]
 levels = list(range(3,10))
-# get the maximum number of threads
-if hostname == 'bombay':
+
+# select the number of threads
+if hostname == 'alder':
+    # only p-cores, and p-cores + e-cores
+    vnth = [8,12,16,24]
+elif hostname == 'bombay':
     vnth = [32,48,64,80,96]
 else:
+    # select the maximum number of threads
     vnth = [num_threads[-1]]
+
 mN=65536
 
 start = time.time()

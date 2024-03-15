@@ -34,11 +34,17 @@ resultsFile = output.replace('.out', '.csv')
 
 maxNumber=[8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]
 levels = list(range(3,10))
-# get the maximum number of threads
-if hostname == 'bombay':
+
+# select the number of threads
+if hostname == 'alder':
+    # only p-cores, and p-cores + e-cores
+    vnth = [8,12,16,24]
+elif hostname == 'bombay':
     vnth = [32,48,64,80,96]
 else:
+    # select the maximum number of threads
     vnth = [num_threads[-1]]
+
 mR=0.1
 
 start = time.time()
