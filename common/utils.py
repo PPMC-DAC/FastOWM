@@ -77,3 +77,52 @@ def get_best_optimization(df):
             best_label = opt
     
     return best, best_label
+
+def tokenize_sycl_cpu(filename):
+    experiment ={}
+
+    # the executable is the key to continue
+    exe = "empty"
+
+    with open(filename) as f:
+        for line in f:
+            tokens = line.split()
+            if "Running:" in tokens:
+                # this line format is: Running: ../bin/owm-sycl-cpu ../bin/data/INAER_2011_Alcoy_Core.xyz 4 8
+                # tokens position: 1:executable, 2:input, 3:maxNum, 4:threads
+                exe=tokens[1].split("/")[2]
+                # continue if the executable is not CPU
+                if "cpu" not in exe:
+                    continue
+                input=tokens[2].split("/")[3][:-4]
+                cloud = {
+                    "INAER_2011_Alcoy_Core": "Alcoy",
+                    "BABCOCK_2017_Arzua_3B": "Arzua",
+                    "V21_group1_densified_point_cloud": "BrionF",
+                    "V19_group1_densified_point_cloud": "BrionU",
+                }[input]
+                maxNum=int(tokens[3])
+                # get the number of threads
+                nth = int(tokens[4])
+                if exe not in experiment:
+                    experiment[exe]={}
+                if cloud not in experiment[exe]:
+                    experiment[exe][cloud]={}
+                if maxNum not in experiment[exe][cloud]:
+                    experiment[exe][cloud][maxNum]={}
+                experiment[exe][cloud][maxNum][nth]=[]
+            # continue if the executable is not CPU
+            if "cpu" not in exe:
+                continue
+            if 'Construction' in tokens:
+                experiment[exe][cloud][maxNum][nth].append(float(tokens[5]))
+            if "Stage1" in tokens:
+                experiment[exe][cloud][maxNum][nth].append(float(tokens[5]))
+            if "Stage2" in tokens:
+                experiment[exe][cloud][maxNum][nth].append(float(tokens[5]))
+            if "Total" in tokens and "KERNEL" in tokens:
+                experiment[exe][cloud][maxNum][nth].append(float(tokens[5]))
+            if 'TIME' in tokens:
+                experiment[exe][cloud][maxNum][nth].append(float(tokens[6]))
+
+    return experiment
