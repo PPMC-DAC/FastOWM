@@ -43,7 +43,20 @@ def get_best_comb(ires, num_threads, pos=2):
     # find the minimum based on Total time; this return bestlevel, bestthreads, time
     return min(flattened, key=lambda item: item[2])
 
-def get_best_optimization(df):
+def get_best_comb_3d(ires, pos=2):
+    """
+        Get the best configuration for the given parameters
+    """
+    # results[name][i][minrad][16][phase]
+    xdim = list(ires.keys())
+    ydim = list(ires[xdim[0]].keys())
+    zdim = list(ires[xdim[0]][ydim[0]].keys())
+    # create a flattened list of all combinations of x and y along with the time
+    flattened = [(x, y, z, ires[x][y][z][pos]) for x in xdim for y in ydim for z in zdim]
+    # find the minimum based on Total time
+    return min(flattened, key=lambda item: item[-1])
+
+def get_best_optimization(df, key='Total'):
     """This function returns the best optimization for the given dataframe.
 
     Parameters
@@ -60,16 +73,16 @@ def get_best_optimization(df):
     optimizations = df['Optimization'].unique()
     # select best initial case
     best = df.loc[df['Optimization'] == optimizations[0], 'TimeTree':'Total'].copy()
-    # get the best time for the best case
-    best_time = best['Total'].mean()
-    # keep the label of the best case
+    # get the best time for the initial case
+    best_time = best[key].mean()
+    # keep the label of the initial case
     best_label = optimizations[0]
     # iterate over all the optimizations
     for opt in optimizations[1:]:
         # select the optimization
         opt_df = df.loc[df['Optimization'] == opt, 'TimeTree':'Total'].copy()
         # get the time for the optimization
-        opt_time = opt_df['Total'].mean()
+        opt_time = opt_df[key].mean()
         # if the time is better than the best time, update
         if opt_time < best_time:
             best = opt_df
