@@ -35,8 +35,10 @@ executable_list = [
 maxNumber=[4,8,16,32,64,128,256,512,1024]
 
 # select the number of threads
-if hostname == 'alder':
-    # only p-cores, p-cores + e-cores, and hyperthreading
+if hostname == 'coffeelake1':
+    vnth = [8,16] # physical and hyperthreading
+elif hostname == 'alder':
+    # only p-cores, and p-cores + e-cores
     vnth = [8,12,16,24]
 elif hostname == 'bombay':
     vnth = [32,48,64,80,96]

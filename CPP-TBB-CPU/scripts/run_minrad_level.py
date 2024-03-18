@@ -36,7 +36,9 @@ minRadius=[x/10 for x in list(range(1,20,1))]
 levels = list(range(3,10))
 
 # select the number of threads
-if hostname == 'alder':
+if hostname == 'coffeelake1':
+    vnth = [8,16] # physical and hyperthreading
+elif hostname == 'alder':
     # only p-cores, and p-cores + e-cores
     vnth = [8,12,16,24]
 elif hostname == 'bombay':
