@@ -15,6 +15,7 @@ experimental
 *.fatbin
 *.json
 *.err
+*.pdf
 
 .Rdata
 .Rhistory
