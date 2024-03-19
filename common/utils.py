@@ -139,3 +139,10 @@ def tokenize_sycl_cpu(filename):
                 experiment[exe][cloud][maxNum][nth].append(float(tokens[6]))
 
     return experiment
+
+def get_nested_values(mydict, pos=3):
+    """Return the nested values of a dictionary
+    """
+    if pos == 0:
+        return mydict
+    return get_nested_values(list(mydict.values())[0], pos-1)
