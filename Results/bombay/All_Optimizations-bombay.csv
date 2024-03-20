@@ -7,6 +7,10 @@ Opt1-Quadtree;AlcoyH;4.20234;0.98380;0;0
 Opt1-Quadtree;ArzuaH;4.30671;0.66530;0;0
 Opt1-Quadtree;BrionFH;5.14146;1.77440;0;0
 Opt1-Quadtree;BrionUH;5.73522;2.15570;0;0
+Opt1-REV1-Quadtree;AlcoyH;4.21370;0.68930;8;0
+Opt1-REV1-Quadtree;ArzuaH;4.28397;0.59280;8;0
+Opt1-REV1-Quadtree;BrionFH;5.14988;1.30660;3;0
+Opt1-REV1-Quadtree;BrionUH;5.74204;1.60350;3;0
 Opt2-Par;AlcoyH;0.57166;0.52866;8;0
 Opt2-Par;ArzuaH;0.48137;0.33798;6;0
 Opt2-Par;BrionFH;0.34040;0.42294;7;0
