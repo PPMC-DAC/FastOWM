@@ -21,4 +21,6 @@ On the other hand, the **SYCL-CUDA-GPU directory** includes the SYCL and CUDA im
 * Study of all optimizations in [process_sycl_cuda_results.ipynb](Results/process_sycl_cuda_results.ipynb)
 * Comparison of all optimizations and with the baseline and best CPU version in [process_all_optimSYCL-CUDA.ipynb](Results/process_all_optimSYCL-CUDA.ipynb)
 
+Finally, to compare the results across the different hosts, we have used [process_all_servers.ipynb](Results/process_all_servers.ipynb).
+
 The LiDAR clouds used in our experiments can be downloaded from [here](https://www.dropbox.com/s/0vpr8gow624ngqz/nubesLidar.tgz?dl=0) (2.49GB).
