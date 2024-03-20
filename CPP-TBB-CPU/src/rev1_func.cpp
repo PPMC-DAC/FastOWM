@@ -4,7 +4,7 @@
 // #include <float.h>
 // #include <math.h>
 // #include <omp.h>
-#include "../include/optim1_qtree_func.h"
+#include "../include/rev1_func.h"
 
 static const int REALLOC_INCREMENT = 256;
 
