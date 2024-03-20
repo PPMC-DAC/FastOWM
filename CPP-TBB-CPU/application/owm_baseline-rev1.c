@@ -7,7 +7,7 @@
 #include <string.h>
 #include <omp.h>
 
-#include "../include/rev1_functions.h"
+#include "../include/baseline-rev1_functions.h"
 
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b ); // Portable ascending order

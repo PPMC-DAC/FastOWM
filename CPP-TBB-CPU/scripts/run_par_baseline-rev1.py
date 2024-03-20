@@ -26,16 +26,16 @@ inputs=[
 # get the hostname
 hostname = os.popen("hostname").read().strip()
 # set the output file
-output_list = [ f'rev1_{hostname}.out', f'rev1_collapse_{hostname}.out', # dynamic
-                f'rev1_static_{hostname}.out', f'rev1_collapse_static_{hostname}.out', # static
-                f'rev1_guided_{hostname}.out', f'rev1_collapse_guided_{hostname}.out', # guided
-                f'rev1_tasks_{hostname}.out', # tasks
+output_list = [ f'baseline-rev1_{hostname}.out', f'baseline-rev1_collapse_{hostname}.out', # dynamic
+                # f'baseline-rev1_static_{hostname}.out', f'baseline-rev1_collapse_static_{hostname}.out', # static
+                # f'baseline-rev1_guided_{hostname}.out', f'baseline-rev1_collapse_guided_{hostname}.out', # guided
+                # f'baseline-rev1_tasks_{hostname}.out', # tasks
                 ]
 # executables
-executable_list = [ "../bin/rev1", "../bin/rev1collap",
-                    "../bin/rev1static", "../bin/rev1collapstatic",
-                    "../bin/rev1guided", "../bin/rev1collapguided",
-                    "../bin/rev1tasks"
+executable_list = [ "../bin/baseline-rev1", "../bin/baseline-rev1collap",
+                    # "../bin/baseline-rev1static", "../bin/baseline-rev1collapstatic",
+                    # "../bin/baseline-rev1guided", "../bin/baseline-rev1collapguided",
+                    # "../bin/baseline-rev1tasks"
                     ]
 
 # list of chunk sizes used in the dynamic scheduling of stage 1

@@ -4,7 +4,7 @@
 #include <float.h>
 #include <math.h>
 #include <omp.h>
-#include "../include/rev1_functions.h"
+#include "../include/baseline-rev1_functions.h"
 
 #define MIN_RADIUS 0.10 //Minimum size of the leaf bounding box
 

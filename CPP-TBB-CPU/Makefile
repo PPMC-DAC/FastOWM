@@ -22,7 +22,7 @@ CPPFLAGS_TBB = -O3 -fopenmp -lm -ltbb -std=c++11
 
 CFLAGS_DBG = -fopenmp -g3 -lm -O2 -Wall -lrt -std=c11 -qopt-report=5 -qopenmp
 
-PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum rev1 rev1static rev1guided rev1collap rev1cstatic rev1cguided rev1tasks
+PROG=baseline par_baseline sequential o0parallel o1qtree o2par o3memoA o3memo o3memoB o4maxnum stats statsmaxnum rev1 rev1static rev1guided rev1collap rev1cstatic rev1cguided rev1tasks baseline-rev1 baseline-rev1collap
 LIST=$(addprefix $(BIN)/, $(PROG))
 
 all: $(LIST)
@@ -46,6 +46,16 @@ $(BIN)/o0parallel: application/owm_optim0.cpp src/optim0_func.cpp
 $(BIN)/o1qtree: application/owm_optim1_qtree.cpp src/optim1_qtree_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 
+
+# scheduling like baseline
+$(BIN)/baseline-rev1: application/owm_baseline-rev1.c src/baseline-rev1_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL
+# scheduling with collapse
+$(BIN)/baseline-rev1collap: application/owm_baseline-rev1.c src/baseline-rev1_functions.c
+		@mkdir -p "$(@D)"
+		$(CC) $^ -o $@ $(CFLAGS_BASELINE) -DPARALLEL -DCOLLAPSE
+
 # scheduling like O1
 $(BIN)/rev1: application/owm_rev1.cpp src/rev1_func.cpp
 		@mkdir -p "$(@D)"
@@ -70,7 +80,6 @@ $(BIN)/rev1cguided: application/owm_rev1.cpp src/rev1_func.cpp
 $(BIN)/rev1tasks: application/owm_rev1.cpp src/rev1_func.cpp
 		@mkdir -p "$(@D)"
 		$(CXX) $^ -o $@ -O3 -fopenmp -lm -std=c++11 -DTASKS
-#-DDEBUG
 
 $(BIN)/o2par: application/owm_optim2.cpp src/optim2_func.cpp include/optim2_func.hpp
 		@mkdir -p "$(@D)"
@@ -104,20 +113,3 @@ $(BIN)/statsmaxnum: application/owm_stats.cpp include/stats_func.hpp
 
 clean:
 	rm -f bin/*
-
-# run all the rev1 tests
-runrev1:
-	@echo "Running rev1"
-	@bin/rev1 bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 static"
-	@bin/rev1static bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 guide"
-	@bin/rev1guided bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 dyn collapse"
-	@bin/rev1collap bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 static collapse"
-	@bin/rev1cstatic bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 guide collapse"
-	@bin/rev1cguided bin/data/small_AlcoyH 10 20 0.8 8 2 2
-	@echo "Running rev1 tasks"
-	@bin/rev1tasks bin/data/small_AlcoyH 10 20 0.8 8 2 2
