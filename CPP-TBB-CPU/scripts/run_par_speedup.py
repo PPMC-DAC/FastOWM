@@ -1,8 +1,9 @@
 import os
 import time
 import numpy as np
+import pandas as pd
 from datetime import datetime
-from common.utils import get_nprocs
+from common.utils import get_nprocs, get_best_optimization
 
 #Sliding window size
 Wsize = 10
@@ -29,9 +30,28 @@ hostname = os.popen("hostname").read().strip()
 output = f'o4_speedup_{hostname}.out'
 # executables
 executable_par="../bin/o3memo"
+# csv with all the best results
+resultscsv = os.path.join(f'../../Results/{hostname}', f'All_Optimizations-{hostname}.csv')
 
-minRadius=[1.8,0.5,0.1,0.1] #best MR for each cloud and o4
-levels = [5,5,4,4] #best level for each cloud and o4
+# if the output file exists, get the best config
+if os.path.exists(resultscsv):
+    df=pd.read_csv(resultscsv, sep=';')
+    df.insert(4,"Total",0)
+    df['Total']=df['TimeTree']+df['TimeOWM']
+    # get the best optimization
+    _,best_label = get_best_optimization(df)
+    # assert that the best optimization is minRadius
+    assert best_label == 'Opt4-MinRad', f'Expected Opt4-MinRad, got {best_label}'
+    # get the best config for each cloud
+    dfsel = df.loc[df['Optimization']==best_label, ['Cloud','Level','MinRadMaxNum']]
+    # get the lists
+    levels = dfsel['Level'].tolist()
+    minRadius = dfsel['MinRadMaxNum'].tolist()
+
+else:
+    levels = [5,5,4,4] #best level for each cloud and o4
+    minRadius=[1.8,0.5,0.1,0.1] #best MR for each cloud and o4
+
 maxNumber=32
 
 start = time.time()
