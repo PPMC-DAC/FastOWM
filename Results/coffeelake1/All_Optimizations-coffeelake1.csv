@@ -3,6 +3,14 @@ Baseline;AlcoyH;4.73640;3.71490;0;0
 Baseline;ArzuaH;5.73984;4.08170;0;0
 Baseline;BrionFH;5.87186;6.44080;0;0
 Baseline;BrionUH;6.65016;7.37410;0;0
+Base-REV1;AlcoyH;4.81389;3.87780;1;0
+Base-REV1;ArzuaH;5.76663;4.27710;1;0
+Base-REV1;BrionFH;5.98769;6.42260;1;0
+Base-REV1;BrionUH;6.81649;7.39820;1;0
+Base-REV1collap;AlcoyH;4.79724;4.54110;2;0
+Base-REV1collap;ArzuaH;5.78813;4.59060;1;0
+Base-REV1collap;BrionFH;6.00475;4.87930;1;0
+Base-REV1collap;BrionUH;6.81130;5.47860;1;0
 Opt1-Quadtree;AlcoyH;3.17047;1.97330;0;0
 Opt1-Quadtree;ArzuaH;3.77238;1.70540;0;0
 Opt1-Quadtree;BrionFH;4.05499;2.84500;0;0
