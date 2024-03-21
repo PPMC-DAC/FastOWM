@@ -33,7 +33,10 @@ executable_par="../bin/o3memo"
 # csv with all the best results
 resultscsv = os.path.join(f'../../Results/{hostname}', f'All_Optimizations-{hostname}.csv')
 
-# if the output file exists, get the best config
+if hostname == 'bombay':
+    # special case
+    num_threads = [1,2,4,8,12,16,20,24,28,32,36,40,44,48]
+
 if os.path.exists(resultscsv):
     df=pd.read_csv(resultscsv, sep=';')
     df.insert(4,"Total",0)
@@ -52,6 +55,7 @@ else:
     levels = [5,5,4,4] #best level for each cloud and o4
     minRadius=[1.8,0.5,0.1,0.1] #best MR for each cloud and o4
 
+# if minRadius, this value do nothing
 maxNumber=32
 
 start = time.time()
