@@ -38,6 +38,8 @@ resultsFile = output.replace('.out', '.csv')
 if hostname == 'bombay':
     # special case
     num_threads = [1,2,4,8,12,16,20,24,28,32,36,40,44,48]
+elif hostname == 'alder':
+    num_threads = [1,2,4,8,12,16,20,24] # all cores + hyperthreading in p-cores
 
 if os.path.exists(resultscsv):
     df=pd.read_csv(resultscsv, sep=';')
