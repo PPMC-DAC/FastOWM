@@ -32,6 +32,8 @@ output = f'o4_speedup_{hostname}.out'
 executable_par="../bin/o3memo"
 # csv with all the best results
 resultscsv = os.path.join(f'../../Results/{hostname}', f'All_Optimizations-{hostname}.csv')
+# results file in .csv format
+resultsFile = output.replace('.out', '.csv')
 
 if hostname == 'bombay':
     # special case
@@ -73,7 +75,7 @@ with open(output, "a") as f:
             # flush the buffer
             f.flush()
             # excecute the command and save the output to the file
-            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, resultsFile, output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
