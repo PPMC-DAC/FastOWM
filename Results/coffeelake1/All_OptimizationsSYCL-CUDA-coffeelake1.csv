@@ -23,6 +23,14 @@ owm-sycl-dgpu-nomemo;Alcoy;0.07769;0.10092;0;256
 owm-sycl-dgpu-nomemo;Arzua;0.14880;0.20409;0;512
 owm-sycl-dgpu-nomemo;BrionF;0.18735;0.18422;0;512
 owm-sycl-dgpu-nomemo;BrionU;0.20133;0.20584;0;1024
+owm-sycl-cuda-dgpu;Alcoy;0.02955;0.17032;0;64
+owm-sycl-cuda-dgpu;Arzua;0.05855;0.21247;0;128
+owm-sycl-cuda-dgpu;BrionF;0.07976;0.15875;0;128
+owm-sycl-cuda-dgpu;BrionU;0.08963;0.171;0;128
+owm-sycl-cuda-dgpu-nomemo;Alcoy;0.02955;0.2674;0;64
+owm-sycl-cuda-dgpu-nomemo;Arzua;0.05855;0.44619;0;128
+owm-sycl-cuda-dgpu-nomemo;BrionF;0.07876;0.45458;0;128
+owm-sycl-cuda-dgpu-nomemo;BrionU;0.08963;0.6493;0;128
 owm-cuda;Alcoy;0.02467;0.10844;0;16
 owm-cuda;Arzua;0.04293;0.14560;0;32
 owm-cuda;BrionF;0.06361;0.08905;0;32
@@ -35,11 +43,3 @@ owm-cuda-nomemo;Alcoy;0.02187;0.13594;0;32
 owm-cuda-nomemo;Arzua;0.03998;0.22576;0;64
 owm-cuda-nomemo;BrionF;0.05792;0.23754;0;256
 owm-cuda-nomemo;BrionU;0.06602;0.25575;0;256
-owm-sycl-cuda-dgpu;Alcoy;0.02955;0.17032;0;64
-owm-sycl-cuda-dgpu;Arzua;0.05855;0.21247;0;128
-owm-sycl-cuda-dgpu;BrionF;0.07976;0.15875;0;128
-owm-sycl-cuda-dgpu;BrionU;0.08963;0.171;0;128
-owm-sycl-cuda-dgpu-nomemo;Alcoy;0.02955;0.2674;0;64
-owm-sycl-cuda-dgpu-nomemo;Arzua;0.05855;0.44619;0;128
-owm-sycl-cuda-dgpu-nomemo;BrionF;0.07876;0.45458;0;128
-owm-sycl-cuda-dgpu-nomemo;BrionU;0.08963;0.6493;0;128
