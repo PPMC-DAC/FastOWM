@@ -94,6 +94,14 @@ $(BIN)/o3memo: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_fun
 		@mkdir -p "$(@D)"
 		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt
 
+$(BIN)/o3memog: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_func.hpp
+		@mkdir -p "$(@D)"
+		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -lrt -g
+
+$(BIN)/o3memoi: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_func.hpp
+		@mkdir -p "$(@D)"
+		icpx application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -lrt -g
+
 $(BIN)/o3memoB: application/owm_optim3.cpp src/optim3_func.cpp include/optim3_func.hpp
 		@mkdir -p "$(@D)"
 		$(CXX) application/owm_optim3.cpp -o $@ -O3 -lm -std=c++17 -ltbb -ltbbmalloc_proxy -lrt -DNOMEMOA

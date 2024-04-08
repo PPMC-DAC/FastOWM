@@ -16,6 +16,10 @@ owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_syc
 	icpx -fsycl -DCPU ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
 	mv $@ bin
 
+owm-sycl-cpug: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+	icpx -fsycl -DCPU ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations -g
+	mv $@ bin
+
 #without memoization
 owm-sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
 	icpx -fsycl -DCPU -DNOMEMO ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
@@ -23,6 +27,10 @@ owm-sycl-cpu-nomemo: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/trave
 
 owm-sycl-igpu: mainBuilder.cpp
 	icpx -DGPU -DDEVICE ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
+owm-sycl-igpug: mainBuilder.cpp
+	icpx -DGPU -DDEVICE ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations -g
 	mv $@ bin
 
 owm-sycl-igpu-debug: mainBuilder.cpp
@@ -59,6 +67,10 @@ owm-sycl-dgpu-interop: mainBuilder.cu
 
 owm-cuda: mainBuilder.cu
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
+	mv $@ bin
+
+owm-cudag: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@ -g
 	mv $@ bin
 
 owm-cuda-grid: mainBuilder.cu
