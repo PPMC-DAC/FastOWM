@@ -26,9 +26,9 @@ CL_TOOL = "advisor"
 PRODUCT_ABBR = "advisor"
 INTERNAL_PREFIX = "advixe-"
 
-ICL_CPU_EXE_NAME  = "o3memog"
-ICL_CPU_EXE_OPTS  = shlex.split("-i ../bin/data/BrionUH -W 10 -B 20 -O 0.8 -n 8 -l 5 -r 0.1 -s 32 -L 4")
-PROJECT_NAME = 'gcl_cpu_result'
+ICL_CPU_EXE_NAME  = "owm-sycl-cpug"
+ICL_CPU_EXE_OPTS  = shlex.split("../bin/data/V19_group1_densified_point_cloud.xyz 128")
+PROJECT_NAME = 'sycl_cpu_result'
 
 DPCPP_CPU_EXE_NAME  = "mtx.mult.dpcpp.cpu"
 DPCPP_CPU_EXE_OPTS  = ""
