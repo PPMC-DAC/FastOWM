@@ -11,6 +11,8 @@ int main( int argc, const char* argv[]){
           ("h,help", "Help message")
           ("i,input", "Input file name without .xyz extension (LiDAR data file)",
             cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
+          ("results", "Output results file",
+            cxxopts::value<std::string>()->default_value("tbb_histogram.csv"))
           ("W,Wsize", "Sliding Window size", cxxopts::value<uint32_t>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
           ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
@@ -35,6 +37,9 @@ int main( int argc, const char* argv[]){
   std::string inputXYZ = parameters["input"].as<std::string>() + ".xyz";
   std::string outputXYZ = parameters["input"].as<std::string>() + "_salida.xyz";
   std::string goldXYZ = parameters["input"].as<std::string>() + "_salidaGOLD.xyz";
+
+  // Results file
+  std::string resultsCSV = parameters["results"].as<std::string>();
 
   if (parameters.count("help")) {
       std::cout << options.help() << std::endl;
@@ -93,11 +98,10 @@ int main( int argc, const char* argv[]){
 
   std::vector<std::pair<int,int>> vhistogram;
   makeHistogram(vhistogram, qtreeIn);
-  std::string out_histogram = outputXYZ + ".csv";
   #ifdef MAXNUMBER
-    save_histogram(out_histogram, vhistogram, maxNumber, Density);
+    save_histogram(resultsCSV, vhistogram, maxNumber, Density);
   #else
-    save_histogram(out_histogram, vhistogram, minRadius, Density);
+    save_histogram(resultsCSV, vhistogram, minRadius, Density);
   #endif
   vhistogram.clear();
 
@@ -106,7 +110,7 @@ int main( int argc, const char* argv[]){
   countLevels(nlevels, qtreeIn);
   printf("Levels computed\n");
   makeHistogram(vhistogram, nlevels);
-  save_levels(out_histogram, vhistogram);
+  save_levels(resultsCSV, vhistogram);
   vhistogram.clear();
   nlevels.clear();
   

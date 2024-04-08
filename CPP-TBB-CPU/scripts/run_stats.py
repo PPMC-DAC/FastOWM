@@ -28,7 +28,9 @@ output = f'sycl_statsminrad_{hostname}.out'
 executable_par="../bin/stats"
 
 mN=65536
-minRadius=[0.9,0.6,0.2,0.2] #Best minRadius according to tree+owm time without memo (see o2and3_minradius.ipynb)
+# minRadius=[0.9,0.6,0.1,0.1] #Best minRadius according to tree+owm time without memo (see o2and3_minradius.ipynb)
+# let's get different minRadius values for each cloud
+minRadius = [2.0, 0.9, 0.6, 0.1]
 lev=5
 nth=1
 
@@ -39,14 +41,15 @@ with open(output, "a") as f:
     # stamp the start time
     f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
     # iterate over the clouds and minRadius
-    for cloud,mR in zip(inputs,minRadius):
-        print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-        # save the configuration in the file
-        f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-        # flush the buffer
-        f.flush()
-        # excecute the command and save the output to the file
-        os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps,mR, mN, lev, output))
+    for cloud in inputs:
+        for mR in minRadius:
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # save the configuration in the file
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # flush the buffer
+            f.flush()
+            # excecute the command and save the output to the file
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, f'{cloud}_hist_mR{mR}.csv', output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
@@ -64,7 +67,7 @@ output = f'sycl_statsmaxnum_{hostname}.out'
 # executable
 executable_par="../bin/statsmaxnum"
 
-maxNumber=[512,512,1024,512] #Best maxNumber according to tree+owm time without memo (see o2and3_maxnumber.ipynb)
+maxNumber=[1024,512,256,128,64,32] #Best maxNumber according to tree+owm time without memo (see o2and3_maxnumber.ipynb)
 mR=0.1
 lev=5
 nth=1
@@ -76,14 +79,15 @@ with open(output, "a") as f:
     # stamp the start time
     f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
     # iterate over the clouds and maxNumber
-    for file,mN in zip(inputs,maxNumber):
-        print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-        # save the configuration in the file
-        f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-        # flush the buffer
-        f.flush()
-        # excecute the command and save the output to the file
-        os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, mN, lev, output))
+    for cloud in inputs:
+        for mN in maxNumber:
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # save the configuration in the file
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # flush the buffer
+            f.flush()
+            # excecute the command and save the output to the file
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, f'{cloud}_hist_mN{mN}.csv', output))
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
