@@ -105,6 +105,26 @@ int main( int argc, const char* argv[]){
   #endif
   vhistogram.clear();
 
+  printf("Get the radius of each leaf node\n");
+  std::vector<double> vradius;
+  getRadius(vradius, qtreeIn);
+  printf("Radius computed\n");
+  std::vector<std::pair<double,int>> ahistogram;
+  makeHistogram(ahistogram, vradius);
+  save_areas(resultsCSV, ahistogram);
+  vradius.clear();
+  ahistogram.clear();
+
+  printf("Get the density of each leaf node\n");
+  std::vector<double> vdensity;
+  getDensity(vdensity, qtreeIn);
+  printf("Density computed\n");
+  std::vector<std::pair<double,int>> dhistogram;
+  makeHistogram(dhistogram, vdensity);
+  save_density(resultsCSV, dhistogram);
+  vdensity.clear();
+  dhistogram.clear();
+
   printf("Compute the level of each leaf\n");
   std::vector<int> nlevels;
   countLevels(nlevels, qtreeIn);
