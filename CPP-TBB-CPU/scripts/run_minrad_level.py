@@ -28,7 +28,7 @@ hostname = os.popen("hostname").read().strip()
 # set the output file
 output = f'o4_minradius_{hostname}.out'
 # executables
-executable_par="../bin/o3memo"
+executable_par="../bin/o4minrad"
 # results file in .csv format
 resultsFile = output.replace('.out', '.csv')
 
