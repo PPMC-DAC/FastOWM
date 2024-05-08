@@ -1,4 +1,7 @@
-CUDA = --expt-extended-lambda -gencode arch=compute_75,code=[sm_75,compute_75] 
+# get CUDA COMPUTE_CAPABILITY for the current GPU
+COMPUTE_CAPABILITY:=$(shell /usr/local/cuda/extras/demo_suite/deviceQuery | grep 'CUDA Capability' | awk '{print $$6}' | sed 's/\.//g' | head -n 1)
+
+CUDA = --expt-extended-lambda -gencode arch=compute_${COMPUTE_CAPABILITY},code=[sm_${COMPUTE_CAPABILITY},compute_${COMPUTE_CAPABILITY}] 
 #-gencode arch=compute_60,code=[sm_60,compute_60]
 
 CPPFLAGS = -std=c++17 -O3 
@@ -6,11 +9,15 @@ CXXFLAGS = -resource-dir=/opt/intel/oneapi/dpcpp-ct/2023.1.0/lib/clang/16 -Xclan
 
 INCLUDES = -I.
 
-all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-nomemo
+all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-grid owm-cuda-nomemo
 
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
 	icpx -fsycl -DCPU ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations
+	mv $@ bin
+
+owm-sycl-cpug: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h
+	icpx -fsycl -DCPU ${CPPFLAGS} ${INCLUDES} -o $@ mainBuilder.cpp -tbb -Wno-deprecated-declarations -g
 	mv $@ bin
 
 #without memoization
@@ -22,25 +29,52 @@ owm-sycl-igpu: mainBuilder.cpp
 	icpx -DGPU -DDEVICE ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+owm-sycl-igpug: mainBuilder.cpp
+	icpx -DGPU -DDEVICE ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations -g
+	mv $@ bin
+
+owm-sycl-igpu-debug: mainBuilder.cpp
+	icpx -DGPU -DDEVICE -DDEBUG -std=c++17 -fdiagnostics-color=always -g ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
 owm-sycl-igpu-nomemo: mainBuilder.cpp
 	icpx -DGPU -DDEVICE -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+# owm-sycl-dgpu: mainBuilder.cpp
+# 	clang++ -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+# 	mv $@ bin
+# #-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
 owm-sycl-dgpu: mainBuilder.cpp
-	clang++ -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
-	mv $@ bin
-#-Xsycl-target-backend '--expt-extended-lambda' -Xsycl-target-backend '--cuda-gpu-arch=sm_75'
-owm-sycl-dgpu-nomemo: mainBuilder.cpp
-	clang++ -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	icpx -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+# owm-sycl-dgpu-nomemo: mainBuilder.cpp
+# 	clang++ -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+# 	mv $@ bin
+owm-sycl-dgpu-nomemo: mainBuilder.cpp
+	icpx -DGPU -DDEVICE -DNVIDIA -DNOMEMO ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
+# owm-sycl-dgpu-interop: mainBuilder.cu
+# 	clang++ -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
+# 	mv $@ bin
+# #-L/usr/local/cuda-11.0/lib64 -fsycl-targets=nvptx64-nvidia-cuda -lcudart
 owm-sycl-dgpu-interop: mainBuilder.cu
-	clang++ -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
+	icpx -DGPU -DDEVICE ${CPPFLAGS} ${CXXFLAGS} --cuda-gpu-arch=sm_70 ${INCLUDES} mainBuilder.cu -fsycl -fsycl-targets=nvptx64-nvidia-cuda -L/usr/local/cuda/lib64 -lcudart -ltbb  -o $@ 
 	mv $@ bin
 #-L/usr/local/cuda-11.0/lib64 -fsycl-targets=nvptx64-nvidia-cuda -lcudart
 
 owm-cuda: mainBuilder.cu
 	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@
+	mv $@ bin
+
+owm-cudag: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@ -g
+	mv $@ bin
+
+owm-cuda-grid: mainBuilder.cu
+	nvcc ${CPPFLAGS} ${CUDA} ${INCLUDES} -ltbb mainBuilder.cu -o $@ -DAUTOGRID
 	mv $@ bin
 
 owm-cuda-nomemo: mainBuilder.cu
@@ -96,7 +130,7 @@ debug2dprefix:
 	nvcc -ltbb ${CPPFLAGS} -DDEBUG ${CUDA} main2dprefix.cu -o $@.out
 
 clean:
-	rm -f *.out
+	rm -f bin/*
 
 # clang++ -std=c++17 --cuda-gpu-arch=sm_75 -I/opt/intel/llvm/build/include/sycl -g vec_add.cu -L/opt/intel/llvm/build/lib -lOpenCL -lsycl -L/usr/local/cuda-11.0/lib64 -lcudart -o vec_add.exe
 

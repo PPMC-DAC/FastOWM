@@ -15,6 +15,7 @@ experimental
 *.fatbin
 *.json
 *.err
+*.pdf
 
 .Rdata
 .Rhistory
@@ -48,3 +49,6 @@ core.*
 *.exe
 *.out
 *.app
+
+# python cache
+__pycache__

@@ -16,6 +16,8 @@ int main( int argc, const char* argv[]){
           ("h,help", "Help message")
           ("i,input", "Input file name without .xyz extension (LiDAR data file)",
             cxxopts::value<std::string>()->default_value("data/INAER_2011_Alcoy"))
+          ("results", "Output results file",
+            cxxopts::value<std::string>()->default_value("o3_memoization.csv"))
           ("W,Wsize", "Sliding Window size", cxxopts::value<uint32_t>()->default_value("10"))
           ("B,Bsize", "Grid size", cxxopts::value<uint32_t>()->default_value("20"))
           ("O,Overlap", "Overlap ratio", cxxopts::value<double>()->default_value("0.80"))
@@ -40,6 +42,9 @@ int main( int argc, const char* argv[]){
   std::string inputXYZ = parameters["input"].as<std::string>() + ".xyz";
   std::string outputXYZ = parameters["input"].as<std::string>() + "_salida.xyz";
   std::string goldXYZ = parameters["input"].as<std::string>() + "_salidaGOLD.xyz";
+
+  // Results file
+  std::string resultsFile = parameters["results"].as<std::string>();
 
   if (parameters.count("help")) {
       std::cout << options.help() << std::endl;
@@ -229,7 +234,7 @@ int main( int argc, const char* argv[]){
       printf("Unable to check results\n");
   }
 
-  if(save_time(argv[0], "o3_memoization.csv", inputXYZ, num_threads, minRadius, maxNumber, level,
+  if(save_time(argv[0], resultsFile, inputXYZ, num_threads, minRadius, maxNumber, level,
             time_tree, OWMaverage, correctness) < 0){
     printf("Unable to create time report file!\n");
   }

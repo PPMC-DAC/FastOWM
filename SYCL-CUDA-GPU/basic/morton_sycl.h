@@ -24,10 +24,10 @@ inline uint32_t CompactBy1(uint32_t x) {
 
 template<typename object_t>
 // __device__ __host__ __forceinline__
-inline uint32_t morton2D( object_t xy , const real_t resolution = 65536.0 ) noexcept
+inline uint32_t morton2D( object_t xy , const real_t resolution = 65536.0f ) noexcept
 {
-  xy.x = sycl::fmin(xy.x * resolution, resolution - 1.0);
-  xy.y = sycl::fmin(xy.y * resolution, resolution - 1.0);
+  xy.x = sycl::fmin(xy.x * resolution, resolution - 1.0f);
+  xy.y = sycl::fmin(xy.y * resolution, resolution - 1.0f);
 
   const uint32_t xx = SeparateBy1(static_cast<uint32_t>(xy.x));
   const uint32_t yy = SeparateBy1(static_cast<uint32_t>(xy.y));
@@ -73,11 +73,11 @@ inline uint64_t SeparateBy2(uint64_t x) {
 
 template<typename object_t>
 // __device__ __host__ __forceinline__
-inline uint64_t morton3D( object_t xyz , const real_t resolution = 2097152.0 ) noexcept // 2^21
+inline uint64_t morton3D( object_t xyz , const real_t resolution = 2097152.0f ) noexcept // 2^21
 {
-  xyz.x = sycl::fmin(xyz.x * resolution, resolution - 1.0);
-  xyz.y = sycl::fmin(xyz.y * resolution, resolution - 1.0);
-  xyz.z = sycl::fmin(xyz.z * resolution, resolution - 1.0);
+  xyz.x = sycl::fmin(xyz.x * resolution, resolution - 1.0f);
+  xyz.y = sycl::fmin(xyz.y * resolution, resolution - 1.0f);
+  xyz.z = sycl::fmin(xyz.z * resolution, resolution - 1.0f);
 
   const uint64_t xx = SeparateBy2(static_cast<uint64_t>(xyz.x));
   const uint64_t yy = SeparateBy2(static_cast<uint64_t>(xyz.y));

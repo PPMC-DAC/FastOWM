@@ -44,11 +44,11 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 
     uint32_t Wsize = 10;
     // uint32_t Bsize = 20;
-    std::double_t Overlap = 0.8;
+    real_t Overlap = 0.8;
 
     uint32_t Ncells;
     uint32_t nRows, nCols;
-    std::double_t Width, High, Density;
+    real_t Width, High, Density;
 
     Width = builder.bintree.diffBox.x;
     High = builder.bintree.diffBox.y;
@@ -58,7 +58,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     // Minimum number of points that should contain a Sliding Window so that its minimum is considered
     uint32_t minNumPoints = (uint32_t)(0.5*Density*Wsize*Wsize);
 
-    std::double_t Displace = round2d(Wsize*(1-Overlap));
+    real_t Displace = round2d(Wsize*(1-Overlap));
 
     // Stage 1 parameters
     if(Overlap > 0.0) {

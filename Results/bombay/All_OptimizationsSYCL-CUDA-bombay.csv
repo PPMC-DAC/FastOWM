@@ -1,0 +1,9 @@
+Optimization;Cloud;TimeTree;TimeOWM;Level;MinRadMaxNum
+owm-sycl-cpu;Alcoy;0.15317;0.03629;0;512
+owm-sycl-cpu;Arzua;0.22709;0.06900;0;256
+owm-sycl-cpu;BrionF;0.24979;0.03674;0;1024
+owm-sycl-cpu;BrionU;0.33541;0.03671;0;256
+owm-sycl-cpu-nomemo;Alcoy;0.14866;0.04160;0;512
+owm-sycl-cpu-nomemo;Arzua;0.27148;0.04705;0;1024
+owm-sycl-cpu-nomemo;BrionF;0.27290;0.05401;0;256
+owm-sycl-cpu-nomemo;BrionU;0.30296;0.04992;0;1024

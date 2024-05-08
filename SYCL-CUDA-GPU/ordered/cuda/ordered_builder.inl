@@ -299,12 +299,26 @@ Ordered_builder::Ordered_builder( std::string inputTXT, const uint32_t chunk) : 
 
 	prefetchAll();
 
-  cudaOccupancyMaxPotentialBlockSize( &numberOfBlocks,
-                                      &threadsPerBlock,
-                                      ordered_builder::init_struct );
+  // cudaOccupancyMaxPotentialBlockSize( &numberOfBlocks,
+  //                                     &threadsPerBlock,
+  //                                     ordered_builder::init_struct );
 
-  // numberOfBlocks = 60;
-  // threadsPerBlock = 128;
+#ifdef AUTOGRID
+  cudaDeviceProp prop;
+  int numSMs = 0;
+  cudaGetDeviceProperties(&prop, 0); // Asume que usas el dispositivo 0
+  cudaDeviceGetAttribute(&numSMs, cudaDevAttrMultiProcessorCount, 0);
+  int maxThreadsPerBlock = prop.maxThreadsPerBlock;
+  numberOfBlocks = 32 * numSMs; // Asumiendo 32 warps por SM, por ejemplo
+  threadsPerBlock = maxThreadsPerBlock; // Aprovechar el máximo permitido
+#else
+  numberOfBlocks = 60;
+  threadsPerBlock = 128;
+#endif
+
+#ifdef DEBUG
+  std::cout << "Number of blocks: " << numberOfBlocks << " Threads per block: " << threadsPerBlock << std::endl;
+#endif
 
   ordered_builder::init_struct<<<numberOfBlocks, threadsPerBlock>>>( 
                     node_list, 

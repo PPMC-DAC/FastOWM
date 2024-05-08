@@ -1,5 +1,7 @@
 import os
 import time
+import numpy as np
+from datetime import datetime
 
 #Sliding window size
 Wsize = 10
@@ -7,75 +9,93 @@ Wsize = 10
 Bsize = 20
 #Overlap for the sliding window. Displacement will be Wsize(1-Overlap)=10m*0.2=2m
 Overlap = 0.8
-#num_threads for the openmp implementations of stage1 and stage3
-num_threads = [1]
 #number of times the OWM is executed
 nreps = 5
-maxNumber=65536
 
-output="sycl_statsminrad.out"
+# name of the input files without the extension .xyz
+inputs=[
+    "../bin/data/AlcoyH",
+    "../bin/data/ArzuaH",
+    "../bin/data/BrionFH",
+    "../bin/data/BrionUH",
+    ]
 
-start = time.time()
-print("Start : %s" % time.ctime())
-f = open(output, "a")
-f.write("Start : {}".format(time.ctime()))
-f.close()
-
+# get the hostname
+hostname = os.popen("hostname").read().strip()
+# set the output file
+output = f'sycl_statsminrad_{hostname}.out'
+# executables
 executable_par="../bin/stats"
-inputs=["../bin/data/AlcoyH",
-        "../bin/data/ArzuaH",
-        "../bin/data/BrionFH",
-        "../bin/data/BrionUH"]
 
-minRadius=[0.9,0.6,0.2,0.2] #Best minRadius according to tree+owm time without memo (see o2and3_minradius.ipynb)
+mN=65536
+# minRadius=[0.9,0.6,0.1,0.1] #Best minRadius according to tree+owm time without memo (see o2and3_minradius.ipynb)
+# let's get different minRadius values for each cloud
+minRadius = [2.0, 0.9, 0.6, 0.1]
 lev=5
 nth=1
 
-for file,mR in zip(inputs,minRadius):
-    print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
-    f = open(output, "a")
-    f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,maxNumber,lev))
-    f.close()
-    os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, maxNumber, lev, output))
-
-end = time.time()
-print("End : %s" % time.ctime())
-print("Total Execution time: %f hours" % ((end - start)/3600))
-f = open(output, "a")
-f.write("End : {}".format(time.ctime()))
-f.write("Total Execution time: {} hours".format((end - start)/3600))
-f.close()
-
-os.system("mkdir ../bin/data/MinRadHisto && mv ../bin/data/*.csv ../bin/data/MinRadHisto && mv sycl_statsminrad.out ../bin/data/MinRadHisto/sycl_statsminrad.txt")
-
-output="sycl_statsmaxnum.out"
-
 start = time.time()
 print("Start : %s" % time.ctime())
-f = open(output, "a")
-f.write("Start : {}".format(time.ctime()))
-f.close()
 
+with open(output, "a") as f:
+    # stamp the start time
+    f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    # iterate over the clouds and minRadius
+    for cloud in inputs:
+        for mR in minRadius:
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # save the configuration in the file
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # flush the buffer
+            f.flush()
+            # excecute the command and save the output to the file
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, f'{cloud}_hist_mR{mR}.csv', output))
+
+    end = time.time()
+    f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
+    f.write("Total Execution time: {} hours\n".format((end - start)/3600))
+print("End : %s" % time.ctime())
+print("Total Execution time: %f hours" % ((end - start)/3600))
+
+results_dir = f'../bin/data/MinRadHisto-{hostname}'
+# ensure the directory exists
+os.makedirs(results_dir, exist_ok=True)
+os.system(f"mv ../bin/data/*.csv {results_dir} && mv {output} {results_dir}/{output.replace('.out', '.txt')}")
+
+# set the output file
+output = f'sycl_statsmaxnum_{hostname}.out'
+# executable
 executable_par="../bin/statsmaxnum"
 
-maxNumber=[512,512,1024,512] #Best maxNumber according to tree+owm time without memo (see o2and3_maxnumber.ipynb)
+maxNumber=[1024,512,256,128,64,32] #Best maxNumber according to tree+owm time without memo (see o2and3_maxnumber.ipynb)
 mR=0.1
 lev=5
 nth=1
 
-for file,mN in zip(inputs,maxNumber):
-    print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-    f = open(output, "a")
-    f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,file,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
-    f.close()
-    os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d| tee -a %s" % (executable_par, file, Wsize, Bsize, Overlap, nth, nreps,mR, mN, lev, output))
+start = time.time()
+print("Start : %s" % time.ctime())
 
-end = time.time()
+with open(output, "a") as f:
+    # stamp the start time
+    f.write(f'Start: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+    # iterate over the clouds and maxNumber
+    for cloud in inputs:
+        for mN in maxNumber:
+            print("Running: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # save the configuration in the file
+            f.write("\n\nRunning: {} -i {} -W {} -B {} -O {} -n {} -l {} -r {} -s {} -L {}\n\n".format(executable_par,cloud,Wsize,Bsize,Overlap,nth,nreps,mR,mN,lev))
+            # flush the buffer
+            f.flush()
+            # excecute the command and save the output to the file
+            os.system("%s -i %s -W %d -B %d -O %f -n %d -l %d -r %f -s %d -L %d --results %s | tee -a %s" % (executable_par, cloud, Wsize, Bsize, Overlap, nth, nreps, mR, mN, lev, f'{cloud}_hist_mN{mN}.csv', output))
+
+    end = time.time()
+    f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
+    f.write("Total Execution time: {} hours\n".format((end - start)/3600))
 print("End : %s" % time.ctime())
 print("Total Execution time: %f hours" % ((end - start)/3600))
-f = open(output, "a")
-f.write("End : {}".format(time.ctime()))
-f.write("Total Execution time: {} hours".format((end - start)/3600))
-f.close()
 
-os.system("mkdir ../bin/data/MaxNumHisto && mv ../bin/data/*.csv ../bin/data/MaxNumHisto && mv sycl_statsmaxnum.out ../bin/data/MaxNumHisto/sycl_statsmaxnum.txt")
+results_dir = f'../bin/data/MaxNumHisto-{hostname}'
+# ensure the directory exists
+os.makedirs(results_dir, exist_ok=True)
+os.system(f"mv ../bin/data/*.csv {results_dir} && mv {output} {results_dir}/{output.replace('.out', '.txt')}")
