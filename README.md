@@ -1,6 +1,17 @@
 # FastOWM
 
-This repo includes different implementations of the [OWM algorithm](https://www.mdpi.com/2072-4292/12/7/1051). There are four main directories:
+This repo includes different implementations of the [OWM algorithm](https://www.mdpi.com/2072-4292/12/7/1051). 
+
+Please, cite [this paper](https://authors.elsevier.com/sd/article/S1877-7503(24)00110-8) if you use these implementations for your own developments:
+
+```
+Felipe Muñoz, Rafael Asenjo, Angeles Navarro, J. Carlos Cabaleiro,
+CPU and GPU oriented optimizations for LiDAR data processing,
+Journal of Computational Science, 2024. 
+```
+[https://doi.org/10.1016/j.jocs.2024.102317](https://doi.org/10.1016/j.jocs.2024.102317)
+
+There are four main directories:
 
 * ``RandC-Baseline`` includes the original R implementation and the porting to language C that we consider as the baseline. This directory should be taken just as a reference of the seminal work implemented in R and C, but it is old code, significantly superseded in the other directories.
 * ``CPP-TBB-CPU`` includes a C++ version with several optimizations that uses TBB to exploit parallelism on multicore CPUs.
