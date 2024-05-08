@@ -2,7 +2,7 @@
 
 This repo includes different implementations of the [OWM algorithm](https://www.mdpi.com/2072-4292/12/7/1051). 
 
-Please, cite [this paper](https://authors.elsevier.com/sd/article/S1877-7503(24)00110-8) if you use these implementations for your own developments:
+Please, cite [this paper](https://authors.elsevier.com/sd/article/S1877-7503(24)00110-8) if you use these implementations for your own developments (BibTeX format at the end):
 
 ```
 Felipe Muñoz, Rafael Asenjo, Angeles Navarro, J. Carlos Cabaleiro,
@@ -35,3 +35,18 @@ On the other hand, the **SYCL-CUDA-GPU directory** includes the SYCL and CUDA im
 Finally, to compare the results across the different hosts, we have used [process_all_servers.ipynb](Results/process_all_servers.ipynb).
 
 The LiDAR clouds used in our experiments can be downloaded from [here](https://www.dropbox.com/s/0vpr8gow624ngqz/nubesLidar.tgz?dl=0) (2.49GB).
+
+BibTeX format:
+
+```
+@article{Felipe-JCS-2024-FastOWM,
+title = {CPU and GPU oriented optimizations for LiDAR data processing},
+author = {Felipe Muñoz and Rafael Asenjo and Angeles Navarro and J. Carlos Cabaleiro},
+journal = {Journal of Computational Science},
+pages = {102317},
+year = {2024},
+issn = {1877-7503},
+doi = {https://doi.org/10.1016/j.jocs.2024.102317},
+url = {https://www.sciencedirect.com/science/article/pii/S1877750324001108},
+keywords = {LiDAR data processing, Digital Terrain Model, Tree data structures, Parallel optimization, GPU, SYCL, CUDA, oneAPI}}
+```
