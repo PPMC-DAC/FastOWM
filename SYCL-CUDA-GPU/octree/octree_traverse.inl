@@ -82,10 +82,10 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
         start = tempo_t::now();
         cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), cudaCpuDeviceId);
 
-        for(int i=0; i<Ncells; i++){
-            if(count[i] != 0xFFFFFFFFu)
-                countMin++;
-        }
+        // for(int i=0; i<Ncells; i++){
+        //     if(count[i] != 0xFFFFFFFFu)
+        //         countMin++;
+        // }
         //printf("Numero de minimos STAGE1: %u\n", countMin);
 
         /* STAGE 2 */
@@ -125,7 +125,7 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     builder.build();
     std::chrono::time_point<tempo_t> end = tempo_t::now();
     double dtime = cast_t(end - start).count();    
-    std::cout << "  CREATION takes: " << dtime << " ms\n";
+    // std::cout << "  CREATION takes: " << dtime << " ms\n";
 
     uint32_t Wsize = 10;
     // uint32_t Bsize = 20;
@@ -176,12 +176,12 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     // std::memset(cpu_count, 0u, Ncells*sizeof(uint32_t));
 
 #ifndef DEBUG
-    int n_tests = 5;
-    std::cout << "Performing " << n_tests << " tests (" << chunkDim << ", " << factor  << ")\n";
+    int n_tests = 10;
+    // std::cout << "Performing " << n_tests << " tests (" << chunkDim << ", " << factor  << ")\n";
 #else
     int n_tests = 1;
 #endif
-    double total_s1{0.0}, total_tree{0.0};
+    double total_s1{0.0}, total_s2{0.0}, total_tree{0.0};
 
     builder.reset();
 
@@ -205,26 +205,35 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 
         total_s1 += cast_t(tempo_t::now() - end).count();
 
-        builder.reset();
+        // builder.reset();
 
+        start = tempo_t::now();
         cudaMemPrefetchAsync(count, Ncells*sizeof(uint32_t), cudaCpuDeviceId);
 
-        countMin=0;
-        for(int i=0; i<Ncells; i++){
-            if(count[i] != 0)
-                countMin++;
-            count[i] = 0u;
+        // for(int i=0; i<Ncells; i++){
+        //     if(count[i] != 0xFFFFFFFFu)
+        //         countMin++;
+        // }
+        //printf("Numero de minimos STAGE1: %u\n", countMin);
+
+        /* STAGE 2 */
+
+        if(Overlap != 0.0){
+            //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+            std::sort(count, count+Ncells); //std::execution::par, std::execution::par_unseq,
+            countMin = stage2CPU(Ncells, count);
+            //printf("Numero de minimos STAGE2: %u\n", countMin);
         }
-        for(int i=0; i<Ncells; i++){
-            if(cpu_count[i] != 0)
-                countMin++;
-            cpu_count[i] = 0u;
-        }
+        total_s2 += cast_t(tempo_t::now() - start).count();
+
     }
+
     std::cout << " Tree Construction CUDA time elapased: " << total_tree/n_tests << " ms\n";
     std::cout << " Stage1 KERNEL CUDA time elapsed: " << total_s1/n_tests << " ms\n";
-
-    printf("Number of minima: %u\n", countMin);
+    std::cout << " Stage2 KERNEL CUDA time elapsed: " << total_s2/n_tests << " ms\n";
+    std::cout << " Total KERNEL CUDA time elapsed: " << (total_s1+total_s2)/n_tests << " ms\n";
+    std::cout << " Total TIME (Tree+OWM) CUDA time elapsed: " << total_tree/n_tests + (total_s1+total_s2)/n_tests << " ms\n";
+    printf("Numer of seed points: %u\n", countMin);
 
     cudaFree(count);
     cudaFreeHost(cpu_count);

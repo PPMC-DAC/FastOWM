@@ -39,7 +39,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     builder.build();
 
     std::chrono::time_point<tempo_t> end = tempo_t::now();
-    std::double_t dtime = cast_t(end - start).count();    
+    // std::double_t dtime = cast_t(end - start).count();    
     //std::cout << "  CREATION takes: " << dtime << " ms\n";
 
     uint32_t Wsize = 10;
@@ -128,9 +128,9 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     start = tempo_t::now();
     device_queue.memcpy(count_h, count, Ncells*sizeof(uint32_t)).wait();
 
-    for(int i=0; i<Ncells; i++){
-        if(count_h[i] != 0) countMin++;
-    }
+    // for(int i=0; i<Ncells; i++){
+    //     if(count_h[i] != 0) countMin++;
+    // }
     /* STAGE 2 */
     if(Overlap != 0.0){
         //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
@@ -143,9 +143,9 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     free(count_h);
 #else
     start = tempo_t::now();
-    for(int i=0; i<Ncells; i++){
-        if(count[i] != 0) countMin++;
-    }
+    // for(int i=0; i<Ncells; i++){
+    //     if(count[i] != 0) countMin++;
+    // }
     /* STAGE 2 */
     if(Overlap != 0.0){
         //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
@@ -186,17 +186,18 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const float factor)
 {
 
-auto CUDASelector = [](sycl::device const &dev) {
-    if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
-      std::cout << " CUDA device found " << std::endl;
-      return 1;
-    } else {
-      return -1;
-    }
-};
+// auto CUDASelector = [](sycl::device const &dev) {
+//     if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
+//       std::cout << " CUDA device found " << std::endl;
+//       return 1;
+//     } else {
+//       return -1;
+//     }
+// };
 
 #ifdef NVIDIA
-    sycl::queue device_queue(CUDASelector);
+    sycl::queue device_queue([](auto& d) 
+        { return (d.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda); });
 #elif GPU
     sycl::queue device_queue(sycl::gpu_selector_v);
 #elif CPU
@@ -225,8 +226,9 @@ auto CUDASelector = [](sycl::device const &dev) {
     
     builder.build();
 
-    std::double_t dtime = cast_t(tempo_t::now() - start).count();    
-    std::cout << "  CREATION takes: " << dtime << " ms\n";
+    std::chrono::time_point<tempo_t> end = tempo_t::now();
+    // std::double_t dtime = cast_t(tempo_t::now() - start).count();    
+    // std::cout << "  CREATION takes: " << dtime << " ms\n";
 
 
     uint32_t Wsize = 10;
@@ -272,13 +274,13 @@ auto CUDASelector = [](sycl::device const &dev) {
 #endif
 
 #ifndef DEBUG
-    int n_tests = 50;
+    int n_tests = 10;
     std::cout << "Performing " << n_tests << " tests (" << factor  << ")\n";
 #else
     int n_tests = 1;
 #endif
 
-    std::double_t total = 0.0;
+    std::double_t total_s1 = 0.0, total_tree = 0.0;
 
     uint32_t wCols = uint32_t(nCols*factor);
 
@@ -297,6 +299,9 @@ auto CUDASelector = [](sycl::device const &dev) {
         start = tempo_t::now();
 
         builder.build();
+
+        end = tempo_t::now();
+        total_tree += cast_t(end - start).count();
 
         // stage1query(builder.node_list, builder.aabb_list, builder.ord_point_cloud, count,
         //         Wsize, Overlap, nCols, nRows, minNumPoints, builder.BBox, builder.diffBox, builder.numInternalNodes);
@@ -325,13 +330,13 @@ auto CUDASelector = [](sycl::device const &dev) {
 
         e.wait();
         // dtime = e.get_profiling_info<sycl::info::event_profiling::command_end>();
-        dtime = cast_t(tempo_t::now() - start).count();
+        total_s1 += cast_t(tempo_t::now() - end).count();
 
         // device_queue.wait_and_throw();
 
-        if(i%10 == 0)
-              std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
-        total += dtime;
+        // if(i%10 == 0)
+        //       std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
+        // total += dtime;
 
         builder.reset();
 
@@ -340,33 +345,44 @@ auto CUDASelector = [](sycl::device const &dev) {
     uint32_t countMin=0;
 
 #if DEVICE
+    start = tempo_t::now();
     device_queue.memcpy(count_h, count, Ncells*sizeof(uint32_t)).wait();
 
-    for(int i=0; i<Ncells; i++){
-        if(count_h[i] != 0)
-            countMin++;
+    // for(int i=0; i<Ncells; i++){
+    //     if(count_h[i] != 0) countMin++;
+    // }
+    /* STAGE 2 */
+    if(Overlap != 0.0){
+        //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+        std::sort(oneapi::dpl::execution::par_unseq, count_h, count_h+Ncells); //std::execution::par, std::execution::par_unseq,
+        countMin = stage2CPU(Ncells, count_h);
+        //printf("Numero de minimos STAGE2: %u\n", countMin);
     }
-    for(int i=0; i<Ncells; i++){
-        if(count_cpu[i] != 0){
-            countMin++;
-        }
-    }
+    double total_s2 = cast_t(tempo_t::now() - start).count();
+
     free(count_h);
 #else
-    for(int i=0; i<Ncells; i++){
-        if(count[i] != 0){
-            countMin++;
-        }
+    start = tempo_t::now();
+    // for(int i=0; i<Ncells; i++){
+    //     if(count[i] != 0) countMin++;
+    // }
+    /* STAGE 2 */
+    if(Overlap != 0.0){
+        //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+        std::sort(oneapi::dpl::execution::par_unseq, count, count+Ncells); //std::execution::par, std::execution::par_unseq,
+        countMin = stage2CPU(Ncells, count);
+        //printf("Numero de minimos STAGE2: %u\n", countMin);
     }
-    for(int i=0; i<Ncells; i++){
-        if(count_cpu[i] != 0){
-            countMin++;
-        }
-    }
+    double total_s2 = cast_t(tempo_t::now() - start).count();
+
 #endif
 
-    std::cout << " Stage1 KERNEL time elapsed: " << total/n_tests << " ms\n";
-    printf("Number of minima: %u\n", countMin);
+    std::cout << " Tree Construction SYCL time elapased: " << total_tree/n_tests << " ms\n";
+    std::cout << " Stage1 KERNEL SYCL time elapsed: " << total_s1/n_tests << " ms\n";
+    std::cout << " Stage2 KERNEL SYCL time elapsed: " << total_s2 << " ms\n";
+    std::cout << " Total KERNEL SYCL time elapsed: " << total_s1/n_tests + total_s2 << " ms\n";
+    std::cout << " Total TIME (Tree+OWM) SYCL time elapsed: " << (total_tree + total_s1)/n_tests + total_s2<< " ms\n";
+    printf("Numer of seed points: %u\n", countMin);
 
     free(count, device_queue);
     free(count_cpu);
