@@ -4,7 +4,7 @@
 
 #include <basic/traverse_sycl.h>
 
-void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
+void octree_traverse(std::string inputTXT, const uint32_t chunkDim, const uint32_t Wsize, const real_t Overlap)
 {
 
 #ifdef NVIDIA
@@ -42,9 +42,11 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
     // std::double_t dtime = cast_t(end - start).count();    
     //std::cout << "  CREATION takes: " << dtime << " ms\n";
 
-    uint32_t Wsize = 10;
+    // uint32_t Wsize = 10;
+    std::cout << "Wsize: " << Wsize << std::endl;
     // uint32_t Bsize = 20;
-    real_t Overlap = 0.8;
+    // real_t Overlap = 0.99;
+    std::cout << "Overlap: " << Overlap << std::endl;
 
     uint32_t Ncells;
     uint32_t nRows, nCols;
@@ -183,7 +185,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim)
 
 
 
-void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const float factor)
+void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const float factor, const uint32_t Wsize, const real_t Overlap)
 {
 
 // auto CUDASelector = [](sycl::device const &dev) {
@@ -231,9 +233,11 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     // std::cout << "  CREATION takes: " << dtime << " ms\n";
 
 
-    uint32_t Wsize = 10;
+    // uint32_t Wsize = 10;
+    std::cout << "Wsize: " << Wsize << std::endl;
     // uint32_t Bsize = 20;
-    std::double_t Overlap = 0.8;
+    // std::double_t Overlap = 0.99;
+    std::cout << "Overlap: " << Overlap << std::endl;
 
     uint32_t Ncells;
     uint32_t nRows, nCols;

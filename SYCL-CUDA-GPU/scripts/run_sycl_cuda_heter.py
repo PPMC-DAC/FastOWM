@@ -23,16 +23,16 @@ num_threads = get_nprocs()
 executable_list = [ 
                     # "../bin/owm-sycl-cpu",
                     # "../bin/owm-sycl-cpu-nomemo",
-                    "../bin/owm-sycl-igpu",
-                    "../bin/owm-sycl-igpu-nomemo",
-                    "../bin/owm-sycl-dgpu",
-                    "../bin/owm-sycl-dgpu-nomemo",
-                    "../bin/owm-cuda",
-                    "../bin/owm-cuda-grid",
-                    "../bin/owm-cuda-nomemo",
+                    # "../bin/owm-sycl-igpu",
+                    # "../bin/owm-sycl-igpu-nomemo",
+                    "../bin/owm-sycl-dgpu-heter",
+                    # "../bin/owm-sycl-dgpu-nomemo",
+                    # "../bin/owm-cuda",
+                    # "../bin/owm-cuda-grid",
+                    # "../bin/owm-cuda-nomemo",
                 ]
 
-maxNumber=[4,8,16,32,64,128,256,512,1024]
+maxNumber=[4,8,16,32,64,128,256]
 
 # select the number of threads
 if hostname == 'coffeelake1':
@@ -47,7 +47,11 @@ else:
     vnth = [num_threads[-1]]
 
 # factor for heterogenous execution
-factors = [0.25, 0.5, 0.75]
+factors = [0.85, 0.9, 0.95]
+# window size
+windows = [10, 12, 14, 16]
+# overlap
+overlaps = [0.99]
 
 start = time.time()
 print("Start : %s" % time.ctime())
@@ -60,15 +64,17 @@ with open(output, "a") as f:
         for i in inputs:
             for mN in maxNumber:
                 for factor in factors:
-                    print("\n***************\nRunning: {} {} {} {}".format(exe, i, mN, factor))
-                    # save the configuration in the file
-                    f.write("\n\nRunning: {} {} {} {}\n\n".format(exe, i, mN, factor))
-                    # flush the buffer
-                    f.flush()
-                    # execute the command and save the output to the file
-                    os.system("%s %s %d %f| tee -a %s" % (exe, i, mN, factor, output))
-                    # sleep until the next execution
-                    time.sleep(5)
+                    for window in windows:
+                        for overlap in overlaps:
+                            print("\n***************\nRunning: {} {} {} {} {} {}".format(exe, i, mN, factor, window, overlap))
+                            # save the configuration in the file
+                            f.write("\n\nRunning: {} {} {} {}\n\n".format(exe, i, mN, factor, window, overlap))
+                            # flush the buffer
+                            f.flush()
+                            # execute the command and save the output to the file
+                            os.system("%s %s %d %f %d %f| tee -a %s" % (exe, i, mN, factor, window, overlap, output))
+                            # sleep until the next execution
+                            time.sleep(5)
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
