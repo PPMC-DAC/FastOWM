@@ -25,6 +25,7 @@ executable_list = [
                     # "../bin/owm-sycl-cpu-nomemo",
                     # "../bin/owm-sycl-igpu",
                     # "../bin/owm-sycl-igpu-nomemo",
+                    "../bin/owm-sycl-dgpu",
                     "../bin/owm-sycl-dgpu-heter",
                     # "../bin/owm-sycl-dgpu-nomemo",
                     # "../bin/owm-cuda",
@@ -63,12 +64,17 @@ with open(output, "a") as f:
     for exe in executable_list:
         for i in inputs:
             for mN in maxNumber:
-                for factor in factors:
+                # avoid using factor if the executable contains heter
+                if "heter" in exe:
+                    factor_list = factors
+                else:
+                    factor_list = [1.0] # This is a dummy value
+                for factor in factor_list:
                     for window in windows:
                         for overlap in overlaps:
                             print("\n***************\nRunning: {} {} {} {} {} {}".format(exe, i, mN, factor, window, overlap))
                             # save the configuration in the file
-                            f.write("\n\nRunning: {} {} {} {}\n\n".format(exe, i, mN, factor, window, overlap))
+                            f.write("\n\nRunning: {} {} {} {} {} {}\n\n".format(exe, i, mN, factor, window, overlap))
                             # flush the buffer
                             f.flush()
                             # execute the command and save the output to the file
