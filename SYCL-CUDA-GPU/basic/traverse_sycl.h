@@ -450,8 +450,9 @@ class _queryCPU{
 
 };
 
+// WARNING: Extremes of row selection will be intentionally altered during row parallelization to expose errors if code is not properly updated
 void stage1query2DCPU(const LBVHoct& lbvh, const whole_t& whole, uint32_t* count, const uint32_t Wsize, 
-  const real_t Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
+  const real_t Overlap, const uint32_t nCols, const std::pair<uint32_t,uint32_t> chunkRows, const uint32_t minNumPoints){
 
   real_t Displace = round2d(Wsize*(1-Overlap));
 
@@ -463,15 +464,16 @@ void stage1query2DCPU(const LBVHoct& lbvh, const whole_t& whole, uint32_t* count
 
   // size_t dimChunk = 2;
 
-  tbb::parallel_for( tbb::blocked_range2d<int,int>{ 0, static_cast<int>(nRows),
-                                                    static_cast<int>(wCols) ,static_cast<int>(nCols)},
-                    _queryCPU(lbvh, initBox, Displace, Overlap, count, nCols, minNumPoints) );
+  tbb::parallel_for( tbb::blocked_range2d<int,int>{ static_cast<int>(chunkRows.first), static_cast<int>(chunkRows.second),
+                                                    0, static_cast<int>(nCols)},
+                    _queryCPU(lbvh, initBox, Displace, Overlap, count, nCols, minNumPoints),
+                    tbb::auto_partitioner() );
 
   return;
 }
 
 void stage1query2DCPU(Octree_builder& builder, uint32_t* count, const uint32_t Wsize, 
-  const real_t Overlap, const uint32_t wCols, const uint32_t nCols, const uint32_t nRows, const uint32_t minNumPoints){
+  const real_t Overlap, const uint32_t nCols, const std::pair<uint32_t,uint32_t> chunkRows, const uint32_t minNumPoints){
 
   real_t Displace = round2d(Wsize*(1-Overlap));
 
@@ -489,9 +491,10 @@ void stage1query2DCPU(Octree_builder& builder, uint32_t* count, const uint32_t W
 
   // const size_t dimChunk = 8;
 
-  tbb::parallel_for( tbb::blocked_range2d<int,int>{ 0, static_cast<int>(nRows),
-                                                    static_cast<int>(wCols) ,static_cast<int>(nCols)},
-                    _queryCPU(lbvh, initBox, Displace, Overlap, count, nCols, minNumPoints) );
+  tbb::parallel_for( tbb::blocked_range2d<int,int>{ static_cast<int>(chunkRows.first), static_cast<int>(chunkRows.second),
+                                                    0, static_cast<int>(nCols)},
+                    _queryCPU(lbvh, initBox, Displace, Overlap, count, nCols, minNumPoints), 
+                    tbb::auto_partitioner() );
 
   return;
 }

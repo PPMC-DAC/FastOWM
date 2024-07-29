@@ -8,7 +8,7 @@ CPPFLAGS = -std=c++17 -O3
 
 INCLUDES = -I. -I/usr/include/x86_64-linux-gnu/c++/12
 
-all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-grid owm-cuda-nomemo
+all: owm-sycl-cpu owm-sycl-cpu-nomemo owm-sycl-igpu owm-sycl-igpu-nomemo owm-sycl-dgpu owm-sycl-dgpu-nomemo owm-cuda owm-cuda-grid owm-cuda-nomemo owm-sycl-dgpu-heter
 
 
 owm-sycl-cpu: mainBuilder.cpp sycl_octree/octree_traverse.inl basic/traverse_sycl.h

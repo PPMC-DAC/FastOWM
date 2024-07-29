@@ -113,7 +113,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim, const uint32
         // stage1query(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints);
 
 #ifdef CPU
-        stage1query2DCPU(builder, count, Wsize, Overlap, 0u, nCols, nRows, minNumPoints);
+        stage1query2DCPU(builder, count, Wsize, Overlap, nCols, 0u, nRows, minNumPoints);
 #else
         auto e = stage1query2D(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints, device_queue);
         e.wait();
@@ -197,6 +197,17 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 //     }
 // };
 
+// limit the maximum concurrency to that defined by the environment variable DPCPP_CPU_NUM_CUS for the TBB parallel_for in the CPU
+// get the value of the environment variable
+const char* num_cus = std::getenv("DPCPP_CPU_NUM_CUS");
+int num_cpus = 0;
+if(num_cus != NULL) {
+    num_cpus = std::stoi(num_cus);
+}else{
+    num_cpus = 8;
+}
+tbb::global_control c(tbb::global_control::max_allowed_parallelism, num_cpus);
+
 #ifdef NVIDIA
     sycl::queue device_queue([](auto& d) 
         { return (d.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda); });
@@ -266,15 +277,23 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     printf("nCols: %d, nRows: %d\n", nCols, nRows);
     printf("minNumPoints: %d\n", minNumPoints);
 #endif
-
+    // this vector will store the index of the selected minimums in the device memory
     uint32_t* count = (uint32_t*)sycl_builder::mallocWrap(Ncells*sizeof(uint32_t), device_queue);
+    // the same vector but in the CPU
     uint32_t* count_cpu = (uint32_t*)std::malloc(Ncells*sizeof(uint32_t));
 
 #if DEVICE
+    // we need to copy the data from the device to the host
     uint32_t* count_h = (uint32_t*)std::malloc(Ncells*sizeof(uint32_t));
     octree_node* octree_h = (octree_node*)std::malloc(builder.m_node_count*sizeof(octree_node));
     aabb_t* aabb_h = (aabb_t*)std::malloc(builder.m_node_count*sizeof(aabb_t));
     point_t* points_h = (point_t*)std::malloc(builder.bintree.numObjects*sizeof(point_t));
+
+    LBVHoct lbvh(
+        octree_h,
+        aabb_h,
+        points_h
+    );
 #endif
 
 #ifndef DEBUG
@@ -285,8 +304,8 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
 #endif
 
     std::double_t total_s1 = 0.0, total_tree = 0.0;
-
-    uint32_t wCols = uint32_t(nCols*factor);
+    // get the number of rows that the device will analyze
+    uint32_t chunkRows = uint32_t(nRows*factor);
 
     builder.reset();
 
@@ -311,25 +330,24 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
         //         Wsize, Overlap, nCols, nRows, minNumPoints, builder.BBox, builder.diffBox, builder.numInternalNodes);
         // stage1query(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints);
 
-        auto e = stage1query2D(builder, count, Wsize, Overlap, wCols, nRows, minNumPoints, device_queue);
+        auto e = stage1query2D(builder, count, Wsize, Overlap, nCols, chunkRows, minNumPoints, device_queue);
 
-        // auto t_copy = tempo_t::now();
 #ifdef DEVICE
+        // auto t_copy = tempo_t::now();
+
         device_queue.memcpy(octree_h, builder.m_octree, builder.m_node_count*sizeof(octree_node));
         device_queue.memcpy(aabb_h, builder.m_aabb, builder.m_node_count*sizeof(aabb_t));
+        // we do not need a wait() here since the parallel_for, inside the stage1query2DCPU, will wait until the CPU finishes
         device_queue.memcpy(points_h, builder.bintree.ord_point_cloud, builder.bintree.numObjects*sizeof(point_t));
 
-        LBVHoct lbvh(
-            octree_h,
-            aabb_h,
-            points_h
-        );
+        // std::cout << "Copy time: " << cast_t(tempo_t::now() - t_copy).count() << "\n";
 
-        // std::cout << "Tiempo de envío COPIA: " << cast_t(tempo_t::now() - t_copy).count() << "\n";
+        stage1query2DCPU(lbvh, builder.bintree.BBox, count_cpu, Wsize, Overlap, nCols, std::make_pair(chunkRows, nRows), minNumPoints);
 
-        stage1query2DCPU(lbvh, builder.bintree.BBox, count_cpu, Wsize, Overlap, wCols, nCols, nRows, minNumPoints);
+        // std::cout << "CPU time: " << cast_t(tempo_t::now() - t_copy).count() << "\n";
+
 #else
-        stage1query2DCPU(builder, count_cpu, Wsize, Overlap, wCols, nCols, nRows, minNumPoints);
+        stage1query2DCPU(builder, count_cpu, Wsize, Overlap, nCols, std::make_pair(chunkRows, nRows), minNumPoints);
 #endif
 
         e.wait();
@@ -352,30 +370,25 @@ void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const 
     start = tempo_t::now();
     device_queue.memcpy(count_h, count, Ncells*sizeof(uint32_t)).wait();
 
-    // for(int i=0; i<Ncells; i++){
-    //     if(count_h[i] != 0) countMin++;
-    // }
     /* STAGE 2 */
     if(Overlap != 0.0){
         //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
         std::sort(oneapi::dpl::execution::par_unseq, count_h, count_h+Ncells); //std::execution::par, std::execution::par_unseq,
         countMin = stage2CPU(Ncells, count_h);
-        //printf("Numero de minimos STAGE2: %u\n", countMin);
+        // printf("Numer of seed points: %u\n", countMin);
     }
     double total_s2 = cast_t(tempo_t::now() - start).count();
 
     free(count_h);
 #else
     start = tempo_t::now();
-    // for(int i=0; i<Ncells; i++){
-    //     if(count[i] != 0) countMin++;
-    // }
+
     /* STAGE 2 */
     if(Overlap != 0.0){
         //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
         std::sort(oneapi::dpl::execution::par_unseq, count, count+Ncells); //std::execution::par, std::execution::par_unseq,
         countMin = stage2CPU(Ncells, count);
-        //printf("Numero de minimos STAGE2: %u\n", countMin);
+        // printf("Numer of seed points: %u\n", countMin);
     }
     double total_s2 = cast_t(tempo_t::now() - start).count();
 
