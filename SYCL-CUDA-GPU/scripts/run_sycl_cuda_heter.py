@@ -48,11 +48,11 @@ else:
     vnth = [num_threads[-1]]
 
 # factor for heterogenous execution
-factors = [0.85, 0.9, 0.95]
+factors = [0.75, 0.8, 0.85, 0.9, 0.95]
 # window size
-windows = [10, 12, 14, 16]
+windows = [10]
 # overlap
-overlaps = [0.99]
+overlaps = [0.9, 0.95, 0.99]
 
 start = time.time()
 print("Start : %s" % time.ctime())
@@ -72,15 +72,16 @@ with open(output, "a") as f:
                 for factor in factor_list:
                     for window in windows:
                         for overlap in overlaps:
-                            print("\n***************\nRunning: {} {} {} {} {} {}".format(exe, i, mN, factor, window, overlap))
-                            # save the configuration in the file
-                            f.write("\n\nRunning: {} {} {} {} {} {}\n\n".format(exe, i, mN, factor, window, overlap))
-                            # flush the buffer
-                            f.flush()
-                            # execute the command and save the output to the file
-                            os.system("%s %s %d %f %d %f| tee -a %s" % (exe, i, mN, factor, window, overlap, output))
-                            # sleep until the next execution
-                            time.sleep(5)
+                            for nth in vnth:
+                                print("\n***************\nRunning: {} {} {} {} {} {} {}".format(exe, i, mN, factor, window, overlap, nth))
+                                # save the configuration in the file
+                                f.write("\n\nRunning: {} {} {} {} {} {} {}\n\n".format(exe, i, mN, factor, window, overlap, nth))
+                                # flush the buffer
+                                f.flush()
+                                # execute the command and save the output to the file
+                                os.system("DPCPP_CPU_NUM_CUS=%d %s %s %d %f %d %f| tee -a %s" % (nth, exe, i, mN, factor, window, overlap, output))
+                                # sleep until the next execution
+                                time.sleep(5)
 
     end = time.time()
     f.write(f'End: {datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}\n')
