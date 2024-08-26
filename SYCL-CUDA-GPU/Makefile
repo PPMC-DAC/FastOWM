@@ -52,6 +52,14 @@ owm-sycl-dgpu-heter: mainBuilder.cpp
 	icpx -DGPU -DDEVICE -DNVIDIA -DHETER ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations
 	mv $@ bin
 
+owm-sycl-dynamic: mainBuilder_scheduler.cpp
+	icpx -DGPU -DDEVICE -DHETER -DDYNAMIC ${CPPFLAGS} ${INCLUDES} -fsycl mainBuilder_scheduler.cpp -ltbb -ltbbmalloc_proxy -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
+owm-sycl-dynamic-nvidia: mainBuilder_scheduler.cpp
+	icpx -DGPU -DDEVICE -DNVIDIA -DHETER -DDYNAMIC ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder_scheduler.cpp -ltbb -o $@ -Wno-deprecated-declarations
+	mv $@ bin
+
 owm-sycl-dgpu-ncu: mainBuilder.cpp
 	icpx -DGPU -DDEVICE -DNVIDIA ${CPPFLAGS} ${INCLUDES} -fsycl -fsycl-targets=nvptx64-nvidia-cuda mainBuilder.cpp -ltbb -o $@ -Wno-deprecated-declarations -g
 	mv $@ bin

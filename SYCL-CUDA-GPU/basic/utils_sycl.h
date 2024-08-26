@@ -276,14 +276,40 @@ struct Split_task
 //   return;
 // }
 
-uint32_t stage2CPU(uint32_t countMin, uint32_t* minIDs){
+uint32_t stage2CPU(uint32_t Ncells, uint32_t* minIDs){
 
   uint32_t index = 0, id;
 
   int ii,jj;
 
   /* esta es la forma de descartar las posiciones no utilizadas, inicializadas a 0 */
-  for( jj=0 ;  minIDs[jj] == 0 ; ++jj );
+  for( jj=0 ;  minIDs[jj] && jj<Ncells == 0; ++jj );
+
+  for( ii=jj ; ii<Ncells ; ii=jj ){
+
+    id = minIDs[ii];
+
+    for( jj=ii+1 ; id==minIDs[jj] && jj<Ncells ; jj++ );
+
+    if(jj-ii > 1){
+        // if(jj-ii > 1){
+        minIDs[index]=id;
+        index++;
+        // }
+    }
+  }
+
+    return index;
+}
+
+uint32_t stage2GPU(uint32_t countMin, int* minIDs){
+
+  uint32_t index = 0;
+
+  int ii,jj,id;
+
+  /* esta es la forma de descartar las posiciones no utilizadas, inicializadas a -1 */
+  for( jj=0 ;  minIDs[jj] == -1 ; ++jj );
 
   for( ii=jj ; ii<countMin ; ii=jj ){
 

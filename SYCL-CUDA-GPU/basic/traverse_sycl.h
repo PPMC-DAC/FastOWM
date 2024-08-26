@@ -9,6 +9,18 @@
 
 #include <tbb/blocked_range2d.h>
 
+#ifdef DYNAMIC
+uint32_t Wsize;
+uint32_t minNumPoints;
+uint32_t nRows;
+uint32_t nCols;
+aabb_t initBox;
+double Overlap;
+double Displace;
+uint32_t* minIDs = NULL;
+// uint32_t* gminIDs = NULL;
+#endif
+
 /*Esta estructura se utiliza con puntos ordenados*/
 struct LBVHo
 {
@@ -637,6 +649,32 @@ class _queryOct{
     {
       int idx = static_cast<int>(index[0]);
       int jdx = static_cast<int>(index[1]);
+
+      if (idx >= nCols || jdx >= nRows)
+          return;
+      
+      aabb_t cellBox;
+      cellBox.upper.x = idx*Displace + initBox.upper.x;
+      cellBox.lower.x = idx*Displace + initBox.lower.x;
+      cellBox.upper.y = jdx*Displace + initBox.upper.y;
+      cellBox.lower.y = jdx*Displace + initBox.lower.y;
+
+      uint32_t pointsCount = 0;
+      uint32_t idmin = 0xFFFFFFFFu;
+
+      traverseIterative(lbvh, cellBox, pointsCount, idmin);
+
+      count[jdx*nCols + idx] = ( minNumPoints <= pointsCount )? idmin : 0u;
+
+      return;
+    }
+  
+    // in this case we recieve a 1D index
+    void operator()(sycl::id<1> index) const
+    {
+
+      int idx = index % nCols;
+      int jdx = index / nCols;
 
       if (idx >= nCols || jdx >= nRows)
           return;

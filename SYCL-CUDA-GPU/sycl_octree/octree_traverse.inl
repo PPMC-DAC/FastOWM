@@ -4,6 +4,15 @@
 
 #include <basic/traverse_sycl.h>
 
+#ifdef DYNAMIC
+#include "schedulers/LidarSchedulerOneApi.h"
+
+Octree_builder* g_builder;
+// LBVHoct* g_lbvh_cpu;
+
+sycl::queue device_queue; 
+#endif
+
 void octree_traverse(std::string inputTXT, const uint32_t chunkDim, const uint32_t Wsize, const real_t Overlap)
 {
 
@@ -113,7 +122,7 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim, const uint32
         // stage1query(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints);
 
 #ifdef CPU
-        stage1query2DCPU(builder, count, Wsize, Overlap, nCols, 0u, nRows, minNumPoints);
+        stage1query2DCPU(builder, count, Wsize, Overlap, nCols, std::make_pair(0u, nRows), minNumPoints);
 #else
         auto e = stage1query2D(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints, device_queue);
         e.wait();
@@ -188,25 +197,25 @@ void octree_traverse(std::string inputTXT, const uint32_t chunkDim, const uint32
 void octree_traverse_heter(std::string inputTXT, const uint32_t chunkDim, const float factor, const uint32_t Wsize, const real_t Overlap)
 {
 
-// auto CUDASelector = [](sycl::device const &dev) {
-//     if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
-//       std::cout << " CUDA device found " << std::endl;
-//       return 1;
-//     } else {
-//       return -1;
-//     }
-// };
+    // auto CUDASelector = [](sycl::device const &dev) {
+    //     if (dev.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda) {
+    //       std::cout << " CUDA device found " << std::endl;
+    //       return 1;
+    //     } else {
+    //       return -1;
+    //     }
+    // };
 
-// limit the maximum concurrency to that defined by the environment variable DPCPP_CPU_NUM_CUS for the TBB parallel_for in the CPU
-// get the value of the environment variable
-const char* num_cus = std::getenv("DPCPP_CPU_NUM_CUS");
-int num_cpus = 0;
-if(num_cus != NULL) {
-    num_cpus = std::stoi(num_cus);
-}else{
-    num_cpus = 8;
-}
-tbb::global_control c(tbb::global_control::max_allowed_parallelism, num_cpus);
+    // limit the maximum concurrency to that defined by the environment variable DPCPP_CPU_NUM_CUS for the TBB parallel_for in the CPU
+    // get the value of the environment variable
+    const char* num_cus = std::getenv("DPCPP_CPU_NUM_CUS");
+    int num_cpus = 0;
+    if(num_cus != NULL) {
+        num_cpus = std::stoi(num_cus);
+    }else{
+        num_cpus = 8;
+    }
+    tbb::global_control c(tbb::global_control::max_allowed_parallelism, num_cpus);
 
 #ifdef NVIDIA
     sycl::queue device_queue([](auto& d) 
@@ -412,3 +421,240 @@ tbb::global_control c(tbb::global_control::max_allowed_parallelism, num_cpus);
 
 	return;
 }
+
+
+
+
+
+
+
+#ifdef DYNAMIC
+void octree_traverse_scheduler(std::string inputTXT, const uint32_t chunkDim, const int chunkGPU, const uint32_t _Wsize, const real_t _Overlap)
+{
+
+#ifdef NVIDIA
+    device_queue = sycl::queue([](auto& d) 
+        { return (d.get_platform().get_backend() == sycl::backend::ext_oneapi_cuda); });
+#elif GPU
+    device_queue = sycl::queue(sycl::gpu_selector_v);
+#elif CPU
+    device_queue = sycl::queue(sycl::cpu_selector_v);
+#endif
+
+    // get the value of the environment variable
+    const char* num_cus = std::getenv("DPCPP_CPU_NUM_CUS");
+    int num_cpus = 0;
+    if(num_cus != NULL) {
+        num_cpus = std::stoi(num_cus);
+    }else{
+        num_cpus = 8;
+    }
+    tbb::global_control c(tbb::global_control::max_allowed_parallelism, num_cpus);
+
+    std::cout << "Device : " << device_queue.get_device().get_info<sycl::info::device::name>()  
+    << " @ " << device_queue.get_device().get_info<sycl::info::device::max_clock_frequency>() << "Mhz (" << 
+    device_queue.get_device().get_info<sycl::info::device::max_compute_units>() << " cores)" << std::endl;
+
+	Octree_builder builder(inputTXT, chunkDim, device_queue);
+
+#ifdef DEBUG
+    std::cout << inputTXT << "; " << builder.bintree.numObjects << " points; chunkDim: " << builder.bintree.leafSize << std::endl;
+    std::cout << builder.bintree.numLeafs << " leaf nodes\n";
+    std::cout << builder.bintree.numInternalNodes << " internal nodes\n";
+    std::cout << builder.bintree.numNodes << " nodes\n\n";
+
+    std::cout << "BBox: " << builder.bintree.BBox.upper.x << "," << builder.bintree.BBox.upper.y << " ";
+    std::cout << builder.bintree.BBox.lower.x << "," << builder.bintree.BBox.lower.y << "\n\n";
+  
+    std::cout << "diffBox: " << builder.bintree.diffBox.x << "," << builder.bintree.diffBox.y << "\n\n";
+#endif
+
+    std::chrono::time_point<tempo_t> start = tempo_t::now();
+    
+    builder.build();
+
+    std::chrono::time_point<tempo_t> end = tempo_t::now();
+    // std::double_t dtime = cast_t(tempo_t::now() - start).count();    
+    // std::cout << "  CREATION takes: " << dtime << " ms\n";
+
+    // set the global variables
+    Wsize = _Wsize;
+    Overlap = _Overlap;
+    // uint32_t Wsize = 10;
+    std::cout << "Wsize: " << Wsize << std::endl;
+    // uint32_t Bsize = 20;
+    // std::double_t Overlap = 0.99;
+    std::cout << "Overlap: " << Overlap << std::endl;
+
+    uint32_t Ncells;
+    std::double_t Width, High, Density;
+
+    Width = builder.bintree.diffBox.x;
+    High = builder.bintree.diffBox.y;
+    // Densidad en puntos/m^2
+    Density = builder.bintree.numObjects/(Width*High);
+    Displace = round2d(Wsize*(1-Overlap));
+
+    // El numero minimo sera la mitad del numero de puntos medio por celda
+    minNumPoints = (uint32_t)(0.5*Density*Wsize*Wsize);
+
+    initBox.lower.x = builder.bintree.BBox.lower.x - Wsize + Displace;
+    initBox.lower.y = builder.bintree.BBox.lower.y - Wsize + Displace;
+    initBox.upper.x = builder.bintree.BBox.lower.x + Displace;
+    initBox.upper.y = builder.bintree.BBox.lower.y + Displace;    
+
+    // Stage 1 parameters
+    if(Overlap > 0.0) {
+        nCols=(int)(round((Width+2*Wsize*Overlap)/Displace))-1;
+        nRows=(int)(round((High+2*Wsize*Overlap)/Displace))-1;
+    } else {
+        nCols=(int)floor(Width/Wsize)+1;
+        nRows=(int)floor(High/Wsize)+1;
+    }
+    Ncells = nCols*nRows;
+
+    printf("nCols: %d, nRows: %d\n", nCols, nRows);
+    printf("Ncells: %d\n", Ncells);
+    printf("minNumPoints: %d\n", minNumPoints);
+
+// void* mallocWrap(const size_t& size, sycl::queue device_queue)
+// {
+// #ifdef SHARED
+//   void *ptr = malloc_shared(size, device_queue);
+// #elif DEVICE
+//   void *ptr = malloc_device(size, device_queue);
+// #else
+//   void *ptr = malloc_host(size, device_queue);
+// #endif
+
+//   if (ptr)
+//       return ptr;
+//   else
+//       throw std::bad_alloc{};
+// }
+
+    // this vector will store the index of the selected minimums in the device memory
+    // minIDs = static_cast<uint32_t*>(sycl_builder::mallocWrap(Ncells*sizeof(uint), device_queue));
+    // gminIDs = static_cast<uint32_t*>(malloc_device(Ncells*sizeof(uint32_t), device_queue));
+    minIDs = static_cast<uint32_t*>(malloc_host(Ncells*sizeof(uint32_t), device_queue));
+    // the same vector but in the CPU
+    // uint32_t* count_cpu = (uint32_t*)std::malloc(Ncells*sizeof(uint32_t));
+
+    // we need to copy the data from the device to the host
+    // uint32_t* count_h = (uint32_t*)std::malloc(Ncells*sizeof(uint32_t));
+    octree_node* octree_h = (octree_node*)std::malloc(builder.m_node_count*sizeof(octree_node));
+    aabb_t* aabb_h = (aabb_t*)std::malloc(builder.m_node_count*sizeof(aabb_t));
+    point_t* points_h = (point_t*)std::malloc(builder.bintree.numObjects*sizeof(point_t));
+
+    LBVHoct lbvh_cpu(
+        octree_h,
+        aabb_h,
+        points_h
+    );
+
+    // global pointers to builders
+    g_builder = &builder;
+    // g_lbvh_cpu = &lbvh;
+
+    LidarSchedulerOneApi lip(lbvh_cpu);
+    Params p;
+    // p.numcpus = 0; /*de esta forma es SOLO GPU*/
+    p.numcpus = num_cpus;
+    p.numgpus = 1;
+    p.gpuChunk = chunkGPU;
+    Dynamic * hs = Dynamic::getInstance(&p);
+
+#ifndef DEBUG
+    int n_tests = 10;
+    std::cout << "Performing " << n_tests << " tests ( GPU chunk=" << chunkGPU  << " )\n";
+#else
+    int n_tests = 1;
+#endif
+
+    std::double_t total_s1 = 0.0, total_tree = 0.0;
+
+    uint32_t chunkRows = uint32_t(nRows*0.9);
+
+    builder.reset();
+
+    for(int i=0; i<n_tests; i++){
+
+        // device_queue.memset(gminIDs, 0u, Ncells*sizeof(uint32_t)).wait();
+        std::memset(minIDs, 0u, Ncells*sizeof(uint32_t));
+        // std::memset(count_cpu, 0u, Ncells*sizeof(uint32_t));
+
+        start = tempo_t::now();
+
+        builder.build();
+
+        end = tempo_t::now();
+        total_tree += cast_t(end - start).count();
+
+        // stage1query(builder.node_list, builder.aabb_list, builder.ord_point_cloud, count,
+        //         Wsize, Overlap, nCols, nRows, minNumPoints, builder.BBox, builder.diffBox, builder.numInternalNodes);
+        // stage1query(builder, count, Wsize, Overlap, nCols, nRows, minNumPoints);
+
+        // auto e = stage1query2D(builder, minIDs, Wsize, Overlap, nCols, chunkRows, minNumPoints, device_queue);
+
+        device_queue.memcpy(octree_h, builder.m_octree, builder.m_node_count*sizeof(octree_node));
+        device_queue.memcpy(aabb_h, builder.m_aabb, builder.m_node_count*sizeof(aabb_t));
+        device_queue.memcpy(points_h, builder.bintree.ord_point_cloud, builder.bintree.numObjects*sizeof(point_t));
+
+        hs->heterogeneous_parallel_for(0, Ncells, &lip);
+
+        // auto t_copy = tempo_t::now();
+
+        // std::cout << "Copy time: " << cast_t(tempo_t::now() - t_copy).count() << "\n";
+
+        // stage1query2DCPU(lbvh, builder.bintree.BBox, count_cpu, Wsize, Overlap, nCols, std::make_pair(chunkRows, nRows), minNumPoints);
+
+        // std::cout << "CPU time: " << cast_t(tempo_t::now() - t_copy).count() << "\n";
+
+        // e.wait();
+        // dtime = e.get_profiling_info<sycl::info::event_profiling::command_end>();
+        total_s1 += cast_t(tempo_t::now() - end).count();
+
+        // device_queue.wait_and_throw();
+
+        // if(i%10 == 0)
+        //       std::cout << " Partial " << i << " time elapsed: " << dtime << " ms\n";
+        // total += dtime;
+
+        builder.reset();
+
+    }
+
+    uint32_t countMin=0;
+
+    start = tempo_t::now();
+    // device_queue.memcpy(count_h, minIDs, Ncells*sizeof(uint32_t)).wait();
+
+    /* STAGE 2 */
+    if(Overlap != 0.0){
+        //qsort(count, Ncells, sizeof(uint32_t), &cmpfunc);
+        std::sort(oneapi::dpl::execution::par_unseq, minIDs, minIDs+Ncells); //std::execution::par, std::execution::par_unseq,
+        countMin = stage2CPU(Ncells, minIDs);
+        // printf("Numer of seed points: %u\n", countMin);
+    }
+    double total_s2 = cast_t(tempo_t::now() - start).count();
+
+    // free(count_h);
+
+    std::cout << " Tree Construction SYCL time elapased: " << total_tree/n_tests << " ms\n";
+    std::cout << " Stage1 KERNEL SYCL time elapsed: " << total_s1/n_tests << " ms\n";
+    std::cout << " Stage2 KERNEL SYCL time elapsed: " << total_s2 << " ms\n";
+    std::cout << " Total KERNEL SYCL time elapsed: " << total_s1/n_tests + total_s2 << " ms\n";
+    std::cout << " Total TIME (Tree+OWM) SYCL time elapsed: " << (total_tree + total_s1)/n_tests + total_s2<< " ms\n";
+    printf("Numer of seed points: %u\n", countMin);
+
+    // free(gminIDs, device_queue);
+    free(minIDs, device_queue);
+    // free(count_cpu);
+
+    free(octree_h);
+    free(aabb_h);
+    free(points_h);
+
+	return;
+}
+#endif
